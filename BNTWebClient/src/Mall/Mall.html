@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Mall">商城</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+		<!-- 侧滑导航根容器 -->
+			<div class="mui-off-canvas-wrap mui-draggable">
+			  <!-- 主页面容器 -->
+			  <div class="mui-inner-wrap">
+			    <!-- 主页面标题 -->
+			    <header class="mui-bar mui-bar-nav header">
+			      <h1 class="mui-title">ANT</h1>
+			    </header>
+			    
+			    <!--商城界面-->
+			    <div class="mui-content mui-scroll-wrapper Mall-index" style="display: block; padding-top: 0;">
+			      <div class="mui-scroll">
+			      		<!--<div style="display: flex; flex-direction: column; align-items: center;">
+			        		<img style="width: 5.703703rem; height: 5.351851rem; margin-top: 2.777777rem; margin-bottom: 0.925925rem;" src="../../img/whiteBanner.png" />
+			        		<p style="color: #00b17d; font-size: 0.777777rem; text-align: center;">抱歉，ANT正在努力建设中<br/>请您耐心等待~</p>
+			        	</div>-->
+			        	<!--<img class="GetMall" width="100%" src="../../img/Mall-img.jpg" />-->
+			        	<!--<iframe style="border: none; height: 100%; width: 100%;" src="http://www.ttxhwlx.com:8087/index.html#/index"></iframe>-->
+			      		<div class="MallHome" style="text-align: center;">
+			      			<div class="w1028">
+			      				<div class="mui-slider">
+									<div class="mui-slider-group mui-slider-loop">
+									    
+									    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="../../img/Mall-banner3.jpg" /></a></div>
+									    <!--支持循环，需要重复图片节点-->
+									    <div class="mui-slider-item"><a href="#"><img src="../../img/Mall-banner1.jpg" /></a></div>
+									    <div class="mui-slider-item"><a href="#"><img src="../../img/Mall-banner2.jpg" /></a></div>
+									    <div class="mui-slider-item"><a href="#"><img src="../../img/Mall-banner3.jpg" /></a></div>
+									    <!--支持循环，需要重复图片节点-->
+									    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="../../img/Mall-banner1.jpg" /></a></div>
+									</div>							
+			      				</div>
+			      			</div>
+			      			
+			      			<div class="MallCen">
+			   					<div class="MallCen-Top">
+			   						<ul>
+			   							<li class="GetMall">
+			   								<img src="../../img/Mall02.png" />
+			   								<span data-value="VIP">会员专区</span>
+			   							</li>
+			   							<li class="GetMall">
+			   								<img src="../../img/Mall03.png" />
+			   								<span data-value="AllCategories">全部分类</span>
+			   							</li>
+			   						</ul>
+			   					</div>
+			   					<div class="Mall-bottom">
+			   						<div>
+			   							<hr /><span data-value="WelcomeToANTMall">欢迎来到蚂蚁商城</span><hr />
+			   						</div>
+			   						<p>Welcome To ANT Mall</p>
+			   					</div>
+			      			</div>
+			      			
+			      			<div class="MallCommodity">
+			      				<img src="../../img/MallHome-img.png" />
+			      			</div>
+			      			
+			      			<div class="Mall-button GetMall"><span data-value="Mallentrance">商城入口</span><img src="../../img/Mall08.png"/></div>
+			      		</div>
+			      </div>
+			    </div>
+			    
+			    
+			    <div class="mui-off-canvas-backdrop"></div>
+			    
+			    <!--底部导航栏-->
+			    <div class="bottom-nav">
+			      	<ul>
+			      		<li><a href="../../index.html"><img src="../../phone/sy@3x.png"/><span data-value="Home">首页</span></a></li>
+			      		<li><a href="../../wallet/home.html"><img src="../../phone/qb@3x.png"/><span data-value="Wallet">钱包</span></a></li>
+			      		<li><a href="../transaction/transaction.html"><img src="../../phone/jy@3x.png"/ ><span data-value="Trades">交易</span></a></li>
+			      		<li><a href="#"><img src="../../phone/scl@3x.png"/><span style="color: #00b07c;" data-value="Mall">商城</span></a></li>
+			      	</ul>
+			    </div>
+			  </div>	 
+			</div>
+
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/md5.js" ></script>
+<script>
+	var userId;
+	var token;
+	var falseToken;
+	var mall_key="b64ab4b8124e2c5d43d52d9c05a6f992";
+	var clientType;
+	var language;
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+	}
+
+	// 	监听tap事件，解决 a标签 不能跳转页面问题
+	mui('body').on('tap','a',function(){document.location.href=this.href;});
+
+	$(".GetMall").on("tap",function(){
+		if(hehe!=undefined){
+//			DAPPFramework.View.PushView("src/Mall/OthersMall.html");
+			DAPPFramework.View.PushFullView("src/Mall/OthersMall.html");
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("http://47.74.43.218?canGoBack=true&user_id="+userId+"&user_token="+falseToken+"&mall_key="+mall_key)
+		}else{
+			window.location.href="http://mall.fcsap.com?user_id="+userId+"&user_token="+falseToken+"&mall_key="+mall_key
+//			window.location.href="http://47.74.43.218?user_id="+userId+"&user_token="+falseToken+"&mall_key="+mall_key
+//			window.location.href="http://www.ttxhwlx.com:8087/index.html#/index?user_id="+userId+"&user_token="+falseToken+"&mall_key="+mall_key
+		}
+	})
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId")
+		token=ANT.getMessage("token")
+		clientType=1
+		falseToken()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		falseToken()
+	}
+	function falseToken(){
+		getUserInfo(userId,token,clientType)
+		$(".user_name").val(getUserInfoArr.data.username)
+		$(".userId").text("邀请码："+getUserInfoArr.data.id)
+		$(".phone").text(getUserInfoArr.data.phone)
+		if(getUserInfoArr.data.avatar!=null){
+			$(".touxiang-img").attr("src",getUserInfoArr.data.avatar)
+		}
+		token01=token.substr(0,1)+token.substr(0,1)+token.substr(1,1)+token.substr(2,1)+token.substr(4,1)+token.substr(7,1)+token.substr(12,1)+token.substr(20,1)
+		falseToken=hex_md5(hex_md5(token)+token01)
+	}
+	
+//邀请卡
+	$(".yaoqingka").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/sidebar/sidebar.html");
+		}else{
+			window.location.href="src/sidebar/sidebar.html"
+		}
+	})
+	
+//安全中心
+	$(".anquanzhongxin").on("tap",function(){
+		window.location="src/sidebar/SecurityCenter.html";
+	})
+	
+//	修改名字
+	$(".xiugainame").on("tap",function(){
+		if(localStorage.getItem("set-lan")=="EN"){
+			mui.prompt('','Enter nickname','Modify nickname',['Cancel','Confirm'],UpUserName,'div') 
+		}else{
+			mui.prompt('','输入昵称','修改昵称',['取消','确认'],UpUserName,'div') 
+		}
+	})
+	function UpUserName(item){
+		if(item.index){
+			var value=item.value
+			updateUserInfo(userId,value,token)
+			if(updateUserInfoArr.code==1){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("Successful")
+				}else{
+					alert("修改成功")
+				}
+				$(".user_name").val(value)
+			}else{
+				alert(updateUserInfoArr.message)
+			}
+		}
+	}
+</script>

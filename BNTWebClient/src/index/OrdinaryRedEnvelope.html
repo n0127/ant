@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Distribute red packets">发红包</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.poppicker.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/PublicPassword.css"/>
+	</head>
+	<body>
+
+			  <!--fa-->
+			    <div class="AssetDetails" style="display: flex;flex-direction: column;">
+			    	<div class="public-header" style="color: #be0016; border-bottom: 1px solid #be0016;">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Distribute red packets">发红包</span>
+			    		</div>
+			    	</div>
+			    	<div class="AssetDetails-box RedEnvelopeBox01" style="flex: 1; margin-top: 1.481481rem; display: none;">
+			    		<div class="RedEnvelopeInpBox" >
+			    			<span data-value="Red packet type" style="margin-right: 7.4rem;">红包类型</span>
+			    			<span data-value="Ordinary red packet">普通红包</span>
+			    		</div>
+			    		<div class="RedEnvelopeInpBox">
+		    				<span data-value="RedAmounts">红包金额</span>
+			    			<input data-value="Please enter the amounts" type="text" oninput="value=value.replace(/[^\d]/g,'')" class="RedEnvelopeScore" placeholder="请输入红包金额" />
+			    			<span data-value="Asset">资产</span>
+			    		</div>
+			    		<div class="RedEnvelopeInpBox selected">
+		    				<span data-value="Selection area">手机冠码</span>
+		    				<i class="selectWocd">86</i>
+		    				<img style="width: 0.611111rem; height: 0.351851rem;" src="../../img/redxiala.png" />
+			    		</div>
+			    		<div class="RedEnvelopeInpBox">
+		    				<span data-value="Friend account">好友号码</span>
+			    			<input data-value="Friends Mobile Number" class="FriendPhone" maxlength="11" oninput="value=value.replace(/[^\d]/g,'')" type="text" placeholder="好友手机号码" />
+			    			<img class="AddFriend" src="../../img/plus.png" />
+			    		</div>
+			    		<div class="RedEnvelopeInpBox">
+		    				<span data-value="Messages">红包留言</span>
+			    			<input type="text" data-value="Good fortune" class="RedEnvelopeMemo" maxlength="8" placeholder="恭喜发财 大吉大利" />
+			    		</div>
+			    		<p class="RedEnvelopeInpText"><span>00.00</span><span data-value="Asset">资产</span></p>
+			    		<button class="RedEnvelopeInpBut" data-value="Confirm send">确认发送</button>
+			    	</div>
+			    	
+			    	<div class="AssetDetails-box RedEnvelopeBox02" style="flex: 1; margin-top: 1.481481rem; display: flex;">
+			    		<div class="RedEnvelopeInpBox" >
+			    			<span data-value="Red packet type" style="margin-right: 7.4rem;">红包类型</span>
+			    			<span data-value="Area red packet1">区域红包</span>
+			    		</div>
+			    		<div class="RedEnvelopeInpBox">
+		    				<span data-value="RedAmounts">红包金额</span>
+			    			<input data-value="Please enter the amounts" type="text" class="RedEnvelopeScore01" oninput="value=value.replace(/[^\d]/g,'')" placeholder="请输入红包金额" />
+			    			<span data-value="Asset">资产</span>
+			    		</div>
+			    		<div class="RedEnvelopeInpBox">
+		    				<span data-value="RedNumber">红包个数</span>
+			    			<input data-value="Please enter the number" class="quantity" type="text" oninput="value=value.replace(/[^\d]/g,'')" placeholder="请输入红包个数" />
+			    		</div>
+			    		<div class="RedEnvelopeInpBox" style="vertical-align: middle;">
+		    				<span data-value="Sending mode">发送方式</span>
+		    				<div style="margin-right: 0.74074rem;">
+							    <!--<input id="radio1" style="margin-top: 0.15rem;" name="send" type="radio" value="固定金额">-->
+							    <p data-text="固定金额"></p>
+							    <label data-value="Fixed amount" class="radio1">固定金额</label>
+							</div> 
+							<div>
+							    <!--<input id="radio2" style="margin-top: 0.15rem;" name="send" type="radio" value="随机金额">-->
+							    <p data-text="随机金额"></p>
+							    <label data-value="Random amount" class="radio2">随机金额</label>
+							</div>
+			    		</div>
+			    		<div class="RedEnvelopeInpBox selectcountry">
+		    				<span data-value="Selection area">选择区域</span>
+		    				<span class="RedSelectText" >中国</span>
+		    				<img style="width: 0.611111rem; height: 0.351851rem;" src="../../img/redxiala.png" />
+			    		</div>
+			    		<div class="RedEnvelopeInpBox">
+		    				<span data-value="Messages">红包留言</span>
+			    			<input data-value="Good fortune" type="text" placeholder="恭喜发财 大吉大利" />
+			    		</div>
+			    		<p class="RedEnvelopeInpText"><span>00.00</span><span data-value="Asset">资产</span></p>
+			    		<button data-value="Confirm send" class="RedEnvelopeInpBut">确认发送</button>
+			    	</div>
+			    </div>
+			    
+			    <div class="publicPas">
+					<div>
+						<div class="publicPasTitle">
+							<span data-value="loging2.0_75">私钥密码</span>
+							<p class="publicPasTitleDown mui-icon mui-icon-closeempty"></p>
+						</div>
+						<div class="publicPasInput">
+							<p data-value="loging2.0_75">私钥密码</p>
+							<input type="password" data-value="loging2.0_76" placeholder="请输入来源地址对应的私钥密码" />
+						</div>
+						<div class="publicPasBut">
+							<button data-value="loging2.0_77">确认发送</button>
+						</div>
+					</div>
+				</div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/mui.picker.js" ></script>
+<script type="text/javascript" src="../../js/mui.poppicker.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script>
+	
+	var userId;
+	var	token;
+	var	phone;
+	var clientType;
+	var language;
+	var nation=100;
+	var province;
+	var city;
+	var quantity;
+	
+	var worldCode666=GetQueryString("worldCode");
+	if(worldCode666){
+		$(".selectWocd").text(worldCode666)
+	}
+	
+	var RedEnvelopeState=GetQueryString("RedEnvelope");
+	
+	$(".selected").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.SharedBoard.Set("selectCode","1")
+			window.location.href="../../indexList.html?cebianlan=666"
+		}
+	})
+	
+	//网页
+	if(hehe!=undefined){
+		
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		FriendPhone=sessionStorage.getItem("FriendPhone")
+		
+		//获取好友号码
+		if(FriendPhone){
+			$(".FriendPhone").val(FriendPhone)
+		}
+		
+		if(RedEnvelopeState==0){
+			getEnvelopeConfigInfo(userId,token,clientType,language,1)
+			$(".RedEnvelopeBox01").show()
+			$(".RedEnvelopeBox02").hide()
+		}else{
+			
+			//生成联动数组		
+			var RedEnvelopeArr=[]
+			var i=0;
+			var RedArr;
+			//拿到地理位置
+			GenerateRedEnvelopeArr()
+			//初始化三级联动
+			var userPicker = new mui.PopPicker({
+				layer: 3
+			});
+			//生成并且点击出现三级联动
+			$(".selectcountry").on("tap",function(){
+				userPicker.setData(RedEnvelopeArr)
+				userPicker.show(function(items) {
+					nation=items[0].value;
+					province=items[1].value;
+					city=items[2].value;
+					
+					var value=items[0].text+items[1].text+items[2].text;
+					$(".RedSelectText").text(value.replace(/ |undefined/g,''))
+					//console.log(items[0].text,items[1].text,items[2].text)
+					//返回 false 可以阻止选择框的关闭
+					//return false;
+				});
+			})
+		}
+	}
+	//Dapp
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		DAPPFramework.View.SetNavgationRightItem();
+		userId=DAPPFramework.Storage.Get("userId");
+		token=DAPPFramework.Storage.Get("token");
+		clientType=1;
+		id=DAPPFramework.Storage.Get("VurrentValue")
+//		FriendPhone=DAPPFramework.SharedBoard.Get("FriendPhone")
+		if(RedEnvelopeState==0){
+			getEnvelopeConfigInfo(userId,token,clientType,language,1)
+			$(".RedEnvelopeBox01").show()
+			$(".RedEnvelopeBox02").hide()
+		}else{
+			//拿到地理位置
+			GenerateRedEnvelopeArr()
+		}
+		DAPPFramework.View.SetIdentifier( "FriendPhone666" );
+	}
+	function FriendPhoneSet(item){
+		if(item=='true'){
+			FriendPhone=DAPPFramework.SharedBoard.Get("FriendPhone")
+			$(".FriendPhone").val(FriendPhone)
+		}
+	}
+	
+	
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+		languageArr=EN
+	}else{
+		language="cn"
+		languageArr=CN
+	}
+	
+	
+	if(RedEnvelopeState==1 && hehe!=undefined){
+		//生成联动数组		
+		var RedEnvelopeArr=[]
+		var i=0;
+		var RedArr;
+		//初始化三级联动
+		var userPicker = new mui.PopPicker({
+			layer: 3
+		});
+		//生成并且点击出现三级联动
+		$(".selectcountry").on("tap",function(){
+			userPicker.setData(RedEnvelopeArr)
+			userPicker.show(function(items) {
+				nation=items[0].value;
+				province=items[1].value;
+				city=items[2].value;
+				
+				var value=items[0].text+items[1].text+items[2].text;
+				$(".RedSelectText").text(value.replace(/ |undefined/g,''))
+				//console.log(items[0].text,items[1].text,items[2].text)
+				//返回 false 可以阻止选择框的关闭
+				//return false;
+			});
+		})
+	}
+	
+	//触发键盘
+	$(".RedEnvelopeInpBut").on("tap",function(){
+		if(RedEnvelopeState==0){
+			if($(".RedEnvelopeScore").val()!=""){
+				$(".publicPas").fadeIn()
+			}else{
+				alert("输入内容有空")
+			}
+		}else{
+			if($(".RedEnvelopeScore01").val()!="" && $(".quantity").val()!=""){
+				$(".publicPas").fadeIn()
+			}else{
+				alert("输入内容有空")
+			}
+		}
+	})
+	//区域红包的金额类型
+	$(".radio1,.RedEnvelopeInpBox>div:nth-child(2)>p").on("tap",function(){
+		$(".RedEnvelopeInpBox>div:nth-child(3)>p").removeAttr("style")
+		$(".RedEnvelopeInpBox>div:nth-child(2)>p").css("background-image","url(../../img/redstate.png)")
+	})
+	$(".radio2,.RedEnvelopeInpBox>div:nth-child(3)>p").on("tap",function(){
+		$(".RedEnvelopeInpBox>div:nth-child(2)>p").removeAttr("style")
+		$(".RedEnvelopeInpBox>div:nth-child(3)>p").css("background-image","url(../../img/redstate.png)")
+	})
+	//跳转到选择好友页面
+	$(".AddFriend").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/RedEnvelopeFriend.html");
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("RedEnvelopeFriend.html")
+		}else{
+			window.location.href="RedEnvelopeFriend.html"
+		}
+	})
+	//三级联动生成
+	function GenerateRedEnvelopeArr(){
+		getEnvelopeArea(clientType,userId,token,language)
+		getEnvelopeAreaArr.data.forEach(function(item){
+			
+			if(item.name=="中国"){
+				console.log(item)
+				RedEnvelopeArr.push({
+					"value":100,
+					"text":item.name
+				})
+			}else{
+				RedEnvelopeArr.push({
+					"value":200,
+					"text":item.name
+				})
+			}
+				
+			if(item.provinces!=undefined){
+				var j=1;
+				RedEnvelopeArr[i].children=[];
+				RedEnvelopeArr[i].children.push({
+					"value":" ",
+					"text":" "
+				})
+				item.provinces.forEach(function(data){
+					RedEnvelopeArr[i].children.push({
+						"value":data.areaCode,
+						"text":data.areaDesc
+					})
+					if(data.citys!=undefined){
+						RedEnvelopeArr[i].children[j].children=[];
+						RedEnvelopeArr[i].children[j].children.push({
+							"value":" ",
+							"text":" "
+						})
+						data.citys.forEach(function(data01){
+							RedEnvelopeArr[i].children[j].children.push({
+								"value":data01.areaCode,
+								"text":data01.areaDesc
+							})
+						})
+					}
+					j++
+				})	
+			}
+			i++
+		})
+	}
+	
+	
+	//返回上一页
+	$(".return").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PopView();
+		}else{
+			sessionStorage.removeItem("FriendPhone");
+		}
+	})
+	
+	$(".publicPasBut").on("tap","button",function(){
+		var value=$(".duihuanipt").val();
+		var password=$(".publicPasInput>input").val();
+		var PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+		var privateKey=PrivateKeyJosn[id].privateKey;
+		var wallet=new ethers.Wallet(privateKey);
+		var Time=new Date().getTime();
+		var Password=PrivateKeyJosn[id].Password;
+		if( Password == sha256_digest(password) ){			
+			wallet.signMessage(sha256_digest(Time+token)).then(signature => {
+				var RedEnvelopeMemo=$(".RedEnvelopeMemo").val()
+            	if(!RedEnvelopeMemo){
+            		RedEnvelopeMemo="恭喜发财 大吉大利"
+            	}
+            	if(RedEnvelopeState==0){
+            		var RedEnvelopeScore=parseInt($(".RedEnvelopeScore").val())
+					var FriendPhone=$(".FriendPhone").val()
+					if(RedEnvelopeScore<=parseInt(getEnvelopeConfigInfoArr.data.ant_red_envolope_territory_score_max_value) && RedEnvelopeScore>=parseInt(getEnvelopeConfigInfoArr.data.ant_red_envolope_territoty_score_min_value) ){
+						sendSingleEnvelope(userId,token,clientType,language,FriendPhone,$(".selectWocd").text(),1,RedEnvelopeScore,RedEnvelopeMemo,signature,Time)
+						if(sendSingleEnvelopeArr.code==1){
+							alert(languageArr["loging2.0_194"])
+							if(hehe!=undefined){
+								DAPPFramework.View.PopView();
+							}else{
+								history.back()
+							}
+						}else{
+							$(".publicPas").fadeOut()
+							$(".publicPasInput>input").val("");
+							alert(sendSingleEnvelopeArr.message)
+						}
+					}else{
+						alert(languageArr["loging2.0_195"])
+						$(".publicPasInput>input").val("");
+						$(".publicPas").fadeOut()
+					}
+            	}else{
+            		var RedEnvelopeScore=parseInt($(".RedEnvelopeScore01").val())
+            		quantity=parseInt($(".quantity").val())
+            		getEnvelopeConfigInfo(userId,token,clientType,language,5)
+            		if($("p[style]").attr("data-text")=="固定金额" || $("p[style]").attr("data-text")=="Fixed amout"){
+            			isFixedAmount=1
+            		}else{
+            			isFixedAmount=0
+            		}
+            		
+            		if(quantity<=parseInt(getEnvelopeConfigInfoArr.data.ant_red_envolope_territory_quantity_max) && quantity>=parseInt(getEnvelopeConfigInfoArr.data.ant_red_envolope_territory_quantity_limit) ){
+            			if(RedEnvelopeScore<=parseInt(getEnvelopeConfigInfoArr.data.ant_red_envolope_territory_score_max_value) && RedEnvelopeScore>=parseInt(getEnvelopeConfigInfoArr.data.ant_red_envolope_territoty_score_min_value) ){
+		            		sendPeopleQuantityEnvelope(userId,token,clientType,language,isFixedAmount,quantity,nation,province,city,RedEnvelopeMemo,signature,RedEnvelopeScore,Time)
+		            		if(sendPeopleQuantityEnvelopeArr.code==1){
+		            			alert(languageArr["loging2.0_194"])
+		            			if(hehe!=undefined){
+		            				DAPPFramework.View.PopView();
+		            			}else{
+		            				history.back()
+		            			}
+		            		}else{
+		            			alert(sendPeopleQuantityEnvelopeArr.message)
+		            			$(".publicPasInput>input").val("");
+								$(".publicPas").fadeOut()
+		            		}
+            			}else{
+            				alert(languageArr["loging2.0_195"])
+            				$(".publicPasInput>input").val("");
+							$(".publicPas").fadeOut()
+            			}
+            		}else{
+            			alert(languageArr["loging2.0_196"])
+            			$(".publicPasInput>input").val("");
+						$(".publicPas").fadeOut()
+            		}
+            	}
+			})
+		}else{
+			alert(languageArr["loging2.0_197"])
+		}
+		
+	})
+	
+	$('.publicPasTitleDown').on('tap',function () {
+		$('.publicPas').fadeOut();
+		$(".publicPasInput>input").val("");
+	})
+	
+	//键盘代码
+//	mui.ready(function() {
+//      // 数字索引
+//      var activeIndex = 0;
+//      // 密码结果
+//      var resultValue = "";
+//      // 所有输入框
+//      var inputList = mui(".input-item");
+//      // 所有数字键
+//      var numberList = mui(".keyboard-number");
+//      // 数字键盘点击事件
+//      mui("#keyboard").on("tap", ".keyboard-number", function() {
+//          if(activeIndex == 6) {
+//              return;
+//          }
+//          var num = this.innerText;
+//          addNumber(num);
+//      });
+//      mui("#keyboard").on("tap", ".keboard-action", function() {
+//          var value = this.getAttribute("data-action");
+//          switch(value) {
+//              case "cancel":
+//                  if(activeIndex == 0) {
+//                      return;
+//                  }
+//                  cancelNumber();
+//                  break;
+//              case "reset":
+//                  resetInput();
+//                  break;
+//              default:
+//                  break;
+//          }
+//      });
+//      // 添加数字
+//      function addNumber(num) {
+//          inputList[activeIndex].innerHTML = "<div></div>";
+//          resultValue += num;
+//          activeIndex++;
+//          // 检测密码长度
+//          if(activeIndex == 6) {
+//          	
+//          }
+//      }
+//      // 撤销数字
+//      function cancelNumber() {
+//          activeIndex--;
+//          inputList[activeIndex].innerText = "";
+//          resultValue = resultValue.substring(0, resultValue.length - 1);
+//      }
+//      // 密码框置空
+//      function resetInput() {
+//          activeIndex = 0;
+//          resultValue = "";
+//          mui(".input-item").each(function(index, element) {
+//              element.innerText = "";
+//          });
+//      }
+//  });
+    
+    //根据输入的金额把内容显示在按钮上方
+    $(".RedEnvelopeScore,.RedEnvelopeScore01").on("keyup",function(){
+    	if($(this).val()!=""){
+    		$(".RedEnvelopeInpText>span:nth-child(1)").text($(this).val())
+    	}else{
+    		$(".RedEnvelopeInpText>span:nth-child(1)").text("00.00")
+    	}
+    })
+    
+    
+</script>

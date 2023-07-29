@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/index.css" />
+		<link rel="stylesheet" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" href="../css/jquery.range.css" />
+		<style>
+			.range-slider{
+				margin-top: 0.37037rem;
+				display: block!important;
+			}
+			.scale>span:nth-child(2)>ins{
+				width: 1.851851rem;
+			}
+			*{
+				touch-action: none;
+			}
+			.publicPas{
+				width: 100%;
+				height: 70%;
+				background: #fafafa;
+				position: fixed;
+				bottom: 0;
+				padding:0 0.537037rem ;
+				padding-top: 0.888888rem;
+			}
+			.publicPasTitle{
+				display: flex;
+				width: 100%;
+				justify-content: center;
+				font-size: 0.666666rem;
+				color: #333;
+				position: relative;
+			}
+			.publicPasTitle>p{
+				position: absolute;
+				top: -50%;
+				right: -0.5rem;
+				margin: 0;
+				
+			}
+			.mui-icon-closeempty:before{
+				font-size: 2rem;
+			}
+			.rangeBox>.rangeText{
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+			}
+			.rangeBox>p{
+				margin: 0.37037rem 0;
+			}
+			.rangeBox>.rangeText>div{
+				display: flex;
+				align-items: baseline;
+				font-size: 0.888888rem;
+			}
+			.rangeBox>.rangeText>div>p{
+				margin-left: 0.185185rem;
+			}
+			
+			.publicPasInput{
+				margin-top: 2rem;
+			}
+			.publicPasInput>input{
+				border: none;
+				border-bottom: 1px solid #00b07c;
+				background: transparent;
+				width: 100%;
+				font-size: 0.666666rem;
+				padding-bottom: 0.185185rem;
+			}
+			.publicPasBut{
+				display: flex;
+				justify-content: center;
+				margin-top: 0.925925rem;
+			}
+			.publicPasBut>button{
+				width: 13.333333rem;
+				height: 2.166666rem;
+				color: #fff;
+				background: #00b07c;
+				text-align: center;
+				font-size: 0.888888rem;
+			}
+			.keyboardBox{
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 11.759259rem;
+				left: 0;
+			}
+			.keyboardBox>table,.keyboardBox tbody{
+				width: 100%;
+				height: 100%;
+			}
+			.keyboardBox>table tbody{
+				display: flex;
+				flex-direction: column;
+			}
+			.keyboardBox>table tr{
+				flex: 1;
+				display: flex;
+			}
+			.keyboardBox>table tr td{
+				flex: 1;
+				border: 1px solid #eaeaea;
+				border-collapse: collapse;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.4rem;
+			}
+			.keyboardbottomleft,.keyboardbottomright{
+				background-color: #ececec;
+			}
+			.keyboardbottomright{
+				background-image: url(../img/keyboardbottomright.png);
+				background-size: 1.388888rem 0.907407rem;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div class="range-slider"></div>-->
+		<div class="publicPas">
+			<div class="publicPasTitle">
+				<span>提币确认</span>
+				<p class="publicPasTitleDown mui-icon mui-icon-closeempty"></p>
+			</div>
+			<div class="rangeBox">
+				<p>矿工费</p>
+				<div class="rangeText">
+					<div>
+						<span>0.00042</span>
+						<p>ETHER</p>
+					</div>
+					<p>预计1小时内完成交易</p>
+				</div>
+				<div class="range-slider"></div>
+			</div>
+			<div class="publicPasInput">
+				<p>私钥密码</p>
+				<input type="text" placeholder="请输入来源地址对应的私钥密码" />
+			</div>
+			<div class="publicPasBut">
+				<button>确认发送</button>
+			</div>
+			<div class="keyboardBox">
+				<table>
+					<tr><td>1</td><td>2</td><td>3</td></tr>
+					<tr><td>4</td><td>5</td><td>6</td></tr>
+					<tr><td>7</td><td>8</td><td>9</td></tr>
+					<tr><td class="keyboardbottomleft"> </td><td>0</td><td class="keyboardbottomright"> </td></tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../js/jquery.range.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script>
+	$('.range-slider').jRange({
+		from: 1,
+		to: 100,
+		step: 1,
+		format: '%s',
+		width: "97%",
+		showLabels: false,
+		showScale: true,
+		scale: ['慢','正常','快']
+	});
+	var Password="";
+	$(".keyboardBox").on("tap","td",function(){
+		if($(this).text()!=" "){			
+			Password+=$(this).text()
+			$(".publicPasInput>input").val(Password)
+		}
+	})
+	$(".keyboardbottomright").on("tap",function(){
+		var arr=Password.split("");
+		arr.pop();
+		
+		Password=arr.join("");
+		$(".publicPasInput>input").val(Password)
+	})
+</script>

@@ -1,0 +1,81 @@
+Respected user:\n
+
+\t\t\t\tThe ANT Foundation (hereinafter referred to as “the Foundation” or “we”) respects and protects the privacy of users (hereinafter referred to as “you” or “users”). When you use ANT Token, we will follow this Privacy Policy (hereinafter referred to as “this” Policy") Collect and use your personal information.\n
+
+\t\t\t\tWe encourage you to read and understand the entire contents of this policy before using this product ("ANT"). The definition of keywords in this policy is consistent with the ANT Token Service Agreement.\n
+
+\t\t\t\tThis policy can be updated by the Foundation online at any time. Once the updated policy is announced, it will replace the original policy. If you do not accept the revised terms, please stop using ANT Token immediately. Your continued use of ANT Token will be deemed to be subject to modification. policy. Once the revised policy is posted on ANT Token, it will automatically take effect immediately.\n
+
+\t\t\t\tYou acknowledge that this policy and other relevant regulations apply to DApps owned by the Foundation on ANT Token and ANT Token.\n
+
+1. What information do we collect from you?\n
+Please be aware that we collect the following information from you to meet your needs for ANT Token services, and we value the protection of your privacy. When we collect your information, we will strictly abide by the principle of “legal, just, necessary”. And you understand that if you do not provide the relevant information required for our services, your service experience at ANT Token may be affected as a result.\n
+
+1. We will collect personal information such as your mobile device information, operation history, transaction history, wallet address, etc.\n
+2. In order to meet your specific service needs, we will collect your name, bank card number, mobile phone number, email address and other information.\n
+3. You know that your wallet password, private key, mnemonic, and Keystore on the ANT Token are not stored or synced to the server. We do not provide services to retrieve your wallet password, private key, mnemonic, and Keystore.\n
+4. In addition to the above, you are aware that when you use ANT Token specific features, we will give you special tips to collect more personal information from you before collecting your personal information. If you choose not to agree, you are deemed to have waived the use of ANT Token for this particular feature.\n
+5. When you jump to a third-party DApp, a third-party DApp collects personal information from you. ANT Token does not hold personal information collected by third party DApps.\n
+6. To the extent permitted by laws and regulations, we may collect and use your personal information in the following circumstances without your authorization:\n
+
+\t(1) related to national security and national defense security;\n
+\t(2) related to public safety, public health, and major public interests;\n
+\t(3) related to criminal investigation, prosecution, trial and execution of judgments;\n
+\t(4) The personal information collected is disclosed to the public by yourself;\n
+\t(5) Collecting your personal information from legally publicly disclosed information, such as legitimate news reports, government information disclosure, etc.;\n
+\t(6) Required for the safety and compliance of maintenance services, such as the detection and handling of faults in products and services;\n
+\t(7) Other circumstances as stipulated by laws and regulations.\n
+7. The way we collect information is as follows:\n
+
+\t(1) You provide us with information. For example, you can fill in your name, mobile number, or bank card number on the Personal Center page, or provide an email address when you have a feedback, or provide us with additional information when using our specific services.\n
+\t(2) We obtain information during your use of ANT Token, including your mobile device information and your operational records of ANT Token;\n
+\t(3) We copy all or part of your transaction history through the blockchain system. However, the transaction records are subject to the records of the blockchain system.\n
+II.How we use your information\n
+1. We confirm your correspondence to your wallet with a unique serial number for your mobile device.\n
+2. We will promptly send you important notices such as software updates, service agreements and changes to the terms of this policy.\n
+3. We process the feedback you submit to us by collecting your public wallet address and mobile device information provided.\n
+4. We collect your personal information for internal audit, data analysis and research, etc., in order to continuously improve our service level.\n
+5. In accordance with the ANT Token Service Agreement and other relevant provisions of the Foundation, we will use user information to manage and handle user usage.\n
+6. Requirements for laws and regulations and cooperation with regulatory agencies.
+III.How do you control your information?\n
+You have the following autonomy over your personal information in ANT Token:\n
+
+1. You know that you can modify your digital token type, transfer and collection activities through the Assets section.\n
+2. You know that in the section of ANT Token "I" you are free to choose the following:\n
+
+\t(1) In the “Personal Center”, you do not need to provide your own name, mobile phone number, bank card, etc., but when you use a specific service, you need to provide the above information;\n
+\t(2) In “Submit Feedback”, you can always ask us about your ANT Token questions and suggestions for improvement. We will be happy to communicate with you and actively improve our services.\n
+3. You acknowledge that when we collect information from you for a specific purpose, we will give you notice in advance and you have the right to opt out. But at the same time, you know that when you choose to refuse to provide relevant information, you are waiving the use of ANT Token related services.\n
+4. You are aware that you and us have no control over whether or not your transaction records are open, because based on the open source nature of the blockchain trading system, your transaction records are open and transparent throughout the blockchain system.\n
+5. You know that when you use the ANT Token function to jump to a third-party DApp, our ANT Token Service Agreement and ANT Token Privacy Policy will no longer apply, and you will be personally information about you on a third-party DApp. For control issues, we recommend that you read and understand its privacy rules and related user service agreements before using a third-party DApp.\n
+6. You acknowledge that we may collect your information in accordance with Section 1 of Section 1 of this Policy without obtaining your authorization.\n
+IV.We may share or transmit your information\n
+1. If we do need to transfer your personal information abroad, we will obtain your authorization beforehand and conduct cross-border data transmission in accordance with the relevant laws, regulations and policies, and fulfill confidentiality obligations for your personal information.\n
+2. We will not share or transfer your personal information to any third party without your prior consent, except in the following cases:\n
+
+\t(1) Obtain your explicit consent or authorization in advance;\n
+\t(2) The personal information collected is disclosed to the public by yourself;\n
+\t(3) The personal information collected is collected from legally publicly disclosed information, such as legal news reports and government information disclosure channels;\n
+\t(4) Sharing with our affiliates, we will only share the necessary user information and will be bound by the purposes stated in this Privacy Policy;\n
+\t(5) Provided in accordance with the requirements of applicable laws and regulations, legal procedures, administrative agencies or judicial authorities;\n
+\t(6) In the case of mergers and acquisitions, if personal information transfer is involved, we will require the recipient of personal information to continue to be bound by this policy.\n
+V.How do we protect your information?\n
+1. If the Foundation ceases to operate, we will stop the collection of your personal information in a timely manner, announce the notice of suspension of operation on ANT Token, and delete or anonymize your personal information held within a reasonable period of time. deal with.\n
+2. In order to protect your personal information, we will adopt data security technology measures to improve internal compliance, increase internal employee information security training, and secure access to relevant data to protect your private information.\n
+3. We will send you information about information security in the ANT Token "Message Center". From time to time in the ANT Token "Help Center" section, we will update the information on wallet usage and information protection for your reference.\n
+VI.Protection of minors\n
+We make the following special agreement for the protection of minors under the age of 18:\n
+
+1. Minors should use our related services under the guidance of their parents or guardians.\n
+2. We recommend that minors' parents and guardians should direct minors to use ANT Tokens while reading this policy, the ANT Token Service Agreement and our other relevant rules.\n
+3. ANT Token will protect the confidentiality and security of minors' personal information in accordance with the relevant laws and regulations of the country.\n
+VII.Disclaimer\n
+1. Please note that after you access a third-party DApp through ANT Token, the privacy policy published by the third-party DApp will apply. The collection and use of your personal information by this third party DApp is not under the control of the Foundation and is not subject to this policy. We cannot guarantee that third-party DApps will take personal information protection measures in accordance with our requirements.\n
+2. You should carefully select and use third-party DApps and properly protect your personal information. We are not responsible for the privacy protection of other third-party DApps.\n
+3. We will take reasonable security measures to protect your personal information as far as possible under the current state of the art to avoid disclosure, tampering or damage. We use wireless to transmit data, so we don't know the privacy and security of data transmission over a wireless network.\n
+VIII.Other\n
+1. You are required to fully understand and comply with all relevant laws, rules and regulations in your jurisdiction and use of our services.\n
+2. If you encounter any problems with the use of personal information during the use of our services, you can contact us by submitting feedback at ANT Token.\n
+3. You can view this policy and our other service rules in ANT Token. We encourage you to review our service agreement and privacy policy each time you visit ANT Token.\n
+4. This policy applies from February 2, 2019.\n
+In the absence of this policy, you are subject to the announcements and related rules that the Foundation updates from time to time.\n

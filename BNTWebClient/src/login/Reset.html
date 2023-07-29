@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="">重置私钥</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<style>
+			.ResetContent>center>img{
+				width: 7rem;
+				height: 7rem;
+			}
+			.ResetContent>center>p{
+				font-size: 1rem;
+				color: #d81e06;
+			}
+		</style>
+	</head>
+	<body>
+
+			  <!--资产详情-->
+			    <div class="PublicFixedBox">
+			    	<div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span class="loginTitle" data-value="">重置私钥</span>
+			    		</div>
+			    	</div>
+			    	<div class="PublicScrollBox">
+			    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 0;">
+							<div style="padding-bottom: 0;" class="mui-scroll">
+		    					<div class="ResetContent">
+		    						<center>
+		    							<img src="../../img/gantanhao.png" />
+		    							<p>谨慎操作</p>
+		    						</center>
+		    						<div><img src="../../img/Explain.png"/><span>关于重置说明：</span></div>
+		    						<p>重置私钥是ANT鉴于近期广大会员反映，因对区块链认识不足，操作不熟练，私钥保存不当导致的私钥遗失，导致账户登录不了的问题，而开发的账户、私钥重置功能。</p>
+		    						<p>当用户遗失私钥，无法登陆账户时，通过特定验证后，系统将从之前的服务器重新导入1.0版本的账号数据，为用户重置账户密码及私钥。</p>
+		    						<p>注意：因为之前服务器只记录ANT资产数据，所以重置后，只能恢复ANT相关资产，其他资产，包括但不限于ETH等将永久丢失。所以请广大用户谨慎操作，保存好私钥、密码，以避免财产损失。</p>
+		    					</div>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </div>
+			    <div class="ResetButton">
+		    		<div data-value="" data-status="true" class="">同意</div>
+		    		<div data-value="" data-status="false" class="">拒绝</div>
+		    	</div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<!--<script type="text/javascript" src="../../js/blower-loading.js" ></script>-->
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script type="text/javascript" src="../../wallet/js/web3.min.js" ></script>
+<script>
+	$(".ResetButton").on("tap","div",function(){
+		if($(this).attr("data-status")=="true"){
+			
+			window.location.href="modifyPhone.html?status=true"
+		}else{
+			window.location.href="modifyPhone.html"
+		}
+	})
+</script>

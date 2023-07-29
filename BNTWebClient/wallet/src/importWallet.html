@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title data-value="loging2.0_4">导入私钥</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<style>
+			/*#seed{
+				
+				-webkit-touch-callout:none; 系统默认菜单被禁用
+			    -moz-touch-callout:none;
+			    -ms-touch-callout:none;
+			    touch-callout:none;
+				-webkit-user-select:none; webkit浏览器
+				-khtml-user-select:none; 
+				-moz-user-select:none; 
+				-ms-user-select:none;  
+				user-select:none;
+			}*/
+			.Explain-title {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.seyPassword {
+				position: absolute;
+				right: -0.8rem;
+				height: 2.37037rem;
+				width: 3rem;
+			}
+			.seyPassword>img {
+				width: 1.259259rem!important;
+				height: 0.833333rem!important;
+			}
+			label {
+				line-height: 1rem;
+			}
+			.im-footer01>button,
+			.im-footer02>button {
+				margin-top: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cebian-AboutUs" style="display: block;">
+			<div class="public-header">
+				<div class="return">
+					<p class="mui-push-left" style="color: #00b07c;"></p>
+					<span data-value="loging2.0_4" class="Explain-title">导入私钥</span>
+				</div>
+				<div class="seyPassword" data-seyPass="true">
+					<img src="../../img/wallet-set.png" />
+				</div>
+			</div>
+			<nav class="im-nav">
+				<ul>
+					<li data-value="loging2.0_86">私钥</li>
+					<li data-value="loging2.0_85">助记词</li>
+					<li>keystore</li>
+					<span></span>
+				</ul>
+			</nav>
+			<footer class="im-footer">
+				<div class="im-footer01">
+					<textarea id="privateKey" data-value="loging2.0_94" placeholder="明文私钥"></textarea>
+					<ul>
+						<li><input class="seyPasswordInput" id="keyPassword" data-value="loging2.0_48" type="text" placeholder="密码：" /></li>
+						<li><input class="seyPasswordInput" id="keyRepassword" data-value="loging2.0_49" type="text" placeholder="重复密码：" /></li>
+					</ul>
+					<p id="creat-privacy" class="import-privacy keyPrivacy">
+						<img src="../img/tick.png" />
+						<label> <span data-value="loging2.0_50">我已仔细阅读并同意</span> <a data-value="loging2.0_51" href="http://bnt.fuyer.com/src/index/ANT-Protocol.html?ANTProtocolStatus=1">服务及隐私条款</a></label>
+					</p>
+					<button data-value="loging2.0_88" class="submit keySubmit">开始导入</button>
+					<a href="http://bnt.fuyer.com/src/index/ANT-Protocol.html?ANTProtocolStatus=2" data-value="loging2.0_95">什么是私钥？</a>
+				</div>
+				
+				<div class="im-footer02">
+					<textarea id="seed" data-value="loging2.0_87" placeholder="助记词，按空格分隔"></textarea>
+					<ul>
+						<li>
+							<button id="im-path"><input readonly value="m/44'/60'/0'/0/0" id="im-path-val"><img src="../img/next.png"/></button>
+						</li>
+						<li><input class="seyPasswordInput" id="seedPassword" data-value="loging2.0_48" type="text" placeholder="密码：" /></li>
+						<li><input class="seyPasswordInput" id="seedRepassword" data-value="loging2.0_49" type="text" placeholder="确定密码：" /></li>
+						<li id="creat-privacy" class="import-privacy seedPrivacy">
+							<img src="../img/tick.png" />
+							<label> <span data-value="loging2.0_50">我已仔细阅读并同意 </span><a data-value="loging2.0_51" href="http://bnt.fuyer.com/src/index/ANT-Protocol.html?ANTProtocolStatus=1">服务及隐私条款</a></label>
+						</li>
+						<ul class="im-path-list">
+							<li>m/44'/60'/0'/0/0 Jaxx, Metamask (ETH)</li>
+							<li>m/44'/60'/0'/0 Ledger (ETH)</li>
+							<li>m/44'/60'/1'/0/0 自定义路径</li>
+							<img src="../img/hook.png" />
+						</ul>
+					</ul>
+					<button data-value="loging2.0_88" class="submit seedSubmit">开始导入</button>
+					<a data-value="loging2.0_89" href="http://bnt.fuyer.com/src/index/ANT-Protocol.html?ANTProtocolStatus=3">什么是助记词？</a>
+				</div>
+
+				<div class="im-footer03">
+					<div>
+						<p data-value="loging2.0_90">直接复制粘贴ANT官方钱包keystore文件内容至输入框。或者通过生成keystore内容的二维码，扫描录入</p>
+					</div>
+					<textarea id="keystore" data-value="loging2.0_91" placeholder="keystore文本内容"></textarea>
+					<input id="storePassword" data-value="loging2.0_92" type="text" class="seyPasswordInput" placeholder="keystore密码：" />
+					<p id="creat-privacy" class="import-privacy storePrivacy">
+						<img src="../img/tick.png" />
+						<label> <span data-value="loging2.0_50">我已仔细阅读并同意</span> <a data-value="loging2.0_51" href="http://bnt.fuyer.com/src/index/ANT-Protocol.html?ANTProtocolStatus=1">服务及隐私条款</a></label>
+					</p>
+					<button data-value="loging2.0_88" class="submit storeSubmit">开始导入</button>
+					<a href="http://bnt.fuyer.com/src/index/ANT-Protocol.html?ANTProtocolStatus=4" data-value="loging2.0_93">什么是keystore？</a>
+				</div>
+			</footer>
+		</div>
+		<div class="loadingBox">
+			<img src="../../img/loding.png" />
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../../js/mui.js"></script>
+<script type="text/javascript" src="../../js/rem.js"></script>
+<script type="text/javascript" src="../../js/ajax.js"></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js"></script>
+<script type="text/javascript" src="../../js/language.js"></script>
+<script type="text/javascript" src="../js/web3.min.js"></script>
+<script src="/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script src="../js/FileSaver.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="../../js/sha1.js"></script>
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	var ip = "bnt.yfsz.top"; //192.168.31.136  //bnt.yfsz.top
+	var type = GetQueryString("type");
+	
+	if(GetQueryString("loginType") != undefined) {
+		$(".return").on("tap", function() {
+			ANT.finishThis()
+		})
+		if(GetQueryString("language") == "en") {
+			localStorage.setItem("set-lan", "EN")
+			langStart = 0
+			qiehuan()
+		} else {
+			localStorage.setItem("set-lan", "CN")
+			langStart = 1
+			qiehuan()
+		}
+	}
+	
+	if(GetQueryString("LoginPrivateKey")){
+		alert(GetQueryString("LoginPrivateKey"))
+		var Ciphertext="";
+		for(var i=0;i<GetQueryString("LoginPrivateKey").length;i++){
+			Ciphertext=Ciphertext+"*"
+		}
+		
+		$('#privateKey').val(Ciphertext)
+	}
+
+	$(".seyPassword").on("tap", function() {
+		if($(this).attr("data-seyPass") == "true") {
+			$(this).find("img").attr("src", "../../img/wallet-set01.png")
+			$(this).attr("data-seyPass", "false")
+			$(".seyPasswordInput").attr("type", "password")
+		} else {
+			$(this).find("img").attr("src", "../../img/wallet-set.png")
+			$(this).attr("data-seyPass", "true")
+			$(".seyPasswordInput").attr("type", "text")
+		}
+	})
+
+	function tick(name, submit) {
+		var src = $(name + ">img").attr('src');
+		$(name).on("tap", function() {
+			if($(this).children('img').attr('src') === src) {
+				$(this).children('img').attr('src', '../img/ticknot.png');
+				$(submit).attr('disabled', 'disabled');
+			} else {
+				$(this).children('img').attr('src', '../img/tick.png');
+				$(submit).removeAttr('disabled');
+			}
+		})
+	}
+
+	function transform(classOne, classTwo) {
+		$(classOne).on("tap", function() {
+			if($(this).css('transform') === 'none') {
+				$(this).css('transform', 'rotate(90deg)');
+			} else {
+				$(this).css('transform', 'none');
+			}
+			$(classTwo).slideToggle();
+		})
+	}
+
+	function ImportKeystoreWallet(keystore, password) {
+		return new Promise((success, reject) => {
+			try {
+				var web3 = new Web3(new Web3.providers.HttpProvider("http://geth.fuyer.com:1107"));
+				var AnalysisKs = web3.eth.accounts.decrypt(keystore, password);
+
+				success({
+					address: AnalysisKs.address,
+					privateKey: AnalysisKs.privateKey,
+					keystore: keystore,
+				})
+			} catch(e) {
+				reject(e)
+				alert("密码错误")
+				$(".loadingBox").hide()
+			}
+		});
+	}
+
+	function CreateWallet(privateKey, password) {
+		return new Promise((success, reject) => {
+			try {
+				var web3 = new Web3(new Web3.providers.HttpProvider("http://geth.fuyer.com:1107"));
+				var ks = web3.eth.accounts.encrypt(privateKey, password);
+
+				success(JSON.stringify(ks))
+			} catch(e) {
+				reject(e)
+			}
+		});
+	}
+
+	tick('.seedPrivacy', '.seedSubmit');
+	tick('.storePrivacy', '.storeSubmit');
+	tick('.keyPrivacy', '.keySubmit');
+	transform('#im-path>img', '.im-path-list');
+	var li = $('.im-nav>ul>li:nth-of-type(1)');
+	var left = li.offset().left + (li.width() / 2) - 50;
+	$('.im-nav span').css('left', left);
+	$('.im-nav>ul>li').on("tap", function() {
+		$(this).css('color', '#00b07c').siblings().css('color', '#b9b9b9');
+		left = $(this).offset().left + ($(this).width() / 2) - 50;
+		if($(this).text() === '私钥' || $(this).text() === 'Private key' ) {
+			$('.im-nav span').css('left', left);
+			$('.im-footer01').css('left', '2.5%');
+			$('.im-footer02').css('left', '100%');
+			$('.im-footer03').css('left', '100%');
+		} else if($(this).text() === '助记词' || $(this).text() === 'Mnemonic') {
+			$('.im-nav span').css('left', left);
+			$('.im-footer01').css('left', '-100%');
+			$('.im-footer02').css('left', '2.5%');
+			$('.im-footer03').css('left', '100%');
+		} else {
+			$('.im-nav span').css('left', left);
+			$('.im-footer01').css('left', '-100%');
+			$('.im-footer02').css('left', '-100%');
+			$('.im-footer03').css('left', '2.5%');
+		}
+	})
+
+	$('.im-path-list>li').on("tap", function() {
+		$(this).css('color', '#00b07c').siblings().css('color', '#b9b9b9');
+		var text = $(this).text();
+		var str = text.slice(0, text.lastIndexOf('0') + 1);
+		$('#im-path-val').val(str);
+		if(text === "m/44'/60'/1'/0/0 自定义路径") {
+			$('.im-path-list>img').css('top', '95px');
+			$('#im-path-val').removeAttr('readonly');
+		} else if(text === "m/44'/60'/0'/0 Ledger (ETH)") {
+			$('.im-path-list>img').css('top', '55px');
+			$('#im-path-val').attr('readonly', 'readonly');
+		} else {
+			$('.im-path-list>img').css('top', '13px');
+			$('#im-path-val').attr('readonly', 'readonly');
+		}
+		$('.im-path-list').slideToggle();
+		$('#im-path>img').css('transform', 'none');
+	})
+	//导入助记词
+	$('.seedSubmit').on("tap", function() {
+		var seed = $('#seed').val();
+		var password = $('#seedPassword').val();
+		var repassword = $('#seedRepassword').val();
+		var path = $('#im-path-val').val();
+		if(seed === '' || !ethers.utils.HDNode.isValidMnemonic(seed))
+			return alert('请输入正确的助记词！');
+		else if(password === '' && repassword === '')
+			return alert('请输入密码！');
+		else if(password.length < 8 && repassword < 8)
+			return alert('密码小于8位')
+		else if(repassword !== password)
+			return alert('两次输入的密码不一致！');
+		//助记词
+		//var mnemonic = ethers.utils.HDNode.entropyToMnemonic(ethers.utils.randomBytes(16));
+		// 检查助记词是否有效。
+		//if (!ethers.utils.HDNode.isValidMnemonic(seed)) {
+		//    return;
+		//}
+		// 通过助记词创建钱包对象
+		var wallet = ethers.Wallet.fromMnemonic(seed, path);
+		if(wallet) {
+			checkWallet(wallet.address)
+			if(checkWalletArr.data == 0 && type == '1') {
+				alert("非ANT用户")
+			} else {
+				var walletjson = {};
+				walletjson.mnemonic = seed
+				walletjson.address = wallet.address
+				walletjson.privateKey = wallet.privateKey
+				walletjson.wallet_name = "助记词钱包";
+				walletjson.Password = sha256_digest(repassword)
+				var Time = "0x" + new Date().getTime().toString(16);
+				if(GetQueryString("loginType") != undefined) {
+					$(".loadingBox").css("display", "flex")
+					setTimeout(function() {
+						CreateWallet(wallet.privateKey, password).then(function(data) {
+							$(".loadingBox").hide()
+							ANT.webViewLeadKeyCallBack("助记词钱包", wallet.address, seed, "助记词钱包", data, wallet.privateKey, repassword, type)
+						})
+					}, 500)
+				} else {
+					wallet.signMessage(Time).then(signature => {
+						walletLogin01(Time, signature);
+						walletjson.userId = walletLoginArr01.data.id;
+						walletjson.username = walletLoginArr01.data.username;
+						var PrivateKeyJosn = JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+						var flag = true;
+						PrivateKeyJosn.forEach(function(item) {
+							if(item.privateKey == wallet.privateKey) {
+								flag = false;
+								alert("在本地已有钱包")
+							}
+						})
+						if(flag) {
+							PrivateKeyJosn.push(walletjson);
+							DAPPFramework.Storage.Set("PrivateKeyJosn", JSON.stringify(PrivateKeyJosn));
+							alert("导入成功")
+							window.location.href = "../../src/login/login.html"
+						}
+					})
+				}
+			}
+		}
+		console.log(wallet);
+	})
+	//keystore导入
+	$('.storeSubmit').on("tap", function() {
+		var keystore = $('#keystore').val();
+		var password = $('#storePassword').val();
+		console.log(password.length >= 8)
+		if(keystore === '' || password === '')
+			return mui.alert('输入内容为空！');
+		else if(!password.length >= 8) {
+			return mui.alert('密码大于或等于8位！');
+		}
+
+		$(".loadingBox").css("display", "flex")
+		var walletjson = {};
+
+		setTimeout(function() {
+			ImportKeystoreWallet(keystore, password).then(function(data) {
+				$(".loadingBox").hide()
+				checkWallet(data.address)
+				if(checkWalletArr.data == 0 && type == '1') {
+					alert("非ANT用户")
+				} else {
+					walletjson.address = data.address
+					walletjson.privateKey = data.privateKey
+					walletjson.wallet_name = "keystore钱包";
+					walletjson.Password = sha256_digest(password)
+					var Time = "0x" + new Date().getTime().toString(16);
+					var wallet = new ethers.Wallet(data.privateKey);
+					if(GetQueryString("loginType") != undefined) {
+						ANT.webViewLeadKeyCallBack("keystore钱包", data.address, "", "keystore钱包", keystore, data.privateKey, password, type)
+					} else {
+						wallet.signMessage(Time).then(signature => {
+							walletLogin01(Time, signature);
+							walletjson.userId = walletLoginArr01.data.id;
+							walletjson.username = walletLoginArr01.data.username;
+							var PrivateKeyJosn = JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+							var flag = true;
+							PrivateKeyJosn.forEach(function(item) {
+								if(item.privateKey == wallet.privateKey) {
+									flag = false;
+									alert("在本地已有钱包")
+								}
+							})
+							if(flag) {
+								PrivateKeyJosn.push(walletjson);
+								DAPPFramework.Storage.Set("PrivateKeyJosn", JSON.stringify(PrivateKeyJosn));
+								alert("导入成功")
+								window.location.href = "../../src/login/login.html"
+							}
+						})
+					}
+				}
+			})
+		}, 500)
+
+	})
+	
+	//私钥导入
+	$('.keySubmit').click(function() {		
+		var privateKey = $('#privateKey').val();
+		var password = $('#keyPassword').val();
+		var repassword = $('#keyRepassword').val();
+		if(privateKey === '')
+			return mui.alert('请输入正确的私钥！');
+		else if(password === '' || password.length < 8)
+			return mui.alert('请输入密码！');
+		else if(password.length < 8)
+			return mui.alert('密码过于简单！');
+		else if(repassword !== password)
+			return mui.alert('两次输入的密码不一致！');
+
+		if(privateKey.substring(0, 2) !== '0x') {
+			privateKey = '0x' + privateKey;
+		}
+		var wallet = new ethers.Wallet(privateKey);
+		if(wallet) {
+			checkWallet(wallet.address)
+			if(checkWalletArr.data == 0 && type == '1') {
+				alert("非ANT用户")
+			} else {
+				var walletjson = {};
+				walletjson.address = wallet.address
+				walletjson.privateKey = wallet.privateKey
+				walletjson.wallet_name = "私钥钱包";
+				walletjson.Password = sha256_digest(repassword)
+				var Time = "0x" + new Date().getTime().toString(16);
+
+				if(GetQueryString("loginType") != undefined) {
+					$(".loadingBox").css("display", "flex")
+					setTimeout(function() {
+						CreateWallet(privateKey, password).then(function(data) {
+							$(".loadingBox").hide()
+							ANT.webViewLeadKeyCallBack("私钥钱包", wallet.address, wallet.mnemonic, "keystore钱包", data, privateKey, repassword, type)
+						})
+					}, 500)
+				} else {
+					wallet.signMessage(Time).then(signature => {
+						walletLogin01(Time, signature);
+						walletjson.userId = walletLoginArr01.data.id;
+						walletjson.username = walletLoginArr01.data.username;
+						var PrivateKeyJosn = JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+						var flag = true;
+						PrivateKeyJosn.forEach(function(item) {
+							if(item.privateKey == wallet.privateKey) {
+								flag = false;
+								alert("在本地已有钱包")
+							}
+						})
+						if(flag) {
+							PrivateKeyJosn.push(walletjson);
+							DAPPFramework.Storage.Set("PrivateKeyJosn", JSON.stringify(PrivateKeyJosn));
+							alert("导入成功")
+							window.location.href = "../../src/login/login.html"
+						}
+					})
+				}
+			}
+		}
+	})
+</script>

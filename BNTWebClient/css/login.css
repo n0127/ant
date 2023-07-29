@@ -1,0 +1,341 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	background: #f5f5f7;
+}
+
+.w974{
+	width: 18.037037rem;
+	margin: 0 auto;
+}
+
+input::input-placeholder{color:#333!important;	line-height: 1.2rem;} 
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+color: #333!important; 	line-height: 1.2rem;
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+color: #333!important	line-height: 1.2rem;; 
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+color: #333!important;	line-height: 1.2rem; 
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+color: #333!important;	line-height: 1.2rem; 
+}
+
+.login-language{
+	position: absolute;
+	width: 1.851851rem;
+	height: 1.851851rem;
+	border-radius: 50%;
+	border:1px solid #00b17d;
+	top: 1.851851rem;
+	right: 0.925925rem;
+	color: #00B17D;
+	font-size: 0.833333rem;
+	text-align: center;
+	line-height: 1.851851rem;
+}
+
+.login-box{
+	padding-top: 3.148148rem;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	position: relative;
+}
+.login-logo{
+	text-align: center;
+	margin-bottom: 2.777777rem;
+}
+.login-logo>img{
+	width: 5.203703rem;
+	height: 6.944444rem;
+}
+
+.newloginBox{
+	background: #fafafa;
+	padding: 1.111111rem;
+}
+
+.login{
+	position: relative;
+	width: 100%;
+	display: block;
+}
+
+
+.login-state{
+	width: 100%;
+	color: #333;
+	margin-bottom: 0.925925rem;
+}
+.login-state>ul{
+	display: flex;
+	justify-content: space-between;
+}
+.login-state>ul>li{
+	font-size: 0.962962rem;
+	padding-bottom: 0.518518rem;
+}
+.login-stateActive{
+	color: #00b17d;
+	border-bottom: 1px solid #00b17d;
+}
+
+.CountrySelect{
+	font-size: 0.851851rem;	
+	color: #00b17d;
+	padding-right: 1rem;
+	background: url(../img/login-fanhui.png) no-repeat;
+	background-position: right;
+	background-size: 0.481481rem 0.777777rem;
+	margin-bottom: 0.5rem;
+	display: inline-block;
+}
+.denglu-box{
+	display: flex;
+	flex-direction: column;
+	font-size: 0.851851rem;
+	color: #00b17d;
+}
+.denglu-box>li{
+	padding: 0.825925rem 0;
+	border-bottom: 1px solid #d1d1d1;
+	display: flex;
+	justify-content: space-between;
+	background-image: url(../img/loginPas.png);
+	background-size: 1.018518rem 1.333333rem;
+	background-repeat: no-repeat;
+	background-position: 0.555555rem center;
+}
+.denglu-box>li:nth-child(1){
+	margin-bottom: 1rem;
+	background-image: url(../img/loginPhone.png);
+	background-size: 0.777777rem 1.481481rem;
+}
+.denglu-box>li>input,#Invitation{
+	text-align: right;
+	vertical-align: middle;
+	display: flex;
+	width: 7.407407rem;
+	outline: transparent;
+	background: transparent;
+	border: none;
+	caret-color: #00b17d;
+	color: #00b17d;
+	font-size: 0.851851rem;
+	flex: 1;
+	/*align-items: center;*/
+	/*padding-top: 0.185185rem;*/
+	box-sizing: border-box;
+}
+.denglu-box>li>input{
+	text-align: left;
+	padding-left: 2.592592rem;
+}
+.denglu-box>li>span{
+	flex: 1;
+	display: block;
+}
+.denglu-box>li>button{
+	background: transparent;
+	border: none;
+	color: #00b17d;
+	outline: none;
+	padding: 0;
+	/*flex: 1;*/
+}
+.login-cookie{
+	text-align: right;
+	font-size: 0.666666rem;
+	color: #00b17d;
+	margin-top: 0.555555rem;
+	margin-bottom: 1.666666rem;
+}
+.login-cookie>input{
+	vertical-align: middle;
+}
+
+.register{
+	display: none;
+}
+.registerInvitation{
+	font-size: 0.851851rem;
+	color: #00b17d;
+	
+	
+}
+.registerInvitation>label{
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 0.37037rem;
+	border-bottom: 1px solid #00b17d;
+	margin-bottom: 3.148148rem;
+}
+
+
+.retrievePass{
+	display: none;
+}
+
+.denglu-but{
+	background: #00b17d;
+	color: #fff;
+	font-size: 0.851851rem;
+	width: 11.851851rem;
+	height: 2.129629rem;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	position: relative;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 1.851851rem;
+}
+.margin-top90{
+	margin-top: 1.666666rem;
+}
+.login>a{
+	text-decoration:underline;
+	color: #666;
+	font-size: 0.666666rem;
+	float: right;
+	margin-top: 0.325925rem;
+}
+
+.LoginBottom-but{
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.74074rem;
+	position: absolute;
+	bottom: 0.925925rem;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.LoginBottom-but>p{
+	color: #00b17d;
+	padding-right: 0.733333rem;
+	background-image: url(../img/shouye-fanhui.png);
+	background-size: 0.37037rem 0.629629rem;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+
+
+/*私钥登录*/
+.PrivateKeyLogin{
+	background: #ededed;
+	
+	border-radius: 5px;
+	position: relative;
+	height: 16rem;
+}
+.PrivateKeyLogin>div{
+	background: #ededed;
+}
+.PrivateKeyLogin>div>div{
+	padding: 0.555555rem;
+}
+.PrivateKeyListBox{
+	width: 100%;
+	padding: 0.685185rem 0.722222rem;
+	background: #fafafa;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	display: flex;
+	position: relative;
+	margin-bottom: 0.555555rem;
+}
+
+.PrivateKeyListBox>img{
+	width: 3.148148rem;
+	height: 3.148148rem;
+	border: 1px solid #06D180;
+	border-radius: 50%;
+	margin-right: 0.555555rem;
+}
+.PrivateKeyListBox>div{
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.PrivateKeyListBox>div>span{
+	font-size: 0.74074rem;
+}
+.PrivateKeyListBox>div>span:nth-child(1){
+	color: #16A879;
+}
+.PrivateKeyListBox>div>p{
+	color: #333;
+	width: 100%;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 7.407407rem;
+}
+.PrivateKeyListBox>p{
+	content: "";
+	width: 0.666666rem;
+	height: 0.666666rem;
+	background: url(../img/PrivateKeyLoginArrow.png) no-repeat;
+	background-size: 0.388888rem 0.666666rem;
+	position: absolute;
+	right: 1rem;
+	top: 0;
+	bottom: 0;
+	margin:auto 0;
+}
+.PrivateKeyDropDown{
+	padding: 0 0.37037rem;
+	display: none;
+}
+.PrivateKeyDropDown>li{
+	background-image:url(../img/loginPas.png)!important;
+	background-size: 1.018518rem 1.333333rem!important; 
+	background-position: left center;
+}
+.PrivateKeyDropDown>li>input{
+	padding-left: 2rem;
+}
+
+.PrivateKeyImport{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px dashed #dedede;
+	height: 4.518518rem;
+	border-radius: 5px;
+}
+.PrivateKeyImport>img{
+	width: 1.074074rem;
+	height: 1.074074rem;
+	
+}
+.PrivateKeyImport>p{
+	font-size: 0.74074rem;
+}
+
+
+.PrivateKeyListBox>p{
+	/*animation-name: RotateTop;*/
+	animation-duration: 1s;
+	animation-timing-function:linear;
+	animation-iteration-count:infinite;
+	animation-delay:0;
+	animation-fill-mode:forwards;
+}
+@-webkit-keyframes RotateTop {
+	0%{
+		transform: rotateZ(0deg);
+	}
+	100%{
+		transform: rotateZ(360deg);
+	}
+}

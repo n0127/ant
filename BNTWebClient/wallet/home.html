@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="loging2.0_97" >钱包</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+	<body>
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+				<!--<header class="mui-bar mui-bar-nav header" style="display: none;">
+					<h1 data-value="loging2.0_97" class="mui-title home-title" style="color: #010101;font-weight: lighter;">钱包</h1>
+				</header>-->
+				<!--钱包界面-->
+				<div id="refreshContainer" class="mui-content mui-scroll-wrapper wallet-index" style="display: block;padding-top: 0; margin: 0;">
+					<div class="mui-scroll">
+						<ul class="home-currency" style="margin-top: 0.37037rem;">
+							<!--<li class="home-ant">
+								<img src="img/ANT.png"/>
+								<ul>
+									<li class="currency-logo"><logo><img src="img/ANT-logo.png"/>&nbsp;ANT</logo><div><span data-value="loging2.0_177">合约</span><img style="width: 1.4rem; height: 1.4rem;" src="img/next.png"/></div></li>
+									<li data-value="loging2.0_102" class="currency-balance ant-balance">正在获取中...</li>
+									<li class="home-address"><span class="ant-address address"></span><img src="img/copy.png"/></li>
+									<li class="currency-button">
+										<span class="currency-topUp"><img src="img/topUp@home.png"/><span data-value="loging2.0_98">充币</span></span>
+										<span data-value='ant' class="currency-Withdrawal"><img src="img/tixian@.png"/><span data-value="loging2.0_99">提币</span></span>
+										<span class="currency-detail"><span data-value="loging2.0_100">明细</span></span>
+									</li>
+								</ul>
+							</li>-->
+							<li class="home-eth">
+								<img src="img/ETH.png"/>
+								<ul>
+									<li class="currency-logo"><logo><img src="img/ETH-logo.png"/>&nbsp;ETH</logo></li>
+									<li data-value="loging2.0_102" class="currency-balance eth-balance">正在获取中...</li>
+									<!--<li class="currency-amount">$≈0.00</li>-->
+									<li class="home-address ethCopyAddress"><span class="eth-address address"></span><img src="img/copy.png"/></li>
+									<li class="currency-button">
+										<span class="currency-topUp eth-topUp"><img src="img/topUp@home.png"/><span data-value="loging2.0_98">充币</span></span>
+										<span data-value='eth' class="currency-Withdrawal eth-Withdrawal"><img src="img/tixian@.png"/><span data-value="loging2.0_99">提币</span></span>
+										<span class="currency-detail"><span data-value="loging2.0_100">明细</span></span>
+									</li>
+								</ul>
+							</li>
+							<li class="home-btc">
+								<img src="img/Ruby-BG.png"/>
+								<ul>
+									<li class="currency-logo"><logo><img src="img/Ruby-logo.png"/>&nbsp;RUB</logo><div><span data-value="More">更多</span><img style="width: 1.4rem; height: 1.4rem;" src="img/next.png"/></div></li>
+									<!--<li data-value="loging2.0_101" class="zzjs">正在建设节点</li>-->
+									<li data-value="" class="currency-balance Ruby-balance">0.00000000</li>
+									<!--<li class="currency-balance">0.000000</li>-->
+									<!--<li class="currency-amount">$≈0.00</li>-->
+									<li class="home-address RubyCopyAddress"><span class="RubyAddress" data-value="loging2.0_270" >绑定地址</span><img src="img/copy.png"/></li>
+									<li class="currency-button">
+										<span class="currency-topUp Ruby-topUp"><img src="img/topUp@home.png"/><span data-value="loging2.0_98">充币</span></span>
+										<span class="currency-Withdrawal Ruby-Withdrawal"><img src="img/tixian@.png"/><span data-value="loging2.0_99">提币</span></span>
+										<span class="currency-detail" data-value="loging2.0_100">明细</span>
+									</li>
+								</ul>
+							</li>
+							<li class="home-eos">
+								<img src="img/BTC.png"/>
+								<ul>
+									<li class="currency-logo"><logo><img src="img/BTC-logo.png"/>&nbsp;BTC</logo></li>
+									<li data-value="loging2.0_101" class="zzjs">正在建设节点</li>
+									<!--<li class="currency-balance">0.000000</li>
+									<li class="currency-amount">$≈0.00</li>
+									<li class="home-address"><span>1010101010******01010102</span><img src="img/copy.png"/></li>
+									<li class="currency-button">
+										<span class="currency-topUp">充币</span>
+										<span class="currency-Withdrawal">提币</span>
+										<span class="currency-detail">明细</span>
+									</li>-->
+								</ul>
+							</li>
+							<li class="home-eos">
+								<img src="img/EOS.png"/>
+								<ul>
+									<li class="currency-logo"><logo><img src="img/EOS-logo.png"/>&nbsp;EOS</logo></li>
+									<li data-value="loging2.0_101" class="zzjs">正在建设节点</li>
+									<!--<li class="currency-balance">0.000000</li>
+									<li class="currency-amount">$≈0.00</li>
+									<li class="home-address"><span>1010101010******01010102</span><img src="img/copy.png"/></li>
+									<li class="currency-button">
+										<span class="currency-topUp">充币</span>
+										<span class="currency-Withdrawal">提币</span>
+										<span class="currency-detail">明细</span>
+									</li>-->
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="mui-off-canvas-backdrop"></div>
+				<!--底部导航栏-->
+				<!--<div class="bottom-nav" style="display: none;">
+					<ul>
+						<li>
+							<a href="../index.html"><img src="../phone/sy@3x.png" /><span data-value="Home">首页</span></a>
+						</li>
+						<li>
+							<a href="#"><img src="../phone/qbl@3x.png" /><span style="color: #00b07c;" data-value="Wallet">钱包</span></a>
+						</li>
+						<li>
+							<a href="../transaction/transaction.html"><img src="../phone/jy@3x.png" /><span data-value="Trades">交易</span></a>
+						</li>
+						<li>
+							<a href="../Mall/Mall.html"><img src="../phone/sc@3x.png" /><span data-value="Mall">商城</span></a>
+						</li>
+					</ul>
+				</div>-->
+			</div>
+		</div>
+	</body>
+</html>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js" ></script>
+<script>eruda.init();</script>-->
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../js/mui.js" ></script>
+<script type="text/javascript" src="../js/rem.js" ></script>
+<script type="text/javascript" src="../js/ajax.js" ></script>
+<script type="text/javascript" src="../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../js/language.js" ></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<!--<script>
+	var provider = new ethers.providers.JsonRpcProvider("http://13.124.92.44:1107");
+	var wallet = new ethers.Wallet("0x5896f4a2366f7fc0bf73919df2d0516e6bbecf90a61ed96482a3735304221a65", provider);
+	console.log(wallet)
+	wallet.getBalance().then(balance => {
+		var Balance = ethers.utils.formatEther(balance);
+		console.log(Balance)
+		$('.eth-balance').text(Number(balanceSplit(Balance)).toFixed(8));
+		Cache.home.ethBalance = balanceSplit(Balance);
+
+	}).catch(error => {
+		alert("节点错误")
+	})
+</script>-->

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Bindingcontact">接点绑定</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			 <!--手动选择节点-->
+			    <div class="Friends" style="display: block;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Bindingcontact">接点绑定</span>
+			    		</div>
+			    	</div>
+			    	<div class="contact-box">
+			    		<div class="contact-header">
+			    			<span data-value="Contactmark">接点标示</span>
+			    			<input data-value="Entercontactmark" class="jiedianbiaoshi" placeholder="请输入接点标示" />
+			    		</div>
+			    		<button data-value="Search" class="search" type="button">搜索</button>
+			    		<div data-value="Nodeinformation" style="display: none;" class="contact-header01">接点信息</div>
+			    		<div style="display: none;" class="contact-centent">
+			    			<div class="contactCententBox">
+			    				<img src="../../img/index-touxiang.png" />
+			    				<div class="contactCententBox-text">
+			    					<span class="username">name</span>
+			    					<span class="userphone">phone</span>
+			    					<span class="userId">userId</span>
+			    				</div>
+			    			</div>
+			    			<p data-value="Pleaseconfirm">请确认接点信息无误，一旦激活将无法修改</p>
+			    			<button data-value="Confirmactivationoffriends" class="confirm" type="button">确认激活好友</button>
+			    		</div>
+			    		
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var userId;
+	var token;
+	var FriendsSpan04;
+	var clientType;
+	$(".return").on("tap",function(){
+		if(hehe==undefined){
+			window.location.href="Friends.html"
+		}
+	})
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+		FriendsSpan04=DAPPFramework.SharedBoard.Get("FriendsSpan04")
+	}
+	
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId");
+		token=ANT.getMessage("token");
+		clientType=1;
+		FriendsSpan04=ANT.getMessage("FriendsSpan04");
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		FriendsSpan04=sessionStorage.getItem("FriendsSpan04")
+	}
+	
+	$(".search").on("tap",function(){
+		var insertPoint=$(".jiedianbiaoshi").val()
+		getInsertPointInfo(userId,insertPoint,token)
+		if(getInsertPointInfoArr.code==1){
+			$(".contact-header01").css("display","block")
+			$(".contact-centent").css("display","block")
+			$(".username").text("名称:"+getInsertPointInfoArr.data.username)
+			$(".userphone").text("电话:"+getInsertPointInfoArr.data.phone)
+			$(".userId").text("Id:"+getInsertPointInfoArr.data.insertPointId)
+			$(".contactCententBox>img").attr("src",getInsertPointInfoArr.data.avatar)
+		}else{
+			mui.toast(getInsertPointInfoArr.message,{ duration:'long', type:'div' })
+		}
+			
+	})
+	
+	$(".confirm").on("tap",function(){
+		var insertPoint=$(".jiedianbiaoshi").val()
+		allotNode01(userId,FriendsSpan04,insertPoint,token)
+	})
+</script>

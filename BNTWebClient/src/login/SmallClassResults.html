@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="loging2.0_39">测试结果</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--资产详情-->
+			    <div class="PublicFixedBox">
+			    	<div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6; justify-content: space-between; padding: 0 0.37037rem;">
+			    		<span data-value="loging2.0_39" class="loginTitle">测试结果</span>
+			    		<img class="return" style="width: 0.74074rem; height: 0.74074rem;" src="../../img/SmallClassResultsClose.png" />
+			    	</div>
+			    	<div class="PublicScrollBox">
+			    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 0;">
+							<div style="padding-bottom: 0;" class="mui-scroll">
+		    					<div class="SmallClassResultsSuccess">
+		    						<img src="../../img/SmallClassResultsSucess.png" />
+		    						<p data-value="loging2.0_40">恭喜您！成功通过测试。</p>
+		    						<button data-value="loging2.0_41" class="LoginBut">开始创建新私钥</button>
+		    					</div>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var language;
+	var languageArr;
+	
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="EN"
+		languageArr=EN
+	}else{
+		language="CN"
+		languageArr=CN
+	}
+	
+	var SmallClassResults=GetQueryString("SmallClassResults");
+	if(SmallClassResults=="0"){
+		$(".SmallClassResultsSuccess>img").attr("src","../../img/SmallClassResultsFailure.png")
+		$(".SmallClassResultsSuccess>p").text(languageArr["loging2.0_42"])//"很遗憾！未能通过测试"
+		$(".SmallClassResultsSuccess>button").text(languageArr["loging2.0_43"])//"继续学习"
+		$(".SmallClassResultsSuccess>button").css("background-color","#d61a07")
+	}
+	$(".LoginBut").on("tap",function(){
+		if(SmallClassResults=="0"){
+			history.back()
+		}else{
+			window.location.href="CreateWallet.html"
+		}
+	})
+</script>

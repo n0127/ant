@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Wallet">钱包</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+		<!-- 侧滑导航根容器 -->
+			<div class="mui-off-canvas-wrap mui-draggable">
+			  <!-- 主页面容器 -->
+			  <div class="mui-inner-wrap">
+			    <!-- 主页面标题 -->
+			    <header class="mui-bar mui-bar-nav header">
+			      <h1 class="mui-title">ANT</h1>
+			    </header>
+			    
+			    <!--钱包界面-->
+			    <div class="mui-content mui-scroll-wrapper wallet-index" style="display: block;
+    padding-top: 0.87037rem;">
+			      <div class="mui-scroll">
+			        	<div class="w1028 wallet">
+			        		<div class="wallet-Valuation">
+			        			<p data-value="Walletassetsvalue">钱包资产估值</p>
+			        			<div class="wallet-Number"><span>0.00000000</span></div>
+			        			<span class="wallet-Number01">$ ≈ 0.0000</span>
+			        			<i></i>
+			        			<i></i>
+			        		</div>
+			        		<div class="wallet-function">
+			        			<ul>
+			        				<li class="zanweikaifang">
+			        					<img src="../../img/wallet01.png" />
+			        					<span data-value="Deposit">充值</span>
+			        				</li>
+			        				<li class="zanweikaifang">
+			        					<img src="../../img/wallet02.png" />
+			        					<span data-value="Withdrawal">提现</span>
+			        				</li>
+			        				<li class="zanweikaifang">
+			        					<img src="../../img/wallet03.png" />
+			        					<span data-value="History">明细</span>
+			        				</li>
+			        			</ul>
+			        		</div>
+			        		<div class="wallet-Detailed">
+			        			<div data-value="Assethistory" class="public-title">资产明细</div>
+			        			<div class="wallet-DetailedCon">
+										<ul>
+				        					<li>
+				        						<span>BTC</span>
+				        						<span>0.00000000</span>
+				        						<span>
+				        							<span data-value="Frozen">冻结</span><span>0.00000</span>
+				        						</span>
+				        					</li>
+				        					<li>
+				        						<span>ETH</span>
+				        						<span>0.00000000</span>
+				        						<span>
+				        							<span data-value="Frozen">冻结</span><span>0.00000</span>
+				        						</span>
+				        					</li>
+				        					<li>
+				        						<span>ANT</span>
+				        						<span>0.00000000</span>
+				        						<span>
+				        							<span data-value="Frozen">冻结</span><span>0.00000</span>
+				        						</span>
+				        					</li>
+				        					<li>
+				        						<span>EOS</span>
+				        						<span>0.00000000</span>
+				        						<span>
+				        							<span data-value="Frozen">冻结</span><span>0.00000</span>
+				        						</span>
+				        					</li>
+				        					<li>
+				        						<span>LTC</span>
+				        						<span>0.00000000</span>
+				        						<span>
+				        							<span data-value="Frozen">冻结</span><span>0.00000</span>
+				        						</span>
+				        					</li>
+				        					<li>
+				        						<span>BCH</span>
+				        						<span>0.00000000</span>
+				        						<span>
+				        							<span data-value="Frozen">冻结</span><span>0.00000</span>
+				        						</span>
+				        					</li>
+				        					<li>
+				        						<span>XRP</span>
+				        						<span>0.00000000</span>
+				        						<span>
+				        							<span data-value="Frozen">冻结</span><span>0.00000</span>
+				        						</span>
+				        					</li>
+					        			</ul>
+			        			</div>
+			        		</div>
+			        	</div>
+			      </div>
+			    </div>
+			    
+			    
+			    <div class="mui-off-canvas-backdrop"></div>
+			    
+			    <!--底部导航栏-->
+			    <div class="bottom-nav">
+			      	<ul>
+			      		<li><a href="../../index.html"><img src="../../phone/sy@3x.png"/><span data-value="Home">首页</span></a></li>
+			      		<li><a href="#"><img src="../../phone/qbl@3x.png"/><span style="color: #00b07c;" data-value="Wallet">钱包</span></a></li>
+			      		<li><a href="../transaction/transaction.html"><img src="../../phone/jy@3x.png"/><span data-value="Trades">交易</span></a></li>
+			      		<li><a href="../Mall/Mall.html"><img src="../../phone/sc@3x.png"/><span data-value="Mall">商城</span></a></li>
+			      	</ul>
+			    </div>
+			  </div>	 
+			</div>
+
+			  
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var language;
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetDrawerEnable(false);
+		DAPPFramework.View.SetScrollEnabled(false);
+	}
+	$(".zanweikaifang").on("tap",function(){
+		if(localStorage.getItem("set-lan")=="EN"){
+			alert("Not Yet Open")
+		}else{
+			alert("暂未开放")
+		}
+	})
+	$(".wallet-Valuation>i:nth-child(4)").on("tap",function(){
+		$(".wallet-Number").text("******")
+		$(".wallet-Number01").text("******")
+		$(".wallet-Valuation>i:nth-child(4)").css("display","none")
+		$(".wallet-Valuation>i:nth-child(5)").css("display","block")
+	})
+	$(".wallet-Valuation>i:nth-child(5)").on("tap",function(){
+		$(".wallet-Number").html("<span>0.00000000</span>")
+		$(".wallet-Number01").text("$ ≈ 0.0000")
+		$(".wallet-Valuation>i:nth-child(5)").css("display","none")
+		$(".wallet-Valuation>i:nth-child(4)").css("display","block")
+	})
+	
+	if(hehe==undefined){
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=1
+		getUserInfo(userId,token,clientType)
+		$(".user_name").val(getUserInfoArr.data.username)
+		$(".userId").text("邀请码："+getUserInfoArr.data.id)
+		$(".phone").text(getUserInfoArr.data.phone)
+		if(getUserInfoArr.data.avatar!=null){
+			$(".touxiang-img").attr("src",getUserInfoArr.data.avatar)
+		}
+	}
+	
+//邀请卡
+	$(".yaoqingka").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/sidebar/sidebar.html");
+		}else{
+			window.location.href="src/sidebar/sidebar.html"
+		}
+	})
+	
+//安全中心
+	$(".anquanzhongxin").on("tap",function(){
+		window.location="src/sidebar/SecurityCenter.html";
+	})
+	
+//	修改名字
+	$(".xiugainame").on("tap",function(){
+		if(localStorage.getItem("set-lan")=="EN"){
+			mui.prompt('','Enter nickname','Modify nickname',['Cancel','Confirm'],UpUserName,'div') 
+		}else{
+			mui.prompt('','输入昵称','修改昵称',['取消','确认'],UpUserName,'div') 
+		}
+	})
+	function UpUserName(item){
+		if(item.index){
+			var value=item.value
+			updateUserInfo(userId,value,token)
+			if(updateUserInfoArr.code==1){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("Successful")
+				}else{
+					alert("修改成功")
+				}
+				$(".user_name").val(value)
+			}else{
+				alert(updateUserInfoArr.message)
+			}
+		}
+	}
+</script>

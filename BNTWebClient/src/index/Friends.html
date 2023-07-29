@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Communityfriends">社区好友</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			 <!--激活好友-->
+			    <div class="Friends" style="display: flex; flex-direction: column;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Communityfriends">社区好友</span>
+			    		</div>
+			    	</div>
+			    	<div class="Friends-touxiang">
+			    		<img class="Friends002" src="../../img/Node-title.png" />
+			    		<div class="Friends-text">
+			    			<span class="Friends001">AG超玩会</span>
+			    			<span class="Friends02">110***1100</span>
+			    			<span>
+			    				<span data-value="Numberofinvitations">邀请人数：</span>
+			    				<span class="Friends03">555</span>
+			    			</span>
+			    		</div>
+			    	</div>
+			    	<div class="Friends-but">
+			    		<ul>
+			    			<li data-value="Nickname1">昵称</li>
+			    			<li data-value="Mobile5">手机号码</li>
+			    			<li data-value="Status">激活状态</li>
+			    		</ul>
+			    	</div>
+			    	<div class="Friends-list">
+			    		<div class="mui-scroll-wrapper">
+							<div class="Friends-scroll mui-scroll">
+								<ul class="Friends-ul">
+								</ul>
+							</div>
+						</div>
+			    	</div>
+			    </div>
+			  
+			  
+			  <div class="distribution" style="display: none;">
+			  	<div class="distributionBox">
+			  		<h3 data-value="Pleasechoosethedistributionmethod">请选择分配方式</h3>
+			  		<p data-value="Defaultallocationnode" class="distribution001">默认分配节点</p>
+			  		<p data-value="Manuallyassignnodes" class="distribution002">手动分配节点</p>
+			  	</div>
+			  </div>
+			  
+			  <div class="distribution01" style="display: none;">
+			  	<div class="distributionBox">
+			  		<h3 data-value="Areyousureassigndefaultcontacts">是否确认分配默认接点</h3>
+			  		<p data-value="Confirm" class="distribution003">确定</p>
+			  		<p data-value="Cancel" class="distribution004">取消</p>
+			  	</div>
+			  </div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var userId;
+	var token;
+	var Page;
+	var clientType;
+
+	$(".return").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PopView();
+		}else{
+			window.location.href="../../index.html"
+		}
+	})
+//	请求接口
+	function NodeFor(){
+		getUserInfo(userId,token,clientType)
+		getMyIntroduce(userId,Page,10,token)
+		getMyIntroduceArr.data.list.forEach(function(item){
+			var parentNode1;
+			if(item.parentNode==0){
+				if(localStorage.getItem("set-lan")=="EN"){
+					parentNode1="Inactive"
+				}else{
+					parentNode1="未激活"
+				}
+			}else{
+				if(localStorage.getItem("set-lan")=="EN"){
+					parentNode1="Activated"
+				}else{
+					parentNode1="已激活"
+				}
+			}
+//			var nPhone = item.phone.substr(0, 3) + '****' + item.phone.substring(7, 11)
+			$(".Friends-ul").append("<li>"+"<span>"+item.username+"</span>"+"<span>"+item.phone+"</span>"+"<span>"+parentNode1+"</span>"+"<span style='display: none;'>"+item.id+"</span>"+"<span style='display: none;'>"+item.parentNode+"</span>"+"</li>")
+		})
+	}
+//	循环接口
+	function Friends(){
+		Page=1;
+		NodeFor();
+		$(".Friends001").text(getUserInfoArr.data.username)
+		if(getUserInfoArr.data.avatar!=null){			
+			$(".Friends002").attr("src",getUserInfoArr.data.avatar)
+		}
+		$(".Friends02").text(getUserInfoArr.data.phone)
+		$(".Friends03").text(getMyIntroduceArr.data.total)
+		if(getMyIntroduceArr.data.total>10){
+			Page=Math.ceil(getMyIntroduceArr.data.total/10);
+			for(var i=2;i<=Page;i++){
+				Page=i;
+				NodeFor()
+			}
+		}
+	}
+//	app接口
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		phone=DAPPFramework.SharedBoard.Get("phone")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+		DAPPFramework.View.SetIdentifier("fenpei");
+		Friends()
+	}
+//	判断分配节点结束后的操作
+	function allotNodeStart(item){
+		if(item=="true"){			
+			DAPPFramework.View.Reload()
+		}
+	}
+//	判断是否app
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId");
+		token=ANT.getMessage("token");
+		phone=ANT.getMessage("phone");
+		clientType=1;
+		Friends()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		phone=sessionStorage.getItem("phone")
+		clientType=2
+		Friends()
+	}
+//	点击传ID
+	$(".Friends-ul").on("tap","li",function(){
+		var FriendsSpan03=$(this).children().filter("span:nth-child(3)").text()
+		var FriendsSpan04=$(this).children().filter("span:nth-child(4)").text()
+		var FriendsSpan05=$(this).children().filter("span:nth-child(5)").text()
+		if(FriendsSpan03=="未激活" || FriendsSpan03=="Inactive"){
+			$(".distribution").css("display","flex")
+			$(".distribution001").on("tap",function(){
+				$(".distribution").css("display","none")
+				$(".distribution01").css("display","flex")
+			})
+			$(".distribution004").on("tap",function(){
+				$(".distribution01").css("display","none")
+			})
+			$(".distribution003").on("tap",function(){
+				allotNode(userId,FriendsSpan04,token)
+			})
+			$(".distribution002").on("tap",function(){
+				if(hehe!=undefined){
+					DAPPFramework.SharedBoard.Set("FriendsSpan04",FriendsSpan04)
+					DAPPFramework.View.PushView("src/index/Friends04.html");
+				}else if(AndroidApp=="Android"){
+					ANT.setMessage("FriendsSpan04",FriendsSpan04)
+					ANT.newPage("src/index/Friends04.html")
+				}else{
+					sessionStorage.setItem("FriendsSpan04",FriendsSpan04)
+					window.location.href="Friends04.html"
+				}
+			})
+		}else{
+			if(hehe!=undefined){
+//				DAPPFramework.Controller.SendMessage( "TestIdentifier", "MessageRecver", "HelloTestView" );
+				DAPPFramework.SharedBoard.Set("NodeId",FriendsSpan04)
+				DAPPFramework.SharedBoard.Set("parentNode",FriendsSpan05)
+				DAPPFramework.View.PushView("src/index/Friends02.html");
+			}else if(AndroidApp=="Android"){
+				ANT.setMessage("NodeId",FriendsSpan04)
+				ANT.setMessage("parentNode",FriendsSpan05)
+				ANT.newPage("src/index/Friends02.html")
+			}else{
+				sessionStorage.setItem("NodeId",FriendsSpan04)
+				sessionStorage.setItem("parentNode",FriendsSpan05)
+				window.location.href="Friends02.html"
+			}
+		}
+	})
+	
+</script>

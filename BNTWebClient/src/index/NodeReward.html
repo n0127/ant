@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Nodereward1">节点奖励</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			   <!--节点奖励-->
+			    <div class="posProfit" style="display:flex; flex-direction: column;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Nodereward1">节点奖励</span>
+			    		</div>
+			    		<p></p>
+			    		<p style="display: none;"></p>
+			    	</div>
+			    	<div class="posProfit-details">
+			    		<div class="posProfit-detailsTop">
+			    			<div>
+			    				<span class="tongzhengshuliang">0.00</span>
+			    				<p data-value="YesterdayTokenreward">昨日通证奖励</p>
+			    			</div>
+			    			<div>
+			    				<span class="zichanshuliang">0.00</span>
+			    				<p data-value="CumulativeTokenreward">累计通证奖励</p>
+			    			</div>
+			    		</div>
+			    		<div>
+			    			<div>
+			    				<span class="zuoritong">0.00</span>
+			    				<p data-value="Yesterdayassetaward">昨日资产奖励</p>
+			    			</div>
+			    			<div>
+			    				<span class="leijitong">0.00</span>
+			    				<p data-value="Cumulativeassetaward">累计资产奖励</p>
+			    			</div>
+			    		</div>
+			    	</div>
+			    	<div class="posProfit-list" style="flex: 1; display: flex; flex-direction: column;">
+			    		<div class="posProfit-header">
+			    			<span data-value="Nodereward1">节点奖励</span>
+			    			<span class="Explain-but"><img src="../../img/poswen.png"/><span data-value="Noderewarddescription">节点奖励说明</span></span>
+			    		</div>
+			    		<div class="posProfit-list01" style="flex: 1; display: flex; flex-direction: column;">
+			    			<div class="posProfit-list01Header">
+			    				<span data-value="Recentnodereward">近期节点奖励</span>
+			    				<span data-value="Reward">奖励</span>
+			    			</div>
+			    			<div class="posProfit-listScoll" style="flex: 1;">
+				    			<div class="mui-scroll-wrapper">
+									<div class="mui-scroll" style="padding-bottom: 0;">
+										<ul class="posProfit-ul">
+						    				<!--<li>
+						    					<div>
+						    						<span class="posId">10000</span>
+						    						<span class="posTime">2018/08/16 11:22</span>
+						    					</div>
+						    					<span class="posBianhua">+0.0000</span>
+						    				</li>-->
+						    			</ul>
+									</div>
+								</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script>
+	var userId;
+	var Page;
+	var token;
+	var Ant;
+	var rightstart=true;
+	var clientType;
+//	请求接口
+	function posProfit(){
+		getAntBananceLogList(userId,token,3,Page,10)
+		getAntBananceLogListArr01.sort(function (b, a) { return new Date(a.changeTime).getTime() - new Date(b.changeTime).getTime() });
+		getAntBananceLogListArr01.forEach(function(item){
+			var time=formatDate(new Date(item.changeTime*1000))
+			if(item.isAnt==1){
+				if(localStorage.getItem("set-lan")=="EN"){
+					Ant="+"+item.changeAmount.toFixed(2)+"Token"
+				}else{
+					Ant="+"+item.changeAmount.toFixed(2)+"通证"
+				}
+			}else{
+				if(localStorage.getItem("set-lan")=="EN"){
+					Ant="+"+item.changeAmount.toFixed(2)+"Asset"
+				}else{
+					Ant="+"+item.changeAmount.toFixed(2)+"资产"
+				}
+			}
+			$(".posProfit-ul").append("<li>"+"<div>"+"<span>"+item.changeDesc.substr(0,2)+"</span>"+"<span>"+time+"</span>"+"</div>"+"<span>"+Ant+"</span>"+"</li>")
+		})
+	}
+//	循环接口
+	function NodeReward(){
+		Page=1;
+		posProfit()
+		$(".tongzhengshuliang").text(getAntBananceLogListArr.data.yestoday_node_ant_earnings.toFixed(2))
+		$(".zichanshuliang").text(getAntBananceLogListArr.data.history_node_ant_earnings.toFixed(2))
+		$(".zuoritong").text(getAntBananceLogListArr.data.yestoday_node_score_earnings.toFixed(2))
+		$(".leijitong").text(getAntBananceLogListArr.data.history_node_score_earnings.toFixed(2))
+		if(getAntBananceLogListArr01.length>10){
+			Page=Math.ceil(getMyIntroduceArr.data.total/10);
+			for(var i=2;i<=Page;i++){
+				page=i;
+				posProfit()
+			}
+		}
+		
+	}
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId")
+		token=ANT.getMessage("token")
+		clientType=1
+		NodeReward()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		NodeReward()
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+		NodeReward()
+		if(userId==undefined){
+			DAPPFramework.Controller.JumpToStartPage();
+		}
+		DAPPFramework.View.SetNavgationRightItem( "phone/wallet-set@3x.png", "setright" )
+	}
+	
+	$(".Explain-but").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/Explain.html?Explain=3");
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("src/index/Explain.html","&Explain=3")
+		}else{
+			window.location="Explain.html?Explain=3"
+		}
+	})
+	
+	$(".public-header>p:nth-child(2)").on("tap",function(){
+		$(".public-header>p:nth-child(2)").css("display","none")
+		$(".public-header>p:nth-child(3)").css("display","block")
+		$(".tongzhengshuliang").text("****")
+		$(".zichanshuliang").text("****")
+		$(".zuoritong").text("****")
+		$(".leijitong").text("****")
+	})
+	$(".public-header>p:nth-child(3)").on("tap",function(){
+		$(".public-header>p:nth-child(3)").css("display","none")
+		$(".public-header>p:nth-child(2)").css("display","block")
+		$(".tongzhengshuliang").text(getAntBananceLogListArr.data.yestoday_node_ant_earnings.toFixed(2))
+		$(".zichanshuliang").text(getAntBananceLogListArr.data.history_node_ant_earnings.toFixed(2))
+		$(".zuoritong").text(getAntBananceLogListArr.data.yestoday_node_score_earnings.toFixed(2))
+		$(".leijitong").text(getAntBananceLogListArr.data.history_node_score_earnings.toFixed(2))
+	})
+	
+	function setright(){
+		if(rightstart){
+			DAPPFramework.View.SetNavgationRightItem( "phone/wallet-set01@3x.png", "setright" )
+			$(".tongzhengshuliang").text("****")
+			$(".zichanshuliang").text("****")
+			$(".zuoritong").text("****")
+			$(".leijitong").text("****")
+			rightstart=false
+		}else{
+			DAPPFramework.View.SetNavgationRightItem( "phone/wallet-set@3x.png", "setright" )
+			rightstart=true
+			$(".tongzhengshuliang").text(getAntBananceLogListArr.data.yestoday_node_ant_earnings.toFixed(2))
+			$(".zichanshuliang").text(getAntBananceLogListArr.data.history_node_ant_earnings.toFixed(2))
+			$(".zuoritong").text(getAntBananceLogListArr.data.yestoday_node_score_earnings.toFixed(2))
+			$(".leijitong").text(getAntBananceLogListArr.data.history_node_score_earnings.toFixed(2))
+		}
+	}
+</script>

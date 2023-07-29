@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title data-value="loging2.0_99">提币</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/icons-extra.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/powerange.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<style>
+			.Explain-title{
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cebian-AboutUs" style="display: block;">
+			<div class="public-header">
+				<div class="return">
+					<span class="mui-push-left" style="color: #010101;"></span>
+					<span data-value="loging2.0_99" class="Explain-title">提币(ANT)</span>
+				</div>
+			</div>
+			<!--<ul class="withdraw-hint">
+				<li>支持金额：最低提币金额为1ANT。</li>
+				<li>提现限制：您的24H提币额度为10000ANT。</li>
+				<li>提现矿工费：根据您所选择消耗的矿工费快慢不同而不同。</li>
+				<li>提币地址：您的提币地址即您交易平台账号的充币地址，每个交易平台中的每个币种都对应一个地址；要把您的资产从钱包提到交易平台，您只需填写对应交易平台的对应币种的充币地址即可。</li>
+			</ul>-->
+			<div class="withdraw-address">
+				<div>
+					<span data-value="loging2.0_116">提币地址</span>
+					<img class="saosao" src="../img/scan-it.png" />
+				</div>
+				<div class="withdraw-input">
+					<input type="text" />
+					<img src="../img/clear.png"/>
+				</div>
+			</div>
+			<div class="withdraw-quantity">
+				<p data-value="loging2.0_117">提币数量</p>
+				<div>
+					<input type="text" oninput="value=value.replace(/[^\d||.]/g,'')" /><span class="unit">ANT</span>
+				</div>
+				<div>
+					<span><span data-value="loging2.0_118">当前可用</span> <span data-value="loging2.0_102" class="usable">正在获取...</span>&nbsp;<span class="unit">ANT</span></span>
+					<!--<span data-value="loging2.0_126" id="all">提取全部</span>-->
+				</div>
+			</div>
+			<button data-value="loging2.0_125" class="confirm-withdraw">确认提币</button>
+			<ul class="withdraw-hint">
+				<li data-value="loging2.0_119">支持金额：最低提币金额为1ANT。</li>
+				<li data-value="loging2.0_120">提现限制：您的24H提币额度为10000ANT。</li>
+				<li data-value="loging2.0_121">提现矿工费：根据您所选择消耗的矿工费快慢不同而不同。</li>
+				<li data-value="loging2.0_122">提币地址：您的提币地址即您交易平台账号的充币地址，每个交易平台中的每个币种都对应一个地址；要把您的资产从钱包提到交易平台，您只需填写对应交易平台的对应币种的充币地址即可。</li>
+			</ul>
+		</div>
+		<div class="publicPas">
+			<div>
+				<div class="publicPasTitle">
+					<span data-value="loging2.0_123">提币确认</span>
+					<p class="publicPasTitleDown mui-icon mui-icon-closeempty"></p>
+				</div>
+				<div class="rangeBox">
+					<p data-value="loging2.0_127">矿工费</p>
+					<div class="rangeText">
+						<div>
+							<span class="gasPrice">0.00042</span>
+							<p>ETHER</p>
+						</div>
+						<p data-value="loging2.0_128">预计1小时内完成交易</p>
+					</div>
+					<div class="slider-wrapper">
+						<input type="text" class="js-step" />
+					</div>
+					<div class="speed">
+						<span data-value="loging2.0_129">慢</span>
+						<span data-value="loging2.0_130">正常</span>
+						<span data-value="loging2.0_131">快</span>
+					</div>
+				</div>
+				<div class="publicPasInput">
+					<p data-value="loging2.0_75">私钥密码</p>
+					<input data-value="loging2.0_76" type="password" placeholder="请输入来源地址对应的私钥密码" />
+				</div>
+				<div class="publicPasBut">
+					<button data-value="loging2.0_77">确认发送</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../js/mui.js" charset="utf-8"></script>
+<script src="../../js/jquery-3.3.1.min.js" charset="utf-8"></script>
+<script src="../../js/rem.js" charset="utf-8"></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script src="../js/powerange.min.js" charset="utf-8"></script>
+<script src="../js/watch.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script src="../js/base.js" charset="utf-8"></script>

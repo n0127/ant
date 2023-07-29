@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Friends">好友</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.poppicker.css"/>
+	</head>
+	<body>
+
+			  <!--fa-->
+			    <div class="AssetDetails" style="display: flex;flex-direction: column;">
+			    	<div class="public-header" style="color: #be0016; border-bottom: 1px solid #be0016;">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Friends">好友</span>
+			    		</div>
+			    	</div>
+			    	<div class="AssetDetails-box" style="flex: 1; position: relative;">
+			    		<div class="FriendSearch">
+			    			<input data-value="Mobile5" type="text" placeholder="手机号码"/>
+			    			<img src="../../img/red/RedEnvelopeFriendS.png" />
+			    		</div>
+			    		<div class="GameRecordList01">
+				    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 40px;">
+								<div style="padding-bottom: 40px;" class="mui-scroll">
+			    					<ul class="RedEnvalopeFriendPublic">
+			    						<!--<li><div><span>ID:100001</span><span>13100000000</span></div><button>添加</button></li>
+			    						<li><div><span>ID:100001</span><span>13100000000</span></div><button>添加</button></li>
+			    						<li><div><span>ID:100001</span><span>13100000000</span></div><button>添加</button></li>
+			    						<li><div><span>ID:100001</span><span>13100000000</span></div><button>添加</button></li>
+			    						<li><div><span>ID:100001</span><span>13100000000</span></div><button>添加</button></li>-->
+			    					</ul>
+			    				</div>
+				    		</div>
+			    		</div>
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/mui.picker.js" ></script>
+<script type="text/javascript" src="../../js/mui.poppicker.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script>
+	
+	var userId;
+	var	token;
+	var clientType;
+	var language;
+	var Page=1;
+	var FriendArr=[];
+	
+	
+	//	请求接口
+	function NodeFor(){
+		getMyIntroduce(userId,Page,10,token)
+		getMyIntroduceArr.data.list.forEach(function(item){
+			FriendArr.push(item)
+			if(localStorage.getItem("set-lan")=="EN"){
+				$(".RedEnvalopeFriendPublic").append("<li><div><span>"+"ID:"+item.id+"</span><span>"+item.phone+"</span></div><button data-text='"+item.phone+"'>add</button></li>")
+			}else{
+				$(".RedEnvalopeFriendPublic").append("<li><div><span>"+"ID:"+item.id+"</span><span>"+item.phone+"</span></div><button data-text='"+item.phone+"'>添加</button></li>")
+			}
+		})
+	}
+	
+	function Friends(){
+		NodeFor()
+		if(getMyIntroduceArr.data.total>=10){
+			Page++;
+			NodeFor()
+		}
+	}
+	
+	if(hehe!=undefined){
+		
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		Friends()
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId");
+		token=DAPPFramework.Storage.Get("token");
+		clientType=1;
+		Friends()
+	}
+	
+	$(".FriendSearch").on("keyup","input",function(){
+		var SearchValue=$(this).val();
+		$(".RedEnvalopeFriendPublic").empty()
+		if(SearchValue!=""){
+			FriendArr.forEach(function(item){
+				var zheng=new RegExp(SearchValue,"g")
+				if(zheng.test(item.phone)){
+					if(localStorage.getItem("set-lan")=="EN"){
+						$(".RedEnvalopeFriendPublic").append("<li><div><span>"+"ID:"+item.id+"</span><span>"+item.phone+"</span></div><button data-text='"+item.phone+"'>add</button></li>")
+					}else{
+						$(".RedEnvalopeFriendPublic").append("<li><div><span>"+"ID:"+item.id+"</span><span>"+item.phone+"</span></div><button data-text='"+item.phone+"'>添加</button></li>")
+					}
+				}
+			})
+		}else{
+			NodeFor()
+		}
+	})
+	
+	$(".RedEnvalopeFriendPublic").on("tap","button",function(){
+		if(hehe!=undefined){
+			DAPPFramework.SharedBoard.Set("FriendPhone",$(this).attr("data-text"))
+			DAPPFramework.View.PopView()
+			DAPPFramework.Controller.SendMessage( "FriendPhone666", "FriendPhoneSet", "true" );
+		}else{
+			sessionStorage.setItem("FriendPhone",$(this).attr("data-text"))
+			history.back()
+		}
+	})
+</script>

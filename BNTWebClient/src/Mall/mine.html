@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="">我的</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+		<!--我的-->
+	    <div class="PublicFixedBox">
+	    	<div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+	    		<span class="loginTitle" data-value="">我的</span>
+	    	</div>
+	    	<div class="PublicScrollBox" style="padding-bottom: 3.111111rem;">
+	    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 3.111111rem;">
+					<div style="padding-bottom: 0;" class="mui-scroll">
+    					<div class="mine">
+    						<div class="tou-img"></div>
+    						<img src="../../img/mine/mineBg.png" />
+    						<div class="mineTop">    		
+    							<div class="tou-img">
+    								<img class="touxiang-img" style="width: 3.777777rem; height: 3.777777rem;" src="../../img/mine/mineTouxiang.png" />
+    								<img src="../../img/indexVIP.png"/>
+    							</div>
+    							<span><span class="username">137236</span><img src="../../img/tou-namexiugai.png"/></span>
+    							<div class="mineText">
+    								<div>
+    									<span class="phone">13766668888</span>
+    									<p data-value="Mobile5">手机号码</p>
+    								</div>
+    								<div>
+    									<span class="userId">137236</span>
+    									<p data-value="loging2.0_245">推荐码</p>
+    								</div>
+    							</div>
+    							<div class="mineSetting">
+    								<!--<img src="../../img/mine/mineSetting.png" />-->
+    								<div>
+			          					<span><img src="../../img/indexVIP01.png"/></span>
+			          					<span>Lv1</span>
+			          				</div>
+    							</div>
+    						</div>
+    						<div class="mineBottom">
+    							<ul>
+    								<li data-state="0" class="shangjiashenqing">
+    									<img style="width:1.277777rem; height: 1.277777rem;" src="../../img/mine/mine01.png" />
+    									<span data-value="">个人中心</span>
+    									<p>未开通</p>
+    								</li>
+    								<li class="cebian03">
+    									<img style="width: 1.055555rem; height: 1.24074rem;" src="../../img/mine/mine02.png" />
+    									<span data-value="loging2.0_66">私钥管理</span>
+    								</li>
+    							</ul>
+    							<ul>
+    								<li class="weikaifang">
+    									<img src="../../img/mine/mine03.png" />
+    									<span data-value="loging2.0_246">语言设置</span>
+    								</li>
+    								<li class="weikaifang">
+    									<img src="../../img/mine/mine04.png" />
+    									<span data-value="Versiondetection">版本检测</span>
+    								</li>
+    								<li class="AboutUs">
+    									<img src="../../img/mine/mine05.png" />
+    									<span data-value="Aboutus">关于我们</span>
+    								</li>
+    								<!--<li class="removelogin">
+    									<img style="width: 1.259259rem; height: 1.203703rem;" src="../../img/mine/mine06.png" />
+    									<span data-value="Logout">退出登录</span>
+    								</li>-->
+    							</ul>
+    						</div>
+    						<button class="removelogin" data-value="Logout" >退出登录</button>
+    					</div>
+    				</div>
+	    		</div>
+	    	</div>
+	    	<!--底部导航栏-->
+		    <div class="bottom-nav">
+		      	<ul>
+		      		<li><a href="../../index.html"><img src="../../phone/sy@3x.png"/><span data-value="Home">首页</span></a></li>
+		      		<li><a href="../../wallet/home.html"><img src="../../phone/qb@3x.png"/><span data-value="Wallet">钱包</span></a></li>
+		      		<li><a href="../transaction/transaction.html"><img src="../../phone/jy@3x.png"/ ><span data-value="Trades">交易</span></a></li>
+		      		<li><a href="#"><img src="../../phone/scl@3x.png"/><span style="color: #00b07c;" data-value="Mall">商城</span></a></li>
+		      	</ul>
+		    </div>
+	    </div>
+	</body>
+</html>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js" ></script>
+<script>eruda.init();</script>-->
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/md5.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var language;
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId");
+		token=DAPPFramework.Storage.Get("token");
+		clientType=1;
+		userinfo()
+		$(".removelogin").on("tap",function(){
+			if(localStorage.getItem("set-lan")=="EN"){
+				DAPPFramework.Dialog.Alert("","Whether to log out",["Cancel","Confirm"],[0,2],"RemoveLogin")
+			}else{
+				DAPPFramework.Dialog.Alert("","是否退出登录",["取消","确定"],[0,2],"RemoveLogin")
+			}
+		})
+		DAPPFramework.View.SetIdentifier( "ShenQing" );
+	}
+	
+	function userinfo(){
+		indexData(userId,token,clientType)
+		getUserInfo(userId,token,clientType)
+		
+		$(".username").text(indexziliao.data.username)
+		$(".phone").text(getUserInfoArr.data.phone)
+		$(".userId").text(getUserInfoArr.data.id)
+		if(getUserInfoArr.data.avatar!=null){
+			$(".touxiang-img").attr("src",getUserInfoArr.data.avatar)
+		}
+		if(Number(indexziliao.data.isVip)){
+			$(".tou-img>img:nth-child(1)").css("border","2px solid #dcbe6f")
+			$(".tou-img>img:nth-child(2)").show()
+			$(".mineSetting>div>span:nth-child(1)").css("display","inline-block")
+		}
+		if(Number(indexziliao.data.isMerchant)){
+			$(".mineSetting>div>span:nth-child(2)").css("display","inline-block")
+			$(".mineSetting>div>span:nth-child(2)").text("Lv"+indexziliao.data.isMerchant)
+			
+			$(".shangjiashenqing").attr("data-state","2")
+			$(".shangjiashenqing>p").text("已开通")
+			$(".shangjiashenqing>p").css("color","#00b07c")
+		}else{
+			$(".mineSetting>div>span:nth-child(2)").css("display","none")
+			
+			queryMerchantApplyStatus(userId,token)
+			if(queryMerchantApplyStatusArr.data.approvalStatus == 10){
+				$(".shangjiashenqing>p").text("未开通")
+				$(".shangjiashenqing").attr("data-state","0")
+			}else if(queryMerchantApplyStatusArr.data.approvalStatus == 0){
+				$(".shangjiashenqing>p").text("正在审核中")
+				$(".shangjiashenqing").attr("data-state","1")
+			}else if(queryMerchantApplyStatusArr.data.approvalStatus == 2){
+				$(".shangjiashenqing>p").text("审批未通过")
+				$(".shangjiashenqing").attr("data-state","3")
+			}else{
+				$(".shangjiashenqing>p").text("已开通")
+				$(".shangjiashenqing").attr("data-state","2")
+				$(".shangjiashenqing>p").css("color","#00b07c")
+			}
+		}
+	}
+	
+	function ShenQingFun (){
+		queryMerchantApplyStatus(userId,token)
+		
+		if(queryMerchantApplyStatusArr.data.approvalStatus == 10){
+			$(".shangjiashenqing>p").text("未开通")
+			$(".shangjiashenqing").attr("data-state","0")
+		}else if(queryMerchantApplyStatusArr.data.approvalStatus == 0){
+			$(".shangjiashenqing>p").text("正在审核中")
+			$(".shangjiashenqing").attr("data-state","1")
+		}else if(queryMerchantApplyStatusArr.data.approvalStatus == 2){
+			$(".shangjiashenqing>p").text("审批未通过")
+			$(".shangjiashenqing").attr("data-state","3")
+		}else{
+			$(".shangjiashenqing>p").text("已开通")
+			$(".shangjiashenqing").attr("data-state","2")
+			$(".shangjiashenqing>p").css("color","#00b07c")
+		}
+	}
+	
+	function RemoveLogin(item){
+		if(item=="确定"||item=="Confirm"){
+			DAPPFramework.Storage.Remove("userId")
+			DAPPFramework.SharedBoard.Remove("selectCode")
+			DAPPFramework.Storage.Remove("token")
+			DAPPFramework.Storage.Remove("VurrentValue")
+			DAPPFramework.Storage.Remove("Cache")
+			DAPPFramework.Controller.JumpToStartPage();
+			DAPPFramework.Controller.SetNextStartPage("Start");
+		}
+	}
+	
+
+//	url取值
+	function GetQueryString(name) {
+	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	    var r = window.location.search.substr(1).match(reg);
+	    if (r != null) return unescape(r[2]); return null;
+	}
+	
+//	判断是否app
+	var hehe=GetQueryString("DAPPEngine")
+	if(hehe!=undefined){
+		$(".public-header").css("display","none")
+	}
+
+//	修改名字
+	$(".username").on("tap",function(){
+		if(hehe!=undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				mui.prompt('','Enter a name','Modify name',['confirm','cancel'],xiugaiusername,'div')
+			}else{
+				mui.prompt('','输入名称','修改名称',['确认','取消'],xiugaiusername,'div')
+			}		
+		}
+	})
+	function xiugaiusername(data){
+		if(data.index==0){
+			updateUserInfo(userId,data.value,token)
+			if(updateUserInfoArr.code==1){
+				$(".username").text(data.value)
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("Successful")
+				}else{
+					alert("修改成功")
+				}
+			}else{
+				alert(updateUserInfoArr.message)
+				$(".username").val(getUserInfoArr.data.username)
+			}
+		}
+	}
+	
+//安全中心
+	$(".cebian03").on("tap",function(){
+		if(hehe!=undefined){			
+			DAPPFramework.View.PushView("src/sidebar/Key/PrivateKeyManagement.html");
+		}
+	})
+
+//关于我们
+	$(".AboutUs").on("tap",function(){
+		if(hehe!=undefined){			
+			DAPPFramework.View.PushView("src/sidebar/cebian-AboutUs.html");
+		}
+	})
+	
+//商家申请
+	$(".shangjiashenqing").on("tap",function(){
+		if(hehe!=undefined){
+			if($(this).attr("data-state")=="0" || $(this).attr("data-state")=="3"){
+				DAPPFramework.View.PushView("src/Mall/Application.html");
+			}else if($(this).attr("data-state")=="1"){
+				alert("正在审核中")
+			}else{
+				alert("已开通")
+			}
+		}
+	})
+		
+//上传头像
+
+	function convertBase64UrlToBlob(urlData) {
+	   const bytes = window.atob(urlData.split(',')[1]);        // 去掉url的头，并转换为byte
+	   // 处理异常,将ascii码小于0的转换为大于0
+	   const ab = new ArrayBuffer(bytes.length);
+	   const ia = new Uint8Array(ab);
+	   for (let i = 0; i < bytes.length; i++) {
+	       ia[i] = bytes.charCodeAt(i);
+	   }
+	   return new Blob([ab], { type: 'image/png' });
+	}
+	$(".tou-img").on("tap",function(){
+		DAPPFramework.Camera.Album(512, "AlbumCallBackFunc");
+//		var file=this.files[0];
+//		if(!/image\/\w+/.test(file.type)){ 
+//	        alert("请确保文件为图像类型"); 
+//	        return false; 
+//      }
+		
+	})
+	function AlbumCallBackFunc(item){
+		var fileDate=new FormData();
+		fileDate.append("userId",userId)
+		fileDate.append("token",token)
+		fileDate.append("avatar",convertBase64UrlToBlob(item))
+		fileDate.append("timestamp",new Date().getTime())
+		fileDate.append("sign",6666)
+		fileDate.append("clientType",clientType)
+		$.ajax({
+			type:"post",
+			dataType : "json",
+			url:"http://bnt.yfsz.top/user/doUploadAvatar",//192.168.31.135:80mobileapi.fuyer.com
+			async: false,
+			data:fileDate,
+			cache:false,         //不设置缓存
+		  	processData:false,  // 不处理数据
+		  	contentType:false,  // 不设置内容类型
+			success:function(result){
+				if(result.code==1){
+					updateUserInfo01(userId,token,result.data,getUserInfoArr.data.username)
+					if(updateUserInfo01Arr.code==1){
+						alert("上传成功")
+						getUserInfo(userId,token,clientType)
+						if(getUserInfoArr.code==1){
+							$(".touxiang-img").attr("src",getUserInfoArr.data.avatar)
+						}
+					}else{
+						alert(updateUserInfo01Arr.message)
+					}
+				}else{
+					alert(result.message)
+				}
+			},
+			error:function(data){
+				alert(data)
+			}
+		})
+	}
+</script>

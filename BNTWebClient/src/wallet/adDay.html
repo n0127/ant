@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>每日红包大转盘</title>
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+          name="viewport"/>
+    <link href="../../css/mui.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/index.css" rel="stylesheet" type="text/css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+<div class="PublicFixedBox">
+    <div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+        <div class="return">
+            <div class="mui-push-left" onclick="javascript:AD.adClose()"></div>
+            <span class="loginTitle">每日奖品大转盘</span>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+</html>
+<script>
+
+    let fishFlag = false;
+
+    let jsonArr = [
+        "https://pre.seeease.com/h5/h5/award/index.html?" + location.href.split("?")[1] + "&t=" + new Date().getTime()
+//"https://ad.yfsz.top/h5/html/task/index.html"
+//         "https://ant.p4j.cn"
+    ];
+    let show = null;
+
+    if(location.href.indexOf("474869")>-1){
+    	jsonArr=["https://ad.yfsz.top/h5/html/task/index.html"]
+    }
+
+    let storeKey = new Date().getTime() + "_adDayList";
+
+    let store = localStorage.getItem(storeKey);
+    let storeJson = {};
+
+
+    if (store != null) {
+
+        storeJson = JSON.parse(store);
+
+        for (let i = 0; i < jsonArr.length; i++) {
+            let breakFlag = false;
+
+            for (let k in storeJson) {
+
+                if (jsonArr[i] == storeJson[k]) {
+                    breakFlag = true;
+                    break
+                }
+            }
+            if (!breakFlag) {
+                show = jsonArr[i];
+                storeJson[hash(show)] = show;
+                break
+            }
+        }
+
+    } else {
+        show = jsonArr[0];
+        storeJson[hash(show)] = show
+
+
+    }
+
+    localStorage.setItem(storeKey, JSON.stringify(storeJson));
+
+    setTimeout(function () {
+        document.getElementById("closeAD").style.display = "block";
+    }, 700);
+
+
+    if (Object.keys(storeJson).length == jsonArr.length) {
+        fishFlag = true
+    }
+
+    let myIframe = document.createElement("iframe");
+    myIframe.allowFullscreen = true;
+    myIframe.frameBorder = "0";
+    myIframe.height = window.screen.height + "px";
+    myIframe.width = document.documentElement.clientWidth + "px";
+    myIframe.src = show;
+
+    document.getElementsByClassName("PublicFixedBox")[0]
+        .append(myIframe);
+
+    function hash(str) {
+        console.log(str);
+        console.log(encodeURIComponent(str));
+        return encodeURIComponent(str)
+    }
+</script>
+
+<script src="../../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="../../js/mui.js" type="text/javascript"></script>
+<script src="../../js/rem.js" type="text/javascript"></script>
+<script src="../../js/LanguagePackage.js" type="text/javascript"></script>
+<script src="../../js/language.js" type="text/javascript"></script>
+<script src="../../js/ajax.js" type="text/javascript"></script>
+<script>
+    document.getElementsByTagName("button")[0]
+        .style.margin = (Math.ceil(Math.random() * 80) + 10) + "px";
+</script>

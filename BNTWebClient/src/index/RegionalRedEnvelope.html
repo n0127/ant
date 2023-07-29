@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh_CN"  class="hairlines">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1,user-scalable=no">
+		<title data-value="Lucky red packet">锦鲤红包</title>
+		<link rel="stylesheet" href="../../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" href="../../css/red.css" />
+		<style>
+			.public-header{
+				height: 1.185185rem;
+				border-bottom: 1px solid #be0016;
+				justify-content: space-between;
+			}
+			.public-header>div>span{
+				font-size: 0.45rem;
+				color: #be0016;
+			}
+			.public-header a{
+				font-size: 0.388888rem;
+				color: #b11c1b;
+			}
+			.mui-navigate-right:after, .mui-push-left:after, .mui-push-right:after{
+				font-size: 0.65rem;
+				color: #be0016;
+			}
+			.comebank{
+				position: relative;
+				z-index: 9999;
+				display: none;
+				padding: 0.185185rem;
+			}
+			.comebank .but{
+				height: 2.185185rem;
+				width: 2.185185rem;
+			}
+			.comebank .mui-push-left:after{
+				font-size: 0.9rem;
+				left: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			.hongbaojilu{
+				position: absolute;
+				right: 0.185185rem;
+				top: 40%;
+				color: #b11c1b;
+				transform: translateY(-50%);
+			}
+			.Notice h3{
+				margin: 0.3rem 0;
+			}
+			.redEnvelopeReceive02>center{
+				padding: 0 1.5rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<audio style="visibility: hidden;" id="audio" src="../../img/red/5018.mp3"></audio>
+		<div id="container">
+			<div class="public-header">
+	    		<div class="return">
+	    			<div class="mui-push-left"></div>
+	    			<span data-value="Lucky red packet">锦鲤红包</span>
+	    		</div>
+	    		<a data-value="History of red packets" href="#">红包记录</a>
+	    	</div>
+	    	<div class="comebank">
+	    		<div class="but">	    			
+	    			<div class="mui-push-left"></div>
+	    		</div>
+	    		<div data-value="History of red packets" class="hongbaojilu">红包记录</div>
+	    	</div>
+	    	
+			<div id="root">
+				<div class="shake-page">
+					<div class="watcher-shake"></div>
+					<div class="display-cover-koi">
+						<div class="display-koi-bg"></div>
+						<div class="display-koi-board">
+							<div class="avatar-container">
+								<div class="avatar"><img class="icon-avatar" src="../../img/red/redlogoAvatar.png"/></div>
+								<div class="shirk"></div>
+								<!--<div class="avatar-tips"></div>-->
+							</div>
+							<div class="board-wrapper">
+								<div class="b-front">
+									<div style="line-height: 1.2;" class="p1">恭喜发财大吉大利</div>
+									<!--<div class="p2">20点</div>-->
+									<!--<div class="p1"></div>-->
+								</div>
+								<div class="b-back">
+									<div style="line-height: 1.2;" class="p1">恭喜发财大吉大利</div>
+									<!--<div class="p2">x1.2</div>
+									<div class="p3">倍</div>-->
+								</div>
+							</div>
+						</div>
+						<div class="display-koi-yao">
+							<p data-value="Shake">摇一摇</p>
+							<span data-value="Grab the asset red packet">抢资产红包</span>
+						</div>
+						<div class="display-koi-redPhoneBg" >
+							<img src="../../img/red/redBg.png" />
+							<!--<p>今日领取了5个锦鲤红包</p>-->
+							<br/><span data-value="RedEnvelopeText6">活动介绍</span>
+						</div>
+						<div class="display-koi-redEnvelopeReceive">
+							<div class="redEnvelopeReceive01">
+								<h3 data-value="Congratulations on receiving a red packet of assets">恭喜您获得一个<br />资产红包</h3>
+								<div>
+									<span></span>
+									<p data-value="Valid on the day">仅当天有效</p>
+									<span></span>
+								</div>
+							</div>
+							<div class="redEnvelopeReceive02">
+								<span data-value="Congratulations on receiving the asset red packet">恭喜获得资产红包</span>
+								<h2>1000.00</h2>
+								<p data-value="Asset">资产</p>
+								<center data-value="loging2.0_202">留言</center>
+								<div data-value="loging2.0_203">存入资产</div>
+							</div>
+						</div>
+						<div class="display-koi-fish">
+							<div class="fish animation"></div>
+							<div class="fish-img hidden"></div>
+						</div>
+						<div class="display-koi-button">
+							<button data-value="Ordinary red packet1">发普通红包</button>
+							<button data-value="Area red packet">发区域红包</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--公告-->
+		<div class="Notice">
+			<div class="Notice-con">
+				<h3 data-value="RedEnvelopeText6">活动介绍</h3>
+				<div>
+					<div style="background: transparent; " class="mui-content mui-scroll-wrapper index"  id="refreshContainer">
+	     				<div class="mui-scroll" style="padding-bottom: 0;">
+							<p data-value="RedEnvelopeTitle">ANT红包功能介绍：</p>
+							<p data-value="RedEnvelopeText1">在中国传统春节到来之际，ANT红包功能正式上线啦！</p>
+							<p data-value="RedEnvelopeText2">小伙伴们可以用资产给亲朋好友们发贺年红包啦，送上祝福，带去好运！</p>
+							<p data-value="RedEnvelopeText3">今年过节不收礼，收礼只收ANT。</p>
+							<p data-value="RedEnvelopeText4">区域红包：选择某个省、市、地区，输入资产数量后，点击发送即可让该区域所有会员通过ANT摇一摇领取到你的祝福红包。</p>
+							<p data-value="RedEnvelopeText5">普通红包：输入亲朋好友的ANT账号后，输入资产数量，即可把祝福和好运以红包的形式发给亲朋好友。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	//	rem布局
+	var html=document.documentElement;
+	var htmlWidth=html.getBoundingClientRect().width
+	$("html").css("font-size",htmlWidth/10);
+	
+	
+	var userId;
+	var	token;
+	var	phone;
+	var clientType;
+	var language;
+	var text1;
+	var text2;
+	var offset=0;
+
+	
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+		$(".redEnvelopeReceive01").css("background-image","url(../../img/red/RedEnvelopeBgEn.png)")
+	}else{
+		language="cn"
+	}
+	
+	$(".display-koi-button>button:nth-child(1)").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/OrdinaryRedEnvelope.html?RedEnvelope=0");
+		}else{
+			window.location.href="OrdinaryRedEnvelope.html?RedEnvelope=0"
+		}
+	})
+	$(".display-koi-button>button:nth-child(2)").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/OrdinaryRedEnvelope.html?RedEnvelope=1");
+		}else{
+			window.location.href="OrdinaryRedEnvelope.html?RedEnvelope=1"
+		}
+	})
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId");
+		token=DAPPFramework.Storage.Get("token");
+		clientType=1;
+		
+		DAPPFramework.Devices.GetLocation("Geography")
+		DAPPFramework.Devices.SetShaker("ShakerCallback")
+//		$(".display-koi-yao").css("top","1rem")
+		$(".display-koi-fish .fish.animation").css("animation-name","keyframes-fish666")
+		$(".comebank").show()
+		$(".comebank").css("top","0.5rem")
+		$(".comebank .but").on("tap",function(){
+			DAPPFramework.View.PopView();
+		})
+		lingquhongbao()
+		
+	}
+	function lingquhongbao(){
+		var flag=true;
+		geSingleEnvelopeList(userId,token,clientType,language,offset,0)
+		console.log(geSingleEnvelopeListArr.data.length)
+		if(geSingleEnvelopeListArr.data.length){
+			$(".display-koi-redEnvelopeReceive").css("display","flex")
+			$(".redEnvelopeReceive01").fadeIn()
+			$(".redEnvelopeReceive01").on("tap",function(){
+				$(".redEnvelopeReceive01").css("display","none")
+				if($(".redEnvelopeReceive01").css("display")=="none"){			
+					$(".redEnvelopeReceive02").fadeIn()
+					$(".redEnvelopeReceive02>h2").text(geSingleEnvelopeListArr.data[0].amountScore.toFixed(2))
+					$(".redEnvelopeReceive02").attr("data-red",geSingleEnvelopeListArr.data[0].id)
+					$(".redEnvelopeReceive02>center").text(geSingleEnvelopeListArr.data[0].memo)
+				}
+			})
+			$(".redEnvelopeReceive02").on("tap",function(){
+				var Id=$(this).attr("data-red")
+				if(flag){					
+					drawSingleEnvelope(userId,token,clientType,language,Id)
+					if(drawSingleEnvelopeArr.code==1){
+						flag=false
+						$(".redEnvelopeReceive02").hide()
+						alert("领取成功")
+						$(".display-koi-redEnvelopeReceive").hide()
+						if(geSingleEnvelopeListArr.data.length==1){
+							lingquhongbao=null;
+						}else{
+							lingquhongbao()
+						}
+					}else{
+						alert(drawSingleEnvelopeArr.message)
+					}
+				}
+			})
+		}
+	}
+	function Geography(data1,data2){
+		text1=data1;
+		text2=data2;
+	}
+	
+	var Wechat=document.getElementById("audio")
+	function ShakerCallback(){
+		if($(".redEnvelopeReceive01").css("display")=="none" && $(".redEnvelopeReceive02").css("display")=="none"){
+			$(".display-koi-redPhoneBg>img").css("animation-name","xuanzhuantiaoyue")
+			drawPeopleEnvelope(userId,token,clientType,language,text2,text1)
+			Wechat.play()
+			setTimeout(function(){
+				$(".display-koi-redPhoneBg>img").removeAttr("style")
+				if(drawPeopleEnvelopeArr.code==1){
+					$(".display-koi-redPhoneBg").hide()
+					$(".display-koi-redEnvelopeReceive").css("display","flex")
+					$(".redEnvelopeReceive01").fadeIn()
+				}else{
+					alert(drawPeopleEnvelopeArr.message)
+				}
+				Wechat.load()
+			},1500)
+		}else{
+			return false
+		}
+		$(".redEnvelopeReceive01").on("tap",function(){
+			$(".redEnvelopeReceive01").css("display","none")
+			if($(".redEnvelopeReceive01").css("display")=="none"){			
+				$(".redEnvelopeReceive02").fadeIn()
+				$(".redEnvelopeReceive02>h2").text(drawPeopleEnvelopeArr.data.score.toFixed(2))
+				$(".redEnvelopeReceive02>center").text(drawPeopleEnvelopeArr.data.memo)
+			}
+			
+		})
+		$(".redEnvelopeReceive02").on("tap",function(){
+			$(".redEnvelopeReceive02").hide()
+			if($(".redEnvelopeReceive02").css("display")=="none"){			
+				$(".display-koi-redEnvelopeReceive").hide()
+				$(".display-koi-redPhoneBg").show()
+			}
+		})
+	}
+	$(".hongbaojilu,.public-header>a").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/RedEnvelopeRecord.html?RedEnvelope=0");
+		}else{
+			window.location.href="RedEnvelopeRecord.html?RedEnvelope=0"
+		}
+	})
+	$(".display-koi-redPhoneBg").on("tap","span",function(){
+		$(".Notice").show()
+	})
+	$(".Notice").on("tap",function(){
+		$(this).hide()
+	})
+</script>

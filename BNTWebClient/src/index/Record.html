@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="TransactionDetails">交易详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--交易详情-->
+			    <div class="AssetDetails" style="display: block;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="TransactionDetails">交易详情</span>
+			    		</div>
+			    	</div>
+				    <div class="Record">
+				    	<div class="Record-box">
+				    		<div data-value="Orderinformation" class="Record-header">订单信息</div>
+				    		<div class="RecordContent">
+				    			<div><span data-value="Ordernumber">订单编号</span><span class="Record1"></span></div>
+				    			<div><span data-value="Typeoftransaction">交易类型</span><span class="Record2"></span></div>
+				    			<div><span data-value="Transactiontime">成交时间</span><span class="Record3"></span></div>
+				    		</div>
+				    	</div>
+				    	<div class="Record-box">
+				    		<div data-value="Receiverinformation" class="Record-header">收入方信息</div>
+				    		<div class="RecordContent">
+				    			<div><span class="zhuanchu" data-value="Receivingaccount">收入账户</span><span class="Record4"></span></div>
+				    			<div><span data-value="Accountnickname">账户昵称</span><span class="Record5"></span></div>
+				    		</div>
+				    	</div>
+				    	<div class="Record-box">
+				    		<div data-value="History3" class="Record-header">收支详情</div>
+				    		<div class="RecordContent">
+				    			<div><span data-value="Tokenchange">通证变动</span><span class="Record6"></span></div>
+				    			<div><span data-value="Assetchange">资产变动</span><span class="Record7"></span></div>
+				    		</div>
+				    	</div>
+				    </div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var userId;
+	var OrderId;
+	var token;
+	var clientType;
+	var language;
+	function Record(){
+		if(localStorage.getItem("set-lan")=="EN"){
+			language="en"
+		}else{
+			language="cn"
+		}
+		if(Number(tokenType)){
+			getAntLogScoreDetail(userId,OrderId,token)
+			var time=formatDate(new Date(getAntLogScoreDetailArr.data.createTime*1000))
+			$(".Record1").text(getAntLogScoreDetailArr.data.orderId)
+			$(".Record2").text(getAntLogScoreDetailArr.data.tradeTypeDesc)
+			$(".Record3").text(time)
+			$(".Record4").text(getAntLogScoreDetailArr.data.phone)
+			$(".Record5").text(getAntLogScoreDetailArr.data.username)
+			if(getAntLogScoreDetailArr.data.ant>0){
+				$(".Record6").text("+"+getAntLogScoreDetailArr.data.ant.toFixed(8))
+			}else{
+				$(".Record6").text(getAntLogScoreDetailArr.data.ant.toFixed(8))
+			}
+			if(getAntLogScoreDetailArr.data.score>0){
+				$(".Record7").text("+"+getAntLogScoreDetailArr.data.score.toFixed(8))
+			}else{
+				$(".Record7").text(getAntLogScoreDetailArr.data.score.toFixed(8))
+			}
+			if(getAntLogScoreDetailArr.data.tradeTypeDesc=="普通红包支付" || getAntLogScoreDetailArr.data.tradeTypeDesc=="地域红包支付"){
+				$(".Record-header").text("支出方信息")
+				$(".zhuanchu").text("支出账户")
+			}
+		}else{
+			getAntBananceLogDetail(userId,OrderId,token)
+			var time=formatDate(new Date(getAntBananceLogDetailArr.data.createTime*1000))
+			$(".Record1").text(getAntBananceLogDetailArr.data.orderId)
+			$(".Record2").text(getAntBananceLogDetailArr.data.tradeTypeDesc)
+			$(".Record3").text(time)
+			$(".Record4").text(getAntBananceLogDetailArr.data.phone)
+			$(".Record5").text(getAntBananceLogDetailArr.data.username)
+			if(getAntBananceLogDetailArr.data.ant>0){
+				$(".Record6").text("+"+getAntBananceLogDetailArr.data.ant.toFixed(8))
+			}else{
+				$(".Record6").text(getAntBananceLogDetailArr.data.ant.toFixed(8))
+			}
+			if(getAntBananceLogDetailArr.data.score>0){
+				$(".Record7").text("+"+getAntBananceLogDetailArr.data.score.toFixed(8))
+			}else{
+				$(".Record7").text(getAntBananceLogDetailArr.data.score.toFixed(8))
+			}
+		}
+			
+	}
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId");
+		token=ANT.getMessage("token");
+		OrderId=ANT.getMessage("OrderId");
+		tokenType=ANT.getMessage("tokenType");
+		clientType=1;
+		Record()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		OrderId=sessionStorage.getItem("OrderId")
+		tokenType=sessionStorage.getItem("tokenType")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		Record()
+	}
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		OrderId=DAPPFramework.SharedBoard.Get("OrderId")
+		tokenType=DAPPFramework.SharedBoard.Get("tokenType")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+//		alert(OrderId)
+		Record()
+	}
+</script>

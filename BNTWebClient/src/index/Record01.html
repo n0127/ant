@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="TransactionDetails">交易详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--交易详情-->
+			    <div class="AssetDetails Record-zong">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="TransactionDetails">交易详情</span>
+			    		</div>
+			    	</div>
+				    <div class="Record">
+				    	<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+						    	<div class="Record-box">
+						    		<div data-value="Orderinformation" class="Record-header">订单信息</div>
+						    		<div class="RecordContent">
+						    			<div><span data-value="Ordernumber">订单编号</span><span class="Record1"></span></div>
+						    			<div><span data-value="Typeoftransaction">交易类型</span><span class="Record2"></span></div>
+						    			<div><span data-value="Transactiontime">成交时间</span><span class="Record3"></span></div>
+						    		</div>
+						    	</div>
+						    	<div class="Record-box">
+						    		<div data-value="Disburserinformation" class="Record-header">支出方信息</div>
+						    		<div class="RecordContent">
+						    			<div><span data-value="Spendingaccount">支出账户</span><span class="Record4"></span></div>
+						    			<div><span data-value="Accountnickname">账户昵称</span><span class="Record5"></span></div>
+						    			<div><span data-value="Coins">交易币种</span><span class="Record7"></span></div>
+						    			<div><span data-value="Fee1">手续费率</span><span class="Record8"></span></div>
+						    			<div><span data-value="Tokenchange">通证变动</span><span class="Record6"></span></div>
+						    			<div><span data-value="Assetchange">资产变动</span><span class="Record9"></span></div>
+						    		</div>
+						    	</div>
+						    	<div class="Record-box">
+						    		<div data-value="Payeeinformation" class="Record-header">收款方信息</div>
+						    		<div class="RecordContent">
+						    			<div><span data-value="Receivingaccount">收入账户</span><span class="Record10"></span></div>
+						    			<div><span data-value="Accountnickname">账户昵称</span><span class="Record11"></span></div>
+						    			<div><span data-value="Coins">交易币种</span><span class="Record7"></span></div>
+						    			<div><span data-value="Tokenchange">通证变动</span><span class="Record12"></span></div>
+						    			<div><span data-value="Assetchange">资产变动</span><span class="Record13"></span></div>
+						    		</div>
+						    	</div>
+						    	<div class="Record-box">
+						    		<div data-value="Remarks" class="Record-header">备注</div>
+						    		<div class="RecordContent">
+						    			<div><span data-value="Remarks">备注</span><span class="Record14"></span></div>
+						    	</div>
+							</div>
+						</div>
+				    </div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var userId;
+	var OrderId;
+	var token;
+	var clientType;
+	var language;
+	function Record(){
+		if(localStorage.getItem("set-lan")=="EN"){
+			language="en"
+		}else{
+			language="cn"
+		}
+		if(Number(tokenType)){
+			getAntLogScoreDetail(userId,OrderId,token)
+			var time=formatDate(new Date(getAntLogScoreDetailArr.data.createTime*1000))
+			$(".Record1").text(getAntLogScoreDetailArr.data.orderId)
+			$(".Record2").text(getAntLogScoreDetailArr.data.tradeTypeDesc)
+			$(".Record3").text(time)
+			$(".Record4").text(getAntLogScoreDetailArr.data.fromPhone)
+			$(".Record5").text(getAntLogScoreDetailArr.data.fromUsername)
+			$(".Record6").text(getAntLogScoreDetailArr.data.fromChangeAnt.toFixed(8))
+			$(".Record7").text(getAntLogScoreDetailArr.data.coin)
+			$(".Record8").text(getAntLogScoreDetailArr.data.rate*100+"%")
+			$(".Record9").text("+"+getAntLogScoreDetailArr.data.fromChangeScore.toFixed(8))
+			$(".Record10").text(getAntLogScoreDetailArr.data.toPhone)
+			$(".Record11").text(getAntLogScoreDetailArr.data.toUsername)
+			$(".Record12").text("+"+getAntLogScoreDetailArr.data.toChangeAnt.toFixed(8))
+			$(".Record13").text("+"+getAntLogScoreDetailArr.data.toChangeScore.toFixed(8))
+			$(".Record14").text(getAntLogScoreDetailArr.data.memo)
+		}else{
+			getAntBananceLogDetail(userId,OrderId,token)
+			var time=formatDate(new Date(getAntBananceLogDetailArr.data.createTime*1000))
+			$(".Record1").text(getAntBananceLogDetailArr.data.orderId)
+			$(".Record2").text(getAntBananceLogDetailArr.data.tradeTypeDesc)
+			$(".Record3").text(time)
+			$(".Record4").text(getAntBananceLogDetailArr.data.fromPhone)
+			$(".Record5").text(getAntBananceLogDetailArr.data.fromUsername)
+			$(".Record6").text(getAntBananceLogDetailArr.data.fromChangeAnt.toFixed(8))
+			$(".Record7").text(getAntBananceLogDetailArr.data.coin)
+			$(".Record8").text(getAntBananceLogDetailArr.data.rate*100+"%")
+			$(".Record9").text("+"+getAntBananceLogDetailArr.data.fromChangeScore.toFixed(8))
+			$(".Record10").text(getAntBananceLogDetailArr.data.toPhone)
+			$(".Record11").text(getAntBananceLogDetailArr.data.toUsername)
+			$(".Record12").text("+"+getAntBananceLogDetailArr.data.toChangeAnt.toFixed(8))
+			$(".Record13").text("+"+getAntBananceLogDetailArr.data.toChangeScore.toFixed(8))
+			$(".Record14").text(getAntBananceLogDetailArr.data.memo)
+		}
+		
+	}
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId");
+		token=ANT.getMessage("token");
+		OrderId=ANT.getMessage("OrderId");
+		tokenType=ANT.getMessage("tokenType");
+		clientType=1;
+		Record()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		OrderId=sessionStorage.getItem("OrderId")
+		tokenType=sessionStorage.getItem("tokenType")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		Record()
+	}
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		OrderId=DAPPFramework.SharedBoard.Get("OrderId")
+		tokenType=DAPPFramework.SharedBoard.Get("tokenType")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+		Record()
+	}
+</script>

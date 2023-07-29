@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="rewarddescription">奖励说明</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--说明模板-->
+			    <div class="Explain" style="display: block;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span class="Explain-title">Dpos权益</span>
+			    		</div>
+			    	</div>
+			    	<div class="Explain-content">
+			    		<div class="Explain-box">
+			    			<div class="Explain-header">
+			    				<img src="../../img/Explain.png" />
+			    				<span class="Explain-title01">Dpos权益说明:</span>
+			    			</div>
+			    			<p class="Explain-text">分享节点将获得资产奖励，分享越多，获得的资产奖励就越多，维护节点也会获得资产奖励，即Dpos权益奖励。</p>
+			    		</div>
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script>
+	if(localStorage.getItem("set-lan")=="EN"){
+		$(".Explain-title").text("Dpos")
+		$(".Explain-title01").text("Dpos description:")
+		$(".Explain-text").text("Share node awards get asset rewards. The more you share, the more assets you get, and the maintenance nodes will also receive asset rewards.")
+	}
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+	}
+	switch (GetQueryString("Explain")){
+		case "1":
+			if(localStorage.getItem("set-lan")=="EN"){
+				$(".Explain-title").text("Pos")
+				$(".Explain-title01").text("Pos description:")
+				$(".Explain-text").text("Pos means that users convert their holding Tokens into assets and enjoy therewards of each day.")
+			}else{
+				$(".Explain-title").text("Pos权益")
+				$(".Explain-title01").text("Pos权益说明:")
+				$(".Explain-text").text("Pos权益奖励是指用户将持有的通证兑换成资产，享受到每一天的权益奖励，即Pos权益奖励。")
+			}
+			break;
+		case "3":
+			if(localStorage.getItem("set-lan")=="EN"){
+				$(".Explain-title").text("Node reward")
+				$(".Explain-title01").text("Node reward description:")
+				$(".Explain-text").text("The maintenance node will receive an asset reward, which is a node reward.")
+			}else{
+				$(".Explain-title").text("节点奖励")
+				$(".Explain-title01").text("节点奖励说明:")
+				$(".Explain-text").text("维护节点将会获得资产奖励，即节点奖励。")
+			}
+			break;
+	}
+	//返回上一页
+	$(".return").on("tap",function(){
+		history.back()
+	})
+</script>

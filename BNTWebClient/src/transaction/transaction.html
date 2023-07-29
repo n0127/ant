@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Trades">交易</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+		<!-- 侧滑导航根容器 -->
+			<div class="mui-off-canvas-wrap mui-draggable">
+			  <!-- 主页面容器 -->
+			  <div class="mui-inner-wrap">
+			    <!-- 主页面标题 -->
+			    <header class="mui-bar mui-bar-nav header">
+			      <h1 class="mui-title">ANT</h1>
+			    </header>
+			    
+			    <!--交易界面-->
+			    <div class="mui-content mui-scroll-wrapper transaction-index" style="display: block;">
+			      <div class="mui-scroll">
+			        	<!--<div style="display: flex; flex-direction: column; align-items: center;">
+			        		<img style="width: 5.703703rem; height: 5.351851rem; margin-top: 2.777777rem; margin-bottom: 0.925925rem;" src="../../img/whiteBanner.png" />
+			        		<p style="color: #00b17d; font-size: 0.777777rem; text-align: center;">抱歉，ANT正在努力建设中<br/>请您耐心等待~</p>
+			        	</div>-->
+			        	<div class="transactionHome">
+			        		<img src="../../img/credit.png" />
+			        		<div class="transactionHome-wen">
+			        			<img src="../../img/poswen.png" />
+			        		</div>
+			        	</div>
+			        	<div class="transactionTop w1028">
+			        		<ul>
+			        			<li class="zanweikaifang"><img src="../../img/transaction01.png"/><span data-value="Buy">发布购买</span></li>
+			        			<li class="zanweikaifang"><img src="../../img/transaction02.png"/><span data-value="Sell">发布出售</span></li>
+			        			<li class="zhongchou"><img src="../../img/transaction03.png"/><span data-value="Crowd-funding">众筹</span></li>
+			        		</ul>
+			        	</div>
+			        	<!--<div class="public-title">交易服务</div>-->
+			        	<div class="transactionBottom w1028">
+			        		<div data-value="Transactionservice" class="tokenservice-header">交易服务</div>
+			        		<ul>
+			        			<li class="zanweikaifang"><img src="../../img/transaction04.png" /><span data-value="Orders">委托单</span></li>
+			        			<li class="zanweikaifang"><img src="../../img/transaction05.png" /><span data-value="Trading">交易中</span></li>
+			        			<li class="zanweikaifang"><img src="../../img/transaction06.png" /><span data-value="OK">交易完成</span></li>
+			        			<li class="zanweikaifang"><img src="../../img/transaction07.png" /><span data-value="Orderhistory">交易记录</span></li>
+			        			<li class="zanweikaifang"><img src="../../img/transaction08.png" /><span data-value="Creditrecord">信用记录</span></li>
+			        			<li class="zanweikaifang"><img src="../../img/transaction09.png" /><span data-value="Workorder">工单</span></li>
+			        			<li class="zanweikaifang"><img src="../../img/transaction10.png" /><span data-value="Bankcard">银行卡</span></li>
+			        			<li class="zanweikaifang"><img src="../../img/transaction11.png" /><span data-value="Help">联系客服</span></li>
+			        			<li class="zanweikaifang"><img src="../../img/transaction12.png" /><span data-value="Complaints&Suggestions">投诉建议</span></li>
+			        		</ul>
+			        	</div>
+			      </div>
+			    </div>
+			    
+			    
+			    <div class="mui-off-canvas-backdrop"></div>
+			    
+			    
+			     <!--底部导航栏-->
+			    <div class="bottom-nav">
+			      	<ul>
+			      		<li><a href="../../index.html"><img src="../../phone/sy@3x.png"/><span data-value="Home">首页</span></a></li>
+			      		<li><a href="../../wallet/home.html"><img src="../../phone/qb@3x.png"/><span data-value="Wallet">钱包</span></a></li>
+			      		<li><a href="#"><img src="../../phone/jyl@3x.png"/><span style="color: #00b07c;" data-value="Trades">交易</span></a></li>
+			      		<li><a href="../Mall/Mall.html"><img src="../../phone/sc@3x.png"/><span data-value="Mall">商城</span></a></li>
+			      	</ul>
+			    </div>
+			  </div>	 
+			</div>
+
+
+			   
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+
+<script>
+	var language;
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+		$(".transactionHome>img").attr("src","../../img/creditEn.png")
+	}else{
+		language="cn"
+	}
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetDrawerEnable(false);
+	}
+	// 	监听tap事件，解决 a标签 不能跳转页面问题
+	mui('body').on('tap','a',function(){document.location.href=this.href;});
+	
+	
+	$(".zanweikaifang").on("tap",function(){
+		if(localStorage.getItem("set-lan")=="EN"){
+			alert("Not Yet Open")
+		}else{
+			alert("暂未开放")
+		}
+	})
+	
+	
+	if(hehe==undefined){
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=1
+		getUserInfo(userId,token,clientType)
+		$(".user_name").val(getUserInfoArr.data.username)
+		$(".userId").text("邀请码："+getUserInfoArr.data.id)
+		$(".phone").text(getUserInfoArr.data.phone)
+		if(getUserInfoArr.data.avatar!=null){
+			$(".touxiang-img").attr("src",getUserInfoArr.data.avatar)
+		}
+	}
+	
+	//众筹
+	$(".zhongchou").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/transaction/CrowdFunding.html");
+		}else{
+			window.location.href="CrowdFunding.html"
+		}
+	})
+	
+//邀请卡
+	$(".yaoqingka").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/sidebar/sidebar.html");
+		}else{
+			window.location.href="src/sidebar/sidebar.html"
+		}
+	})
+	
+//安全中心
+	$(".anquanzhongxin").on("tap",function(){
+		window.location="src/sidebar/SecurityCenter.html";
+	})
+	
+//	修改名字
+	$(".xiugainame").on("tap",function(){
+		if(localStorage.getItem("set-lan")=="EN"){
+			mui.prompt('','Enter nickname','Modify nickname',['Cancel','Confirm'],UpUserName,'div') 
+		}else{
+			mui.prompt('','输入昵称','修改昵称',['取消','确认'],UpUserName,'div') 
+		}
+	})
+	function UpUserName(item){
+		if(item.index){
+			var value=item.value
+			updateUserInfo(userId,value,token)
+			if(updateUserInfoArr.code==1){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("Successful")
+				}else{
+					alert("修改成功")
+				}
+				$(".user_name").val(value)
+			}else{
+				alert(updateUserInfoArr.message)
+			}
+		}
+	}
+</script>

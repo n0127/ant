@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Changephonenumber">修改手机认证</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			   <!--修改手机认证-->
+			  <div class="modifyPhone" style="display: block;">
+			  	<div class="public-header">
+			    	<div class="return">
+			    		<div class="mui-push-left"></div>
+			    		<span data-value="Changephonenumber">修改手机认证</span>
+			    	</div>
+			    </div>
+			    <div class="public-form">
+			    	<ul>
+			    		<li><span data-value="Mobile">手机号码：</span><input data-value="EnterMobile" maxlength="11" oninput="value=value.replace(/[^\d]/g,'')" placeholder="请输入手机号码" type="text" class="oldPhone"/></li>
+			    		<li style="justify-content: space-between;"><span data-value="Newcallprefix">新手机冠码：</span><p style="font-size:0.851851rem;color: #00b07c;" class="selectWocd PhoneWocd">+86</p></li>
+			    		<li><span data-value="Newphonenumber">新手机号码：</span><input maxlength="11" oninput="value=value.replace(/[^\d]/g,'')" type="text" class="newPhone"/><button data-value="SendSMS" style="font-size: 0.703703rem; padding: 0;background: transparent; border: none; color: #00b07c;" class="yzm01">获取验证码</button></li>
+			    		<li><span data-value="Password">登录密码：</span><input data-value="EnterPassword" placeholder="请输入登录密码" maxlength="16" type="password" class="logPwd"/></li>
+			    		<li><span data-value="Paymentpassword">支付密码：</span><input data-value="Confirmagain" placeholder="请确认支付密码" oninput="value=value.replace(/[^\d]/g,'')" maxlength="6" type="password" class="trdPwd"/></li>
+			    		<li><span data-value="Verifycode">验证码：</span><input data-value="EnterSMS" placeholder="请输入验证码" oninput="value=value.replace(/[^\d]/g,'')" maxlength="6" type="text" class="yzm02"/></li>
+			    	</ul>
+			    	<div><button data-value="Submit" class="setPhone">提交</button></div>
+			    </div>
+			  </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var CodeState=GetQueryString("CodeState");
+	var oldWorldCode;
+	var language;
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	if(CodeState){
+		$(".selectWocd").text("+"+CodeState)
+	}
+	
+	var worldCode666=GetQueryString("worldCode");
+	if(worldCode666){
+		$(".selectWocd").text("+"+worldCode666)
+	}
+	
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId")
+		token=ANT.getMessage("token")
+		oldWorldCode=localStorage.getItem("worldCode")
+		clientType=1
+	}else{
+		userId=sessionStorage.getItem("userId");
+		token=sessionStorage.getItem("token");
+		oldWorldCode=localStorage.getItem("worldCode")
+		clientType=2
+	}
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		DAPPFramework.View.SetNavgationRightItem();
+		oldWorldCode=DAPPFramework.Storage.Get("worldCode")
+		clientType=1
+	}
+	
+	$(".yzm01").on("tap",function(){
+		var newPhone=$(".newPhone").val();
+		var worldCode=$(".selectWocd").text().substring(1)
+		if(newPhone == "" || newPhone == null || newPhone == undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Enter new phone number")
+			}else{
+				alert("输入手机号码")
+			}
+		}else{
+			ant(newPhone,1,3,weiyi01,clientType,worldCode)
+			if(antdata!=1){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("Phone number is irregular")
+				}else{
+					alert("手机号码不规则")
+				} 
+			}else{
+				var i=60;
+				$(".yzm01").attr("disabled","disabled")
+				var yanzhengSet=setInterval(function(){
+					$(".yzm01").text(i)
+					i--;
+					if(i<0){
+						clearInterval(yanzhengSet);
+						if(localStorage.getItem("set-lan")=="EN"){
+							$(".yanzhengma01").text("Send SMS")
+						}else{
+							$(".yanzhengma01").text("获取验证码")
+						}
+			      		$(".yzm01").removeAttr("disabled")
+					}
+				},1000)
+			}
+		}
+	})
+	$(".setPhone").on("tap",function(){
+		var pass01=$(".oldPhone").val()
+		var pass02=$(".newPhone").val()
+		var pass03=$(".logPwd").val()
+		var pass04=$(".trdPwd").val()
+		var pass05=$(".yzm02").val()
+		var newWorldCode=$(".selectWocd").text().substring(1)
+		
+		if(pass01 == "" || pass01 == null || pass01 == undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Original phone number is empty")
+			}else{
+				alert("原手机号为空")
+			}
+		}else{
+			if(pass02 == "" || pass02 == null || pass02 == undefined){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("The new phone number is empty")
+				}else{
+					alert("新手机号为空")
+				} 
+			}else{
+				if(pass03 == "" || pass03 == null || pass03 == undefined){
+					if(localStorage.getItem("set-lan")=="EN"){
+						alert("Login password is empty")
+					}else{
+						alert("登录密码为空")
+					}
+				}else{
+					if(pass04 == "" || pass04 == null || pass04 == undefined){
+						if(localStorage.getItem("set-lan")=="EN"){
+							alert("Payment password is empty")
+						}else{
+							alert("支付密码为空")
+						} 
+					}else{
+						if(pass05 == "" || pass05 == null || pass05 == undefined){
+							if(localStorage.getItem("set-lan")=="EN"){
+								alert("Verification code is empty")
+							}else{
+								alert("验证码为空")
+							} 
+						}else{
+							modifyPhone(userId,pass01,pass02,pass05,pass04,pass03,token,oldWorldCode,newWorldCode)
+						}
+					}
+				}
+			}
+		}
+	})
+	
+	$(".selectWocd").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.SharedBoard.Set("selectCode","1")
+			window.location.href="../../indexList.html?cebianlan=666"
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("indexList.html","&CodeState=5")
+		}else{
+			window.location.href="../../indexList.html?CodeState=5"
+		}
+	})
+</script>

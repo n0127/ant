@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="">商家申请</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+		<!--我的-->
+	    <div class="PublicFixedBox">
+	    	<div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+	    		<div class="return">
+	    			<div class="mui-push-left"></div>
+	    			<span class="loginTitle" data-value="">商家申请</span>
+	    		</div>
+	    	</div>
+	    	<div class="PublicScrollBox">
+	    		<div class="mui-scroll-wrapper mui-content">
+					<div style="padding-bottom: 0;" class="mui-scroll">
+    					<div class="Application">
+    						<img src="../../img/ApplicationBg.png" />
+    						<p>申请开通ANT商家需要不低于20000RUB的信誉押金，存入本账号绑定的Ruby钱包蚂蚁理财宝后，提交申请。</p>
+    						<button>立即申请</button>
+    					</div>
+    				</div>
+	    		</div>
+	    	</div>
+	    </div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/md5.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var language;
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId");
+		token=DAPPFramework.Storage.Get("token");
+		clientType=1;
+	}
+
+//	url取值
+	function GetQueryString(name) {
+	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	    var r = window.location.search.substr(1).match(reg);
+	    if (r != null) return unescape(r[2]); return null;
+	}
+	
+//	判断是否app
+	var hehe=GetQueryString("DAPPEngine")
+	if(hehe!=undefined){
+		$(".public-header").css("display","none")
+	}
+	
+	$(".Application>button").on("tap",function(){
+		merchantApply(userId,token)
+	})
+
+</script>

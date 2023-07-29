@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Transactionconfirmation">交易确认</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/PublicPassword.css"/>
+	</head>
+	<body>
+
+			  <!--交易确认-->
+			    <div class="transactionConfirmation" style="display:block;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Transactionconfirmation">交易确认</span>
+			    		</div>
+			    	</div>
+			    	<div class="tranCon-box">
+			    		<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div data-value="History1" class="public-title">转出交易详情</div>
+					    		<div class="tranCon-list">
+					    			<ul>
+					    				<li>
+					    					<span data-value="Transferredaccount1">转入账户</span><span class="tran01">188****8888</span>
+					    				</li>
+					    				<li>
+					    					<span data-value="Enternickname">转入昵称</span><span class="tran02">AG超玩会</span>
+					    				</li>
+					    				<li>
+					    					<span data-value="Theusername">用户姓名</span><span class="tran03">刘*</span>
+					    				</li>
+					    				<li>
+					    					<span data-value="Transferamount">转入数额</span><span class="tran04">8.010.012.00</span>
+					    				</li>
+					    				<li>
+					    					<span data-value="SelectCoin">交易币种</span><span data-value="Token" class="tran05">通证</span>
+					    				</li>
+					    				<li>
+					    					<span data-value="loging2.0_200">燃烧</span><span class="tran06">0</span>
+					    				</li>
+					    				<!--<li>
+					    					<span>手续费</span><span class="tran06">0</span>
+					    				</li>-->
+					    			</ul>
+					    			<div class="tranCon-time">
+					    				<div>
+					    					<span data-value="Estimatedarrivaltime">预计到账时间</span>
+					    					<span data-value="Thenextdaybeforearrives" class="tran07">2018年8月17日 24:00前到账</span>
+					    				</div>
+					    			</div>
+					    			<div class="zhuanchuNumber" style="margin-bottom: 3.055555rem;">
+					    				<span data-value="Actualtransfer" style="color: #b9b9b9;">实际转出：</span>
+					    				<span class="shijizhuanchu01">- 8,010,012.00</span>
+					    			</div>
+					    			<div class="tranCon-but">
+					    				<button data-value="Confirm" class="submit">确认无误</button>
+					    				<button data-value="Cancel" class="chongxin">重新填写</button>
+					    			</div>
+					    		</div>
+							</div>
+						</div>
+			    		
+			    	</div>
+			    	
+			    </div>
+			    <!--<div class="mui-content" id="paymentCode">
+			    	<a id="close"></a>
+		            <table id="number_input" border="0" cellspacing="0" cellpadding="0">
+		                <tbody>
+		                	<tr><td data-value="Enterpaymentpassword" colspan="6" style="text-align: left;color: #62C2A6;">输入支付密码</td></tr>
+		                    <tr>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                    </tr>
+		                    <tr>
+		                    	<td colspan="6" style="text-align: right;"><a data-value="Forgottopaymentpassword" class="forget" href="#" style="color: #62C2A6;">忘记支付密码?</a></td>
+		                    </tr>
+		                </tbody>
+		            </table>
+		            <table id="keyboard" border="0" cellspacing="0" cellpadding="0">
+		                <tbody>
+		                    <tr>
+		                        <td class="keyboard-number">1</td>
+		                        <td class="keyboard-number">2</td>
+		                        <td class="keyboard-number">3</td>
+		                    </tr>
+		                    <tr>
+		                        <td class="keyboard-number">4</td>
+		                        <td class="keyboard-number">5</td>
+		                        <td class="keyboard-number">6</td>
+		                    </tr>
+		                    <tr>
+		                        <td class="keyboard-number">7</td>
+		                        <td class="keyboard-number">8</td>
+		                        <td class="keyboard-number">9</td>
+		                    </tr>
+		                    <tr>
+		                        <td class="keboard-action" data-value="DEL" data-action="reset">清空</td>
+		                        <td class="keyboard-number">0</td>
+		                        <td class="keboard-action" data-value="CLR" data-action="cancel">删除</td>
+		                    </tr>
+		                </tbody>
+		            </table>
+		        </div>-->
+		        
+		        <div class="publicPas">
+					<div>
+						<div class="publicPasTitle">
+							<span data-value="loging2.0_75">私钥密码</span>
+							<p class="publicPasTitleDown mui-icon mui-icon-closeempty"></p>
+						</div>
+						<div class="publicPasInput">
+							<p data-value="loging2.0_75">私钥密码</p>
+							<input data-value="loging2.0_76" type="password" placeholder="请输入来源地址对应的私钥密码" />
+						</div>
+						<div class="publicPasBut">
+							<button data-value="loging2.0_77">确认发送</button>
+						</div>
+					</div>
+				</div>
+				
+		        
+		        <div id="loding" class="transactionConfirmation">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Transresult">交易结果</span>
+			    		</div>
+			    	</div>
+			    	<div class="loading" style="height: 100%;">
+			    		<div class="mui-scroll-wrapper" style="height: 100%;">
+			      			<div class="mui-scroll">
+					    		<img id="img" src="../../img/loding.png"/>
+					    		<span class="loadingSpan" data-value="Pleasewait">请您耐心等待...</span>
+				    			<ul class="ui-step">
+				    				<li class="ui-step-item">
+				    					<span data-value="Transactioncreation">交易创建</span>
+				    					<span data-value="Success" class="out out01">完成</span>
+				    				</li>
+				    				<li class="ui-step-item">
+				    					<span data-value="InformationCollection">信息采集</span>
+				    					<span data-value="Success" class="out out02">完成</span>
+				    				</li>
+				    				<li class="ui-step-item">
+				    					<span data-value="TransactionEncryption">交易加密</span>
+				    					<span data-value="Success" class="out out03">完成</span>
+				    				</li>
+				    				<li class="ui-step-item">
+				    					<span data-value="SafetyVerification">安全验证</span>
+				    					<span data-value="Pass" class="out out04">通过</span>
+				    				</li>
+				    				<li class="ui-step-item">
+				    					<span data-value="SendTheTransactionRequest">发送交易请求</span>
+				    					<span data-value="SFA" id="qingqiu" class="out out05">成功</span>
+				    				</li>
+				    				<li class="ui-step-item">
+				    					<span data-value="Thenextdaybeforearrives" id="daozhangTime" style="float: none;visibility: hidden;">预计到账时间2018年8月16日24:00</span>
+				    				</li>
+				    			</ul>
+				    			<button data-value="CFM" id="home">确认</button>
+		    				</div>
+		    			</div>
+			    	</div>
+			    </div>
+			    
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script>
+	var userId;
+	var token;
+	var tradeData;
+	var obj;
+	var flag;
+	var tradeId;
+	var clientType;
+	var language;
+	var id;
+	function formatDate(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return year+"年"+month + "月" + date+"日"+hour+":"+minute+"前到账";
+	}
+	$(".forget").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/sidebar/retrievePaymentPass.html");
+		}else{
+			window.location.href="../sidebar/retrievePaymentPass.html"
+		}
+	})
+	function transactionConfirmation(){
+		var time=formatDate(new Date(obj.data.predictArriveTime*1000))//transfer_time转账时间
+		$(".tran01").text(obj.data.toPhone)
+		$(".tran02").text(obj.data.toId)
+		$(".tran03").text(obj.data.toUsername)
+		$(".tran04").text(obj.data.amount)
+		$(".shijizhuanchu01").text("-"+obj.data.actualAmount)
+		$(".tran06").text(obj.data.fees)
+	}
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="EN"
+		languageArr=EN
+	}else{
+		language="CN"
+		languageArr=CN
+	}
+	function transactionConfirmation01(resultValue,Time){
+		if(localStorage.getItem("set-lan")=="EN"){
+			language="en"
+		}else{
+			language="cn"
+		}
+		flag=transferAntCommit(userId,tradeId,"",token,resultValue,Time)
+	}
+	
+//	console.log(obj)
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		tradeData=ANT.getMessage("tradeData")
+		obj=JSON.parse(tradeData)
+		transactionConfirmation()
+		userId=ANT.getMessage("userId")
+		token=ANT.getMessage("token")
+		tradeId=ANT.getMessage("tradeId")
+		clientType=1
+	}else{
+		tradeData=sessionStorage.getItem("tradeData")
+		obj=JSON.parse(tradeData)
+		transactionConfirmation()
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		tradeId=sessionStorage.getItem("tradeId")
+		clientType=2
+		console.log(obj)
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		tradeData=DAPPFramework.SharedBoard.Get("tradeData")
+		obj=JSON.parse(tradeData)
+		transactionConfirmation()
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		tradeId=DAPPFramework.SharedBoard.Get("tradeId")
+		clientType=1
+		id=DAPPFramework.Storage.Get("VurrentValue")
+		
+//		if(userId==undefined){
+//			DAPPFramework.Controller.JumpToStartPage();
+//		}
+		
+	}
+	$('.submit').on('tap',function () {
+		if(obj.data.rate==0.5){
+			if(localStorage.getItem("set-lan")=="EN"){
+				DAPPFramework.Dialog.Alert("Tips","Transfer to the side system requires burning 50% of the certificate\nThis burning "+obj.data.fees+"Token",["give up","Confirm"],[2,0],"transactionTrue")
+			}else{
+				DAPPFramework.Dialog.Alert("提示","向旁体系转账需要燃烧50%通证\n本次燃烧"+obj.data.fees+"通证",["放弃","确认"],[2,0],"transactionTrue")
+			}
+		}else{			
+			$('.publicPas').fadeIn();
+		}
+	})
+	
+	function transactionTrue(item){
+		if(item=="确认" || item=="Confirm"){
+			$('.publicPas').fadeIn();
+		}
+	}
+	
+	$(".chongxin").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PopView();
+		}else{			
+			history.back()
+		}
+	})
+	
+	$(".publicPasBut").on("tap","button",function(){
+		var value=$(".duihuanipt").val();
+		var password=$(".publicPasInput>input").val();
+		var PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+		var privateKey=PrivateKeyJosn[id].privateKey;
+		var wallet=new ethers.Wallet(privateKey);
+		var Time=new Date().getTime();
+		var Password=PrivateKeyJosn[id].Password;
+		if( Password == sha256_digest(password) ){			
+			wallet.signMessage(sha256_digest(Time+token)).then(signature => {
+				$(".publicPas").hide()
+				$('#loding').show();
+				var count=0;
+				var out=setInterval(function () {
+					count++;
+					$('.out0'+count).show();
+					if (count==5) {
+						window.clearInterval(out);
+						transactionConfirmation01(signature,Time)
+						if (flag) {
+							$('#img').attr({'src':'../../img/ok.png'}).css({'animation':'none'});
+							if(localStorage.getItem("set-lan")=="EN"){
+								$('.loadingSpan').text('Success');
+							}else{
+								$('.loadingSpan').text('成功');
+							}
+							$('#daozhangTime').css({'visibility':'visible'});
+						}else{
+							$('#img').attr({'src':'../../img/no.png'}).css({'animation':'none'});
+							if(localStorage.getItem("set-lan")=="EN"){
+								$('#qingqiu').text('Failure').css({'color':'#F53951'});
+								$('.loadingSpan').text('Failure').css({'color':'#F53951'});
+							}else{
+								$('#qingqiu').text('失败').css({'color':'#F53951'});
+								$('.loadingSpan').text('失败').css({'color':'#F53951'});
+							}
+						}
+						$('.loading>button').css({'background':'#00B17D'});
+						
+					}
+				},500)
+			})
+		}else{
+			alert(languageArr["loging2.0_201"])
+		}
+		
+	})
+	
+	$('.publicPasTitleDown').on('tap',function () {
+		$('.publicPas').fadeOut();
+		$(".publicPasInput>input").val("");
+	})
+	
+	
+//	mui.ready(function() {
+//      // 数字索引
+//      var activeIndex = 0;
+//      // 密码结果
+//      var resultValue = "";
+//      // 所有输入框
+//      var inputList = mui(".input-item");
+//      // 所有数字键
+//      var numberList = mui(".keyboard-number");
+//      // 数字键盘点击事件
+//      mui("#keyboard").on("tap", ".keyboard-number", function() {
+//          if(activeIndex == 6) {
+//              return;
+//          }
+//          var num = this.innerText;
+//          addNumber(num);
+//      });
+//      mui("#keyboard").on("tap", ".keboard-action", function() {
+//          var value = this.getAttribute("data-action");
+//          switch(value) {
+//              case "cancel":
+//                  if(activeIndex == 0) {
+//                      return;
+//                  }
+//                  cancelNumber();
+//                  break;
+//              case "reset":
+//                  resetInput();
+//                  break;
+//              default:
+//                  break;
+//          }
+//      });
+//      // 添加数字
+//      function addNumber(num) {
+//          inputList[activeIndex].innerHTML = "<div></div>";
+//          resultValue += num;
+//          activeIndex++;
+//          // 检测密码长度
+//          if(activeIndex == 6) {
+//				$('#loding').show();
+//				var count=0;
+//				var out=setInterval(function () {
+//					count++;
+//					$('.out0'+count).show();
+//					if (count==5) {
+//						window.clearInterval(out);
+//						transactionConfirmation01(resultValue)
+//						if (flag) {
+//							$('#img').attr({'src':'../../img/ok.png'}).css({'animation':'none'});
+//							if(localStorage.getItem("set-lan")=="EN"){
+//								$('.loadingSpan').text('Success');
+//							}else{
+//								$('.loadingSpan').text('成功');
+//							}
+//							$('#daozhangTime').css({'visibility':'visible'});
+//						}else{
+//							$('#img').attr({'src':'../../img/no.png'}).css({'animation':'none'});
+//							if(localStorage.getItem("set-lan")=="EN"){
+//								$('#qingqiu').text('Failure').css({'color':'#F53951'});
+//								$('.loadingSpan').text('Failure').css({'color':'#F53951'});
+//							}else{
+//								$('#qingqiu').text('失败').css({'color':'#F53951'});
+//								$('.loadingSpan').text('失败').css({'color':'#F53951'});
+//							}
+//						}
+//						$('.loading>button').css({'background':'#00B17D'});
+//						
+//					}
+//				},500)
+//          }
+//      }
+//      // 撤销数字
+//      function cancelNumber() {
+//          activeIndex--;
+//          inputList[activeIndex].innerText = "";
+//          resultValue = resultValue.substring(0, resultValue.length - 1);
+//      }
+//      // 密码框置空
+//      function resetInput() {
+//          activeIndex = 0;
+//          resultValue = "";
+//          mui(".input-item").each(function(index, element) {
+//              element.innerText = "";
+//          });
+//      }
+//  });
+    
+    $('#home').on('tap',function () {
+		if(hehe!=undefined){
+			DAPPFramework.View.PopView(-1);
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("main.html")
+		}else{
+			window.location.href="../../index.html"
+		}
+	})
+</script>

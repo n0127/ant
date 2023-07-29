@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1831 692" style="enable-background:new 0 0 1831 692;" xml:space="preserve">
+<style type="text/css">
+@keyframes up-down {
+	0%   { transform: translateY(0); }
+	50%  { transform: translateY(-20px); }
+	100% { transform: translateY(0); }
+}
+@keyframes hidden-show {
+	0%   {opacity:1; }
+	50%  {opacity:0.2; }
+	100% {opacity:1; }
+}
+@keyframes hidden-show-shadow{
+	0%   {opacity:0.2; }
+	50%  {opacity:0; }
+	100% {opacity:0.2; }
+}
+<!-- @keyframes point1 {
+	0%   { transform: translate(0%,0%);transform: scale(0); opacity: 0; }
+	5%   { opacity: 0; transform: scale(1);transform: translate(100%,60%); }
+	10%   { opacity: 1; transform: scale(1);transform: translate(400%,240%);  }
+	50%  { transform: translate(1800%,1000%); }
+	55%  { transform: translate(1950%,930%); }
+	60%  { transform: translate(2100%,830%);opacity: 1; }
+	90%  { transform: translate(2700%,500%);opacity: 0;}
+	100% { opacity: 0; }
+}
+@keyframes point2 {
+	0%   { transform: translate(0%,0%);transform: scale(0); opacity: 0; }
+	1%   { opacity: 0.8; transform: scale(1);transform: translate(100%,65%); }
+	50%  { transform: translate(1800%,1040%); opacity: 1; }
+	60%  { transform: translate(1850%,1060%); opacity: 0; }
+	50%  { transform: translate(1800%,1040%); opacity: 1; }
+	90% { opacity: 0.8; }
+	100% { opacity: 0; }
+}
+@keyframes point3 {
+	0%   { transform: translate(0%,0%);transform: scale(0); opacity: 0.2; }
+	5%   { opacity: 0.8; transform: scale(1);transform: translate(-100%,65%); }
+	50%  { transform: translate(-1900%,1100%); opacity: 1; }
+	60%  { transform: translate(-1950%,1130%); opacity: 0; }
+	65%  { transform: translate(-1900%,1100%); opacity: 1; }
+	90% { opacity: 0.8; }
+	100% { opacity: 0.2; }
+}
+
+@keyframes point4 {
+	0%   { transform: translate(0%,0%);transform: scale(0); opacity: 0; }
+	5%   { opacity: 0.8; transform: scale(1);transform: translate(100%,-65%); }
+	70%  { transform: translate(670%,-400%); opacity: 0.8; }
+	75%  { transform: translate(700%,-395%); opacity: 0.6; }
+	75%  { transform: translate(700%,-395%); opacity: 0.6; }
+	80%  { transform: translate(800%,-390%); opacity: 0; }
+	81%  { transform: translate(900%,-385%); opacity: 0; }
+	90% { opacity: 0; }
+	100% { opacity: 0; }
+} -->
+
+.point {
+    position: absolute;
+    z-index: 10;
+}
+
+	.img1st0{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#0BE5FC;}
+	.img1st1{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#5DFEF2;}
+	.img1st2{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#5BFFF3;}
+	.img1st3{fill:#8AEDE4;}
+	.img1st4{fill:#C5FFF8;}
+	.img1st5{fill:none;stroke:#8AEDE4;stroke-miterlimit:10;}
+
+	.mst0{filter:url(#Adobe_OpacityMaskFilter);}
+	.mst1{opacity:0.3;fill:url(#SVGID_2_);}
+	.mst2{mask:url(#SVGID_1_);fill:#00FFFF;opacity:0.2}
+
+    .rst0{opacity:0.25;fill:#C5FFF8;}
+	.rst1{fill-rule:evenodd;clip-rule:evenodd;fill:#0BE5FC;}
+	.rst2{opacity:0.45;fill:#C5FFF8;}
+	.rst3{opacity:0.55;fill:#C5FFF8;}
+	.rst4{opacity:0.26;fill:#C5FFF8;}
+	.rst5{opacity:0.6;fill:#C5FFF8;}
+	.rst6{opacity:0.3;fill:#C5FFF8;}
+	.rst7{opacity:0.35;fill:#C5FFF8;}
+	.rst8{opacity:0.25;fill:#C5FFF8;}
+</style>
+
+<g  style="animation: up-down 2.5s ease 1s infinite;" >	
+		<!-- <image style="overflow:visible;" width="108" height="93" xlink:href="home-03.svg"  transform="matrix(1 0 0 1 862.9874 92.9969)">
+	</image> -->
+	<style type="text/css">
+	.img3st0{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#0BE5FC;}
+	.img3st1{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#5DFEF2;}
+	.img3st2{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#5BFFF3;}
+	.img3st3{fill-rule:evenodd;clip-rule:evenodd;fill:#94F7EF;}
+	.img3st4{fill-rule:evenodd;clip-rule:evenodd;fill:#8AEDE4;}
+	.img3st5{fill-rule:evenodd;clip-rule:evenodd;fill:#C5FFF8;}
+	.img3st6{fill:#8AEDE4;}
+	.img3st7{fill:#DCFFFA;}
+</style>
+	<g width="108" height="93" transform="matrix(1 0 0 1 877.9874 92.9969)">
+		<g>
+			<path class="img3st0" d="M44.6,85c-2.8,1.6-7.3,1.6-10.1,0L8.6,70.1c-2.8-1.6-2.8-4.2,0-5.8l25.8-14.9c2.8-1.6,7.3-1.6,10.1,0
+				l25.8,14.9c2.8,1.6,2.8,4.2,0,5.8L44.6,85z"/>
+			<path class="img3st0" d="M44.6,44.6c-2.8,1.6-7.3,1.6-10.1,0L8.6,29.7c-2.8-1.6-2.8-4.2,0-5.8L34.5,8.9c2.8-1.6,7.3-1.6,10.1,0
+				l25.8,14.9c2.8,1.6,2.8,4.2,0,5.8L44.6,44.6z"/>
+			<path class="img3st1" d="M70.4,29.7L44.6,44.6c-2.8,1.6-7.3,1.6-10.1,0L8.6,29.7c-1.4-0.8-2.1-1.9-2.1-2.9h0v18.4
+				c0,1.1,0.7,2.1,2.1,2.9L34.5,63c2.8,1.6,7.3,1.6,10.1,0l25.8-14.9c1.4-0.8,2.1-1.9,2.1-2.9V26.8C72.5,27.8,71.8,28.9,70.4,29.7z"
+				/>
+			<path class="img3st2" d="M70.4,51.7L44.6,66.6c-2.8,1.6-7.3,1.6-10.1,0L8.6,51.7c-1.4-0.8-2.1-1.9-2.1-2.9h0v18.4
+				c0,1.1,0.7,2.1,2.1,2.9L34.5,85c2.8,1.6,7.3,1.6,10.1,0l25.8-14.9c1.4-0.8,2.1-1.9,2.1-2.9V48.8C72.5,49.8,71.8,50.9,70.4,51.7z"
+				/>
+			<path class="img3st0" d="M71.8,47c-0.3,0.4-0.8,0.8-1.4,1.1L44.6,63c-2.8,1.6-7.3,1.6-10.1,0L8.6,48.1c-0.6-0.3-1-0.7-1.4-1.1
+				c-1.3,1.5-0.8,3.4,1.4,4.7l25.8,14.9c2.8,1.6,7.3,1.6,10.1,0l25.8-14.9C72.6,50.4,73.1,48.5,71.8,47z"/>
+		</g>
+		<path class="img3st3" d="M46.7,49.2c1.8-0.8,2.9-2.9,2.9-5.9c0-5.3-3.4-11.7-7.5-14.1c-1.6-0.9-3.1-1.1-4.4-0.7l0,0L28,32.1l2.5,5.1
+			l2.7,4.5l-2.1,10.6C25.2,55.1,20,53.1,19.5,57l27.3,15.8l9.2-5.3C55.3,60.3,51.7,54.1,46.7,49.2z"/>
+		<path class="img3st4" d="M46.7,49.2c-1.6,0.6-9.5,3.6-9.5,3.6l-6.1-0.5C25.2,55.1,20,53.1,19.5,57l27.3,15.8l9.2-5.3
+			C55.3,60.3,51.7,54.1,46.7,49.2z"/>
+		<path class="img3st5" d="M37.3,52.8c1.8-0.8,2.9-2.9,2.9-5.9c0-5.3-3.4-11.7-7.5-14.1c-4.1-2.4-7.5,0-7.5,5.3c0,3.3,1.3,7,3.2,9.9
+			c-4.6-0.4-8.1,3-8.8,9.1l27.3,15.8C46.1,65.6,42.3,57.8,37.3,52.8z"/>
+		<polygon class="img3st6" points="48,57.6 49.5,57.5 51.6,61.5 56.9,57.5 58.3,57.5 59.5,60.9 51.5,64.6 47.9,65.9 	"/>
+		<polygon class="img3st7" points="44.8,59 48,57.6 49.6,60.9 56.9,57.5 58.2,60.8 47.9,65.9 	"/>
+	</g>
+</g>
+
+<g transform="matrix(1 0 0 1 888.9874 82.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.2s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+<g transform="matrix(1 0 0 1 898.9874 84.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="3"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="2.3s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+<g transform="matrix(1 0 0 1 905.9874 78.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2.5"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.5s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+<g transform="matrix(1 0 0 1 915.9874 80.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="2.0s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<!-- <g transform="matrix(1 0 0 1 980.9874 220.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="4" style="animation: point2 1.5s linear infinite;"></circle>
+</g>
+<g transform="matrix(1 0 0 1 980.9874 220.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="4" style="animation: point2 2.5s linear infinite;"></circle>
+</g>
+<g transform="matrix(1 0 0 1 980.9874 220.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="4" style="animation: point2 2s linear infinite;"></circle>
+</g>
+
+<g transform="matrix(1 0 0 1 770.9874 192.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="4" style="animation: point4 2s linear infinite;"></circle>
+</g> -->
+
+
+<!-- 左后 -->
+<g   style="animation: up-down 3s ease 1.8s infinite;" >	
+		<!-- <image style="overflow:visible;" width="125" height="93" xlink:href="home-left-back.svg"  transform="matrix(1 0 0 1 970.9874 340.9969)">
+	</image> -->
+	<g  width="125" height="93" transform="matrix(1 0 0 1 985.9874 330.9969)">
+		<style type="text/css">
+			.leftbackst0{opacity:0.18;fill:#C5FFF8;}
+		</style>
+		<polygon class="leftbackst0" points="82.8,113.7 82.8,48 0,0 0,63.3 "/>
+	</g>
+</g>
+<!-- 左中 -->
+<g  style="animation: up-down 3s ease 1.6s infinite;" >	
+		<!-- <image style="overflow:visible;" width="125" height="93" xlink:href="home-left-mid.svg"  transform="matrix(1 0 0 1 940.9874 340.9969)">
+	</image> -->
+	<style type="text/css">
+	.leftmidst0{opacity:0.5;fill:#00FFFF;}
+	.leftmidst1{opacity:0.55;fill:#00FFFF;}
+	.leftmidst2{fill:#FFFFFF;}
+	.leftmidst3{opacity:0.55;fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#00FFFF;stroke-miterlimit:10;}
+	</style>
+	<g  width="125" height="93"  transform="matrix(1 0 0 1 955.9874 330.9969)">
+		<polygon class="leftmidst0" points="82.8,115.9 82.8,48.9 0,0 0,65.5 	"/>
+		<polygon class="leftmidst1" points="41.8,65.7 76.6,87 76.6,89.9 41.8,68.1 	"/>
+		<polygon class="leftmidst1" points="41.8,73 76.6,94.3 76.6,97.2 41.8,75.4 	"/>
+		<path class="leftmidst2" d="M26.6,38.8c-0.2-0.1,0-0.3,0-0.7c0-0.1-0.1-0.1-0.1-0.2c0,0,0.1-1.5-1.6-5c-1.9-3.5-6.5-4.4-6.5-4.4
+			c-0.2,0-0.4-0.2-0.5-0.6c-0.1-0.1-0.4-0.9-1.9-1.5c-1.7-0.7-3-0.5-3.6,0.5c-0.3,0.5-0.3,1.1-0.2,1.7c0.4,1.4,2.1,2,2.2,2
+			c0.2,0.1,0.4,0.4,0.4,0.7c0,0.3-0.2,0.5-0.4,0.4l0,0c-0.1,0-2.3-0.9-3-3c-0.3-1-0.2-2,0.2-2.7c0.4-0.7,1.5-1.8,4.3-0.8
+			c1.6,0.6,2.2,1.5,2.5,2c1.1,0.2,5,1.3,7,4.9c2.3,4.3,1.5,6.3,1.5,6.4C26.9,38.8,26.8,38.9,26.6,38.8z"/>
+		<path class="leftmidst2" d="M18.9,45.9c-1.1-0.6-2.2-1.5-2.8-2.5c0,0-0.1-0.1-0.1-0.1c-0.5-0.8-1.3-2.2-1.4-5.6c-0.1-3.1,0.2-10.3,4.3-12
+			c3.4-1.5,7,0.8,9.1,5.9c2.1,5.3,0.2,7.8,0.2,7.8c-0.1,0.2-0.4,0.1-0.5-0.2c-0.1-0.3-0.1-0.6,0-0.8c0.1-0.1,1.5-2-0.2-6.4
+			c-1.9-4.6-5.1-6.6-8.2-5.3c-3.8,1.5-4,8.4-4,11.2c0.1,3,0.7,4,1.1,4.8c0,0.1,0.1,0.1,0.1,0.1c0.8,1.4,3.4,2.8,4.6,2.6
+			c1.1-0.2,0.5-2.6,0.5-2.7c-0.1-0.3,0-0.6,0.2-0.6c0.2,0,0.4,0.2,0.5,0.5c0.3,1.2,0.5,3.7-0.9,3.9C20.8,46.7,19.8,46.4,18.9,45.9
+			L18.9,45.9z"/>
+		<path class="leftmidst2" d="M26.8,48c-0.2-0.1-0.5-0.3-0.7-0.5c-0.2-0.2-0.3-0.5-0.2-0.8c0.1-0.3,0.3-0.3,0.4-0.1c0,0,0,0,0,0
+			c0.5,0.5,1,0.6,1.5,0.4c0.8-0.3,1.5-1.6,1.8-3.3c0.5-3-0.9-6.8-0.9-6.8c-0.1-0.3-0.1-0.6,0.1-0.7c0.2-0.1,0.4,0,0.5,0.3
+			c0.1,0.2,1.6,4.3,1,7.8c-0.3,2.1-1.1,3.5-2.1,3.9C27.8,48.2,27.3,48.2,26.8,48L26.8,48z"/>
+		<path class="leftmidst2" d="M23.5,47.9C23.5,47.9,23.4,47.9,23.5,47.9c-0.8-0.4-1.4-1.2-1.7-2.1c-0.1-0.3-0.1-0.6,0.1-0.7l0,0
+			c0.2-0.1,0.4,0.1,0.5,0.4l0,0c0.2,0.5,0.6,1,1.1,1.3c0.7,0.4,1.5,0.2,2-0.5c1-1.5-0.1-5.4-0.1-5.4c-0.1-0.3,0-0.6,0.2-0.7
+			c0.2-0.1,0.4,0.1,0.5,0.5l0,0c0.1,0.2,1.4,4.7,0,6.6C25.4,48.2,24.4,48.4,23.5,47.9L23.5,47.9z"/>
+		<path class="leftmidst2" d="M24.3,40.8c-2.4-1.1-4.4-6-4.5-6.2c-0.1-0.3-0.1-0.6,0.1-0.7c0.2-0.1,0.4,0,0.5,0.3c0,0.1,2.5,5.9,4.8,5.7
+			c0.6-0.1,1-0.4,1.2-1.1c0.4-1.5-0.4-3.5-0.5-4l-0.3-1c-0.1-0.3,0-0.6,0.2-0.7c0.2-0.1,0.4,0.1,0.5,0.4l0.3,1c0.2,0.8,1.1,3,0.6,4.9
+			c-0.3,0.9-0.8,1.5-1.6,1.6C25,41,24.6,40.9,24.3,40.8L24.3,40.8z M18.4,40.8c-0.2-0.1-0.4-0.4-0.4-0.7c0-0.3,0.2-0.4,0.4-0.3l0,0
+			c0.4,0.2,0.8,0.2,0.9-0.2c0.1-0.3,0-0.9-0.4-1.7c-1.8-3.7-3.4-2.8-3.4-2.8c-0.2,0.1-0.4-0.1-0.5-0.3c-0.1-0.3-0.1-0.6,0.1-0.7
+			c0,0,2.2-1.3,4.4,3.4c0.7,1.5,0.7,2.4,0.5,2.9C19.7,41,19,41.1,18.4,40.8L18.4,40.8z M14.3,26.1c-0.2-0.1-0.4-0.4-0.4-0.6
+			c0-0.1,0-0.2,0.1-0.3c0-0.1,1.2-1.7,2.8-1.8c2.6-0.2,3.5,1.9,3.5,2c0.1,0.3,0.1,0.6-0.1,0.7c-0.2,0.1-0.4-0.1-0.5-0.3
+			c0,0-0.6-1.5-2.7-1.3c-1.4,0.1-2.5,1.5-2.5,1.6C14.5,26.1,14.4,26.1,14.3,26.1z"/>
+		<path class="leftmidst2" d="M12.8,41.9c-0.3-0.2-0.6-0.4-0.9-0.7c-2.3-2-3.6-6-3-9.6c0.6-3.7,2.4-3.7,2.5-3.7c0.2,0,0.4,0.2,0.4,0.5
+			c0.1,0.3,0,0.5-0.2,0.5c-0.1,0-1.5,0.1-2,3.2c-0.5,3.2,0.6,6.6,2.5,8.3c1.9,1.6,3,0.3,3,0.3c0.1-0.1,0.4-0.1,0.5,0.2
+			c0.1,0.2,0.2,0.6,0.1,0.7C15.5,41.6,14.5,42.8,12.8,41.9L12.8,41.9z"/>
+		<path class="leftmidst2" d="M12.8,37.5C12.8,37.5,12.8,37.5,12.8,37.5c-0.5-0.4-1.3-1.5-1.1-3.1c0.1-0.8,0.6-1.4,1.2-1.5
+			c0.8-0.2,1.6,0.3,2.4,1.1c0.2,0.2,0.2,0.5,0.1,0.7c-0.1,0.2-0.3,0.2-0.5,0c-0.5-0.7-1.2-1-1.7-0.9c-0.4,0.1-0.7,0.4-0.8,1
+			c-0.2,1,0.4,1.5,0.5,1.6c0.2,0.2,0.3,0.5,0.3,0.7C13.1,37.5,13,37.6,12.8,37.5z"/>
+		<path class="leftmidst3" d="M52.3,54.2c1-0.4,1.6-1.6,1.6-3.3c0-2.9-1.9-6.4-4.1-7.7c-2.3-1.3-4.1,0-4.1,2.9c0,1.8,0.7,3.8,1.8,5.4
+			c-2.5-0.2-4.4,1.6-4.8,5l15,8.7C57.1,61.1,55,56.9,52.3,54.2z"/>
+	</g>
+
+</g>
+<!-- 左前 -->
+<g  style="animation: up-down 3s ease 1.4s infinite;" >	
+		<!-- <image style="overflow:visible;" width="125" height="93" xlink:href="home-left-front.svg"  transform="matrix(1 0 0 1 980.9874 380.9969)">
+	</image> -->
+	<style type="text/css">
+	.leftfrontst0{opacity:0.72;fill:#006AE3;}
+	.leftfrontst1{opacity:0.43;fill:#F9F9F9;}
+	.leftfrontst2{fill:#F9DEC5;}
+	</style>
+	<g width="125" height="93" transform="matrix(1 0 0 1 1025.9874 385.9969)">
+		<polygon class="leftfrontst0" points="36.1,90.7 36.1,21.8 0,0 0,67.8 	"/>
+		<polygon class="leftfrontst1" points="19.5,31.4 24.6,34.9 24.6,36.9 19.5,33 	"/>
+		<polygon class="leftfrontst1" points="19.5,36.5 24.6,40 24.6,41.9 19.5,38.1 	"/>
+		<polygon class="leftfrontst1" points="19.5,41.5 24.6,45 24.6,46.9 19.5,43.1 	"/>
+		<polygon class="leftfrontst1" points="19.5,46.5 24.6,50 24.6,52 19.5,48.1 	"/>
+		<polygon class="leftfrontst1" points="19.5,51.5 24.6,55 24.6,57 19.5,53.1 	"/>
+		<polygon class="leftfrontst1" points="19.5,56.6 24.6,60.1 24.6,62 19.5,58.2 	"/>
+		<polygon class="leftfrontst1" points="19.5,61.6 24.6,65.1 24.6,67.1 19.5,63.2 	"/>
+		<path class="leftfrontst2" d="M20.7,81.2"/>
+	</g>
+</g>
+<g  style="animation: up-down 2.5s ease 1s infinite;">	
+		<!-- <image style="overflow:visible;" width="109" height="93" xlink:href="home-05.svg"  transform="matrix(1 0 0 1 1424.9874 135.9969)">
+	</image> -->
+	<style type="text/css">
+	.img5st0{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#0BE5FC;}
+	.img5st1{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#5DFEF2;}
+	.img5st2{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#5BFFF3;}
+	.img5st3{fill:#94F7EF;}
+	.img5st4{clip-path:url(#SVGID_2_);fill:#8AEDE4;}
+	.img5st5{fill:#C5FFF8;}
+	.img5st6{fill:#8AEDE4;}
+	</style>
+	<g width="109" height="93" transform="matrix(1 0 0 1 1438.9874 135.9969)">
+		<g>
+			<path class="img5st0" d="M44.7,85.7c-2.8,1.6-7.5,1.6-10.3,0L8,70.6c-2.8-1.6-2.8-4.3,0-6l26.3-15.2c2.8-1.6,7.5-1.6,10.3,0L71,64.6
+				c2.8,1.6,2.8,4.3,0,6L44.7,85.7z"/>
+			<path class="img5st0" d="M44.7,44.5c-2.8,1.6-7.5,1.6-10.3,0L8,29.3c-2.8-1.6-2.8-4.3,0-6L34.4,8.2c2.8-1.6,7.5-1.6,10.3,0L71,23.4
+				c2.8,1.6,2.8,4.3,0,6L44.7,44.5z"/>
+			<path class="img5st1" d="M71,29.3L44.7,44.5c-2.8,1.6-7.5,1.6-10.3,0L8,29.3c-1.4-0.8-2.1-1.9-2.1-3h0v18.8c0,1.1,0.7,2.2,2.1,3
+				l26.3,15.2c2.8,1.6,7.5,1.6,10.3,0L71,48.1c1.4-0.8,2.1-1.9,2.1-3V26.4C73.1,27.4,72.4,28.5,71,29.3z"/>
+			<path class="img5st2" d="M71,51.8L44.7,67c-2.8,1.6-7.5,1.6-10.3,0L8,51.8c-1.4-0.8-2.1-1.9-2.1-3h0v18.8c0,1.1,0.7,2.2,2.1,3
+				l26.3,15.2c2.8,1.6,7.5,1.6,10.3,0L71,70.6c1.4-0.8,2.1-1.9,2.1-3V48.8C73.1,49.9,72.4,51,71,51.8z"/>
+			<path class="img5st0" d="M72.4,47c-0.3,0.4-0.8,0.8-1.4,1.2L44.7,63.3c-2.8,1.6-7.5,1.6-10.3,0L8,48.1C7.5,47.8,7,47.4,6.6,47
+				c-1.3,1.6-0.8,3.5,1.4,4.8L34.4,67c2.8,1.6,7.5,1.6,10.3,0L71,51.8C73.2,50.5,73.7,48.5,72.4,47z"/>
+		</g>
+		<g>
+			<path class="img5st3" d="M56.7,40.9L56.7,40.9c-0.3-0.1-0.6-0.3-0.9-0.4C48.3,37,44.9,32,44.9,32c-0.4-0.6-1-0.9-1.5-0.7l0,0
+				c0,0-3.5,2.1-11.7-2c-0.2-0.1-0.4-0.1-0.5-0.1l0,0l0,0c-0.1,0-0.3,0.1-0.4,0.2l-9.2,5.4l5.5,4.3l3.9,0.8l0.1,4.7
+				c0.1,4.1,1.6,10.7,13.2,20.6c0,0,0,0,0,0L40,66.7l4.4,3.1l9.7-5.7l0,0c3.1-1.7,3.6-4.7,3.6-7.2V42.4
+				C57.7,41.8,57.3,41.2,56.7,40.9z"/>
+			<g>
+				<defs>
+					<path id="SVGID_1_" d="M56.7,40.9L56.7,40.9c-0.3-0.1-0.6-0.3-0.9-0.4C48.3,37,44.9,32,44.9,32c-0.4-0.6-1-0.9-1.5-0.7l0,0
+						c0,0-3.5,2.1-11.7-2c-0.2-0.1-0.4-0.1-0.5-0.1l0,0l0,0c-0.1,0-0.3,0.1-0.4,0.2l-9.2,5.4l5.5,4.3l3.9,0.8l0.1,4.7
+						c0.1,4.1,1.6,10.7,13.2,20.6c0,0,0,0,0,0L40,66.7l4.4,3.1l9.7-5.7l0,0c3.1-1.7,3.6-4.7,3.6-7.2V42.4
+						C57.7,41.8,57.3,41.2,56.7,40.9z"/>
+				</defs>
+				<clipPath id="SVGID_2_">
+					<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+				</clipPath>
+				<path class="img5st4" d="M43.4,31.3l-9.2,5.5l8.7,19.1l1.8,15.3l22.4-6.3l-1.9-12.8c0,0-2.2-13.2-2.3-13.3c-0.1,0-10.3-7.1-10.3-7.1
+					l-4.1-1.5l-4.1,0.3L43.4,31.3z"/>
+			</g>
+			<path class="img5st5" d="M47.3,46.4c-0.3-0.1-0.6-0.3-0.9-0.4c-7.5-3.5-10.9-8.5-10.9-8.5c-0.4-0.6-1-0.9-1.5-0.7l0,0
+				c0,0-3.5,2.1-11.7-2c-0.6-0.3-1,0-1,0.5l0.4,14.7c0.1,4.1,1.6,10.7,13.2,20.6c0.2,0.2,0.5,0.3,0.7,0.3c11.4,0.7,12.7-4.6,12.7-8.6
+				V48C48.3,47.4,47.9,46.7,47.3,46.4L47.3,46.4L47.3,46.4z"/>
+		</g>
+		<path class="img5st6" d="M34.9,44.9c-2.2-0.3-3.5,1.7-2.8,4.4c0.2,1,0.7,1.9,1.3,2.7l-4.6,6.9c-0.4,0.5-0.1,1.5,0.6,2.2
+			c0.3,0.3,0.7,0.6,1,0.6c0.3,0.1,0.6,0,0.8-0.3l0.7-1c0.1,0.1,0.1,0.2,0.2,0.2l1,1c0.4,0.5,1,0.6,1.2,0.2l1.4-2.1
+			c0.2-0.4,0.1-1-0.4-1.5l-1-1c-0.1-0.1-0.1-0.1-0.2-0.2l1.8-2.7c0,0,0-0.1,0-0.1c0.5,0.3,1,0.4,1.5,0.5c2.2,0.3,3.5-1.7,2.9-4.4
+			C39.5,47.6,37.1,45.2,34.9,44.9z M36.5,51.6c-0.8-0.1-1.6-1-1.8-1.9c-0.2-1,0.2-1.6,1-1.5c0.8,0.1,1.6,1,1.8,1.9
+			C37.7,51,37.3,51.7,36.5,51.6z"/>
+	</g>
+
+</g>
+<g transform="matrix(1 0 0 1 1448.9874 125.9909)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.2s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+<g transform="matrix(1 0 0 1 1458.9874 125.9909)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="3"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="2.3s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+<g transform="matrix(1 0 0 1 1468.9874 125.9909)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2.5"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.5s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 1478.9874 125.9909)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.8s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 1410.9874 215.9909)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="4" style="animation: point3 2s linear infinite;"></circle>
+</g>
+<g transform="matrix(1 0 0 1 1410.9874 215.9909)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="4" style="animation: point3 2.5s linear infinite;"></circle>
+</g>
+
+<g  style="animation: up-down 2.5s ease 1s infinite;">
+		<!-- <image style="overflow:visible;" width="108" height="93" xlink:href="home-01.svg"  transform="matrix(1 0 0 1 370.9874 214.9969)">
+	</image> -->
+	<g transform="matrix(1 0 0 1 385.9874 214.9969)">
+		<g >
+			<path class="img1st0" d="M44.6,85c-2.8,1.6-7.3,1.6-10.1,0L8.6,70.1c-2.8-1.6-2.8-4.2,0-5.8l25.8-14.9c2.8-1.6,7.3-1.6,10.1,0
+				l25.8,14.9c2.8,1.6,2.8,4.2,0,5.8L44.6,85z"/>
+			<path class="img1st0" d="M44.6,44.6c-2.8,1.6-7.3,1.6-10.1,0L8.6,29.7c-2.8-1.6-2.8-4.2,0-5.8L34.5,8.9c2.8-1.6,7.3-1.6,10.1,0
+				l25.8,14.9c2.8,1.6,2.8,4.2,0,5.8L44.6,44.6z"/>
+			<path class="img1st1" d="M70.4,29.7L44.6,44.6c-2.8,1.6-7.3,1.6-10.1,0L8.6,29.7c-1.4-0.8-2.1-1.9-2.1-2.9h0v18.4
+				c0,1.1,0.7,2.1,2.1,2.9L34.5,63c2.8,1.6,7.3,1.6,10.1,0l25.8-14.9c1.4-0.8,2.1-1.9,2.1-2.9V26.8C72.5,27.8,71.8,28.9,70.4,29.7z"
+				/>
+			<path class="img1st2" d="M70.4,51.7L44.6,66.6c-2.8,1.6-7.3,1.6-10.1,0L8.6,51.7c-1.4-0.8-2.1-1.9-2.1-2.9h0v18.4
+				c0,1.1,0.7,2.1,2.1,2.9L34.5,85c2.8,1.6,7.3,1.6,10.1,0l25.8-14.9c1.4-0.8,2.1-1.9,2.1-2.9V48.8C72.5,49.8,71.8,50.9,70.4,51.7z"
+				/>
+			<path class="img1st0" d="M71.8,47c-0.3,0.4-0.8,0.8-1.4,1.1L44.6,63c-2.8,1.6-7.3,1.6-10.1,0L8.6,48.1c-0.6-0.3-1-0.7-1.4-1.1
+				c-1.3,1.5-0.8,3.4,1.4,4.7l25.8,14.9c2.8,1.6,7.3,1.6,10.1,0l25.8-14.9C72.6,50.4,73.1,48.5,71.8,47z"/>
+		</g>
+		<path class="img1st3" d="M52.6,34.3L52.6,34.3c-3.2-1.6-6-0.6-7.5,2.3c-1.4-4.3-4.2-8.2-7.4-9.8c-2-1-3.8-1-5.3-0.1l0,0l-7.9,5.1
+			l2.9,1.1l1.9-0.2c0,0.5-0.1,0.9-0.1,1.4c0,1.9,0.4,4,1,5.9c0.1,0.3,0.3,0.9,0.7,1.8c0.3,0.6,0.5,1.2,0.8,1.8
+			c2.2,4.5,6.4,12.2,9.4,17.8l-5.4,1.3l3,8.8l8.8-5.1l0,0c0.1-0.1,0.3-0.2,0.4-0.3c3.1-2.6,8-6.6,10.5-9.2c0.3-0.3,0.6-0.6,0.8-0.9
+			c0.3-0.3,0.5-0.8,0.7-1.1c0.7-1.3,1-3,1-4.9C61,43.7,57.3,36.7,52.6,34.3z"/>
+		<path class="img1st4" d="M45.1,39.2c-3.2-1.6-6-0.6-7.5,2.3c-1.4-4.3-4.2-8.2-7.4-9.8c-4.7-2.3-8.4,0.9-8.4,7.3c0,1.9,0.4,4,1,5.9
+			c0.1,0.3,0.3,0.9,0.7,1.8c0.3,0.6,0.5,1.2,0.8,1.8c2.4,5,7.3,13.9,10.4,19.6c1.6,2.8,4.2,4.2,5.8,2.9c3.1-2.6,8-6.6,10.5-9.2
+			c0.3-0.3,0.6-0.6,0.8-0.9c0.3-0.3,0.5-0.8,0.7-1.1c0.7-1.3,1-3,1-4.9C53.5,48.6,49.8,41.5,45.1,39.2L45.1,39.2z"/>
+		<polyline class="img1st5" points="25.3,50.5 27.9,44 31.1,53.9 35.2,47.2 40.2,61 44.7,47.2 46.8,56.4 52.8,59" width="108" height="93" />
+	</g>
+</g>
+<g transform="matrix(1 0 0 1 395.9874 204.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="0.9" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.2s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+<g transform="matrix(1 0 0 1 405.9874 204.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="0.9" fill="#0BE5FC" cx="15" cy="100" r="3"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="2.3s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+<g transform="matrix(1 0 0 1 413.9874 204.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="0.9" fill="#0BE5FC" cx="15" cy="100" r="2.5"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.5s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+<g transform="matrix(1 0 0 1 420.9874 204.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="0.9" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="2.0s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+
+<g>
+		<!-- <image style="overflow:visible;" width="109" height="93" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="home-02.svg" transform="matrix(1 0 0 1 580.9874 320.9969)">
+	</image> -->
+	<style type="text/css">
+	.img2st0{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#0BE5FC;}
+	.img2st1{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#5BFFF3;}
+	.img2st2{opacity:0.45;fill-rule:evenodd;clip-rule:evenodd;fill:#5DFEF2;}
+	.img2st3{fill:#C5FFF8;}
+	.img2st4{fill:#94F7EF;}
+</style>
+	<g transform="matrix(1 0 0 1 580.9874 320.9969)" width="109" height="93">
+		<path class="img2st0" d="M45.5,92.2c-3.3,1.9-8.7,1.9-12,0L2.8,74.5c-3.3-1.9-3.3-5,0-7l30.7-17.7c3.3-1.9,8.7-1.9,12,0l30.7,17.7
+			c3.3,1.9,3.3,5,0,7L45.5,92.2z"/>
+		<path class="img2st1" d="M76.2,52.6L45.5,70.3c-3.3,1.9-8.7,1.9-12,0L2.8,52.6c-1.7-1-2.5-2.2-2.5-3.5h0V71c0,1.3,0.8,2.5,2.5,3.5
+			l30.7,17.7c3.3,1.9,8.7,1.9,12,0l30.7-17.7c1.7-1,2.5-2.2,2.5-3.5V49.1C78.7,50.4,77.9,51.6,76.2,52.6z"/>
+		<path class="img2st0" d="M77.9,47c-0.4,0.5-0.9,0.9-1.6,1.3L45.5,66c-3.3,1.9-8.7,1.9-12,0L2.8,48.3c-0.7-0.4-1.2-0.9-1.6-1.3
+			c-1.5,1.8-1,4.1,1.6,5.6l30.7,17.7c3.3,1.9,8.7,1.9,12,0l30.7-17.7C78.8,51.1,79.4,48.8,77.9,47z"/>
+		<path class="img2st0" d="M45.5,44.1c-3.3,1.9-8.7,1.9-12,0L2.8,26.4c-3.3-1.9-3.3-5,0-7L33.5,1.8c3.3-1.9,8.7-1.9,12,0l30.7,17.7
+			c3.3,1.9,3.3,5,0,7L45.5,44.1z"/>
+		<path class="img2st2" d="M76.2,26.4L45.5,44.1c-3.3,1.9-8.7,1.9-12,0L2.8,26.4c-1.7-1-2.5-2.2-2.5-3.5h0v21.9c0,1.3,0.8,2.5,2.5,3.5
+			L33.5,66c3.3,1.9,8.7,1.9,12,0l30.7-17.7c1.7-1,2.5-2.2,2.5-3.5V22.9C78.7,24.2,77.9,25.5,76.2,26.4z"/>
+		<polygon class="img2st3" points="50.6,61 39,54.4 38.3,56.1 50.6,63.2 	"/>
+		<polygon class="img2st4" points="49.1,38.3 38.9,44.3 38.7,42.1 47.6,37.1 	"/>
+		<circle class="img2st4" cx="53.2" cy="63.8" r="3.9"/>
+		<circle class="img2st4" cx="52.9" cy="34.9" r="7.5"/>
+		<circle class="img2st3" cx="52.9" cy="63.3" r="3.2"/>
+		<circle class="img2st3" cx="51.7" cy="33.3" r="5.6"/>
+		<circle class="img2st4" cx="30.1" cy="48.3" r="11.4"/>
+		<circle class="img2st3" cx="28.4" cy="46.9" r="9.2"/>
+	</g>
+</g>
+<mask maskUnits="userSpaceOnUse" x="0.2" y="0.6" width="235" height="238.6" id="SVGID_1_">
+	<g class="mst0" style="animation: hidden-show 5s ease 2.5s infinite;">
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="133.639" y1="105.233" x2="4.1599" y2="184.0464">
+			<stop  offset="0" style="stop-color:#FFFFFF"/>
+			<stop  offset="1" style="stop-color:#000000"/>
+		</linearGradient>
+		<polygon class="mst1" points="118.1,0.6 0.2,70.5 2.1,181.2 103.4,239.2 235.2,159.4 235.2,68.2"/>
+	</g>
+</mask>
+<!-- 渐变光 -->
+<polygon class="mst2" style="animation: hidden-show-shadow 5s ease 2.5s infinite;" points="118.1,0.6 0.2,70.5 2.1,181.2 103.4,239.2 235.2,159.4 235.2,68.2 " transform="matrix(1 0 0 1 550.9874 220.9969)"/>
+
+<!-- 最左侧前 -->
+<g  style="animation:up-down 3s ease 1.6s infinite;"> 
+	<polygon class="rst0" points="0,138.1 0,54 98,0 98,82.5" transform="matrix(1 0 0 1 205.9874 244.9969)"/>
+</g>
+<g  style="animation:up-down 3s ease 1.5s infinite;">	
+		<g transform="matrix(1 0 0 1 205.9874 244.9969)">
+			<polygon class="rst2" points="25.6,65.4 9.2,75 9.2,80.4 25.6,70.5 	"/>
+			<polygon class="rst4" points="44.5,86.4 28.1,96.1 28.1,101.5 44.5,91.6 	"/>
+			<polygon class="rst5" points="44.5,63.8 28.1,73.4 28.1,78.8 44.5,68.9 	"/>
+			<polygon class="rst0" points="44.5,73.3 28.1,83 28.1,88.4 44.5,78.5 	"/>
+			<polygon class="rst6" points="64.6,52.3 48.2,62 48.2,67.4 64.6,57.5 	"/>
+			<polygon class="rst7" points="64.6,61.9 48.2,71.6 48.2,76.9 64.6,67.1 	"/>
+		</g>
+</g>
+<!-- 最左侧后 -->
+<style>
+	.img6st0{opacity:0.25;fill:#C5FFF8;}
+	.img6st1{fill:#FFFFFF;}
+</style>
+<g style="animation:up-down 3s ease 1.6s infinite;">
+	<polygon class="img6st0" points="0,138.1 0,54 98,0 98,82.5" transform="matrix(1 0 0 1 155.9874 254.9969)"/>
+	<g >
+		<path transform="matrix(1 0 0 1 155.9874 254.9969)" class="img6st1" d="M22.1,77.3c-0.2,0.2-0.4,0.5-0.4,0.8v16.3c0,0.2,0.2,0.3,0.4,0.1c0.2-0.2,0.4-0.6,0.4-0.8V77.4
+			C22.6,77.2,22.4,77.1,22.1,77.3z M14.6,90.2c-0.2,0.2-0.4,0.6-0.4,0.8v10.2c0,0.3,0.2,0.3,0.4,0.1c0.2-0.2,0.4-0.6,0.4-0.9V90.3
+			C15,90,14.8,90,14.6,90.2z M37.3,67.6c-0.2,0.2-0.4,0.5-0.4,0.7v13.1c0,0.2,0.2,0.2,0.4,0c0.2-0.2,0.4-0.5,0.4-0.7v-13
+			C37.7,67.5,37.5,67.5,37.3,67.6L37.3,67.6z M37.1,63.4c0.2-0.2,0.4-0.4,0.4-0.7l0-2.5c0-0.1-0.1-0.2-0.1-0.2c-0.1,0-0.2,0-0.3,0.1
+			L34.4,62c-0.2,0.2-0.4,0.5-0.4,0.7c0,0.2,0.2,0.2,0.4,0.1l1.6-1.2l-6.4,11.1l-7.3-2.3c-0.2-0.1-0.4,0.1-0.6,0.4l-7.5,13.1
+			c-0.2,0.3-0.2,0.6,0,0.7c0.2,0.1,0.4-0.1,0.6-0.4l7.2-12.6l7.3,2.3c0.1,0,0.2,0,0.3-0.1l0,0c0.1-0.1,0.2-0.2,0.3-0.3l6.7-11.6
+			l0,1.5C36.7,63.5,36.9,63.5,37.1,63.4L37.1,63.4L37.1,63.4z M29.7,78.1c-0.2,0.2-0.4,0.5-0.4,0.7v8.9c0,0.2,0.2,0.3,0.4,0.1
+			c0.2-0.2,0.4-0.5,0.4-0.8v-8.9C30.1,78,29.9,77.9,29.7,78.1L29.7,78.1z"/>
+	</g>
+</g>
+
+
+
+<!-- 右前 -->
+<g  style="animation:up-down 3s ease 1.6s infinite;"> 
+	<polygon class="rst0" points="0,138.1 0,54 98,0 98,82.5" transform="matrix(1 0 0 1 1275.9874 228.9969)"/>
+</g>
+<g  style="animation:up-down 3s ease 1.5s infinite;">	
+		<g transform="matrix(1 0 0 1 1275.9874 228.9969)">
+			<path class="rst1" d="M85.6,29.4c0,1.5,1,2.3,2.3,1.8c1.3-0.5,2.3-2.2,2.3-3.7v0c0-1.5-1-2.3-2.3-1.8S85.6,27.9,85.6,29.4L85.6,29.4
+				z"/>
+			<path class="st1" d="M77.4,33.7c0,1.5,1,2.3,2.3,1.8c1.3-0.5,2.3-2.2,2.3-3.7v0c0-1.5-1-2.3-2.3-1.8C78.4,30.5,77.4,32.2,77.4,33.7
+				L77.4,33.7z"/>
+			<polygon class="rst2" points="25.6,65.4 9.2,75 9.2,80.4 25.6,70.5 	"/>
+			<polygon class="rst3" points="44.5,54 28.1,63.7 28.1,69.1 44.5,59.2 	"/>
+			<polygon class="rst3" points="90.2,38.7 78.4,45.6 78.4,84.4 90.2,77.3 	"/>
+			<polygon class="rst4" points="44.5,86.4 28.1,96.1 28.1,101.5 44.5,91.6 	"/>
+			<polygon class="rst5" points="44.5,63.8 28.1,73.4 28.1,78.8 44.5,68.9 	"/>
+			<polygon class="rst0" points="44.5,73.3 28.1,83 28.1,88.4 44.5,78.5 	"/>
+			<polygon class="rst6" points="64.6,52.3 48.2,62 48.2,67.4 64.6,57.5 	"/>
+			<polygon class="rst7" points="64.6,61.9 48.2,71.6 48.2,76.9 64.6,67.1 	"/>
+		</g>
+</g>
+<!-- 右后 -->
+<g  style="animation:up-down 3s ease 1.8s infinite;">
+	<polygon class="rst8" points="0,122.7 0,45.1 83.6,0 83.6,76.1 " transform="matrix(1 0 0 1 1263.9874 228.9969)" />
+</g>
+<g   style="animation:up-down 2.5s ease 1s infinite;" class="point">	
+		<!-- <image style="overflow:visible;" width="108" height="93" xlink:href="home-04.svg"  transform="matrix(1 0 0 1 1148.9874 298.9969)">
+	</image> -->
+	<style type="text/css">
+	.img4st0{opacity:0.55;fill-rule:evenodd;clip-rule:evenodd;fill:#0BE5FC;}
+	.img4st1{opacity:0.55;fill-rule:evenodd;clip-rule:evenodd;fill:#5DFEF2;}
+	.img4st2{opacity:0.55;fill-rule:evenodd;clip-rule:evenodd;fill:#5BFFF3;}
+	.img4st3{fill:#8AEDE4;}
+	.img4st4{fill:#94F7EF;}
+	.img4st5{fill:#C5FFF8;}
+	</style>
+	<g width="108" height="93" transform="matrix(1 0 0 1 1160.9874 298.9969)">
+		<path class="img4st0" d="M44.7,85.7c-2.8,1.6-7.5,1.6-10.3,0L8,70.6c-2.8-1.6-2.8-4.3,0-6l26.3-15.2c2.8-1.6,7.5-1.6,10.3,0L71,64.6
+			c2.8,1.6,2.8,4.3,0,6L44.7,85.7z"/>
+		<path class="img4st0" d="M44.7,44.5c-2.8,1.6-7.5,1.6-10.3,0L8,29.3c-2.8-1.6-2.8-4.3,0-6L34.4,8.2c2.8-1.6,7.5-1.6,10.3,0L71,23.4
+			c2.8,1.6,2.8,4.3,0,6L44.7,44.5z"/>
+		<path class="img4st1" d="M71,29.3L44.7,44.5c-2.8,1.6-7.5,1.6-10.3,0L8,29.3c-1.4-0.8-2.1-1.9-2.1-3h0v18.8c0,1.1,0.7,2.2,2.1,3
+			l26.3,15.2c2.8,1.6,7.5,1.6,10.3,0L71,48.1c1.4-0.8,2.1-1.9,2.1-3V26.4C73.1,27.4,72.4,28.5,71,29.3z"/>
+		<path class="img4st2" d="M71,51.8L44.7,67c-2.8,1.6-7.5,1.6-10.3,0L8,51.8c-1.4-0.8-2.1-1.9-2.1-3h0v18.8c0,1.1,0.7,2.2,2.1,3
+			l26.3,15.2c2.8,1.6,7.5,1.6,10.3,0L71,70.6c1.4-0.8,2.1-1.9,2.1-3V48.8C73.1,49.9,72.4,51,71,51.8z"/>
+		<path class="img4st0" d="M72.4,47c-0.3,0.4-0.8,0.8-1.4,1.2L44.7,63.3c-2.8,1.6-7.5,1.6-10.3,0L8,48.1C7.5,47.8,7,47.4,6.6,47
+			c-1.3,1.6-0.8,3.5,1.4,4.8L34.4,67c2.8,1.6,7.5,1.6,10.3,0L71,51.8C73.2,50.5,73.7,48.5,72.4,47z"/>
+		<g>
+			<path class="img4st3" d="M53.1,59.6c0-3.5-1.2-7-3.6-10.3c-0.6-0.8-1.1-1.5-1.8-2.2l4.7-3.5c-0.7-4-2.2-7.3-4.5-10.1
+				c-1.7-2.1-3.5-3.7-5.8-5.2v-2.3l-2.5-1.5l-1.8,1.4c-1-0.4-2-0.7-3-0.9c-3.4-0.5-5.6,1.8-5.6,6c0,3.8,0,10.5,2.8,13.9
+				c1.5,1.8,4.8,3.8,7.6,6.2v4.8c-1.1-0.8-1.8-1.6-2.5-2.8c-0.7-1.2-0.9-2.3-1.1-4.1l-5.6-2.2l-0.6-1.1L29,46.2L28.6,46
+				c0,0.1,0,0.3,0,0.4L23.3,50l3.9,7.4l3.7,4.5l8.6,3.1v1l2.5,1.5v-3.2c1.4,0.8,2.7,1.3,3.8,1.6l-0.8,1.6l0.8,1.9l5.2-3.9l0,0
+				C52.4,64.4,53.1,62.5,53.1,59.6z M37.7,38.2c-0.8-1-1.3-2.1-1.3-3.2c0-1.9,0.2,0.9,2.2,2l0.9,3.1C38.4,39.1,38,38.7,37.7,38.2z
+				M43,41.9c0,0,0.1,0,0.1,0.1l0.1,1c-0.4-0.3-0.7-0.6-1.1-0.9L43,41.9z M42,57.3v-3.5c1.3,1.1,1.5,2.1,2.1,2.8
+				C44.1,59,44.4,58.5,42,57.3z"/>
+			<polygon class="img4st4" points="30.8,52.9 36.6,48.9 29,46.2 23.3,50 		"/>
+			<polygon class="img4st4" points="42,25.9 39.6,24.4 34.3,28.4 36.8,29.9 		"/>
+			<polygon class="img4st3" points="30.9,25.9 25.6,29.9 29.7,29.9 31.3,27.4 		"/>
+			<path class="img4st5" d="M34.3,66.7c-3.2-2.2-5.5-4.2-7.3-6.7c-1.5-2-2.5-4.2-3.2-6.6c-0.2-0.9-0.4-1.8-0.5-3.4l7.4,2.9
+				c0.1,1.8,0.4,2.9,1.1,4.1c0.6,1.1,1.3,1.9,2.5,2.8v-7.9c-2.8-2.3-4.5-3.9-6-5.7c-2.9-3.4-4.5-7.5-4.5-11.3c0-4.2,2.2-6.5,5.6-6
+				c1.6,0.2,3.1,0.8,4.9,1.8v-2.3l2.5,1.5v2.3c2.3,1.6,4.1,3.1,5.8,5.2c2.3,2.8,3.8,6.1,4.5,10.1l-7.4-3c-0.3-2.5-1.2-4.1-2.9-5.5V46
+				c4.2,3.4,5.9,5.1,7.5,7.3c2.4,3.4,3.6,6.8,3.6,10.3c0,6.7-4.2,8.5-11.1,4.6v3.2L34.3,70V66.7z M34.3,37.6c-2-1-3.1-0.5-3.1,1.3
+				c0,1.1,0.4,2.2,1.3,3.2c0.4,0.5,0.8,0.9,1.9,1.9V37.6z M36.8,61.2c2.4,1.2,3.6,0.7,3.6-1.7c0-1.3-0.5-2.6-1.4-3.7
+				c-0.6-0.7-1-1.1-2.2-2.2V61.2z"/>
+		</g>
+	</g>
+</g>
+<g transform="matrix(1 0 0 1 1168.9874 288.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.2s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 1178.9874 288.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="3"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="2.3s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 1188.9874 288.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2.5"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.5s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 1198.9874 288.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.8s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<!-- 二号柱子 -->
+<g transform="matrix(1 0 0 1 748.9874 348.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.2s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 758.9874 348.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="3"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="2.3s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 768.9874 348.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2.5"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.5s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 778.9874 348.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.8s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<!-- 六号柱子 -->
+<g transform="matrix(1 0 0 1 1369.9874 328.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.2s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 1379.9874 328.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="3"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="2.3s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 1389.9874 328.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2.5"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.5s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+<g transform="matrix(1 0 0 1 1399.9874 328.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="2"  transform="translate(0 11.1453)">
+		<animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 20;0 -20;" dur="1.8s" repeatCount="indefinite">
+		</animateTransform>
+	</circle>
+</g>
+
+<g transform="matrix(1 0 0 1 467.9874 330.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="4" style="animation: point1 1.5s linear infinite;"></circle>
+</g>
+<g transform="matrix(1 0 0 1 467.9874 330.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="4" style="animation: point1 2s linear infinite;"></circle>
+</g>
+<g transform="matrix(1 0 0 1 467.9874 330.9969)" width="108" height="93">
+	<circle xmlns="http://www.w3.org/2000/svg" opacity="1" fill="#0BE5FC" cx="15" cy="100" r="4" style="animation: point1 2.5s linear infinite;"></circle>
+</g>
+
+<div class="point point-one"></div>
+</svg>    

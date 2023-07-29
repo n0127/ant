@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="indexTransfer">转账</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--转账-->
+			    <div class="transaction-box" style="display: block;">
+			    	
+			    	<div class="transaction-header public-header">
+			    		<div class="transaction-return return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="indexTransfer">转账</span>
+			    		</div>
+			    	</div>
+			    	
+			    	<div class="transaction-list">
+			    		<div class="mui-scroll-wrapper mui-content">
+							<div class="mui-scroll">
+								<ul>
+									<li>
+					    				<label>
+					    					<span data-value="Callprefix">对方冠码：</span>
+					    					<p class="selectWocd">+86</p>
+					    				</label>
+					    			</li>
+					    			<li>
+					    				<label for="zhuanchuzhanghu">
+					    					<span data-value="Transferredaccount">转入账户：</span>
+					    					<input data-value="Fillinthetransferaccount" class="transaction-ipt toPnone" oninput="value=value.replace(/[^\d]/g,'')" maxlength="11" type="text" placeholder="请填写转入账户" />
+					    				</label>
+					    				<p data-value="Pleaseconfirmthattheaccountiscorrectandavoidtheloss">请再次确认账号无误，避免造成损失</p>
+					    			</li>
+					    			<li>
+					    				<label>
+					    					<span data-value="Transfercoins">转出币种：</span>
+					    					<p data-value="Token">通证</p>
+					    				</label>
+					    			</li>
+					    			<li>
+					    				<label for="zhuanchuzhanghu">
+					    					<span data-value="Quantitytransferred">转入数量：</span>
+					    					<input class="transaction-ipt amount" oninput="value=value.replace(/[^\d||.]/g,'')" maxlength="11" type="text" placeholder="0.00" />
+					    				</label>
+					    				<p>
+					    					<span data-value="AvailableToken">可用通证：</span>
+					    					<span class="keyongant"></span>
+					    				</p>
+					    			</li>
+					    			
+					    			<!--<li>
+					    				<label for="zhuanchuzhanghu">
+					    					<span data-value="">燃烧：</span>
+					    					<input class="transaction-ipt" disabled="disabled" maxlength="11" type="text" placeholder="0.00" />
+					    				</label>
+					    				<p class="shouxufei">0.0%</p>
+					    			</li>-->
+					    			<li>
+					    				<label for="zhuanchuzhanghu">
+					    					<span data-value="Remarks：">备注：</span>
+					    					<input class="transaction-ipt memo" data-value="Fill Remarks" type="text" placeholder="填写备注" />
+					    				</label>
+					    				<!--<p>
+					    					<span data-value="AvailableToken">可用通证：</span>
+					    					<span class="keyongant"></span>
+					    				</p>-->
+					    			</li>
+					    		</ul>
+					    		<!--<div class="zhuanchuNumber">
+					    			<span data-value="Actualtransfer">实际转出：</span>
+					    			<span class="shijizhuanchu">- 0000.000000</span>
+					    		</div>-->
+					    		<div style="margin-top: 0.925925rem;" class="zhuanchu-but"><button data-value="Next" type="button">下一步</button></div>
+							</div>
+						</div>
+					    		
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script>
+	var toPhone;
+	var toPnone;
+	var amount;
+	var userId;
+	var token;
+	var clientType;
+	var language;
+	var memo;
+	
+	var CodeState=GetQueryString("CodeState")
+
+	if(CodeState){
+		var Country1=localStorage.getItem("Country1")
+		var worldCode1=localStorage.getItem("worldCode1")
+		$(".selectWocd").text("+"+worldCode1)
+	}
+	
+	$(".selectWocd").on("tap",function(){
+		var toPnone=$(".toPnone").val();
+		if(hehe!=undefined){
+			DAPPFramework.SharedBoard.Set("selectCode","1")
+			if(toPnone){
+				DAPPFramework.View.PushView("indexList.html");
+			}else{
+				DAPPFramework.View.PushView("indexList.html");
+			}
+		}else{
+			if(toPnone){				
+				window.location="../../indexList.html?CodeState=4&toPnone="+toPnone
+			}else{
+				window.location="../../indexList.html?CodeState=4"
+			}
+		}
+	})
+	
+	$(".transaction-return").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PopView();
+		}else if(AndroidApp=="Android"){
+//			ANT.finishPage()
+		}else{
+			window.location="../../index.html"
+		}
+	})
+	
+	function forAssets(){
+		indexData(userId,token,clientType)
+		$(".keyongant").text(indexziliao.data.user_ant)
+	}
+	
+	function transactionSelect(item){
+		if(item=="true"){
+			Country1=DAPPFramework.SharedBoard.Get("Country1")
+			worldCode1=DAPPFramework.SharedBoard.Get("worldCode1")
+			$(".selectWocd").text("+"+worldCode1)
+		}
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		toPhone=DAPPFramework.SharedBoard.Get("toPhone")
+		DAPPFramework.View.SetIdentifier( "transaction" );
+		clientType=1
+		
+		if(GetQueryString("ReceivablesStart")!=undefined){
+//			if(typeof str == "object"){
+//				$(".toPnone").val(str.a)
+//				$(".amount").val(str.c)
+//			}else{
+//				$(".toPnone").val(toPhone)
+//			}
+			var arr=toPhone.split(",")
+			$(".toPnone").val(arr[0])
+			$(".amount").val(arr[1])
+		}
+		
+		forAssets()
+	}
+	
+	function tarnasactionBox(){
+		if(localStorage.getItem("set-lan")=="EN"){
+			language="en"
+		}else{
+			language="cn"
+		}
+		var selectWocd=$(".selectWocd").text().substring(1)
+		transferAntPerpare(toPnone,selectWocd,amount,token,userId,memo)
+	}
+	
+	var AndPhone=GetQueryString("AndPhone");
+	if(hehe!=undefined){
+//		return false
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId");
+		token=ANT.getMessage("token");
+		clientType=1;
+		if(AndPhone!=undefined){
+			var arr=AndPhone.split(",")
+			$(".toPnone").val(arr[0])
+			$(".amount").val(arr[1])
+		}
+		forAssets()
+	}else{
+		var userId=sessionStorage.getItem("userId");
+		var token=sessionStorage.getItem("token");
+		clientType=2
+		forAssets()
+	}
+	
+	
+	
+	$(".amount").keyup(function(){
+		var value=$(this).val();
+		var userAnt=Math.floor(indexziliao.data.user_ant)
+		if(value>userAnt){
+			$(this).val(userAnt)
+			value=$(this).val();
+		}
+		$(".shijizhuanchu").text("-"+value)
+		if(value.length==0){
+			$(".shijizhuanchu").text("-0000.000000")
+		}
+	})
+	$(".zhuanchu-but").on("tap",function(){
+		toPnone=$(".toPnone").val()
+		amount=$(".amount").val()
+		memo=$(".memo").val()
+		
+		if(toPnone == "" || toPnone == null || toPnone == undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Accounts receivable do not exist")
+			}else{
+				alert("转入账户为空")
+			}
+		}else{
+			if(amount == "" || amount == null || amount == undefined){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("Number into empty")
+				}else{
+					alert("转入数量为空")
+				}
+			}else{
+				tarnasactionBox()
+			}
+		}
+	})
+	
+</script>

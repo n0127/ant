@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="">找回密码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<style>
+			span{
+				color: #333;
+			}
+		</style>
+	</head>
+	<body>
+
+			   <!--修改手机认证-->
+			  <div class="modifyPhone" style="display: block;">
+			  	<div class="public-header">
+			    	<div class="return">
+		    			<div class="mui-push-left"></div>
+		    			<span class="loginTitle" data-value="">找回密码</span>
+		    		</div>
+			    </div>
+			    <div class="public-form">
+			    	<ul>
+			    		<li style="justify-content: space-between;"><span data-value="">手机冠码：</span><p style="font-size:0.851851rem;color: #00b07c;" class="selectWocd PhoneWocd">+86</p></li>
+			    		<li><span data-value="Mobile">手机号码：</span><input maxlength="11" oninput="value=value.replace(/[^\d]/g,'')" type="text" class="newPhone"/><button data-value="SendSMS" style="font-size: 0.703703rem; padding: 0;background: transparent; border: none; color: #00b07c;" class="yzm01">获取验证码</button></li>
+			    		<li><span data-value="">新密码：</span><input data-value="" placeholder="" maxlength="16" type="password" class="logPwd"/></li>
+			    		<li><span data-value="">确认密码：</span><input data-value="" placeholder="" maxlength="16" type="password" class="trdPwd"/></li>
+			    		<li><span data-value="Verifycode">验证码：</span><input data-value="EnterSMS" placeholder="请输入验证码" oninput="value=value.replace(/[^\d]/g,'')" maxlength="6" type="text" class="yzm02"/></li>
+			    	</ul>
+			    	<div class="CreateWalletProtocol">
+						<div data-state="false"></div>
+						<p data-value="">修改登录密码并重置我的私钥</p>
+					</div>
+			    	<div><button data-value="Submit" class="setPhone">提交</button></div>
+			    </div>
+			  </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var CodeState=GetQueryString("CodeState");
+	var oldWorldCode;
+	var language;
+	
+	var newPhone;
+	var logPwd;
+	var trdPwd;
+	var yzm02;
+	var selectWord;
+	var status;
+	var isDeletePrivateKey;
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	if(CodeState){
+		$(".selectWocd").text("+"+CodeState)
+	}
+	
+	var worldCode666=GetQueryString("worldCode");
+	if(worldCode666){
+		$(".selectWocd").text("+"+worldCode666)
+	}
+	
+	if(GetQueryString("status")){
+		$(".CreateWalletProtocol").find("div").css("background-image","url(../../img/CreateWallteRadio.png)")
+		$(".CreateWalletProtocol").find("div").attr("data-state","true")
+	}
+	
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		DAPPFramework.View.SetNavgationRightItem();
+		oldWorldCode=DAPPFramework.Storage.Get("worldCode")
+		clientType=1
+	}
+	
+	$(".yzm01").on("tap",function(){
+		var newPhone=$(".newPhone").val();
+		var worldCode=$(".selectWocd").text().substring(1)
+		if(newPhone == "" || newPhone == null || newPhone == undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Enter new phone number")
+			}else{
+				alert("输入手机号码")
+			}
+		}else{
+			ant(newPhone,1,2,weiyi01,clientType,worldCode)
+			if(antdata!=1){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("Phone number is irregular")
+				}else{
+					alert("手机号码不规则")
+				} 
+			}else{
+				var i=60;
+				$(".yzm01").attr("disabled","disabled")
+				var yanzhengSet=setInterval(function(){
+					$(".yzm01").text(i)
+					i--;
+					if(i<0){
+						clearInterval(yanzhengSet);
+						if(localStorage.getItem("set-lan")=="EN"){
+							$(".yanzhengma01").text("Send SMS")
+						}else{
+							$(".yanzhengma01").text("获取验证码")
+						}
+			      		$(".yzm01").removeAttr("disabled")
+					}
+				},1000)
+			}
+		}
+	})
+	
+	
+	
+	$(".setPhone").on("tap",function(){
+		newPhone=$(".newPhone").val();//手机
+		logPwd=$(".logPwd").val();//新密码
+		trdPwd=$(".trdPwd").val();//确认密码
+		yzm02=$(".yzm02").val();//验证码
+		selectWord=$(".selectWocd").text().substr(1);//冠码
+		status=$(".CreateWalletProtocol>div").attr("data-state");//状态
+		isDeletePrivateKey;
+		if(newPhone == "" || newPhone == null || newPhone == undefined){
+			return alert("手机号码为空")
+		}else if(logPwd == "" || logPwd == null || logPwd == undefined){
+			return alert("新密码为空")
+		}else if(trdPwd == "" || trdPwd == null || trdPwd == undefined){
+			return alert("确认密码为空")
+		}else if(logPwd != trdPwd){
+			return alert("两次密码不一致")
+		}else if(yzm02 == "" || yzm02 == null || yzm02 == undefined){
+			return alert("验证码为空")
+		}
+		
+		if(status=="true"){
+			isDeletePrivateKey=1
+			DAPPFramework.Dialog.Alert("","若使用或操作不当，导致私钥丢失，造成资产损失后果自负",["取消","接受"],[0,2],"ResetPrivatekey")
+		}else{
+			isDeletePrivateKey=0
+			forgetLoginPassword(newPhone,yzm02,logPwd,selectWord,isDeletePrivateKey)
+		}
+		
+		
+	})
+	function ResetPrivatekey(item){
+		if(item=="接受"){			
+			forgetLoginPassword(newPhone,yzm02,logPwd,selectWord,isDeletePrivateKey)
+		}
+	}
+	
+	
+	$(".CreateWalletProtocol").on("tap",function(){
+		window.location.href="Reset.html"
+//		if($(this).find("div").attr("data-state")=="false"){
+//			$(this).find("div").attr("data-state","true")
+//			$(this).find("div").css("background-image","url(../../img/CreateWallteRadio.png)")
+//		}else{
+//			$(this).find("div").attr("data-state","false")
+//			$(this).find("div").css("background","none")
+//			$(this).find("div").removeAttr("style")
+//		}
+		
+	})
+	
+	$(".selectWocd").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.SharedBoard.Set("selectCode","1")
+			window.location.href="../../indexList.html?cebianlan=666"
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("indexList.html","&CodeState=5")
+		}else{
+			window.location.href="../../indexList.html?CodeState=5"
+		}
+	})
+</script>

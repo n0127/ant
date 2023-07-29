@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>支付状态</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/PublicPassword.css"/>
+		<style>
+        
+    </style>
+	</head>
+	<body>
+
+			  <!--交易支付-->
+			    <div class="PublicFixedBox">
+			    	<div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span class="loginTitle">支付状态</span>
+			    		</div>
+			    	</div>
+			    	<div class="PublicScrollBox">
+			    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 0;">
+							<div style="padding-bottom: 0;" class="mui-scroll">
+								<div class="AntTransaction">								
+							    	<img src="../../img/AntTranStatus.png" />
+							    	<span>订单即将完成</span>
+							    	<ul>
+							    		<li><span>订单编号：</span><span class="dingdanbianhao">89750850683948898864</span></li>
+							    		<li><span>付款数量：</span><span class="MallNumber">5000</li>
+							    		<li><span>支付方式：</span><span>ANT</li>
+							    	</ul>
+							    	<button>立即支付</button>
+								</div>
+						    </div>
+						</div>
+					</div>
+			    </div>
+			    
+			   <div class="publicPas">
+					<div>
+						<div class="publicPasTitle">
+							<span>私钥密码</span>
+							<p class="publicPasTitleDown mui-icon mui-icon-closeempty"></p>
+						</div>
+						<div class="publicPasInput">
+							<p>私钥密码</p>
+							<input type="password" placeholder="请输入来源地址对应的私钥密码" />
+						</div>
+						<div class="publicPasBut">
+							<button>确认发送</button>
+						</div>
+					</div>
+				</div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/md5.js" ></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var order_no=GetQueryString("order_no");
+	var mall_key=GetQueryString("mall_key");
+	var android=GetQueryString("loginType");
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="EN"
+		languageArr=EN
+	}else{
+		language="CN"
+		languageArr=CN
+	}
+
+	if(android=="android"){
+		userId=GetQueryString("user_id")
+		token=GetQueryString("user_token")
+		siyao=ANT.getPrivatelyKey()
+		mima=ANT.getUserPwd()
+		clientType=1
+		order_no=localStorage.getItem("order_no")
+		mall_key=localStorage.getItem("mall_key")
+		$(".MallNumber").text(localStorage.getItem("mallNumber"))
+		$(".dingdanbianhao").text(order_no)
+	}
+
+	function DAPPFrameworkEngineReady(){
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		id=DAPPFramework.Storage.Get("VurrentValue")
+		$(".MallNumber").text(GetQueryString("Number"))
+		clientType=1
+		$(".dingdanbianhao").text(order_no)
+	}
+	$(".AntTransaction>button").on("tap",function(){
+		$('.publicPas').fadeIn();
+		$(".publicPasInput>input").val("");
+	})
+	
+	$(".publicPasTitle>p").on("tap",function(){
+		$('.publicPas').fadeOut();
+		$(".publicPasInput>input").val("");
+	})
+	
+	
+	$(".publicPasBut").on("tap","button",function(){
+		var Time=new Date().getTime();
+		var password=$(".publicPasInput>input").val();
+		if(android=="android"){
+			if(mima == password){
+				var wallet=new ethers.Wallet(siyao);
+				wallet.signMessage(sha256_digest(Time+token)).then(signature => {
+					pay(userId,token,mall_key,order_no,clientType,Time,signature)
+				})
+			}else{
+				alert("密码不正确")
+				$(".publicPasInput>input").val("");
+			}
+			return false
+		}
+		
+		var PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+		var privateKey=PrivateKeyJosn[id].privateKey;
+		var wallet=new ethers.Wallet(privateKey);
+		
+		var Password=PrivateKeyJosn[id].Password;
+		if( Password == sha256_digest(password) ){
+			wallet.signMessage(sha256_digest(Time+token)).then(signature => {
+				pay(userId,token,mall_key,order_no,clientType,Time,signature)
+			})
+		}else{
+			alert(languageArr["loging2.0_201"])
+		}
+		
+	})
+
+	$(".return").on("tap",function(){
+		history.back()
+	})
+</script>

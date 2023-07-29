@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Announcement">通知公告</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--公告记录-->
+			    <div class="Game">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Announcement" class="Explain-title">通知公告</span>
+			    		</div>
+			    	</div>
+			    	<div class="GameRecordBox" style="padding-top: 0.555555rem">
+			    		<div class="GameRecordList01">
+			    			<div class="mui-scroll-wrapper mui-content GaneRecordPage"  style="padding-bottom: 40px;">
+								<div style="padding-bottom: 40px;" class="mui-scroll">
+			    					<ul class="Notice-list">
+			    						<!--<li>
+			    							<h3>通知：Adobe这款3D软件厉害了！</h3>
+			    							<p>想必无论是职场新人还是设计老手，大多数平面设计师在日常工作当中都曾产生过这样的疑惑：「作品明明这么好，为什么甲方却 Get 不到」</p>
+			    							<span>2018-12-04</span>
+			    							<i class="mui-push-right"></i>
+			    						</li>-->
+			    					</ul>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script>
+	var userId;
+	var token;
+	var language;
+	var clientType;
+	var PageNum=0;
+	
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	if(hehe==undefined){
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		ListFor()
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1;
+		ListFor()
+		$(".Notice-list").on("tap","li",function(){
+			if(hehe!=undefined){
+				DAPPFramework.SharedBoard.Set("noticeId",$(this).attr("class"));
+				DAPPFramework.View.PushView("src/index/NoticeDetails.html");
+			}
+		})
+	}
+	
+	function formatDate1(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return year+"-"+month + "-" + date;
+	}
+	
+	
+	function ListFor(){
+		getNoticeByTop(userId,token,PageNum,clientType,language)
+		getNoticeByTopArr.data.forEach(function(item){
+			var time=formatDate1(new Date(item.createTime*1000))
+			var li=	"<li class='"+item.noticeId+" NoticeList'>"+
+						"<h3>"+item.title+"</h3>"+
+						"<p>"+item.content+"</p>"+
+						"<span>"+time+"</span>"+
+						"<i class='mui-push-right'></i>"+
+					"</li>"
+			$(".Notice-list").append("<li class='"+item.noticeId+"'>"+
+						"<h3>"+item.title+"</h3>"+
+						"<p>"+item.content+"</p>"+
+						"<span>"+time+"</span>"+
+						"<i class='mui-push-right'></i>"+
+					"</li>")
+		})
+	}
+		
+	
+	function ListFor1(){
+		
+		var This=this;
+		setTimeout(function() {
+	    	PageNum+=10;
+			if(getNoticeByTopArr.data.length!=10){
+				This.endPullupToRefresh(true);
+			}else{
+				ListFor()
+				This.endPullupToRefresh(false);
+			}
+		}, 1000);
+	}
+	
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		mui.init({
+			pullRefresh: {
+				container: '.GaneRecordPage',
+				up: {
+					contentinit: 'Pull up to show more',
+                    contentdown: 'Pull up to show more',
+                    contentrefresh: 'Refreshing...',
+                    contentnomore: 'No more data',
+					callback: ListFor1
+				}
+			}
+		});
+	}else{
+		mui.init({
+			pullRefresh: {
+				container: '.GaneRecordPage',
+				up: {
+					callback: ListFor1
+				}
+			}
+		});
+	}
+		
+	$(".Notice-list>li").on("tap",function(){
+		if(hehe!=undefined){
+			
+		}else{
+			sessionStorage.setItem("noticeId",$(this).attr("class"))
+			window.location.href="NoticeDetails.html"
+		}
+	})
+	
+</script>

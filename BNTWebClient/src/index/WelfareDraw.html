@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Welfare Draw">福利大转盘</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+			<div class="Gameload">
+				<img src="../../img/WelfareDraw01.png" />
+			</div>
+		  	<!--合约刮刮-->
+		    <div class="Game" style="background: #2f3e45">
+		    	<div class="public-header">
+		    		<div class="return">
+		    			<div class="mui-push-left"></div>
+		    			<span data-value="Welfare Draw" class="Explain-title">福利大转盘</span>
+		    		</div>
+		    	</div>
+		    	<div class="mui-content mui-scroll-wrapper index" style="margin-top: 2.37037rem;" id="refreshContainer">
+			      <div class="mui-scroll" style="padding-bottom: 0;">
+			    	<div class="WelfareDraw">
+			    		<div class="WelfareDraw-frequency">
+			    			<!--<span data-value="The number of draws currently held"></span>-->
+			    			<span>当前可抽奖次数：0次</span>
+			    		</div>
+			    		
+			    		<div id="lottery">
+			    			<table>
+			    				<tr>
+			    					<td><p data-value="Thank you" class="lottery-unit lottery-unit-0 active">再接再厉</p></td>
+			    					<td><p data-value="10Assets" class="lottery-unit lottery-unit-1">10资产</p></td>
+			    					<td><p data-value="Come again" class="lottery-unit lottery-unit-2">再来一次</p></td>
+			    				</tr>
+			    				<tr>
+			    					<td><p data-value="1Assets" class="lottery-unit lottery-unit-7">1资产</p></td>
+			    					<td><p data-value="" class="WelfareDrawClick">立即<br />抽奖</p></td>
+			    					<td><p data-value="100Assets" class="lottery-unit lottery-unit-3">100资产</p></td>
+			    				</tr>
+			    				<tr>
+			    					<td><p data-value="1000Assets" class="lottery-unit lottery-unit-6">1000资产</p></td>
+			    					<td><p data-value="10000Assets" class="lottery-unit lottery-unit-5">10000资产</p></td>
+			    					<td><p data-value="100000Assets" class="lottery-unit lottery-unit-4">100000资产</p></td>
+			    				</tr>
+			    			</table>
+			    		</div>
+			    		
+			    		<div data-value="Winning history" class="WelfareDraw-Record">
+			    			中奖纪录>>
+			    		</div>
+			    		
+			    		<div class="WelfareDraw-bottom">
+			    			<p data-value="Activity description">活动说明</p>
+			    			<span data-value="WelfareText">ANT自上线至今，短短几个月的时间，会员数量呈爆发性增长，为感谢新老会员对ANT的支持与厚爱，ANT特推出福利大转盘活动，感恩回馈新老会员活动期间，每邀请一位有效好友，和新注册的有效用户，都会获得1次免费抽奖机会。最高10万资产等你来拿，还在等什么，赶紧邀请好友一起来抽奖吧！</span>
+			    			<p data-value="WelfareText1">注：有效用户指将通证兑换100资产以上</p>
+			    			<p data-value="WelfareText2">本次活动最终解释权归ANT所有</p>
+			    		</div>
+			    	</div>
+			    </div>
+			     </div>
+		    </div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var language;
+	
+	if(hehe!=undefined){
+		$(".Gameload").hide()
+		$(".mui-content").css("margin","0")
+	}
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+		$(".WelfareDraw").css("background-image","url(../../img/WelfareDraw-Enbg.png)")
+		$(".WelfareDrawClick").html("Click"+"</br>"+"Draw")
+		
+	}else{
+		language="cn"
+	}
+	
+	if(GetQueryString("language")){
+		if(GetQueryString("language")=="en"){
+			$(".WelfareDrawClick").html("Click"+"</br>"+"Draw")
+			langStart=0
+			qiehuan()
+			language="en"
+		}else{
+			langStart=1
+			qiehuan()
+			language="cn"
+		}
+	}
+	
+	if(GetQueryString("user_id")){
+		userId=GetQueryString("user_id")
+		token=GetQueryString("user_token")
+		clientType=0;
+		WelfClick()
+	}else{
+		if(hehe!=undefined){
+			
+		}else if(AndroidApp=="Android"){
+			userId=ANT.getMessage("userId");
+			token=ANT.getMessage("token");
+			clientType=1;
+			WelfClick()
+		}else{
+			userId=sessionStorage.getItem("userId")
+			token=sessionStorage.getItem("token")
+			clientType=2;
+			WelfClick()
+		}
+	}
+		
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1;
+		WelfClick()
+	}
+	
+	function Tips(En,Cn){
+		if(GetQueryString("language")==undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert(En)
+			}else{
+				alert(Cn)
+			}
+		}else if(GetQueryString("language")=="en"){
+			ANT.dialSuccess(En)
+		}else{
+			ANT.dialSuccess(Cn)
+		}
+	}
+	
+	
+	
+	$(function () { 
+		setTimeout(function(){
+			$(".Gameload").hide()
+		},500)
+	})
+	
+	var lottery={
+	
+		index:-1,	//当前转动到哪个位置，起点位置
+	
+		count:0,	//总共有多少个位置
+	
+		timer:0,	//setTimeout的ID，用clearTimeout清除
+	
+		speed:20,	//初始转动速度
+	
+		times:0,	//转动次数
+	
+		cycle:50,	//转动基本次数：即至少需要转动多少次再进入抽奖环节
+	
+		prize:-1,	//中奖位置
+	
+		init:function(id){
+	
+			if ($("#"+id).find(".lottery-unit").length>0) {
+	
+				$lottery = $("#"+id);
+	
+				$units = $lottery.find(".lottery-unit");
+	
+				this.obj = $lottery;
+	
+				this.count = $units.length;
+	
+				$lottery.find(".lottery-unit-"+this.index).addClass("active");
+	
+			};
+	
+		},
+	
+		roll:function(){
+	
+			var index = this.index;
+	
+			var count = this.count;
+	
+			var lottery = this.obj;
+	
+			$(lottery).find(".lottery-unit-"+index).removeClass("active");
+	
+			index += 1;
+	
+			if (index>count-1) {
+	
+				index = 0;
+	
+			};
+	
+			$(lottery).find(".lottery-unit-"+index).addClass("active");
+	
+			this.index=index;
+			
+			return false;
+	
+		},
+	
+		stop:function(index){
+	
+			this.prize=index;
+
+			return false;
+	
+		}
+	
+	};
+	
+	
+	
+	function roll(){
+	
+		lottery.times += 1;
+	
+		lottery.roll();
+	
+		if (lottery.times > lottery.cycle+10 && lottery.prize==lottery.index) {
+			
+			clearTimeout(lottery.timer);
+	
+			lottery.prize=-1;
+	
+			lottery.times=0;
+	
+//			click=false;
+			
+			setTimeout(function(){
+				click=false;
+				switch (dailTwistArr.data.dail_level){
+					case 0:
+						Tips("Thank you","再接再厉")
+						break;
+					case 1:
+						Tips("Congratulations on getting：10 Assets","恭喜您获得10资产")
+//						alert("恭喜您获得10资产")
+						break;
+					case 2:
+						Tips("Come again","再来一次")
+//						alert("再来一次")
+						break;
+					case 3:
+						Tips("Congratulations on getting：100 Assets","恭喜您获得100资产")
+//						alert("恭喜您获得100资产")
+						break;
+					case 4:
+						Tips("Congratulations on getting：100000 Assets","恭喜您获得100000资产")
+//						alert("恭喜您获得100000资产")
+						break;
+					case 5:
+						Tips("Congratulations on getting：10000 Assets","恭喜您获得10000资产")
+//						alert("恭喜您获得10000资产")
+						break;
+					case 6:
+						Tips("Congratulations on getting：1000 Assets","恭喜您获得1000资产")
+//						alert("恭喜您获得1000资产")
+						break;
+					case 7:
+						Tips("Congratulations on getting：1 Assets","恭喜您获得1资产")
+//						alert("恭喜您获得1资产")
+						break;
+				}
+			},500)
+		}else{
+	
+			if (lottery.times<lottery.cycle) {
+	
+				lottery.speed -= 10;
+	
+			}else if(lottery.times==lottery.cycle) {
+	
+				var index = Math.random()*(lottery.count)|0;
+	
+				lottery.prize = dailTwistArr.data.dail_level;	
+				
+	
+			}else{
+	
+				if (lottery.times > lottery.cycle+10 && ((lottery.prize==0 && lottery.index==7) || lottery.prize==lottery.index+1)) {
+	
+					lottery.speed += 110;
+				}else{
+	
+					lottery.speed += 20;
+	
+				}
+	
+			}
+	
+			if (lottery.speed<40) {
+	
+				lottery.speed=40;
+	
+			};
+	
+			//console.log(lottery.times+'^^^^^^'+lottery.speed+'^^^^^^^'+lottery.prize);
+	
+			lottery.timer = setTimeout(roll,lottery.speed);
+	
+		}
+	
+		return false;
+	
+	}
+	var click=false;
+	lottery.init('lottery');
+	
+	function WelfClick(){
+		getDailActivityDetail(userId,token,clientType,language)
+		
+		if(GetQueryString("language")==undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				$(".WelfareDraw-frequency>span").text("frequency："+getDailActivityDetailArr.data.game_times+" time")
+			}else{
+				$(".WelfareDraw-frequency>span").text("当前可抽奖次数："+getDailActivityDetailArr.data.game_times+" 次")
+			}
+		}else if(GetQueryString("language")=="en"){
+			$(".WelfareDraw-frequency>span").text("frequency："+getDailActivityDetailArr.data.game_times+" time")
+		}else{
+			$(".WelfareDraw-frequency>span").text("当前可抽奖次数："+getDailActivityDetailArr.data.game_times+" 次")
+		}
+		
+		
+		
+		
+		if(Number(getDailActivityDetailArr.data.gameStatus)){
+			$("#lottery .WelfareDrawClick").click(function(){
+				if (click) {
+					return false;
+				}else{
+					if(getDailActivityDetailArr.data.game_times==0){
+						Tips("No lucky draw, go invite friends","没有抽奖次数，快去邀请好友吧")
+					}else{
+						dailTwist(userId,token,clientType,"cn")
+						if(dailTwistArr.code){
+							if(dailTwistArr.data.dail_level!=2){
+								getDailActivityDetailArr.data.game_times--
+								if(GetQueryString("language")==undefined){
+									if(localStorage.getItem("set-lan")=="EN"){
+										$(".WelfareDraw-frequency>span").text("frequency："+getDailActivityDetailArr.data.game_times+" time")
+									}else{
+										$(".WelfareDraw-frequency>span").text("当前可抽奖次数："+getDailActivityDetailArr.data.game_times+" 次")
+									}
+								}else if(GetQueryString("language")=="en"){
+									$(".WelfareDraw-frequency>span").text("frequency："+getDailActivityDetailArr.data.game_times+" time")
+								}else{
+									$(".WelfareDraw-frequency>span").text("当前可抽奖次数："+getDailActivityDetailArr.data.game_times+" 次")
+								}
+							}
+							
+							lottery.speed=100;
+				
+							roll();
+				
+							click=true;
+				
+							return false;
+						}
+					}
+						
+				}
+			
+			});
+		}else{
+			alert("活动暂未开启")
+		}
+	}
+	
+		
+		
+//		var WelfareFrawStrat=true;
+//		setInterval(function(){
+//			if(WelfareFrawStrat){
+//				$("#lottery").css("background-image","url(../../img/WelfareFraw-table01.png)")
+//				WelfareFrawStrat=false;
+//				console.log(1)
+//			}else{
+//				$("#lottery").css("background-image","url(../../img/WelfareDraw-table.png)")
+//				WelfareFrawStrat=true;
+//				console.log(2)
+//			}
+//		},100)
+
+	$(".return").on("tap",function(){//返回
+		try{
+	   		ANT.dialViewFinish()
+	   	}catch(err){
+	   		return false
+	   	}
+	})
+
+	$(".WelfareDraw-Record").on("tap",function(){
+		if(GetQueryString("user_id")==undefined){
+			if(hehe!=undefined){
+				DAPPFramework.View.PushView("src/index/WelfareDrawRecord.html");
+			}else if(AndroidApp=="Android"){
+				ANT.newPage("src/index/WelfareDrawRecord.html")
+			}else{
+				window.location.href="WelfareDrawRecord.html"
+			}
+		}else{
+			ANT.jumpdialImpl()
+		}
+			
+	})
+</script>

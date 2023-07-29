@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="MyNode">我的节点</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--我的节点-->
+			    <div class="myNode" style="display: block;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="MyNode">我的节点</span>
+			    		</div>
+			    	</div>
+			    	<div class="myNode-con">
+			    		<div data-value="T1Node" class="public-title" style="padding: 0; color: #555;">T1节点</div>
+			    		<div class="T1Node">
+			    			<div class="T1Node-left">
+			    				<img class="myNode-titleImg" src="../../img/Node-title.png" />
+			    				<span class="name">ANT token</span>
+			    				<span class="id">ID:100000</span>
+			    				<span class="phone">188****8888</span>
+			    			</div>
+			    			<div class="T1Node-right">
+			    				<div class="T1NodeRight-top">
+			    					<p data-value="Nodereward" class="nodejiangli">节点奖励>></p>
+			    					<div>
+			    						<span>
+			    							<span data-value="Assets1">资产量：</span>
+			    							<span class="zichan">0.0000</span>
+			    						</span>
+			    						<span>
+			    							<span data-value="Numberofnodes">节点量：</span>
+			    							<span class="nodes">0</span>
+			    						</span>
+			    					</div>
+			    				</div>
+			    				<div class="T1NodeRight-bottom">
+			    					<div>
+			    						<span>
+			    							<span data-value="Referee">推荐人：</span>
+			    							<span class="tuijian">ID 100000</span>
+			    						</span>
+			    						<div>
+			    							<img src="../../img/Node-ipone.png" />
+			    							<span class="tuijian-phone">188****8888</span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    		<div data-value="T2Node" class="public-title T2title" style="padding: 0; color: #555;">T2节点</div>
+			    		<div class="T1Node T2Node">
+			    			<div class="T1Node-left">
+			    				<img class="myNode-titleImg1" src="../../img/Node-title.png" />
+			    				<span class="name1">ANT token</span>
+			    				<span class="id1">ID:100000</span>
+			    				<span class="phone1">188****8888</span>
+			    			</div>
+			    			<div class="T1Node-right">
+			    				<div class="T1NodeRight-top">
+			    					<p data-value="Nodereward" class="nodejiangli">节点奖励>></p>
+			    					<div>
+			    						<span>
+			    							<span data-value="Assets1">资产量：</span>
+			    							<span class="zichan1">0.0000</span>
+			    						</span>
+			    						<span>
+			    							<span data-value="Numberofnodes">节点量：</span>
+			    							<span class="nodes1">0</span>
+			    						</span>
+			    					</div>
+			    				</div>
+			    				<div class="T1NodeRight-bottom">
+			    					<div>
+			    						<span>
+			    							<span data-value="Referee">推荐人：</span>
+			    							<span class="tuijian1">ID 100000</span>
+			    						</span>
+			    						<div>
+			    							<img src="../../img/Node-ipone.png" />
+			    							<span class="tuijian-phone1">188****8888</span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	function myNode(){
+		getMyNode(userId,token)
+		if(getMyNodeArr.data.nodes==2){
+			$(".name").text(getMyNodeArr1[0].username)
+			$(".id").text(getMyNodeArr1[0].id)
+			$(".phone").text(getMyNodeArr1[0].phone)
+			$(".zichan").text(getMyNodeArr1[0].score.toFixed(2))
+			$(".nodes").text(getMyNodeArr1[0].childs)
+			$(".tuijian").text(getMyNodeArr1[0].introducer)
+			$(".tuijian-phone").text(getMyNodeArr1[0].introducerPhone)
+			if(getMyNodeArr1[0].avatar!=null){
+				$(".myNode-titleImg").attr("src",getMyNodeArr1[0].avatar)
+			}
+			
+			
+			$(".name1").text(getMyNodeArr1[1].username)
+			$(".id1").text(getMyNodeArr1[1].id)
+			$(".phone1").text(getMyNodeArr1[1].phone)
+			$(".zichan1").text(getMyNodeArr1[1].score.toFixed(2))
+			$(".nodes1").text(getMyNodeArr1[1].childs)
+			$(".tuijian1").text(getMyNodeArr1[1].introducer)
+			$(".tuijian-phone1").text(getMyNodeArr1[1].introducerPhone)
+			if(getMyNodeArr1[1].avatar!=null){
+				$(".myNode-titleImg1").attr("src",getMyNodeArr1[1].avatar)
+			}
+		}else if(getMyNodeArr.data.nodes==1){
+			$(".name").text(getMyNodeArr1[0].username)
+			$(".id").text(getMyNodeArr1[0].id)
+			$(".phone").text(getMyNodeArr1[0].phone)
+			$(".zichan").text(getMyNodeArr1[0].score.toFixed(2))
+			$(".nodes").text(getMyNodeArr1[0].childs)
+			$(".tuijian").text(getMyNodeArr1[0].introducer)
+			$(".tuijian-phone").text(getMyNodeArr1[0].introducerPhone)
+			$(".T2Node,.T2title").css("display","none")
+			if(getMyNodeArr1[0].avatar!=null){
+				$(".myNode-titleImg").attr("src",getMyNodeArr1[0].avatar)
+			}
+		}else{
+			if(localStorage.getItem("set-lan")=="EN"){
+				$(".myNode-con").html("<img src='../../img/NoNode.png' />")
+			}else{
+				$(".myNode-con").html("<img src='../../img/node-bg.png' />")
+			}
+			
+			$(".myNode-con").css("justify-content","center")
+		}
+		
+		
+	}
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId")
+		token=ANT.getMessage("token")
+		clientType=1
+		myNode(userId,token)
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		myNode(userId,token)
+	}
+	
+	$(".T1Node").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/NodeReward.html");
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("src/index/NodeReward.html")
+		}else{
+			window.location.href="NodeReward.html"
+		}
+	})
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+		myNode(userId,token)
+	}
+</script>

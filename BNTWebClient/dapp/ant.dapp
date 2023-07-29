@@ -1,0 +1,61 @@
+{
+	"AppName": "ANT",
+	"APPVersion": "1.0.0",
+	"Build": "2018/10/10",
+	"StartPage": "src/login/login.html",
+	"DeveloperMode": {
+		"Enable" : true,
+		"Host" : "http://fcsap.com/"
+	},
+	"Style": {
+		"Drawer" :{
+			"IndexPage" : "drawer.html",
+			"BackGroundColor" : "0x1E2D35",
+			"ContentWidth" : 270,
+		},
+		"NavgationBar": {
+			"BackGroundColor": "0x1E2D35",
+			"TitleColor": "0x00B07c",
+			"TitleFontSize": 20,
+			"LeftItemColor" : "0x00B07c",
+			"LeftItemFontSize" : 14
+		},
+		"BottomBar": {
+			"BackGroundColor": "0x1E2D35",
+			"TitleFontSize": 14,
+			"TitleColorNomal": "0xAEAEAE",
+			"TitleColorHightLight": "0x00B07c",
+			"TitleOffset" : 0
+		},
+		"View": {
+			"BackGroundColor": "0x1E2D35"
+		}
+	},
+	"MainPage": [{
+		"ModuleName": "home",
+		"IndexPage": "index.html",
+		"IconNomal": "phone/sy@3x.png",
+		"IconHighlight": "phone/syl@3x.png",
+		"DefaultAction": true
+	}, {
+		"ModuleName": "wallet",
+		"IndexPage": "src/wallet/wallet.html",
+		"IconNomal": "phone/qb@3x.png",
+		"IconHighlight": "phone/qbl@3x.png",
+		"DefaultAction": false
+	},
+	{
+		"ModuleName": "deal",
+		"IndexPage": "src/transaction/transaction.html",
+		"IconNomal": "phone/jy@3x.png",
+		"IconHighlight": "phone/jyl@3x.png",
+		"DefaultAction": false
+	},
+	{
+		"ModuleName": "mall",
+		"IndexPage": "src/Mall/Mall.html",
+		"IconNomal": "phone/sc@3x.png",
+		"IconHighlight": "phone/scl@3x.png",
+		"DefaultAction": false
+	}]
+}

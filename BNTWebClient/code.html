@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title class="title"></title>
+    <style>
+        .day {
+            color: green;
+            font-size: 91px;
+            position: absolute;
+            margin-top: 29%;
+            margin-left: 31%;
+        }
+
+        .time {
+            font-size: 114px;
+            margin-top: 40%;
+            margin-left: 23%;
+        }
+
+        .name {
+            font-size: 50px;
+            position: absolute;
+            margin-top: 63%;
+            margin-left: 8%;
+            font-weight: bolder;
+        }
+
+        .address {
+            font-size: 40px;
+            position: absolute;
+            margin-top: 70%;
+            margin-left: 37%;
+            font-weight: bolder;
+        }
+        .title{
+
+            color: green;
+
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let date = new Date()
+
+            window.document.getElementById("day").innerText = (date.getMonth() + 1) + "月" + date.getDate() + "日";
+
+            loadSeconds()
+
+            window.document.getElementById("name").innerText= getUrlParam("name")
+            window.document.getElementById("address").innerText= getUrlParam("address")
+
+            setInterval(function () {
+                loadSeconds()
+
+            }, 1000)
+        }
+
+
+        function loadSeconds() {
+            let date = new Date()
+            window.document.getElementById("time").innerText = date.getHours() + ":" + (date.getMinutes() < 10 ? "0" : "")
+                + date.getMinutes() + ":" +
+                (date.getSeconds() < 10 ? "0" : "") + date.getSeconds();
+
+        }
+
+
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return decodeURI(r[2]); return null; //返回参数值
+        }
+    </script>
+</head>
+
+<body>
+    <div><span id="day" class="day"></span><br /><span id="time" class="time day"></span></div>
+
+
+    <span  id="name" class="name"></span>
+    <span id="address" class="address"></span>
+
+    <img src="2.jpg" style="width:100%;height:100%">
+
+</body>
+
+</html>

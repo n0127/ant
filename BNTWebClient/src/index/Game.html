@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Contract Scratch">合约刮刮</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/PublicPassword.css"/>
+	</head>
+	<body>
+			<div class="Gameload">
+				<img src="../../img/WelfareDraw01.png" />
+			</div>
+			  <!--合约刮刮-->
+			    <div class="Game">
+			    	<div class="public-header" style="background: #720024;">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span class="Explain-title" data-value="Contract Scratch">合约刮刮</span>
+			    		</div>
+			    	</div>
+			    	<div class="Game-box">
+			    		<div class="swiper-container">
+						    <!--<div class="swiper-slide">Slide 1</div>-->
+						</div>
+						<div class="Game-guagua">
+							<div>
+								<div class="jiang"></div>
+								<img id="Game-bg" src="../../img/guagua.png" />
+							</div>
+							<a href="#" data-value="History03">详细记录</a>
+							<button data-value="Receive">领奖</button>
+						</div>
+						<div class="Game-test">
+							<div class="GameTest-title" data-value="Rule Of Activity">活动规则</div>
+							<div class="GameTest-con">
+								<div class="mui-scroll-wrapper">
+									<div class="mui-scroll" style="padding-bottom: 0;">									
+										<p data-value="1101" >ANT圣诞大趴·幸运圣诞节：幸运圣诞节，大奖刮出来。圣诞佳节之际，怎能少得了ANT的礼物祝福？ANT受圣诞老人之托，给大家送幸运福利啦，50万ANT Token豪情大放送，大奖小奖奖不停！还在等什么，赶快动动手指，把大奖刮出来吧，你就是最幸运的圣诞之星！</p>
+										<!--<p data-value="1103"></p>
+										<p data-value="1104"></p>
+										<p data-value="1105"></p>
+										<p data-value="1106"></p>
+										<p data-value="1107"></p>
+										<p data-value="1108"></p>-->
+										<p data-value="1102" >所有ANT注册会员，刮奖一次消耗100ANT（所有参与者均可获得100资产奖励，相当于免费刮奖），12.24 早上12点准时开始，限量5000张先到先得，刮完即止。 </p>
+										<ul>
+											<li data-value="Award Setting：">奖项设置：</li>
+											<li data-value="First prize 2 places:50000ANT">一等奖2名：50000ANT</li>
+											<li data-value="Second prize 10 places:10000ANT">二等奖10名：10000ANT</li>
+											<li data-value="Third prize 100 places:1000ANT">三等奖100名：1000ANT</li>
+											<li data-value="Fourth prize 500 places:200ANT">四等奖500名：200ANT</li>
+											<li data-value="All participants receive 100 asset awards">所有参与者均可获得100资产奖励</li>
+										</ul>
+										<span data-value="Note: The final interpretation of this activity belongs to ANT Team">* 本活动最终解释权归ANT Team所有</span>
+									</div>
+								</div>
+							</div>
+						</div>
+			    	</div>
+			    </div>
+			    
+			    <div class="publicPas">
+					<div>
+						<div class="publicPasTitle">
+							<span>私钥密码</span>
+							<p class="publicPasTitleDown mui-icon mui-icon-closeempty"></p>
+						</div>
+						<div class="publicPasInput">
+							<p>私钥密码</p>
+							<input type="password" placeholder="请输入来源地址对应的私钥密码" />
+						</div>
+						<div class="publicPasBut">
+							<button>确认发送</button>
+						</div>
+					</div>
+				</div>
+				
+			    <div class="redGame">
+			    	<div>
+				    	<img src="../../img/redGame.png" />
+				    	<div>
+				    		<span data-value="Winning">中奖啦</span>
+				    		<p class="lotteryLevel">恭喜您获得幸运奖</p>
+				    		<div class="Score">
+				    			<span class="lotteryGainAnt">100</span>
+				    			<span>ANT</span>
+				    		</div>
+				    		<div>
+				    			<span>100</span>
+				    			<span>Assets</span>
+				    		</div>
+				    	</div>
+			    	</div>
+			    	<button data-value="Deposit in wallet" class="redGameBut">存入钱包</button>
+			    </div>
+			    <div class="repeatBut">
+			    	<button data-value="Come again">再来一次</button>
+			    	<button data-value="Exit">退出</button>
+			    </div>
+			  
+	</body>
+</html>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/jquery.eraser.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var language;
+	
+	if(hehe!=undefined){
+		$(".Gameload").hide()
+	}
+
+	if(localStorage.getItem("set-lan")=="EN"){
+		languageArr=EN
+		language="en"
+		$("#Game-bg").attr("src","../../img/guaguaEn.png")
+		$(".Game-guagua").css({"background":"url(../../img/Game01En.png) no-repeat","background-size":"100% 100%"})
+		$(".Game-box").css({"background":"url(../../img/Game-bgEn.jpg) no-repeat","background-size":"100% 100%"})
+	}else{
+		language="cn"
+		languageArr=CN
+	}
+	if(GetQueryString("language")){
+		if(GetQueryString("language")=="en"){
+			langStart=0
+			qiehuan()
+			language="en"
+			$("#Game-bg").attr("src","../../img/guaguaEn.png")
+			$(".Game-guagua").css({"background":"url(../../img/Game01En.png) no-repeat","background-size":"100% 100%"})
+			$(".Game-box").css({"background":"url(../../img/Game-bgEn.jpg) no-repeat","background-size":"100% 100%"})
+		}else{
+			langStart=1
+			qiehuan()
+			language="cn"
+		}
+	}
+	if(GetQueryString("user_id")){
+		userId=GetQueryString("user_id")
+		token=GetQueryString("user_token")
+		clientType=0;
+		Radiobroadcast()
+	}else{
+		if(hehe!=undefined){
+			
+		}else if(AndroidApp=="Android"){
+			userId=ANT.getMessage("userId");
+			token=ANT.getMessage("token");
+			clientType=1;
+			Radiobroadcast()
+		}else{
+			userId=sessionStorage.getItem("userId")
+			token=sessionStorage.getItem("token")
+			clientType=2;
+			Radiobroadcast()
+		}
+	}
+		
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1;
+		id=DAPPFramework.Storage.Get("VurrentValue")
+		Radiobroadcast()
+	}
+	
+//	广播  三秒一条
+	function Radiobroadcast(){
+		getLotteryActivityDetail(userId,token,clientType,language)
+		getLatstLotteryRecord(userId,token,clientType,language)
+		if(getLatstLotteryRecordArr.data==undefined){
+			return false
+		}else{
+			$(".swiper-container").text(getLatstLotteryRecordArr.data)
+		}
+		
+		setInterval(function(){
+			getLatstLotteryRecord(userId,token,clientType,language)
+			if(getLatstLotteryRecordArr.data==undefined){
+				return false
+			}else{
+				$(".swiper-container").text(getLatstLotteryRecordArr.data)
+			}
+		},5000)
+//		$(".swiper-container").text(getLotteryActivityDetailArr.data.residueLotteryNotes)
+		
+	}
+		
+	
+	
+	$(window).load(function  () { //这个适用手机端，等图片加载完再显示，因为有可能会出现第一次加载图片没有加载完就不会出现canvas
+		if(hehe==undefined){
+			setTimeout(function(){
+				$(".Gameload").hide()
+			},500)
+		}
+			
+		$('#Game-bg').eraser( {
+			size: 20,   //设置橡皮擦大小
+		    completeRatio: .5, //设置擦除面积比例
+		    completeFunction: showResetButton   //大于擦除面积比例触发函数
+		});
+		function showResetButton(){
+			$('#Game-bg').eraser('clear');
+			$(".Game-guagua>button").show()
+		}
+		
+	})
+	
+	$(".publicPasBut").on("tap","button",function(){
+		var value=$(".duihuanipt").val();
+		var password=$(".publicPasInput>input").val();
+		var PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+		var privateKey=PrivateKeyJosn[id].privateKey;
+		var wallet=new ethers.Wallet(privateKey);
+		var Time=new Date().getTime();
+		var Password=PrivateKeyJosn[id].Password;
+		if( Password == sha256_digest(password) ){			
+			wallet.signMessage(sha256_digest(Time+token)).then(signature => {
+				scrapeLottery(userId,token,clientType,language,"",getLotteryActivityDetailArr.data.md5,Time,signature)
+				if(scrapeLotteryArr.code==1){
+					$('#paymentCode').hide();
+					$(".publicPasInput>input").val("");
+					switch (scrapeLotteryArr.data.lotteryLevel){
+						case 0:
+							if(localStorage.getItem("set-lan")=="EN"){
+								$(".jiang").text("Lucky prize")
+								$(".lotteryLevel").text("Congratulations Lucky prize")
+							}else{
+								$(".jiang").text("幸运奖")
+								$(".lotteryLevel").text("恭喜您获得幸运奖")
+							}
+							if(GetQueryString("language")){
+								if(GetQueryString("language")=="en"){
+									$(".jiang").text("Lucky prize")
+									$(".lotteryLevel").text("Congratulations Lucky prize")
+								}else{
+									$(".jiang").text("幸运奖")
+									$(".lotteryLevel").text("恭喜您获得幸运奖")
+								}
+							}
+							$(".lotteryGainAnt").text("100")
+							$(".Score").css("display","none")
+							break;
+						case 1:
+							if(localStorage.getItem("set-lan")=="EN"){
+								$(".jiang").text("1st prize")
+								$(".lotteryLevel").text("Congratulations 1st prize")
+							}else{
+								$(".jiang").text("一等奖")
+								$(".lotteryLevel").text("恭喜您获得一等奖")
+							}
+							if(GetQueryString("language")){
+								if(GetQueryString("language")=="en"){
+									$(".jiang").text("1st prize")
+									$(".lotteryLevel").text("Congratulations 1st prize")
+								}else{
+									$(".jiang").text("一等奖")
+									$(".lotteryLevel").text("恭喜您获得一等奖")
+								}
+							}
+							$(".lotteryGainAnt").text("50000")
+							break;
+						case 2:
+							if(localStorage.getItem("set-lan")=="EN"){
+								$(".jiang").text("2nd prize")
+								$(".lotteryLevel").text("Congratulations 2nd prize")
+							}else{
+								$(".jiang").text("二等奖")
+								$(".lotteryLevel").text("恭喜您获得二等奖")
+							}
+							if(GetQueryString("language")){
+								if(GetQueryString("language")=="en"){
+									$(".jiang").text("2nd prize")
+									$(".lotteryLevel").text("Congratulations 2nd prize")
+								}else{
+									$(".jiang").text("二等奖")
+									$(".lotteryLevel").text("恭喜您获得二等奖")
+								}
+							}
+							$(".lotteryGainAnt").text("10000")
+							break;
+						case 3:
+							if(localStorage.getItem("set-lan")=="EN"){
+								$(".jiang").text("3rd prize")
+								$(".lotteryLevel").text("Congratulations 3rd prize")
+							}else{
+								$(".jiang").text("三等奖")
+								$(".lotteryLevel").text("恭喜您获得三等奖")
+							}
+							if(GetQueryString("language")){
+								if(GetQueryString("language")=="en"){
+									$(".jiang").text("3rd prize")
+									$(".lotteryLevel").text("Congratulations 3rd prize")
+								}else{
+									$(".jiang").text("三等奖")
+									$(".lotteryLevel").text("恭喜您获得三等奖")
+								}
+							}
+							$(".lotteryGainAnt").text("1000")
+							break;
+						case 4:
+							if(localStorage.getItem("set-lan")=="EN"){
+								$(".jiang").text("4th prize")
+								$(".lotteryLevel").text("Congratulations 4th prize")
+							}else{
+								$(".jiang").text("四等奖")
+								$(".lotteryLevel").text("恭喜您获得四等奖")
+							}
+							if(GetQueryString("language")){
+								if(GetQueryString("language")=="en"){
+									$(".jiang").text("4th prize")
+									$(".lotteryLevel").text("Congratulations 4th prize")
+								}else{
+									$(".jiang").text("四等奖")
+									$(".lotteryLevel").text("恭喜您获得四等奖")
+								}
+							}
+							$(".lotteryGainAnt").text("200")
+							break;
+					}
+				}else{
+					$(".publicPasInput>input").val("");
+					try{
+				   		ANT.gameSuccess(scrapeLotteryArr.message)
+				   	}catch(err){
+				   		alert(scrapeLotteryArr.message)
+				   	}
+				}
+			})
+		}else{
+			alert(languageArr["loging2.0_201"])
+		}
+		
+	})
+	
+	$('.publicPasTitleDown').on('tap',function () {
+		$('.publicPas').fadeOut();
+		$(".publicPasInput>input").val("");
+	})
+	
+//	mui.ready(function() {
+//      // 数字索引
+//      var activeIndex = 0;
+//      // 密码结果
+//      var resultValue = "";
+//      // 所有输入框
+//      var inputList = mui(".input-item");
+//      // 所有数字键
+//      var numberList = mui(".keyboard-number");
+//      // 数字键盘点击事件
+//      mui("#keyboard").on("tap", ".keyboard-number", function() {
+//          if(activeIndex == 6) {
+//              return;
+//          }
+//          var num = this.innerText;
+//          addNumber(num);
+//      });
+//      mui("#keyboard").on("tap", ".keboard-action", function() {
+//          var value = this.getAttribute("data-action");
+//          switch(value) {
+//              case "cancel":
+//                  if(activeIndex == 0) {
+//                      return;
+//                  }
+//                  cancelNumber();
+//                  break;
+//              case "reset":
+//                  resetInput();
+//                  break;
+//              default:
+//                  break;
+//          }
+//      });
+//      // 添加数字
+//      function addNumber(num) {
+//          inputList[activeIndex].innerHTML = "<div></div>";
+//          resultValue += num;
+//          activeIndex++;
+//          // 检测密码长度
+//          if(activeIndex == 6) {
+//          	scrapeLottery(userId,token,clientType,language,resultValue,getLotteryActivityDetailArr.data.md5)
+//				if(scrapeLotteryArr.code==1){
+//					$('#paymentCode').hide();
+//					resetInput()
+//					switch (scrapeLotteryArr.data.lotteryLevel){
+//						case 0:
+//							if(localStorage.getItem("set-lan")=="EN"){
+//								$(".jiang").text("Lucky prize")
+//								$(".lotteryLevel").text("Congratulations Lucky prize")
+//							}else{
+//								$(".jiang").text("幸运奖")
+//								$(".lotteryLevel").text("恭喜您获得幸运奖")
+//							}
+//							if(GetQueryString("language")){
+//								if(GetQueryString("language")=="en"){
+//									$(".jiang").text("Lucky prize")
+//									$(".lotteryLevel").text("Congratulations Lucky prize")
+//								}else{
+//									$(".jiang").text("幸运奖")
+//									$(".lotteryLevel").text("恭喜您获得幸运奖")
+//								}
+//							}
+//							$(".lotteryGainAnt").text("100")
+//							$(".Score").css("display","none")
+//							break;
+//						case 1:
+//							if(localStorage.getItem("set-lan")=="EN"){
+//								$(".jiang").text("1st prize")
+//								$(".lotteryLevel").text("Congratulations 1st prize")
+//							}else{
+//								$(".jiang").text("一等奖")
+//								$(".lotteryLevel").text("恭喜您获得一等奖")
+//							}
+//							if(GetQueryString("language")){
+//								if(GetQueryString("language")=="en"){
+//									$(".jiang").text("1st prize")
+//									$(".lotteryLevel").text("Congratulations 1st prize")
+//								}else{
+//									$(".jiang").text("一等奖")
+//									$(".lotteryLevel").text("恭喜您获得一等奖")
+//								}
+//							}
+//							$(".lotteryGainAnt").text("50000")
+//							break;
+//						case 2:
+//							if(localStorage.getItem("set-lan")=="EN"){
+//								$(".jiang").text("2nd prize")
+//								$(".lotteryLevel").text("Congratulations 2nd prize")
+//							}else{
+//								$(".jiang").text("二等奖")
+//								$(".lotteryLevel").text("恭喜您获得二等奖")
+//							}
+//							if(GetQueryString("language")){
+//								if(GetQueryString("language")=="en"){
+//									$(".jiang").text("2nd prize")
+//									$(".lotteryLevel").text("Congratulations 2nd prize")
+//								}else{
+//									$(".jiang").text("二等奖")
+//									$(".lotteryLevel").text("恭喜您获得二等奖")
+//								}
+//							}
+//							$(".lotteryGainAnt").text("10000")
+//							break;
+//						case 3:
+//							if(localStorage.getItem("set-lan")=="EN"){
+//								$(".jiang").text("3rd prize")
+//								$(".lotteryLevel").text("Congratulations 3rd prize")
+//							}else{
+//								$(".jiang").text("三等奖")
+//								$(".lotteryLevel").text("恭喜您获得三等奖")
+//							}
+//							if(GetQueryString("language")){
+//								if(GetQueryString("language")=="en"){
+//									$(".jiang").text("3rd prize")
+//									$(".lotteryLevel").text("Congratulations 3rd prize")
+//								}else{
+//									$(".jiang").text("三等奖")
+//									$(".lotteryLevel").text("恭喜您获得三等奖")
+//								}
+//							}
+//							$(".lotteryGainAnt").text("1000")
+//							break;
+//						case 4:
+//							if(localStorage.getItem("set-lan")=="EN"){
+//								$(".jiang").text("4th prize")
+//								$(".lotteryLevel").text("Congratulations 4th prize")
+//							}else{
+//								$(".jiang").text("四等奖")
+//								$(".lotteryLevel").text("恭喜您获得四等奖")
+//							}
+//							if(GetQueryString("language")){
+//								if(GetQueryString("language")=="en"){
+//									$(".jiang").text("4th prize")
+//									$(".lotteryLevel").text("Congratulations 4th prize")
+//								}else{
+//									$(".jiang").text("四等奖")
+//									$(".lotteryLevel").text("恭喜您获得四等奖")
+//								}
+//							}
+//							$(".lotteryGainAnt").text("200")
+//							break;
+//					}
+//				}else{
+//					resetInput()
+//					try{
+//				   		ANT.gameSuccess(scrapeLotteryArr.message)
+//				   	}catch(err){
+//				   		alert(scrapeLotteryArr.message)
+//				   	}
+//				}
+//          }
+//      }
+//      // 撤销数字
+//      function cancelNumber() {
+//          activeIndex--;
+//          inputList[activeIndex].innerText = "";
+//          resultValue = resultValue.substring(0, resultValue.length - 1);
+//      }
+//      // 密码框置空
+//      function resetInput() {
+//          activeIndex = 0;
+//          resultValue = "";
+//          mui(".input-item").each(function(index, element) {
+//              element.innerText = "";
+//          });
+//      }
+//      $("#close").on("tap",function(){
+//			try{
+//		   		ANT.gameReload()
+//		   	}catch(err){
+//		   		window.location.reload()
+//		   	}
+//		})
+//  });
+    
+	$(".redGameBut").on("tap",function(){//存入通证
+		$(".repeatBut").css("display","flex")
+		$(".redGame").hide()
+		try{
+			if(GetQueryString("language")){
+				switch (GetQueryString("language")){
+					case 'zh':
+						ANT.gameSuccess("领取成功")
+						break;
+					case 'en':
+						ANT.gameSuccess("Receive success")
+						break;
+				}
+			}
+	   		
+	   	}catch(err){
+	   		if(localStorage.getItem("set-lan")=="EN"){
+				alert("Receive success")
+			}else{
+				alert("领取成功")
+			}
+	   	}
+	})
+	
+	$(".Game-guagua>a").on("tap",function(){//详情
+		try{
+	   		ANT.jumpWin()
+	   	}catch(err){
+	   		if(hehe!=undefined){
+	   			DAPPFramework.View.PushView("src/index/GameRecord.html");
+	   		}else if(AndroidApp=="Android"){
+				ANT.newPage("src/index/GameRecord.html")
+			}else{
+	   			window.location.href="GameRecord.html"
+	   		}
+	   	}
+	})
+	
+	$(".Game-guagua>button").on("tap",function(){//领奖
+		$(".redGame").css("display","flex")
+	})
+	
+	$(".repeatBut>button:nth-child(1)").on("tap",function(){//再来一次
+		try{
+	   		ANT.gameReload()
+	   	}catch(err){
+	   		if(hehe!=undefined){
+	   			window.location.reload()
+	   		}else if(AndroidApp=="Android"){
+				ANT.refreshThis()
+			}else{				
+				window.location.reload()
+			}
+	   	}
+	})
+	
+	$(".repeatBut>button:nth-child(2)").on("tap",function(){//退出
+		try{
+	   		ANT.gameViewFinish()
+	   	}catch(err){
+	   		if(hehe!=undefined){			
+				DAPPFramework.View.PopView("src/index/transaction-box.html?ReceivablesStart=1");
+			}else if(AndroidApp=="Android"){
+				ANT.finishPage()
+			}else{
+				history.back()
+			}
+	   	}
+	})
+	
+	$(".return").on("tap",function(){//返回
+		try{
+	   		ANT.gameViewFinish()
+	   	}catch(err){
+	   		return false
+	   	}
+	})
+	
+	$(".forget").on("tap",function(){//忘记支付密码
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/sidebar/retrievePaymentPass.html");
+		}else{
+			try{
+				ANT.findPayPwd()
+			}catch(e){
+				window.location.href="../sidebar/retrievePaymentPass.html"
+			}
+			
+		}
+	})
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function GetQueryString(name) {
+	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	    var r = window.location.search.substr(1).match(reg);
+	    if (r != null) return unescape(r[2]); return null;
+	}
+	
+	if(GetQueryString("status")=="1"){		
+		window.location.href="https://www.rubychain.org/index.html"
+	}else if(GetQueryString("status")=="2"){
+		window.location.href="https://www.rubychain.org/download/Ruby-Network-whitepaper-cn-v1.0.pdf"
+	}else{
+		window.location.href="https://www.rubychain.org/ruby/zh"
+	}
+</script>

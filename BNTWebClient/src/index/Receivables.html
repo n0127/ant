@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="ReceiptCode">收款码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--收付款-->
+			    <div class="Receivables" style="display: block; text-align: center;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="ReceiptCode">收款码</span>
+			    		</div>
+			    	</div>
+			    	<div class="Receivables-box">
+			    		<!--<div class="ReceivablesCen-top">
+			    			<img class="ReceivablesCenImg" src="../../img/Node-title.png" />
+			    			<div>
+			    				<span class="userId">100191</span>
+			    				<span class="phone">13555555555</span>
+			    			</div>
+			    		</div>
+			    		<div class="ReceivablesCen-center">
+
+			    		</div>
+			    		<p data-value="SweeptheQRcodeonthetopandtransfertoeachother">扫一扫上面的二维码图案，可互相转账</p>-->
+			    		<div class="Receivables-logo"></div>
+			    		<ul>
+			    			<li><p>ID:</p><span class="ReceivablesUserId">10086</span></li>
+			    			<li><p data-value="nickname666">昵称:</p><span class="ReceivablesName">蚂蚁通证</span></li>
+			    			<li><p data-value="Accounts666">账号:</p><span class="ReceivablesiPhone">1888888888</span></li>
+			    		</ul>
+			    		<div class="ReceivablesCanvas">
+			    			<div class="ReceivablesCanvas-bg"></div>
+			    		</div>
+			    		<p data-value="Sweep to transfer money to me">扫一扫向我转账</p>
+			    	</div>
+				    <button class="ReceivablesBut" data-value="Save to album" type="button">保存至相册</button>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/jquery.qrcode.min.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/html2canvas-min.js" ></script>
+<script type="text/javascript" src="../../js/canvas2image.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var lululu;
+	var strDataURI;
+	
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId");
+		token=ANT.getMessage("token");
+		clientType=1;
+		xiugai()
+	}else{
+		userId=sessionStorage.getItem("userId");
+		token=sessionStorage.getItem("token");
+		clientType=2
+		xiugai()
+	}
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+		xiugai()
+	}
+	function xiugai(){
+		getUserInfo(userId,token,clientType)
+		if(getUserInfoArr.data.avatar!=null){
+			$(".ReceivablesCenImg").attr("src",getUserInfoArr.data.avatar)			
+		}
+		$(".ReceivablesUserId").text(getUserInfoArr.data.id)
+		$(".ReceivablesiPhone").text(getUserInfoArr.data.phone)
+		$(".ReceivablesName").text(getUserInfoArr.data.username)
+		
+		jQuery('.ReceivablesCanvas-bg').qrcode({
+		    render: "canvas", //也可以替换为table
+		    text: getUserInfoArr.data.phone
+		});
+		
+	}
+	
+	
+	
+	
+	$(".ReceivablesBut").on("tap",function(){
+		html2canvas(document.querySelector(".Receivables-box")).then(item => {
+			$(".ReceivablesCanvas-bg>canvas:nth-child(2)").remove()
+			lululu=item
+			strDataURI = item.toDataURL("image/png");
+			if(hehe!=undefined){
+
+				DAPPFramework.Camera.SaveImage(strDataURI, "base64Fun");
+			}else if(AndroidApp=="Android"){
+				ANT.savePicture(strDataURI)
+			}else{
+				Canvas2Image.saveAsPNG(lululu);
+			}
+		})
+//		$(".ReceivablesCanvas-bg>canvas").css("display","none")
+	})
+	
+	function base64Fun(data){
+		if(data==true){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Success")
+			}else{
+				alert("保存成功")
+			}
+		}else{
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Failure")
+			}else{
+				alert("保存失败")
+			}
+		}
+	}
+		
+</script>

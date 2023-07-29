@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="loging2.0_66">私钥管理</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../css/PublicPassword.css"/>
+	</head>
+	<body>
+
+			  <!--私钥管理-->
+			    <div class="PublicFixedBox">
+			    	<div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span class="loginTitle" data-value="loging2.0_66">私钥管理</span>
+			    		</div>
+			    	</div>
+			    	<div class="PublicScrollBox">
+			    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 0;">
+							<div style="padding-bottom: 0;" class="mui-scroll">
+		    					<div class="PrivateKeyManagementContent">
+		    						<div class="PrivateKeyManagementContentBack">
+		    							<div>
+		    								<img src="../../../img/Node-title.png" />
+		    								<p class="walletName">钱包名称</p>
+		    								<span class="walletAddress">0xa95dc969b5e14bdf24c...0265138339ecede22</span>
+		    							</div>
+		    						</div>
+		    						<ul class="PrivateKeyManagementPublicList">
+		    							<li data-value="loging2.0_67" class="ModifyWalletName">修改钱包名</li>
+		    							<li data-value="loging2.0_68" class="ModifyKeyPassword">修改密码</li>
+		    							<!--<li data-value="" class="UploadPrivateKey">上传私钥</li>-->
+		    						</ul>
+		    						<ul class="PrivateKeyManagementPublicList">
+		    							<li data-value="loging2.0_71" class="ExportPrivateKey">导出私钥</li>
+		    							<li style="display: none;" data-value="loging2.0_186" class="ExportMnemonic">导出助记词</li>
+		    							<li style="border-bottom: 1px solid #d2d2d2;" data-value="loging2.0_72" class="ExportKeystore">导出Keystore</li>
+		    							<li data-value="loging2.0_73" class="weikaifang">导出DSS Card</li>
+		    						</ul>
+		    						<button data-value="loging2.0_74" class="removeWallet">删除钱包</button>
+		    					</div>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </div>
+			    
+			    <div class="IosModifyCoverlayer">
+			    	<div class="IosModifyCoverlayerBox">
+			    		<h3 data-value="loging2.0_67">修改钱包名</h3>
+			    		<input type="text" />
+			    		<div>
+			    			<div data-value="loging2.0_63" data-status="false">取消</div>
+			    			<div data-value="loging2.0_64" data-status="true">确认</div>
+			    		</div>
+			    	</div>
+			    </div>
+			    
+			    <div class="ExportPrivateKeyCover">
+			    	<div class="ExportPrivateKeyBox">
+			    		<h3 data-value="loging2.0_71">导出私钥</h3>
+			    		<p data-value="loging2.0_81">安全警告：私钥未经加密，导出存在风险，建议使用助记词和Ketstore进行备份</p>
+			    		<span>0x8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86affca12020c923adc6c92</span>
+			    		<button data-value="loging2.0_58">复制</button>
+			    	</div>
+			    </div>
+			    
+			    <div class="publicPas">
+					<div>
+						<div class="publicPasTitle">
+							<span>私钥密码</span>
+							<p class="publicPasTitleDown mui-icon mui-icon-closeempty"></p>
+						</div>
+						<div class="publicPasInput">
+							<p data-value="loging2.0_75">私钥密码</p>
+							<input data-value="loging2.0_76" type="password" placeholder="请输入来源地址对应的私钥密码" />
+						</div>
+						<div class="publicPasBut">
+							<button data-value="loging2.0_77">确认发送</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="loadingBox">
+			  		<img src="../../../img/loding.png" />
+			  	</div>
+			  
+	</body>
+</html>
+<!--<script type="text/javascript" src="../../js/eruda.js" ></script>
+<script>eruda.init();</script>-->
+<script type="text/javascript" src="../../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../../js/mui.js" ></script>
+<script type="text/javascript" src="../../../js/rem.js" ></script>
+<script type="text/javascript" src="../../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../../js/language.js" ></script>
+<script type="text/javascript" src="../../../js/ajax.js" ></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="../../../js/sha1.js" ></script>
+<script type="text/javascript" src="../../../wallet/js/web3.min.js" ></script>
+<script>
+	var userId;
+	var token;
+	var PrivateKeyJosn;
+	var id;
+	var privateKey;
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="EN"
+		languageArr=EN
+	}else{
+		language="CN"
+		languageArr=CN
+	}
+	
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1;
+		id=DAPPFramework.Storage.Get("VurrentValue")
+		
+		PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+		if(PrivateKeyJosn[id].mnemonic!=undefined){
+			$(".ExportMnemonic").show()
+		}else{
+			$(".ExportPrivateKey").css("border-bottom","none")
+		}
+		$(".walletAddress").text(PrivateKeyJosn[id].address)
+		$(".walletName").text(PrivateKeyJosn[id].wallet_name)
+	}
+	
+	$(".ModifyWalletName").on("tap",function(){
+		$(".IosModifyCoverlayer").css("display","flex")
+	})
+	
+//	$(".UploadPrivateKey").on("tap",function(){
+//		if(localStorage.getItem("set-lan")=="EN"){
+//			DAPPFramework.Dialog.Alert("","Whether to upload the private key to the server",["Cancel","Confirm"],[0,2],"UploadPrivateKeyFun")
+//		}else{
+//			DAPPFramework.Dialog.Alert("","是否上传私钥到服务器",["取消","确定"],[0,2],"UploadPrivateKeyFun")
+//		}
+//	})
+//	
+//	function UploadPrivateKeyFun(item){
+//		if(item=="确定"||item=="Confirm"){
+//			uploadPrivateKey(userId,token,clientType,DAPPFramework.Encrypt.AESEncrypt(PrivateKeyJosn[id].privateKey))
+//		}
+//	}
+	
+	$(".ModifyKeyPassword").on("tap",function(){
+		DAPPFramework.View.PushView("src/sidebar/Key/ModifyKeyPassword.html");
+	})
+	
+	$(".ExportPrivateKey,.ExportKeystore,.removeWallet").on("tap",function(){
+		$(".publicPas").fadeIn()
+		$(".publicPasTitle>span").text($(this).text())
+	})
+	
+	$(".ExportPrivateKeyBox>button").on("tap",function(){
+		DAPPFramework.PasteBoard.Set($(".ExportPrivateKeyBox>span").text())
+		$(".ExportPrivateKeyCover").hide()
+		alert(languageArr["loging2.0_70"])
+	})
+	
+	$(".ExportMnemonic").on("tap",function(){
+		$(".publicPas").fadeIn()
+		$(".publicPasTitle>span").text($(this).text())
+	})
+	
+	function CreateWallet(privateKey,Password){
+		return new Promise((success, reject) => {
+			try{
+				var web3 = new Web3(new Web3.providers.HttpProvider("http://geth.fuyer.com:1107"));
+				var ks = web3.eth.accounts.encrypt(privateKey,Password);
+				success(JSON.stringify(ks))
+			}catch(e){
+				reject(e)
+				alert("错误")
+			}						
+		});
+	}
+	
+	$(".publicPasBut").on("tap","button",function(){
+		$(".publicPasInput>input").blur()
+		var password=$(".publicPasInput>input").val();//输入的密码
+		var PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+		var Password=PrivateKeyJosn[id].Password;//原密码
+		privateKey=PrivateKeyJosn[id].privateKey;
+		mnemonic=PrivateKeyJosn[id].mnemonic;
+		if( Password == sha256_digest(password) ){			
+			$(".publicPas").hide()
+			//成功的逻辑
+			if($(".publicPasTitle>span").text()=="导出私钥"  || $(".publicPasTitle>span").text()=="Export private key"){
+				$(".ExportPrivateKeyCover").fadeIn()
+				$(".ExportPrivateKeyCover").css("display","flex")
+				$(".ExportPrivateKeyBox>span").text(privateKey)
+				$(".publicPasInput>input").val("");
+			}else if($(".publicPasTitle>span").text()=="导出Keystore" || $(".publicPasTitle>span").text()=="Export Keystore"){
+				$(".loadingBox").css("display","flex")
+				setTimeout(function(){					
+					CreateWallet(privateKey,password).then(function(data){
+						
+						$(".loadingBox").hide()
+						DAPPFramework.SharedBoard.Set("ExportKeystore",data)
+						$(".publicPasInput>input").val("");
+						DAPPFramework.View.PushView("src/sidebar/Key/ExportKeystore.html");
+					})
+				},500)
+			}else if($(".publicPasTitle>span").text()=="导出助记词"){
+				$(".ExportPrivateKeyCover").fadeIn()
+				$(".ExportPrivateKeyCover").css("display","flex")
+				$(".ExportPrivateKeyBox>h3").text("导出助记词")
+				$(".ExportPrivateKeyBox>span").text(mnemonic)
+				$(".publicPasInput>input").val("");
+			}else{
+				PrivateKeyJosn.splice(id,1)
+				DAPPFramework.Storage.Set("PrivateKeyJosn",JSON.stringify(PrivateKeyJosn))
+				alert(languageArr["loging2.0_82"])
+				DAPPFramework.Storage.Remove("userId")
+				DAPPFramework.SharedBoard.Remove("selectCode");
+				DAPPFramework.Storage.Remove("token");
+				DAPPFramework.Storage.Remove("VurrentValue");
+				DAPPFramework.Controller.JumpToStartPage();
+				DAPPFramework.Controller.SetNextStartPage("Start");
+			}
+		}else{
+			$(".publicPasInput>input").val("");
+			alert(languageArr["loging2.0_83"])
+		}
+		
+	})
+	
+	$('.publicPasTitleDown').on('tap',function () {
+		$('.publicPas').fadeOut();
+		$(".publicPasInput>input").val("");
+		$(".publicPasInput>input").blur()
+	})
+	
+	$(".IosModifyCoverlayerBox>div").on("tap","div",function(){
+		if($(this).attr("data-status")=="true"){
+			if($(".IosModifyCoverlayerBox>input").val()!=""){
+				PrivateKeyJosn[id].wallet_name=$(".IosModifyCoverlayerBox>input").val()
+				$(".walletName").text($(".IosModifyCoverlayerBox>input").val())
+				DAPPFramework.Storage.Set("PrivateKeyJosn",JSON.stringify(PrivateKeyJosn))
+				$(".IosModifyCoverlayer").hide()
+				$(".IosModifyCoverlayerBox>input").blur()
+			}else{
+				alert(languageArr["loging2.0_84"])
+			}
+		}else{
+			$(".IosModifyCoverlayer").hide()
+			$(".IosModifyCoverlayerBox>input").blur()
+		}
+	})
+	
+	$(".return").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PopView();
+		}
+	})
+</script>

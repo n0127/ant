@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Announcement">通知公告</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--公告详情-->
+			    <div class="Game">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Announcement" class="Explain-title">通知公告</span>
+			    		</div>
+			    	</div>
+			    	<div class="GameRecordBox" style="padding-top: 0.555555rem">
+			    		<div class="GameRecordList01">
+			    			<div class="mui-scroll-wrapper mui-content GaneRecordPage"  style="padding-bottom: 40px;">
+								<div style="padding-bottom: 40px;" class="mui-scroll">
+			    					<div class="NoticeDetails">
+			    						<h3>Adobe这款3D软件厉害了！</h3>
+			    						<p>		懒癌晚期，拖延症，不管它叫什么，如果你是一名设计师对于这种现象应该非常熟悉。但是如果你将手头应做的工作和任务都延后，而想专注做另外一件事情，那么这件事情可能是你的真爱。而在英文当中，甚至还有一个专门的词汇——Procrastiworking，这个词的发明者正是来自美国奥克兰的字体设计师和艺术家，Jessica Hische 。
+		<br/>每个人都害怕失败，无论是在生活方面，是在工作上失败让人沮丧，让情绪崩溃。成功和成就则带来截然不同的体验。更重要的是，成功和成就会带来抗拒恐惧的最有力的能量正如同 Jessica Hische 这样。</p>
+			    						<!--<span>2018-12-04</span>-->
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/swiper-3.4.2.jquery.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script>
+	var userId;
+	var token;
+	var language;
+	var clientType;
+	var time;
+	var noticeId;
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	if(hehe==undefined){
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		noticeId=sessionStorage.getItem("noticeId")
+		clientType=2
+		NoticeDetail()
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		noticeId=DAPPFramework.SharedBoard.Get("noticeId");
+		clientType=1;
+		NoticeDetail()
+	}
+	
+	function formatDate1(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return year+"-"+month + "-" + date;
+	}
+	
+	function NoticeDetail(){
+		getNoticeDetail(userId,token,noticeId,clientType,language)
+		formatDate1(new Date(getNoticeDetailArr.data.createTime*1000))
+		$(".NoticeDetails>h3").text(getNoticeDetailArr.data.title)
+		var NoticeContent=getNoticeDetailArr.data.content.replace(/\\n/g,"<br>")
+		$(".NoticeDetails>p").html(NoticeContent)
+		$(".NoticeDetails>p").text(time)
+	}
+	
+	
+//	if(hehe==undefined){
+//		userId=sessionStorage.getItem("userId")
+//		token=sessionStorage.getItem("token")
+//		clientType=2
+//		ListFor()
+//	}
+//	
+//	function DAPPFrameworkEngineReady(){
+//		userId=DAPPFramework.Storage.Get("userId")
+//		token=DAPPFramework.Storage.Get("token")
+//		clientType=1;
+//		ListFor()
+//	}
+	
+	
+</script>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ANT登录</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" href="../../css/login.css" />
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?d1f3396bbfc51655b3642a9d5a123b21";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
+	</head>
+	<body>
+		<div class="login-box">
+			<div class="login-language">EN</div>
+			<div class="login-logo">
+				<img src="../../img/login-logo.png" />
+			</div>
+			<div class="w974 newloginBox">
+				<div class="login-result">
+					<!--这是登录的-->
+					<div class="login">
+						<span class="CountrySelect loginCode">
+							<span>中国</span>
+							<span>+86</span>
+						</span>
+						<ul class="denglu-box">
+							<li><input data-value="EnterMobile" maxlength="11" type="text" class="login-denglu01" id="ipone" placeholder="请输入手机号码" /></li>
+							<li><input data-value="EnterPassword" maxlength="16" type="password" class="login-denglu02" id="userpass" placeholder="请输入登录密码" /></li>
+						</ul>
+						<a data-value="loging2.0_1" href="#">忘记密码</a>
+						<button class="denglu-but denglu01" type="button" data-value="Login">登录</button>
+					</div>
+					
+					<!--这是注册的-->
+					<div class="register">
+						<div class="registerInvitation" style="display: block;">
+							<ul class="denglu-box">
+								<li style="background-image: url(../../img/logincode.png); background-size: 1.314814rem 1.333333rem;" ><input type="text" data-value="EnterreferralID" placeholder="请输入邀请码" oninput="value=value.replace(/[^\d]/g,'')" id="Invitation" class="register-ipt01" /></li>
+							</ul>
+							<button class="denglu-but xiayibu01" type="button" data-value="Next">下一步</button>
+						</div>
+						<div class="register01" style="display: none;">
+							<span class="CountrySelect registerCode">
+								<span>中国</span>
+								<span> +86</span>
+							</span>
+							<ul class="denglu-box">
+								<li><input maxlength="11" type="text" oninput="value=value.replace(/[^\d]/g,'')" class="register-ipt02" placeholder="请输入手机号码" data-value="EnterMobile" /><button class="yanzhengma01" data-value="SendSMS" type="button">获取验证码</button></li>
+								<li><input maxlength="6" type="text" data-value="EnterSMS" class="register-ipt03" placeholder="请输入验证码" /></li>
+							</ul>
+							<button class="margin-top90 denglu-but xiayibu02" data-value="Next" type="button">下一步</button>
+						</div>
+						<div class="register02" style="display: none;">
+							<ul class="denglu-box">
+								<li><input style="background-image:url(../../img/loginPas.png); background-size: 1.018518rem 1.333333rem;" maxlength="16" class="register-ipt04" type="password" data-value="EnterPassword" placeholder="请输入登录密码" /></li>
+								<li><input maxlength="16" class="register-ipt05" type="password" data-value="Confirmloginpassword" placeholder="请确认登录密码" /></li>
+							</ul>
+							<button class="denglu-but margin-top90 xiayibu03" data-value="Next" type="button">下一步</button>
+						</div>
+						<div class="register03" style="display: none;">
+							<ul class="denglu-box">
+								<li><input style="background-image:url(../../img/loginPas.png); background-size: 1.018518rem 1.333333rem;" maxlength="6" type="password" oninput="value=value.replace(/[^\d]/g,'')" class="register-ipt06" data-value="CreatePaymentpassword" placeholder="请输入交易密码" /></li>
+								<li><input maxlength="6" type="password" oninput="value=value.replace(/[^\d]/g,'')" class="register-ipt07" data-value="ConfirmPaymentpassword" placeholder="请确认交易密码" /></li>
+							</ul>
+							<button class="denglu-but margin-top90 xiayibu04" data-value="Finish" type="button">完成</button>
+						</div>
+					</div>
+					
+					<!--这是找回密码-->
+					<div class="retrievePass">
+						<div class="retrievePass01" style="display: block;">
+							<span class="CountrySelect retrievePassCode">
+								<span>中国</span>
+								<span> +86</span>
+							</span>
+							<ul class="denglu-box">
+								<li><input class="retrieve-ipt01" oninput="value=value.replace(/[^\d]/g,'')" maxlength="11" data-value="EnterMobile" type="text" placeholder="请输入手机号码" /><button type="button" data-value="SendSMS" class="yanzhengma">获取验证码</button></li>
+								<li><input class="yanzhengText" maxlength="6" type="text" data-value="EnterSMS" placeholder="请输入验证码" /></li>
+							</ul>
+							<button class="denglu-but margin-top90 retrievePass-but01" data-value="Next" type="button">下一步</button>
+						</div>
+						<div class="retrievePass02" style="display: none;">
+							<ul class="denglu-box">
+								<li style="background-image: url(../../img/loginPas.png); background-size: 1.018518rem 1.333333rem;"><input maxlength="16" data-value="EnternewPassword" class="retrieve-ipt02" type="password" placeholder="请输入新密码" /></li>
+								<li><input maxlength="16" data-value="EnterrepeatnewPassword" class="retrieve-ipt03" type="password" placeholder="请确认密码" /></li>
+							</ul>
+							<button class="denglu-but margin-top90 retrievePass-but02" data-value="Finish" type="button">完成</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w974 LoginBottom-but">
+				<span data-value="loging2.0_3">注册</span>
+				<p data-value="loging2.0_2">私钥登录</p>
+			</div>
+		</div>
+		
+		
+		<!--版本检测-->
+	    <div class="Version" style="display: none;">
+	    	<!--<div class="public-header">
+	    		<div class="return">
+	    			<div class="mui-push-left"></div>
+	    			<span class="Explain-title">版本检测</span>
+	    		</div>
+	    	</div>-->
+	    	<div class="Version-box">
+	    		<img src="../../img/login-logo.png" />
+	    		<p><span>Version </span><span class="VersionNumber">1.9.9</span></p>
+	    		<span data-value="(Currentversion)">(当前版本)</span>
+	    		<div class="Version-information">
+	    			<p data-value="VersionInformation">版本信息</p>
+	    			<ul>
+	    				<li><span data-value="Latestversion">最新版本</span><span class="VersionNumber01">2.0.0</span></li>
+	    				<li><span data-value="Releasetime">发布时间</span><span class="VersionNumber02">2018年9月9日</span></li>
+	    				<li><span data-value="Installationpackagesize">安装包大小</span><span class="VersionNumber03">16MB</span></li>
+	    			</ul>
+	    		</div>
+	    		<div class="Version-information">
+	    			<p data-value="Updatecontent">更新内容</p>
+	    			<ul class="VersionNumber04">
+	    				<li>1.666</li>
+	    				<li>2.777</li>
+	    				<li>3.888</li>
+	    			</ul>
+	    		</div>
+	    	</div>
+	    </div>
+	    
+	    <div class="Maintain">
+			<div class="Maintain-Con">
+				<p>系统维护中</p>
+				<img src="../../img/steamup.png" />
+				<p>给您带来的不便，敬请谅解</p>
+				<span>预计开启时间为：20XX.XX.XX-20XX.XX.XX</span>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/md5.js" ></script>
+<script src="/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="../../js/NewLogin.js" ></script>
+<script>
+	var userAgentInfo = navigator.userAgent;
+	if(userAgentInfo.match("AntDapp") != "AntDapp") {
+		window.location.href="../blank.html"
+	}
+	
+	function md5(){
+		var md5="b3a2f58eda00e61e2ab29a5ff006ecc0"
+		if(hex_md5($("script").length+","+$("div").length)!=md5){
+			$("iframe").remove()
+		}
+	}
+	
+	setTimeout(function(){
+		md5()	
+	},1000)
+	
+	var registerState=GetQueryString("register")
+	if(registerState!=undefined){
+		$(".login").hide()
+		$(".register").show()
+	}
+	$(".LoginBottom-but").on("tap","p",function(){
+		window.location.href="login.html"
+	})
+	$(".LoginBottom-but").on("tap","span",function(){
+		$(".login,.retrievePass").hide()
+		$(".register").show()
+	})
+	$(".login>a").on("tap",function(){
+//		$(".login").hide()
+//		$(".retrievePass").show()
+		window.location.href="modifyPhone.html"
+	})
+	
+	
+</script>

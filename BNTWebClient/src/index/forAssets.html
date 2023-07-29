@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Converttoassets">兑换资产</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/PublicPassword.css"/>
+	</head>
+	<body>
+
+			  <!--兑换资产-->
+			    <div class="forAssets" style="display: block;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Converttoassets">兑换资产</span>
+			    		</div>
+			    	</div>
+			    	<div class="forAssets-box">
+			    		<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div data-value="Converttoassets1" class="public-title">兑换窗</div>
+						    	<div class="forAssets-qian">
+						    		<ul>
+						    			<li><span data-value="Tokens">通证数量</span><span class="tongzhengshuliang"></span></li>
+						    			<li><span data-value="Assets">资产数量</span><span class="zichanshuliang"></span></li>
+						    		</ul>
+						    	</div>
+						    	<div data-value="Convertquantity" class="public-title">兑换数量</div>
+						    	<div class="forNumber">
+						    		<div>
+						    			<span data-value="Enterquantity">请输入数量</span>
+						    			<input class="duihuanipt" oninput="value=value.replace(/[^\d]/g,'')" type="text" placeholder="0.00" />
+						    		</div>
+						    	</div>
+						    	<p>
+						    		<span data-value="AvailableToken"></span>
+						    		<span class="keyongtongzheng">0.00000000</span>
+						    	</p>
+						    	<div data-value="Afterconvert" class="public-title">兑换后</div>
+						    	<div class="forAssets-hou">
+						    		<ul>
+						    			<li><span data-value="Tokens">通证数量</span><span class="tongzhengshuliang01">0.00000000</span></li>
+						    			<li><span data-value="Assets">资产数量</span><span class="zichanshuliang01">0.00000000</span></li>
+						    		</ul>
+						    	</div>
+						    	<div  class="forAssets-but"><button data-value="CFM">确认</button></div>
+							</div>
+						</div>
+			    	</div>
+			    </div>
+			    
+			     <!--<div class="mui-content" id="paymentCode">
+			    	<a href="#" id="close"></a>
+		            <table id="number_input" border="0" cellspacing="0" cellpadding="0">
+		                <tbody>
+		                	<tr><td data-value="Enterpaymentpassword" colspan="6" style="text-align: left;color: #62C2A6;">输入支付密码</td></tr>
+		                    <tr>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                        <td class="input-item"></td>
+		                    </tr>
+		                    <tr>
+		                    	<td data-value="" colspan="6" style="text-align: right;"><a data-value="Forgottopaymentpassword" class="forget" href="#" style="color: #62C2A6;">忘记支付密码?</a></td>
+		                    </tr>
+		                </tbody>
+		            </table>
+		            <table id="keyboard" border="0" cellspacing="0" cellpadding="0">
+		                <tbody>
+		                    <tr>
+		                        <td class="keyboard-number">1</td>
+		                        <td class="keyboard-number">2</td>
+		                        <td class="keyboard-number">3</td>
+		                    </tr>
+		                    <tr>
+		                        <td class="keyboard-number">4</td>
+		                        <td class="keyboard-number">5</td>
+		                        <td class="keyboard-number">6</td>
+		                    </tr>
+		                    <tr>
+		                        <td class="keyboard-number">7</td>
+		                        <td class="keyboard-number">8</td>
+		                        <td class="keyboard-number">9</td>
+		                    </tr>
+		                    <tr>
+		                        <td data-value="CLR" class="keboard-action" data-action="reset">清空</td>
+		                        <td class="keyboard-number">0</td>
+		                        <td data-value="DEL" class="keboard-action" data-action="cancel">删除</td>
+		                    </tr>
+		                </tbody>
+		            </table>
+		        </div>-->
+		        
+		        
+		       	<div class="publicPas">
+					<div>
+						<div class="publicPasTitle">
+							<span>私钥密码</span>
+							<p class="publicPasTitleDown mui-icon mui-icon-closeempty"></p>
+						</div>
+						<div class="publicPasInput">
+							<p>私钥密码</p>
+							<input type="password" placeholder="请输入来源地址对应的私钥密码" />
+						</div>
+						<div class="publicPasBut">
+							<button>确认发送</button>
+						</div>
+					</div>
+				</div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script>
+	var userId;
+	var token;
+	var phone;
+	var clientType;
+	var language;
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="EN"
+		languageArr=EN
+	}else{
+		language="CN"
+		languageArr=CN
+	}
+	
+	function forAssets(){
+		indexData(userId,token,clientType)
+		$(".keyongtongzheng").text(indexziliao.data.user_ant)
+		$(".tongzhengshuliang01").text(indexziliao.data.user_ant)
+		$(".zichanshuliang01").text(indexziliao.data.user_score)
+	}
+	function forAssets01(value,resultValue){
+		if(localStorage.getItem("set-lan")=="EN"){
+			language="en"
+		}else{
+			language="cn"
+		}
+		banance2score(userId,token,value,resultValue)
+	}
+	$(".forget").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/sidebar/retrievePaymentPass.html");
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("src/sidebar/retrievePaymentPass.html")
+		}else{
+			window.location.href="../sidebar/retrievePaymentPass.html"
+		}
+	})
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1;
+		id=DAPPFramework.Storage.Get("VurrentValue")
+		if(userId==undefined){
+			DAPPFramework.Controller.JumpToStartPage();
+		}
+		forAssets()
+	}
+	
+	
+	if( hehe!=undefined ){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId");
+		token=ANT.getMessage("token");
+		phone=ANT.getMessage("phone");
+		clientType=1;
+		forAssets()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		phone=sessionStorage.getItem("phone")
+		clientType=2
+		forAssets()
+	}
+	$(".duihuanipt").keyup(function(){
+		var value=$(this).val();
+		var userAnt=Math.floor(indexziliao.data.user_ant)
+		if(value>userAnt){
+			$(this).val(userAnt)
+			value=$(this).val();
+		}
+		$(".tongzhengshuliang").text("-"+value)
+		$(".zichanshuliang").text("+"+value*6)
+		$(".tongzhengshuliang01").text(indexziliao.data.user_ant-value)
+		$(".zichanshuliang01").text(Number(indexziliao.data.user_score)+value*6)
+		
+		if(value.length==0){
+			$(".tongzhengshuliang").text("")
+			$(".zichanshuliang").text("")
+		}
+		
+	})
+	
+	$(".forAssets-but").on("tap",function(){
+		var duihuanvalue=$(".duihuanipt").val()
+		if(duihuanvalue.length==0){
+			alert("请输入数量")
+		}else{
+			$('.publicPas').fadeIn();
+		}
+	})
+	
+	$(".publicPasBut").on("tap","button",function(){
+		var value=$(".duihuanipt").val();
+		var password=$(".publicPasInput>input").val();
+		var PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+		var privateKey=PrivateKeyJosn[id].privateKey;
+		var wallet=new ethers.Wallet(privateKey);
+		var Time=new Date().getTime();
+		var Password=PrivateKeyJosn[id].Password;
+		if( Password == sha256_digest(password) ){			
+			wallet.signMessage(sha256_digest(Time+token)).then(signature => {
+				banance2score(userId,token,value,"",signature,Time)
+			})
+		}else{
+			alert(languageArr["loging2.0_201"])
+		}
+		
+	})
+	
+	$('.publicPasTitleDown').on('tap',function () {
+		$('.publicPas').fadeOut();
+		$(".publicPasInput>input").val("");
+	})
+	
+	
+//	mui.ready(function() {
+//      // 数字索引
+//      var activeIndex = 0;
+//      // 密码结果
+//      var resultValue = "";
+//      // 所有输入框
+//      var inputList = mui(".input-item");
+//      // 所有数字键
+//      var numberList = mui(".keyboard-number");
+//      // 数字键盘点击事件
+//      mui("#keyboard").on("tap", ".keyboard-number", function() {
+//          if(activeIndex == 6) {
+//              return;
+//          }
+//          var num = this.innerText;
+//          addNumber(num);
+//      });
+//      mui("#keyboard").on("tap", ".keboard-action", function() {
+//          var value = this.getAttribute("data-action");
+//          switch(value) {
+//              case "cancel":
+//                  if(activeIndex == 0) {
+//                      return;
+//                  }
+//                  cancelNumber();
+//                  break;
+//              case "reset":
+//                  resetInput();
+//                  break;
+//              default:
+//                  break;
+//          }
+//      });
+//      // 添加数字
+//      function addNumber(num) {
+//          inputList[activeIndex].innerHTML = "<div></div>";
+//          resultValue += num;
+//          activeIndex++;
+//          // 检测密码长度
+//          if(activeIndex == 6) {
+//          	var value01=$(".duihuanipt").val()
+//				forAssets01(value01,resultValue)
+//				if(banance2scoreArr==1){
+//					$('#paymentCode').hide();
+//					resetInput()
+//				}else{
+//					resetInput()
+//				}
+//          }
+//      }
+//      // 撤销数字
+//      function cancelNumber() {
+//          activeIndex--;
+//          inputList[activeIndex].innerText = "";
+//          resultValue = resultValue.substring(0, resultValue.length - 1);
+//      }
+//      // 密码框置空
+//      function resetInput() {
+//          activeIndex = 0;
+//          resultValue = "";
+//          mui(".input-item").each(function(index, element) {
+//              element.innerText = "";
+//          });
+//      }
+//  });
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>商城</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/md5.js" ></script>
+<script>
+	var userId;
+	var token;
+	var falseToken;
+	var mall_key="b64ab4b9124e2c5d43d52d9c05a6f991";
+	
+	
+//	userId="343944";
+//	token="2e25b057887a62f1e9f90dc9c187166e";
+//	token01=token.substr(0,1)+token.substr(0,1)+token.substr(1,1)+token.substr(2,1)+token.substr(4,1)+token.substr(7,1)+token.substr(12,1)+token.substr(20,1)
+//	falseToken=hex_md5(hex_md5(token)+token01)
+//	console.log(falseToken)
+	
+	function DAPPFrameworkEngineReady(){
+//		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		token01=token.substr(0,1)+token.substr(0,1)+token.substr(1,1)+token.substr(2,1)+token.substr(4,1)+token.substr(7,1)+token.substr(12,1)+token.substr(20,1)
+		falseToken=hex_md5(hex_md5(token)+token01)
+//		window.location.href="http://www.ttxhwlx.com:8087/index.html#/index?user_id="+userId+"&user_token="+falseToken+"&mall_key="+mall_key+"&DAPPEngine=1"
+		window.location.href="http://47.91.22.21/?user_id="+userId+"&user_token="+falseToken+"&mall_key="+mall_key+"&DAPPEngine=1"
+//		console.log("http://47.91.22.21/?user_id="+userId+"&user_token="+falseToken+"&mall_key="+mall_key+"&DAPPEngine=1")
+//		window.location.href=" http://mall.fcsap.com/?user_id="+userId+"&user_token="+falseToken+"&mall_key="+mall_key+"&DAPPEngine=1"
+		//http://47.74.43.218/
+	}
+</script>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="loging2.0_60">备份钱包</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--备份钱包-->
+			    <div class="PublicFixedBox">
+			    	<div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span class="loginTitle" data-value="loging2.0_60">备份钱包</span>
+			    		</div>
+			    	</div>
+			    	<!--<div class="AgreementWarningBox">
+			    		<img src="../../img/CreateWallteSuccess.png" />
+			    		<span data-value="loging2.0_59">您已成功创建钱包，请及时备份私钥。</span>
+			    	</div>-->
+			    	<div class="PublicScrollBox">
+			    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 0;">
+							<div style="padding-bottom: 0;" class="mui-scroll">
+								<div style="margin-bottom: 0; margin-top: 1rem;" class="Receivables-logo"></div>
+		    					<ul class="BackupWalletList">
+		    						<li><span data-value="loging2.0_55">钱包名称</span><p class="wallet01">XXXX钱包</p></li>
+		    						<li><span data-value="loging2.0_56">钱包地址</span><p class="wallet02">0x12123BBBAB00014EEEAABBBED1CC</p></li>
+		    						<li>
+		    							<span>
+		    								<span data-value="loging2.0_57">助记词</span>
+		    							</span>
+	    								<b class="copykeystore">
+	    									<img src="../../img/BackupWalletCopy.png"/>
+	    									<span data-value="loging2.0_58" >复制</span>
+	    								</b>
+		    							<div class="wallet03">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</div></li>
+		    						<!--<li>
+		    							<span>
+		    								<span>Keystore</span>
+		    								<p>
+		    									<img src="../../img/BackupWalletCopy.png"/>
+		    									<span data-value="loging2.0_58" class="copykeystore">复制</span>
+		    								</p>
+		    							</span>
+		    							<div>		    								
+		    								<textarea disabled="disabled" rows="5" class="wallet04">{"address":"ebf4d4549ea010c788a0020e4c039bb0aba2e6c9","crypto":{"cipher":"aes-128-ctr","cipherparams":{"iv":"975aa3f4583dd94eeb6c97b1a1ce6870"},"ciphertext":"565a1a1c5e1f1306e11278a20f944649b55a33965f52c8764ec3fadd9bb4d224","kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"f09dfea955dd56990a2363446b22aa7e1d5957115606995d0fb57057d9fddefc"},"mac":"ab188a6e27d688ee1ed5a833e64bd10df19a97e3c8aca949bd36a0b6627abbf3"},"id":"f6e1f38a-9eb5-4287-85ff-1a68471e0a82","version":3}</textarea>
+		    							</div>
+		    						</li>-->
+		    					</ul>
+		    					<div class="LoginBotBox">
+		    						<button data-value="loging2.0_59" class="LoginBut laobanxiugaibutton">我已备份，进入钱包</button>
+		    					</div>
+		    					<ul class="CreateWallet">
+		    						<li data-value="loging2.0_53">建议使用抄写助记词方式进行备份,务必保证内容完全一致,并储放在安全的地方。</li>
+		    						<!--<li data-value="loging2.0_54">导出的Keystore文件内容请务必妥善存放</li>-->
+		    					</ul>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script>
+	var PrivateKeyJosn;
+	var publicKey;
+	var wallet_name;
+	var mnemonic;
+	var userId;
+	var token;
+	var walletjson={};
+	var address;
+	var keystore;
+	var Password;
+	var privateKey;
+	var username;
+	var registeredStatus;
+	var registeredWorld;
+	var phone;
+	
+	var language;
+	var languageArr;
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="EN"
+		languageArr=EN
+	}else{
+		language="CN"
+		languageArr=CN
+	}
+	
+	
+	function DAPPFrameworkEngineReady(){		
+//		PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+		
+		address=DAPPFramework.SharedBoard.Get("address");//钱包地址
+		keystore=DAPPFramework.SharedBoard.Get("keystore");//keystore
+		privateKey=DAPPFramework.SharedBoard.Get("privateKey");//私钥
+		Password=DAPPFramework.SharedBoard.Get("Password");//密码
+		
+		publicKey=DAPPFramework.SharedBoard.Get("publicKey");//公钥
+		wallet_name=DAPPFramework.SharedBoard.Get("wallet_name");//钱包名称
+		mnemonic=DAPPFramework.SharedBoard.Get("mnemonic");//助记词
+		
+		registeredStatus=DAPPFramework.SharedBoard.Get("registeredStatus")
+		
+		$(".wallet01").text(wallet_name)
+		$(".wallet02").text(address)
+		$(".wallet03").text(mnemonic)
+		$(".wallet04").text(keystore)
+		
+		$(".LoginBotBox").on("tap","button",function(){
+			if(localStorage.getItem("set-lan")=="EN"){
+				DAPPFramework.Dialog.Alert("Tips","Do you confirm that you have completed the private key backup and entered your wallet?",["Cancel ","Confirm"],[0,2],"BackupWallet")
+			}else{
+				DAPPFramework.Dialog.Alert("提示","您是否确认已完成助记词备份并进入钱包",["取消","确认"],[0,2],"BackupWallet")
+			}
+			
+		})
+	}
+	
+	function BackupWallet(item){
+		if(item=="确认" || item=="Confirm"){
+			if(registeredStatus=="1"){
+				registeredWorld=DAPPFramework.SharedBoard.Get("registeredWorld")
+				phone=DAPPFramework.SharedBoard.Get("phone")
+				
+				
+				registerSetLoginPassword(phone,Password,2,registeredWorld)
+				registerSetTradePassword(phone,registeredWorld,"963258",2)
+				if(registerSetLoginPasswordArr.code==1){					
+					if(registerSetTradePasswordArr.code==1){
+						login(phone,Password,666,2,registeredWorld)
+						if(loginArr.code==1){
+							userId=loginArr.data.id
+							token=loginArr.data.token
+							username=loginArr.data.username;//登录页面那里显示的用户姓名
+						}
+					}
+				}else{
+					alert(registerSetLoginPasswordArr.message)
+				}
+			}else{
+				userId=DAPPFramework.SharedBoard.Get("userId");//userid
+				token=DAPPFramework.SharedBoard.Get("token");//token
+				username=DAPPFramework.SharedBoard.Get("username");//登录页面那里显示的用户姓名
+			}
+			createWallet(userId,token,wallet_name,address,publicKey,keystore,"")
+			if(createWalletArr.code==1){
+				walletjson.userId=userId
+				walletjson.username=username
+				walletjson.address=address
+				walletjson.keystore=keystore
+				walletjson.privateKey=privateKey
+				walletjson.mnemonic=mnemonic
+				walletjson.wallet_name=wallet_name
+				walletjson.Password=sha256_digest(Password)
+				var PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+				PrivateKeyJosn.push(walletjson)
+				DAPPFramework.Storage.Set("PrivateKeyJosn",JSON.stringify(PrivateKeyJosn))
+				window.location.href="login.html"
+			}else{
+				alert(createWalletArr.message)
+			}
+			
+		}
+	}
+	
+	$(".copykeystore").on("tap",function(){
+		DAPPFramework.PasteBoard.Set(mnemonic)
+		alert(languageArr["loging2.0_70"])
+	})
+</script>

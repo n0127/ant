@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>每日红包大转盘</title>
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+          name="viewport"/>
+    <link href="../../css/mui.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/index.css" rel="stylesheet" type="text/css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+
+    </style>
+
+
+</head>
+
+<body>
+
+<!--资产详情-->
+<div class="PublicFixedBox">
+    <div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+        <div class="return">
+            <div class="mui-push-left"></div>
+            <span class="loginTitle">每日红包大转盘</span>
+            <button id="closeAD" onclick="closeAD()" style="display:none">关闭</button>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+
+
+<script>
+
+
+    function showAd() {
+
+        if (Math.round(Math.random() * 10) > 3) {
+            setTimeout(function () {
+                document.getElementById("closeAD").style.display = "block";
+            }, 700)
+        } else {
+            AD.toast("请您填写信息领取福利")
+        }
+
+    }
+
+
+    let storeKey;
+    let storeJson;
+
+    function loadAd() {
+
+
+        let jsonArr =
+            [
+                "https://engine.tangqingaly.com/index/activity?appKey=8SaVHqtfpUSzyefARvdkFL16tAn&adslotId=383373"
+//             , "https://i.xdtkm.xyz/activities?appKey=e4eb2a7d7dd546e98fb0084d13010d87&appEntrance=3&business=money"
+//                , "https://interaction.clotfun.online/chicken?appkey=75f58b72088314a129d863c10bfddb07&adSpaceKey=65f8a2cde8b317ef60873bebaabe1ee6&source=media&from=H5&1=1"
+        ]
+        let show = null;
+
+
+        storeKey = new Date().getDate() + "_adSrcList12233"
+
+        let store = localStorage.getItem(storeKey);
+        storeJson = {}
+
+        if (store != null) {
+
+            storeJson = JSON.parse(store);
+
+            //这里增加的是需要多次加载本页面，通过页面判断直接返回
+            if (Object.keys(storeJson).length == jsonArr.length) {
+                //触发直接关闭
+                back()
+                return
+            }
+
+
+            for (let i = 0; i < jsonArr.length; i++) {
+                let breakFlag = false
+
+                for (let k in storeJson) {
+
+                    if (jsonArr[i] == storeJson[k]) {
+                        breakFlag = true
+                        break
+                    }
+                }
+                if (!breakFlag) {
+                    show = jsonArr[i]
+                    storeJson[hash(show)] = show
+                    break
+                }
+            }
+
+        } else {
+            show = jsonArr[0]
+            storeJson[hash(show)] = show
+
+        }
+
+        showAd(false)
+
+        let myIframe = document.createElement("iframe");
+        myIframe.allowFullscreen = true
+        myIframe.frameBorder = "0"
+        myIframe.height = window.screen.height + "px";
+        myIframe.width = document.documentElement.clientWidth + "px"
+        myIframe.src = show
+
+        document.getElementsByClassName("PublicFixedBox")[0]
+            .append(myIframe)
+    }
+
+
+    function closeAD() {
+        if (storeKey != undefined && storeJson != undefined) {
+            localStorage.setItem(storeKey, JSON.stringify(storeJson))
+        }
+        AD.close()
+    }
+
+   
+    function redirect(url) {
+        AD.toast("填写完成后即可进入")
+        if (storeKey != undefined && storeJson != undefined) {
+            localStorage.setItem(storeKey, JSON.stringify(storeJson))
+        }
+        AD.run("com.ness.ad.AdActivity.doJs(\"javascript:AD.closeAll()\",3000);")
+    }
+
+
+    function back() {
+        // AD.run("android.content.SharedPreferences sp = JSEngine.getActivity().getSharedPreferences(\"AD_JS_H5\", android.content.Context.MODE_PRIVATE);   sp.getString(\"adActivity\", \"\");","back");
+        AD.closeAll()
+
+    }
+
+    function hash(str) {
+        return encodeURIComponent(str)
+    }
+
+
+    loadAd()
+
+
+
+</script>
+
+<script src="../../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="../../js/mui.js" type="text/javascript"></script>
+<script src="../../js/rem.js" type="text/javascript"></script>
+<script src="../../js/LanguagePackage.js" type="text/javascript"></script>
+<script src="../../js/language.js" type="text/javascript"></script>
+<script src="../../js/ajax.js" type="text/javascript"></script>
+
+<script>
+    document.getElementsByTagName("button")[0]
+        .style.margin = (Math.ceil(Math.random() * 80) + 10) + "px";
+</script>
+</html>
+
+

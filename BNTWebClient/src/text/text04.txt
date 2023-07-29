@@ -1,0 +1,11 @@
+\t\t\t\tWe often say that your control over the funds in your wallet depends on the ownership and control of the corresponding private key. In blockchain transactions, the private key is used to generate the signature necessary to pay the currency to prove ownership of the funds. The private key must always be kept secret, because once it is leaked to a third party, the assets under the protection of the private key are also handed over. It is different from Keystore. Keystore is an encrypted private key file. As long as the password strength is strong enough, even if the hacker gets Keystore, the cracking is enough.\n
+​
+
+​
+\t\t\t\tThe private keys stored in the user's wallet are completely independent and can be generated and managed by the user's wallet software without the need for a blockchain or network connection. The user's wallet address is calculated by the public key via keccak256 and truncated by 40 bits + 0x. The private key is a 64-bit hexadecimal hash string, for example:\n
+​
+56f759ece75f0ab1b783893cbe390288978d4d4ff24dd233245b4285fcc31cf6\n\n\n
+​
+
+​
+PS: The user can import the ANT Token using the plaintext private key, generate a new Keystore with the new password (remember to delete the old Keystore), and modify the wallet password in this way.\n

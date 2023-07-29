@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="My red packet">我的红包</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<style>
+			.GameRecordList01 button{
+				background: #00b07c;
+				color: #fff;
+				font-size: 0.592592rem;
+				border: none;
+			}
+		</style>
+	</head>
+	<body>
+
+			  <!--资产详情-->
+			    <div class="AssetDetails" style="display: flex;flex-direction: column;">
+			    	<div class="public-header" style="color: #555; border-bottom: none;">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="My red packet">我的红包</span>
+			    		</div>
+			    	</div>
+			    	<div class="RedEnvelopeRecordState">
+			    		<ul>
+			    			<li data-value="Lucky red packet">锦鲤红包</li>
+			    			<li data-value="Area red packet1">区域红包</li>
+			    		</ul>
+			    	</div>
+			    	<div class="GameRecordList01">
+			    		<div class="mui-scroll-wrapper mui-content GaneRecordPage"  style="padding-bottom: 40px;">
+							<div style="padding-bottom: 40px;" class="mui-scroll">
+		    					<ul class="RedEnvalopeRecordPublic">
+		    						<!--<li><div><span>100001</span><span>20:30</span></div><div><span class="sub">50000</span><span>资产</span></div><div>已领取</div></li>-->
+		    					</ul>
+		    				</div>
+			    		</div>
+			    	</div>
+			    	
+			    	<div class="GameRecordList02">
+			    		<div class="mui-scroll-wrapper mui-content GaneRecordPage1"  style="padding-bottom: 40px;">
+							<div style="padding-bottom: 40px;" class="mui-scroll">
+		    					<ul class="RedEnvalopeRecordPublic">
+		    						<!--<li><div><span>100002</span><span>20:30</span></div><div><span class="sub">50000</span><span>资产</span></div><div>已领取</div></li>-->
+		    					</ul>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	
+	var userId;
+	var	token;
+	var	phone;
+	var clientType;
+	var language;
+	var offset=0;
+	
+	
+	function formatDate1(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return year+"-"+month + "-" + date;
+	}
+	
+	function formatDate2(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return hour+":"+minute;
+	}
+	
+	//判断是哪里点开
+	var RedEnvelopeState=GetQueryString("RedEnvelope");
+	if(RedEnvelopeState=="0"){
+		$(".RedEnvelopeRecordState>ul>li:nth-child(2)").css({
+			"background":"#00b07c",
+			"color":"#fff"
+		}).siblings().css({
+			"background":"#f5f5f7",
+			"color":"#555"
+		})
+		$(".GameRecordList02").show()
+		$(".GameRecordList01").hide()
+	}
+	
+	if(hehe==undefined){
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2		
+		appendArr()
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId");
+		token=DAPPFramework.Storage.Get("token");
+		clientType=1;
+		appendArr()
+		
+	}
+	
+	
+	function appendArr(){
+		getRedEnvelopeRecordList(userId,token,clientType,language,0,offset)
+		if(getRedEnvelopeRecordListArr.data!=undefined){			
+			getRedEnvelopeRecordListArr.data.forEach(function(item){
+				var time1=formatDate1(new Date(item.changeTime*1000))
+				var time2=formatDate2(new Date(item.changeTime*1000))
+				
+				if(localStorage.getItem("set-lan")=="EN"){
+					$(".GameRecordList02 .RedEnvalopeRecordPublic").append("<li><div><span>"+time1+"</span><span>"+time2+"</span></div><div><span>"+item.changeScore+"</span><span>Asset</span></div><div>Received</div></li>")
+				}else{
+					$(".GameRecordList02 .RedEnvalopeRecordPublic").append("<li><div><span>"+time1+"</span><span>"+time2+"</span></div><div><span>"+item.changeScore+"</span><span>资产</span></div><div>已领取</div></li>")
+				}
+			})
+		}
+		
+		geSingleEnvelopeList(userId,token,clientType,language,offset)
+		if(geSingleEnvelopeListArr.data!=undefined){
+			geSingleEnvelopeListArr.data.forEach(function(item){
+				var time2=formatDate2(new Date(item.createTime*1000))
+				if(item.status==0){
+					if(localStorage.getItem("set-lan")=="EN"){
+						GameRecordList01But="<button data-text='"+item.id+"'>receive</button>"
+					}else{
+						GameRecordList01But="<button data-text='"+item.id+"'>领取</button>"
+					}
+				}else if(item.status==1){
+					if(localStorage.getItem("set-lan")=="EN"){
+						GameRecordList01But="Received"
+					}else{
+						GameRecordList01But="已领取"
+					}
+				}else{
+					if(localStorage.getItem("set-lan")=="EN"){
+						GameRecordList01But="expired"
+					}else{
+						GameRecordList01But="已过期"
+					}
+				}
+				if(localStorage.getItem("set-lan")=="EN"){
+					$(".GameRecordList01 .RedEnvalopeRecordPublic").append("<li><div><span>"+item.sendId+"</span><span>"+time2+"</span></div><div><span>"+item.amountScore+"</span><span>Asset</span></div><div>"+GameRecordList01But+"</div></li>")
+				}else{
+					$(".GameRecordList01 .RedEnvalopeRecordPublic").append("<li><div><span>"+item.sendId+"</span><span>"+time2+"</span></div><div><span>"+item.amountScore+"</span><span>资产</span></div><div>"+GameRecordList01But+"</div></li>")
+				}
+			})
+		}
+			
+	}
+	
+	
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+		mui(".GaneRecordPage").pullRefresh({
+			up: {
+				contentinit: 'Pull up to show more',
+                contentdown: 'Pull up to show more',
+                contentrefresh: 'Refreshing...',
+                contentnomore: 'No more data',
+				callback: getlotteryLogTopFor1
+			}
+		})
+		mui(".GaneRecordPage1").pullRefresh({
+			up: {
+				contentinit: 'Pull up to show more',
+                contentdown: 'Pull up to show more',
+                contentrefresh: 'Refreshing...',
+                contentnomore: 'No more data',
+				callback: getlotteryLogTopFor2
+			}
+		})
+	}else{
+		language="cn"
+		mui(".GaneRecordPage").pullRefresh({
+			up: {
+				contentinit: '上拉显示更多',
+	            contentdown: '上拉显示更多',
+	            contentrefresh: '正在加载...',
+	            contentnomore: '已经全部加载完了',
+				callback: getlotteryLogTopFor1
+			}
+		})
+		mui(".GaneRecordPage1").pullRefresh({
+			up: {
+				contentinit: '上拉显示更多',
+	            contentdown: '上拉显示更多',
+	            contentrefresh: '正在加载...',
+	            contentnomore: '已经全部加载完了',
+				callback: getlotteryLogTopFor2
+			}
+		})
+	}
+	
+	
+	
+	function getlotteryLogTopFor2(){
+		var This=this;
+		setTimeout(function() {
+	    	offset+=10;
+			if(getRedEnvelopeRecordListArr.data.length>=10){
+				appendArr()
+				This.endPullupToRefresh(false);
+			}else{
+				This.endPullupToRefresh(true);
+			}
+		}, 2000);
+	}
+	
+	function getlotteryLogTopFor1(){
+		var This=this;
+		setTimeout(function(){
+			This.endPullupToRefresh(true);
+		},2000)
+	}
+	
+	$(".RedEnvelopeRecordState>ul").on("tap","li",function(){
+		$(this).css({
+			"background":"#00b07c",
+			"color":"#fff"
+		}).siblings().css({
+			"background":"#f5f5f7",
+			"color":"#555"
+		})
+		switch ($(this).text()){
+			case "锦鲤红包":
+				$(".GameRecordList01").show()
+				$(".GameRecordList02").hide()
+				break;
+			case "Lucky red packet":
+				$(".GameRecordList01").show()
+				$(".GameRecordList02").hide()
+				break;
+			case "区域红包":
+				$(".GameRecordList02").show()
+				$(".GameRecordList01").hide()
+				break;
+			case "Area red packet":
+				$(".GameRecordList02").show()
+				$(".GameRecordList01").hide()
+				break;
+		}
+	})
+	
+	
+	
+	$(".GameRecordList01").on("tap","button",function(){
+		drawSingleEnvelope(userId,token,clientType,language,$(this).attr("data-text"))
+		if(drawSingleEnvelopeArr.code==1){
+			alert("领取成功")
+			$(this).parent().text("已领取")
+		}else{
+			alert(drawSingleEnvelopeArr.message)
+		}
+	})
+</script>

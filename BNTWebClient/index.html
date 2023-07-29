@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>ANT</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+
+	</head>
+	<body style="background-color: #f5f5f7;">
+		<!-- 侧滑导航根容器 -->
+			<div class="mui-off-canvas-wrap mui-draggable">
+			  <!-- 主页面容器 -->
+			  <div class="mui-inner-wrap">
+			    <!-- 菜单容器 -->
+			    <aside class="mui-off-canvas-left">
+			      <!--<div class="mui-scroll-wrapper">
+			        <div class="mui-scroll cebian-scroll">
+			          	菜单具体展示内容
+			          <div class="touxiang">
+			          	<div class="touxiang-box">
+			          		<div class="tou-img"><img class="touxiang-img" src="img/Node-title.png"/><img src="img/indexVIP.png"/><input class="touxiang-file" type="file"/></div>
+			          		<div class="tou-text">
+			          			<input class="user_name" value="AG超玩会" disabled="disabled" type="text">
+			          			<div>
+			          				<input class="user_name" maxlength="8" value="AG超玩会" type="text">
+			          				<div>
+			          					<span><img src="img/indexVIP01.png"/></span>
+			          					<span>Lv1</span>
+			          				</div>
+			          			</div>
+			          			<span class="phone">110***1100</span>
+			          			<span class="userId">邀请码：11000</span>
+			          		</div>
+			          		<p class="xiugainame"><img src="img/tou-namexiugai.png"/></p>
+			          	</div>
+			          </div>
+			          
+			          
+			          <div class="yaoqing">
+			          	<ul>
+			          		<li data-value="Invitationcard" style="background: url(img/cebian01.png) no-repeat;" class="cebian01 yaoqingka">邀请卡</li>
+			          		<li data-value="IdentityAuthentication" style="background: url(img/cebian02.png) no-repeat;" class="cebian02 weikaifang">实名认证</li>
+			          		<li data-value="Security" style="background: url(img/cebian03.png) no-repeat;" class="anquanzhongxin cebian03">安全中心</li>
+			          	</ul>
+			          </div>
+			          
+			          <div class="yaoqing">
+			          	<ul>
+			          		<li data-value="Message" style="background: url(img/cebian04.png) no-repeat;" class="cebian04 weikaifang">消息中心</li>
+			          		<li data-value="Versiondetection" style="background: url(img/cebian05.png) no-repeat;" class="cebian05 weikaifang">版本检测</li>
+			          		<li data-value="Aboutus" class="AboutUs" style="background: url(img/cebian06.png) no-repeat;" class="cebian06">关于我们</li>
+			          	</ul>
+			          </div>
+			          
+			           <div class="yaoqing">
+			          	<ul>
+			          		<li data-value="Settings" style="background: url(img/cebian07.png) no-repeat;" class="cebian07 weikaifang">系统设置</li>
+			          	</ul>
+			          </div>
+			          
+			          
+			          <div class="tuichudenglu">
+			        	<button data-value="Logout" type="button" class="removelogin">退出登录</button>
+			        	<p>version:1.0.0-Build20180810</p>
+			          </div>
+			        </div>
+			      </div>-->
+			    </aside>
+			    <!-- 主页面标题 -->
+			    <header class="mui-bar mui-bar-nav header">
+			      <p id="cehualan" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></p>
+			      <h1 class="mui-title">ANT</h1>
+			      <span class="lingdang"><img src="img/lingdang.png"/></span>
+			    </header>
+			    <!-- 主页面内容容器 -->
+			    <div class="mui-content mui-scroll-wrapper index" style="background: #ededed;"  id="refreshContainer">
+			      <div class="mui-scroll">
+			        <!-- 主界面具体展示内容 -->
+			        
+			        
+	        			<ul class="shoufukuan-list" >
+	        				<li class="transaction">
+	        					<span data-value="indexTransfer">转账</span>
+	        				</li>
+	        				<li class="saoyisao">
+	        					<span data-value="ReceiptCode">收付款</span>
+	        				</li>
+	        				<li class="hongbaodian">
+	        					<span data-value="Reward1">红包</span>
+	        					<div class="redDian"></div>
+	        				</li>
+	        			</ul>
+			        	<!--收付款-->
+			        	<div class="w1028">
+			        		<div class="shoufukuan">
+			        			<div class="tokenMing">
+			        				<div class="zichanxiangqing">
+			        					<span data-value="Token">通 证</span>
+			        					<span class="user_ant">0.0000</span>
+			        					<span data-value="History">明 细</span>
+			        				</div>
+			        				<div class="duihuanzichan">
+			        					<span data-value="Asset">资 产</span>
+			        					<span class="user_score">0.0000</span>
+			        					<span data-value="Convert">兑 换</span>
+			        				</div>
+			        			</div>
+			        		</div>
+			        	</div>
+			        	
+			        	
+			        	<!--banner-->
+			        	<div class="w1028 mg25">
+				        	<div class="mui-slider">
+								<div class="mui-slider-group mui-slider-loop">
+								    
+								    <!--<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/banner001.jpg" /></a></div>
+								    
+								    <div class="mui-slider-item shandui"><a href="#"><img src="img/banner006.jpg" /></a></div>
+								    <div class="mui-slider-item indexzhongchou"><a href="#"><img style="width: 18.925925rem; height: 6rem;" src="img/banner002.png" /></a></div>
+								    <div class="mui-slider-item hongbaodian"><a href="#"><img src="img/banner003.jpg" /></a></div>
+								    <div class="mui-slider-item heyue"><a href="#"><img src="img/banner005.jpg" /></a></div>
+								    <div class="mui-slider-item dazhuanpan"><a href="#"><img src="img/banner001.jpg" /></a></div>
+								    
+								    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/banner006.jpg" /></a></div>-->
+								    
+								</div>
+							</div>
+			      		</div>
+			      		
+			      		
+			      		<div class="w1028">
+			      			<div class="tokenservice">
+			      				<div class="tokenservice-header" data-value="TokenService">通证服务</div>
+			      				<div class="tokenservice-list">
+			      					<ul>
+			      						<li class="jihuohaoyou service01"><div></div><span data-value="Activatefriend">激活好友</span></li>
+			      						<li class="node service02"><div></div><span data-value="Node">节点</span></li>
+			      						<li class="yaoqingka service03"><div></div><span data-value="Invitationcard">邀请卡</span></li>
+			      						<li class="shanghushoukuanma service04"><div></div><span data-value="Receipt Code1">商户收款码</span></li>
+			      						<li class="pos service05"><div></div><span data-value="POS">POS权益</span></li>
+			      						<li class="Dpos service06"><div></div><span data-value="DPOS">DPOS权益</span></li>
+			      					</ul>
+			      				</div>
+			      			</div>
+			      		</div>
+			      		
+			      		<div class="w1028" style="margin-top: 0.37037rem;">
+			      			<div class="tokenservice">
+			      				<div class="tokenservice-header" data-value="LifeService">生活服务</div>
+			      				<div class="tokenservice-list">
+			      					<ul>
+			      						<li class="lianxikefu service07"><div></div><span data-value="Help">联系客服</span></li>
+			      						<li class="dazhuanpan service08"><div></div><span data-value="FuelCard">福利大转盘</span></li>
+			      						<li class="heyue service09"><div></div><span data-value="Contract Scratch">幸运圣诞节</span></li>
+			      						<li class="GetMall service10"><div></div><span data-value="loging2.0_199">商城</span></li>
+			      						<li class="weikaifang service11"><div></div><span data-value="ANTcloudpurchase">蚂蚁云购</span></li>
+			      						<li class="shandui service12"><div></div><span data-value="loging2.0_248">闪兑</span></li>
+			      						<li class="indexzhongchou service13"><div></div><span data-value="loging2.0_205">众筹</span></li>
+			      						<li class="weikaifang service14"><div></div><span data-value="Information">资讯</span></li>
+			      						<li style="border-right: 0;" class="weikaifang service15"><div></div><span data-value="More">更多</span></li>
+			      					</ul>
+			      				</div>
+			      			</div>
+			      		</div>
+			        	
+
+			      		
+			      
+			      </div>
+			    </div>
+			    
+			    
+			    <div class="mui-off-canvas-backdrop"></div>
+			    
+			    <!--红包-->
+			    <div class="hongbao">
+			    	<img src="img/hongbao01.png"/>
+			    	<img src="img/hongbao02.png" />
+			    	<img src="img/hongbao03.png" />
+			    	<div class="hongbaoText">10000.00</div>
+			    </div>
+				
+				<!--公告-->
+				<div class="Notice">
+					<div class="Notice-con">
+						<!--<img src="img/Notice-title.png" />-->
+						<h3>公告</h3>
+						<div>
+							<div style="background: transparent; " class="mui-content mui-scroll-wrapper index"  id="refreshContainer">
+			     				<div class="mui-scroll" style="padding-bottom: 0;">
+									456
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			  
+			    <!--底部导航栏-->
+			    <!--<div class="bottom-nav">
+			      	<ul>
+			      		<li><a href="#"><img src="phone/syl@3x.png"/><span data-value="Home" style="color: #00b07c;">首页</span></a></li>
+			      		<li><a href="wallet/home.html"><img src="phone/qb@3x.png"/><span data-value="Wallet">钱包</span></a></li>
+			      		<li><a href="src/transaction/transaction.html"><img src="phone/jy@3x.png"/><span data-value="Trades">交易</span></a></li>
+			      		<li><a href="src/Mall/Mall.html"><img src="phone/sc@3x.png"/><span data-value="Mall">商城</span></a></li>
+			      	</ul>
+			    </div>-->
+			  </div>	 
+			</div>
+	</body>
+</html>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js" ></script>
+<script>eruda.init();</script>-->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="js/mui.js" ></script>
+<script type="text/javascript" src="js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="js/language.js" ></script>
+<script type="text/javascript" src="js/ajax.js" ></script>
+<script type="text/javascript" src="js/index.js" ></script>

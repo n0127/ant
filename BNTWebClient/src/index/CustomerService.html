@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Help">联系客服</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--联系客服-->
+			    <div class="AssetDetails" style="display: flex;flex-direction: column;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Help">联系客服</span>
+			    		</div>
+			    	</div>
+			    	<div class="CustomerService-box">
+			    		<div class="mui-scroll-wrapper">
+							<div class="mui-scroll" style="padding-bottom: 0;">
+					    		<img src="../../img/login-logo.png" />
+					    		<p data-value="Buildingaglobalbusinessalliance">打造全球商业大联盟</p>
+					    		<div class="CustomerServiceCon">
+					    			<div class="CustomerServiceCon-box">
+					    				<div>
+						    				<img src="../../img/service.png" />
+						    				<span data-value="CSR(WeChat)">&nbsp;1号客服微信:&nbsp;&nbsp;</span>
+						    				<span class="wechatText">ANTtoken001</span>
+						    				<span data-value="Copy" class="copy">&nbsp;&nbsp;复制</span>
+					    				</div>
+					    				<a href="#"  download="wechat-service"><img class="wechat" src="../../img/erweima01.jpg" /></a>
+					    			</div>
+					    			<!--<div class="CustomerServiceCon-box">
+					    				<div>
+						    				<img src="../../img/service.png" />
+						    				<span data-value="CSR(QQ)">&nbsp;2号商城客服:&nbsp;&nbsp;</span>
+						    				<span class="qqText">gxganhh</span>
+						    				<span data-value="Copy" class="copy01">&nbsp;&nbsp;复制</span>
+					    				</div>
+					    				<a href="#" download="qq-service"><img class="qq" src="../../img/QQ.jpg" /></a>
+					    			</div>-->
+					    		</div>
+					    	</div>
+					    </div>
+			    	</div>
+				    	
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js" ></script>
+<script>eruda.init();</script>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script>
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+	}
+	var img;
+	$(".wechat").on("tap",function(){
+		if(hehe!=undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				DAPPFramework.Dialog.ActionSheet("","CSR",["Save Picture","Cancel"],[0,2],"imgOnTap")
+			}else{
+				DAPPFramework.Dialog.ActionSheet("","微信客服",["保存图片","取消"],[0,2],"imgOnTap")
+			}
+		}else if(AndroidApp=="Android"){
+			if(localStorage.getItem("set-lan")=="EN"){
+				ANT.showPopoutTwoType('Save Picture',"Cancel","Confirm")
+			}else{
+				ANT.showPopoutTwoType('保存图片','取消','确定')
+			}
+		}
+			
+		img=$(this)[0].src;
+	})
+	
+	function twoType(arg){
+		if(arg=='确定' || arg=='Confirm'){
+			imgOnTap(arg)
+		}
+	}
+	$(".qq").on("tap",function(){
+		if(hehe!=undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				DAPPFramework.Dialog.ActionSheet("","CSR",["Save Picture","Cancel"],[0,2],"imgOnTap")
+			}else{
+				DAPPFramework.Dialog.ActionSheet("","商城客服",["保存图片","取消"],[0,2],"imgOnTap")
+			}
+		}else if(AndroidApp=="Android"){
+			if(localStorage.getItem("set-lan")=="EN"){
+				ANT.showPopoutTwoType('Save Picture',"Cancel","Confirm")
+			}else{
+				ANT.showPopoutTwoType('保存图片','取消','确定')
+			}
+		}
+		
+		img=$(this)[0].src;
+	})
+	
+	$(".qq01").on("tap",function(){
+		if(hehe!=undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				DAPPFramework.Dialog.ActionSheet("","CSR",["Save Picture","Cancel"],[0,2],"imgOnTap")
+			}else{
+				DAPPFramework.Dialog.ActionSheet("","微信客服",["保存图片","取消"],[0,2],"imgOnTap")
+			}
+		}else if(AndroidApp=="Android"){
+			if(localStorage.getItem("set-lan")=="EN"){
+				ANT.showPopoutTwoType('Save Picture',"Cancel","Confirm")
+			}else{
+				ANT.showPopoutTwoType('保存图片','取消','确定')
+			}
+		}
+		
+		img=$(this)[0].src;
+	})
+	
+	function imgOnTap(item){
+		if(item=="保存图片" || item=="Save Picture" || item=='确定' || item=='Confirm'){
+			function getBase64Image(img) {
+		        var canvas = document.createElement("canvas");
+		        canvas.width = img.width;
+		        canvas.height = img.height;
+		        var ctx = canvas.getContext("2d");
+		        ctx.drawImage(img, 0, 0, img.width, img.height);
+		        var ext = img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase();
+		        var dataURL = canvas.toDataURL("image/"+ext);
+		        return dataURL;
+			}
+			var image = new Image();
+			image.src = img;
+			image.onload = function(){
+			    var base64 = getBase64Image(image);
+			    if(hehe!=undefined){
+			    	DAPPFramework.Camera.SaveImage(base64, "base64Fun");
+			    }else{
+			    	ANT.savePicture(base64)
+			    }
+			    
+			}
+		}
+	}
+	function base64Fun(data){
+		if(data==true){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Success")
+			}else{
+				alert("保存成功")
+			}
+		}else{
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Failure")
+			}else{
+				alert("保存失败")
+			}
+		}
+	}
+	$(".copy").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.PasteBoard.Set("ANTtoken001")
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Copied Success")
+			}else{
+				alert("复制成功")
+			}
+		}else{
+			if(localStorage.getItem("set-lan")=="EN"){
+				ANT.copyMessage("ANTtoken001","Copied Success")
+			}else{
+				ANT.copyMessage("ANTtoken001","复制成功")
+			}
+		}
+		
+		
+	})
+//	var text666="data:image/png;base64,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"
+//	DAPPFramework.Camera.SaveImage(text666, callback);
+	
+</script>

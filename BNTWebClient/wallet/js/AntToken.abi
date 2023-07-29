@@ -1,0 +1,980 @@
+[
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "WithDrawLockRecordAllProfit",
+		"outputs": [
+			{
+				"name": "profitTotal",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "API_GetEnableWithDrawPosProfit",
+		"outputs": [
+			{
+				"name": "state",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_spender",
+				"type": "address"
+			},
+			{
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "GetPosoutLists",
+		"outputs": [
+			{
+				"name": "len",
+				"type": "uint256"
+			},
+			{
+				"name": "posouttotal",
+				"type": "uint256[]"
+			},
+			{
+				"name": "posoutTime",
+				"type": "uint256[]"
+			},
+			{
+				"name": "thousandthRatio",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "posoutWriterReward",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "GetAdminList",
+		"outputs": [
+			{
+				"name": "addresses",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "time",
+				"type": "uint256"
+			}
+		],
+		"name": "TestAPI_CreatePosoutRecordAtTime",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "GetCurrentPosSum",
+		"outputs": [
+			{
+				"name": "sum",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"name": "lockAmountTotal",
+				"type": "uint256"
+			},
+			{
+				"name": "lockDays",
+				"type": "uint16"
+			}
+		],
+		"name": "API_SendLockBalanceTo",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "GetLockRecords",
+		"outputs": [
+			{
+				"name": "len",
+				"type": "uint256"
+			},
+			{
+				"name": "totalAmount",
+				"type": "uint256[]"
+			},
+			{
+				"name": "withdrawAmount",
+				"type": "uint256[]"
+			},
+			{
+				"name": "lastWithdrawTime",
+				"type": "uint256[]"
+			},
+			{
+				"name": "lockDays",
+				"type": "uint16[]"
+			},
+			{
+				"name": "profit",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "perMinerAmount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "posRecordIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "WithDrawPosProfit",
+		"outputs": [
+			{
+				"name": "profit",
+				"type": "uint256"
+			},
+			{
+				"name": "posAmount",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "DespoitToPos",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "balance",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "admin",
+				"type": "address"
+			}
+		],
+		"name": "RemoveAdmin",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "state",
+				"type": "bool"
+			}
+		],
+		"name": "API_SetEnableWithDrawPosProfit",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "airdropAddress",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "posRecordIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "RescissionPosAt",
+		"outputs": [
+			{
+				"name": "posProfit",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"name": "distantPosoutTime",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "startTime",
+				"type": "uint256"
+			}
+		],
+		"name": "API_SetUnlockAmountEnable",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "reward",
+				"type": "uint256"
+			}
+		],
+		"name": "API_SetPosoutWriteReward",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "GetPosRecords",
+		"outputs": [
+			{
+				"name": "len",
+				"type": "uint256"
+			},
+			{
+				"name": "amount",
+				"type": "uint256[]"
+			},
+			{
+				"name": "depositTime",
+				"type": "uint256[]"
+			},
+			{
+				"name": "lastWithDrawTime",
+				"type": "uint256[]"
+			},
+			{
+				"name": "prefix",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "joinPosMinAmount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "admin",
+				"type": "address"
+			}
+		],
+		"name": "AddAdmin",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "rid",
+				"type": "uint256"
+			}
+		],
+		"name": "WithDrawLockRecordProFit",
+		"outputs": [
+			{
+				"name": "profit",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "WithDrawPosAllProfit",
+		"outputs": [
+			{
+				"name": "profitSum",
+				"type": "uint256"
+			},
+			{
+				"name": "posAmountSum",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"name": "lockAmountTotal",
+				"type": "uint256"
+			},
+			{
+				"name": "lockDays",
+				"type": "uint16"
+			},
+			{
+				"name": "time",
+				"type": "uint256"
+			}
+		],
+		"name": "TestAPI_SendLockBalanceByTime",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "maxRemeberPosRecord",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint16"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"name": "_spender",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"name": "remaining",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "RescissionPosAll",
+		"outputs": [
+			{
+				"name": "amountTotalSum",
+				"type": "uint256"
+			},
+			{
+				"name": "profitTotalSum",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "startUnlockDataTime",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "TokenOrePool",
+				"type": "address"
+			},
+			{
+				"name": "TokenDecimals",
+				"type": "uint8"
+			},
+			{
+				"name": "TokenName",
+				"type": "string"
+			},
+			{
+				"name": "TokenSymbol",
+				"type": "string"
+			},
+			{
+				"name": "TokenTotalSupply",
+				"type": "uint256"
+			},
+			{
+				"name": "MaxRemeberPosRecord",
+				"type": "uint16"
+			},
+			{
+				"name": "JoinPosMinAmountLimit",
+				"type": "uint256"
+			},
+			{
+				"name": "PosOutWriterReward",
+				"type": "uint256"
+			},
+			{
+				"name": "StartUnlockDataTime",
+				"type": "uint256"
+			},
+			{
+				"name": "PosMaxPorfitByThousandths",
+				"type": "uint256"
+			},
+			{
+				"name": "EnableWithDrawPosProfit",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "posAmount",
+				"type": "uint256"
+			}
+		],
+		"name": "OnCreatePosRecord",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "posAmount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "recordCreateTime",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "lastWithDrawTime",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "posProfit",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "sendedPosProfitToken",
+				"type": "bool"
+			}
+		],
+		"name": "OnRescissionPosRecord",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "amountSum",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "profitSum",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "sendedPosProfitToken",
+				"type": "bool"
+			}
+		],
+		"name": "OnRescissionPosRecordAll",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "depositTime",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "lastWithDrawTime",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "profit",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "sendedPosProfitToken",
+				"type": "bool"
+			}
+		],
+		"name": "OnWithdrawPosRecordPofit",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "amountSum",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "profitSum",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "sendedPosProfitToken",
+				"type": "bool"
+			}
+		],
+		"name": "OnWithdrawPosRecordPofitAll",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "lockDays",
+				"type": "uint256"
+			}
+		],
+		"name": "OnSendLockAmount",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "profit",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "totalAmount",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "withdrawAmount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "lastWithdrawTime",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "lockDays",
+				"type": "uint16"
+			},
+			{
+				"indexed": false,
+				"name": "createTime",
+				"type": "uint256"
+			}
+		],
+		"name": "OnWithdrawLockRecord",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "totalAmountSum",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"name": "profitSum",
+				"type": "uint256"
+			}
+		],
+		"name": "OnWithdrawLockRecordAll",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "_spender",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	}
+]

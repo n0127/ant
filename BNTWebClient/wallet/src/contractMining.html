@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>合约挖矿</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!--<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>-->
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<style>
+			.return{
+				position: absolute;
+				top: 1.5rem;
+				left: -0.5rem;
+			}
+			.return:after{
+				font-size: 1.296296rem;
+				color: #010101;
+			}
+			#refreshContainer{
+				top: 11.0345rem;
+			}
+		</style>
+	</head>
+	<body>
+		<span class="mui-push-left return"></span>
+		<header class="mining-header">
+			<img src="../img/ANT-logo.png"/>
+			<span>ANT</span>
+		</header>
+		<content>
+			<div class="mining-balance">
+				<p data-value="loging2.0_103">可用余额</p>
+				<h2 data-value="loging2.0_102" class="tokenBalance">正在获取中...</h2>
+				<p data-value="loging2.0_104">锁定余额</p>
+				<h3 data-value="loging2.0_102" class="lockBalance">正在获取中...</h3>
+			</div>
+			<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="computing-pool">
+						<canvas id="cav"></canvas>
+						<p><img src="../../img/poswen.png"/>&nbsp;合约挖矿</p>
+						<div>
+							<h2 data-value="loging2.0_102" class="slc">正在获取中...</h2>
+							<span data-value="loging2.0_105">算力池(ANT)</span>
+						</div>
+					</div>
+					<div class="computing-residue">
+						<div>
+							<img src="../img/residue.png"/>
+							<div>
+								<p data-value="loging2.0_102" class="computing-amount lockSum">正在获取中...</p>
+								<p data-value="loging2.0_106">锁仓总额</p>
+							</div>
+						</div>
+						<div>
+							<img src="../img/put-in.png"/>
+							<div>
+								<p data-value="loging2.0_102" class="computing-amount myPos">正在获取中...</p>
+								<p data-value="loging2.0_107">我的投入</p>
+							</div>
+						</div>
+					</div>
+					<ul class="mui-table-view mui-grid-view mui-grid-9 Sudoku">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+							<a href="#" class="chongbi">
+								<span class="iconfont icon-chongbi"></span>
+								<div data-value="loging2.0_98" class="mui-media-body">充币</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 Sudoku-withdraw">
+							<a href="#" class="tibi">
+								<span class="iconfont icon-tixian"></span>
+								<div data-value="loging2.0_99" class="mui-media-body">提币</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+							<a href="#" class="qianyue">
+								<span class="iconfont icon-qianyue"></span>
+								<div data-value="loging2.0_115" class="mui-media-body">签约</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+							<a href="#" class="wodeheyue">
+								<span class="iconfont icon-wodeheyue"></span>
+								<div data-value="loging2.0_108" class="mui-media-body">我的合约</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+							<a href="#" class="jiaoyijilu">
+								<span class="iconfont icon-jiaoyijilu"></span>
+								<div data-value="loging2.0_109" class="mui-media-body">交易记录</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</content>
+	</body>
+</html>
+<script src="../../js/mui.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/rem.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>

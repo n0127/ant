@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>交易支付</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/PublicPassword.css"/>
+		<style>
+        
+    </style>
+	</head>
+	<body>
+
+			  <!--交易支付-->
+			    <div class="AssetDetails" style="display: flex;flex-direction: column;">
+			    	<div class="public-header" style="border: none;">
+			    		<div class="goback" style="padding-left: 0.888888rem;">
+			    			<span>取消</span>
+			    		</div>
+			    	</div>
+			    	<div class="PublicScrollBox">
+			    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 0;">
+							<div style="padding-bottom: 0;" class="mui-scroll">
+						    	<div class="Mall-tran">
+						    		<img src="../../img/WelfareDraw01.png" />
+						    		<div class="Mall-bg">
+						    			<ul>
+						    				<li>
+						    					<span>收款方</span>
+						    					<span class="shoukuanfang">商城</span>
+						    				</li>
+						    				<li>
+						    					<span>订单号</span>
+						    					<span class="dingdanhao">...</span>
+						    				</li>
+						    				<li>
+						    					<span>支付类型</span>
+						    					<span>通证</span>
+						    				</li>
+						    				<!--<li>
+						    					<span>支付数量</span>
+						    					<span class="zhifushuliang" style="color: #ed3349;">- 10000.00</span>
+						    				</li>-->
+						    				<li>
+						    					<span>获得资产</span>
+						    					<span class="huodezichan" style="color: #00B17D;">+ 0.00</span>
+						    				</li>
+						    			</ul>
+						    		</div>
+						    		<ul class="MallTranType">
+						    			<li>
+						    				<div>
+						    					<div><img src="../../img/MallANT-logo.png"/><span>ANT数量</span></div>
+						    					<span class="zhifushuliang01">0.00</span>
+						    				</div>
+						    				<!--<span>去支付<img src="../../img/MallGo.png"/></span>-->
+						    			</li>
+						    		</ul>
+						    		<div class="Mall-time">
+						    			<span>请在</span>
+						    			<span>30分钟内</span>
+						    			<span>前完成支付</span>
+						    		</div>
+						    		
+						    		<!--<div id="dragContainer">
+								        <div id="dragBg"></div>
+								        <div id="dragText"></div>
+								        <div id="dragHandler" class="dragHandlerBg"></div>
+								    </div>-->
+								    <div class="MallButtonBox">
+								    	<button>支付</button>
+								    </div>
+						    	</div>
+						    </div>
+						</div>
+					</div>
+			    </div>
+			    
+			   <div class="publicPas">
+					<div>
+						<div class="publicPasTitle">
+							<span>私钥密码</span>
+							<p class="publicPasTitleDown mui-icon mui-icon-closeempty"></p>
+						</div>
+						<div class="publicPasInput">
+							<p>私钥密码</p>
+							<input type="password" placeholder="请输入来源地址对应的私钥密码" />
+						</div>
+						<div class="publicPasBut">
+							<button>确认发送</button>
+						</div>
+					</div>
+				</div>
+			  
+	</body>
+</html>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js" ></script>
+<script>eruda.init();</script>-->
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/md5.js" ></script>
+<script src="http://bnt.fuyer.com/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var order_no=GetQueryString("order_no");
+	var mall_key=GetQueryString("mall_key");
+	var android=GetQueryString("loginType");
+	var siyao;
+	var mima;
+	localStorage.setItem("changeType","1")
+	var AndroidChange=localStorage.getItem("changeType")
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="EN"
+		languageArr=EN
+	}else{
+		language="CN"
+		languageArr=CN
+	}
+
+	if(android=="android"){
+		userId=GetQueryString("user_id")
+		token=GetQueryString("user_token")
+		siyao=ANT.getPrivatelyKey()
+		mima=ANT.getUserPwd()
+		clientType=2;
+		ForOrder()
+		
+	}
+	
+	
+	$(".goback").on("tap",function(){
+		if(android=="android"){
+			ANT.finishThis()
+		}else{			
+			history.back()
+		}
+	})
+	
+	function DAPPFrameworkEngineReady(){
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		id=DAPPFramework.Storage.Get("VurrentValue")
+		clientType=1
+		ForOrder()
+	}
+	
+	
+	function ForOrder(){
+		selectOrderDetail(userId,token,mall_key,order_no,clientType)
+		$(".shoukuanfang").text(selectOrderDetailArr.data.shopName)
+		$(".dingdanhao").text(selectOrderDetailArr.data.orderNo)
+		$(".Mall-time>span:nth-child(2)").text(formatDate(new Date(selectOrderDetailArr.data.expireTime*1000)))
+		if(selectOrderDetailArr.data.payType==0){
+			$(".zhifuleixing").text("通证")
+		}
+		$(".zhifushuliang01").text(selectOrderDetailArr.data.payment+"ANT")
+		$(".zhifushuliang02").text(selectOrderDetailArr.data.virtualCoinPayment+"Ruby")
+		$(".huodezichan").text("+"+selectOrderDetailArr.data.harvestScore)
+	}
+	
+	$(".MallButtonBox").on("tap","button",function(){
+		$('.publicPas').fadeIn();
+		$(".publicPasInput>input").val("");
+	})
+	
+	$(".publicPasTitle>p").on("tap",function(){
+		$('.publicPas').fadeOut();
+		$(".publicPasInput>input").val("");
+	})
+	
+	$(".publicPasBut").on("tap","button",function(){
+		var Time=new Date().getTime();
+		var password=$(".publicPasInput>input").val();
+		if(android=="android"){
+			if(mima == password){
+				var wallet=new ethers.Wallet(siyao);
+				wallet.signMessage(sha256_digest(Time+token)).then(signature => {
+					pay(userId,token,mall_key,order_no,clientType,Time,signature)
+				})
+			}else{
+				alert("密码不正确")
+				$(".publicPasInput>input").val("");
+			}
+			return false
+		}
+		
+		var PrivateKeyJosn=JSON.parse(DAPPFramework.Storage.Get("PrivateKeyJosn"));
+		var privateKey=PrivateKeyJosn[id].privateKey;
+		var wallet=new ethers.Wallet(privateKey);
+		
+		var Password=PrivateKeyJosn[id].Password;
+		if( Password == sha256_digest(password) ){
+			wallet.signMessage(sha256_digest(Time+token)).then(signature => {
+				pay(userId,token,mall_key,order_no,clientType,Time,signature)
+			})
+		}else{
+			alert(languageArr["loging2.0_201"])
+		}
+		
+	})
+
+//	$(".MallTranType>li:nth-child(1)").on("tap",function(){
+//		if(!selectOrderDetailArr.data.valid){
+//			return false
+//		}
+//		if($(".MallTranType>li:nth-child(1)>span").text()=="已支付"){
+//			return alert("已支付")
+//		}
+//		var value=selectOrderDetailArr.data.payment.toString();
+//		if(android){
+//			localStorage.setItem("order_no",order_no)
+//			localStorage.setItem("mall_key",mall_key)
+//			localStorage.setItem("mallNumber",value.substr(1))
+//			var ChangeFun=setInterval(function(){
+//				if(localStorage.getItem("changeType")!=AndroidChange){
+//					console.log("数值改变")
+//					ForOrder()
+//					clearInterval(ChangeFun)
+//				}else{
+//					console.log("数值未改变")
+//				}
+//			},500)
+////			http://bnt.fuyer.com
+//			ANT.jumpSubpage("http://192.168.31.211:8813/_ant/src/Mall/AntTransaction.html")
+//			return false
+//		}
+//		window.location.href="AntTransaction.html?order_no="+order_no+"&mall_key="+mall_key+"&Number="+value.substr(1)
+//	})
+	
+</script>

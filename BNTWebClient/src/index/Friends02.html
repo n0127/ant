@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Detailsoffriends">好友详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			 <!--激活好友-->
+			    <div class="Friends" style="display: block;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Detailsoffriends">好友详情</span>
+			    		</div>
+			    	</div>
+			    	<div class="Friends-information">
+			    		<div data-value="Friendinformation" class="informationHeader">好友信息：</div>
+			    		<div class="T1Node">
+			    			<div class="T1Node-left">
+			    				<img src="../../img/Node-title.png" />
+			    				<span class="name">xxx</span>
+			    				<span class="id">xxx</span>
+			    				<span class="phone">xxx</span>
+			    			</div>
+			    			<div class="T1Node-right">
+			    				<div class="T1NodeRight-bottom" style="flex: 1; border-top: none;">
+			    					<div>
+			    						<span>
+			    							<span data-value="Referee">推荐人：</span><span class="tuijian">xxx</span>
+			    						</span>
+			    						<div>
+			    							<img src="../../img/Node-ipone.png" />
+			    							<span class="tuijian-phone">xxx</span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    				<div class="T1NodeRight-bottom" style="flex: 1;">
+			    					<div>
+			    						<span>
+			    							<span data-value="Contactperson">接点人：</span><span class="jiedianren">xxx</span>
+			    						</span>
+			    						<div>
+			    							<img src="../../img/Node-ipone.png" />
+			    							<span class="jiedian">无</span>
+			    						</div>
+			    					</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var userId;
+	var token;
+	var NodeId;
+	var phone;
+	var parentNode;
+	var clientType;
+	
+	function Friends02(){
+		$(".jiedianren").text(parentNode)
+		getInsertPointInfo(userId,NodeId,token)
+		$(".name").text(getInsertPointInfoArr.data.username)
+		$(".id").text("ID:"+getInsertPointInfoArr.data.insertPointId)
+		$(".phone").text(getInsertPointInfoArr.data.phone.substr(0, 3) + '****' + getInsertPointInfoArr.data.phone.substring(7, 11))
+		$(".tuijian").text(getInsertPointInfoArr.data.introduce)
+		$(".tuijian-phone").text(getInsertPointInfoArr.data.introducePhone.substr(0, 3) + '****' + getInsertPointInfoArr.data.introducePhone.substring(7, 11))
+		
+		getInsertPointInfo(userId,parentNode,token)
+		$(".jiedian").text(getInsertPointInfoArr.data.phone.substr(0, 3) + '****' + getInsertPointInfoArr.data.phone.substring(7, 11))
+//		$(".jiedian").text()
+		
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		NodeId=DAPPFramework.SharedBoard.Get("NodeId")
+		phone=DAPPFramework.SharedBoard.Get("phone")
+		parentNode=DAPPFramework.SharedBoard.Get("parentNode")
+		clientType=1
+		Friends02()
+	}
+	
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId")
+		token=ANT.getMessage("token")
+		NodeId=ANT.getMessage("NodeId")
+		phone=ANT.getMessage("phone")
+		parentNode=ANT.getMessage("parentNode")
+		clientType=1
+		Friends02()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		NodeId=sessionStorage.getItem("NodeId")
+		phone=sessionStorage.getItem("phone")
+		parentNode=sessionStorage.getItem("parentNode")
+		clientType=2
+		Friends02()
+	}
+</script>

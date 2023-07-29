@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Receipt Code1">商户收款码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--商户收款码-->
+			    <div class="transaction-box" style="display: block;">
+			    	
+			    	<div class="transaction-header public-header" style="justify-content: space-between;">
+			    		<div class="transaction-return return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Receipt Code1">商户收款码</span>
+			    		</div>
+			    		<div style="display: none;" class="Preservation-right"><a data-value="Save to phone album" href="#">保存至手机相册</a></div>
+			    	</div>
+			    	
+			    	<div class="transaction-list">
+			    		<div class="mui-scroll-wrapper">
+							<div class="mui-scroll" style="padding-bottom: 0;">
+								<div class="productionMerchant">
+									<p data-value="Fill in business information">填写商户信息</p>
+									<div class="productionMerchant-form">
+										<div>
+											<span data-value="Collection account:">收款账号：</span>
+											<input class="MerchantIpt01" type="text"  />
+										</div>
+										<div>
+											<span data-value="Product name:">产品名称：</span>
+											<input class="MerchantIpt02" type="text"  />
+										</div>
+										<div>
+											<span data-value="Unit Price:">产品单价：</span>
+											<input class="MerchantIpt03" type="text"  />
+										</div>
+										<div>
+											<span data-value="Mobile phone:">联系方式：</span>
+											<input class="MerchantIpt04" type="text"  />
+										</div>
+										<div class="Product-description">
+											<span data-value="Product Description:">产品说明：</span>
+											<textarea maxlength="30" class="MerchantIpt05"></textarea>
+										</div>
+										<button data-value="Generate a color QR code" class="colour">生成收款二维码</button>
+										<!--<button data-value="Generate a monochrome QR code" class="blackwhite">生成黑白二维码</button>-->
+									</div>
+								</div>
+								<div class="generate">
+									<div class="generate-box">
+										<div class="generate-canvas">
+											<div class="generate-canvasbg">
+												
+											</div>
+										</div>
+										<div class="commodity-title">
+											<span class="generateText01">高端UE保暖防水冲锋衣</span>
+											<div>
+												<span class="generateText02">888.00</span>
+												<span>通证</span>
+											</div>
+										</div>
+									</div>
+									<div class="generate-Explain">
+										<span data-value="Product Description">产品介绍</span>
+										<p class="generateText03">草料二维码是国内专业的二维码服务提供商,提供二维码生成,美化,印制,管理,统计等服务,帮助企业通过二维码展示信息并采集线下数据,提升营销和管理效率。</p>
+									</div>
+									<div class="generate-information">
+										<div><span data-value="Collection account:">收款账户:</span><span class="generateText04">166****6666</span></div>
+										<div class="generateText05">166****6666</div>
+									</div>
+									<div class="generate-bottom">ANT Token: www.anttoken.one</div>
+								</div>
+								
+							</div>
+						</div>
+					    		
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/jquery.qrcode.min.js" ></script>
+<script type="text/javascript" src="../../js/html2canvas-min.js" ></script>
+<script type="text/javascript" src="../../js/canvas2image.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script>
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		if(localStorage.getItem("set-lan")=="EN"){
+			DAPPFramework.View.SetNavgationRightItem("phone/shanghu1@3x.png", "RightDisplay");
+		}else{			
+			DAPPFramework.View.SetNavgationRightItem("phone/shanghu@3x.png", "RightDisplay");
+		}
+	}
+	
+	var strDataURI;
+	var lululu;
+	
+	
+	
+	
+	$(".Preservation-right>a").on("tap",function(){
+		
+		if(hehe!=undefined){
+			return false
+		}else if(AndroidApp=="Android"){
+			ANT.savePicture(strDataURI)
+		}else{
+			Canvas2Image.saveAsPNG(lululu);
+		}
+	})
+	
+	function RightDisplay(){
+		DAPPFramework.Camera.SaveImage(strDataURI, "base64Fun");
+	}
+	
+	
+	function base64Fun(data){
+		if(data==true){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Success")
+			}else{
+				alert("保存成功")
+			}
+		}else{
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Failure")
+			}else{
+				alert("保存失败")
+			}
+		}
+	}
+	
+	function GeneratingCode(){
+		$(".Preservation-right").css("display","flex")
+		
+		var MerchantIpt01=$(".MerchantIpt01").val()
+		var MerchantIpt02=$(".MerchantIpt02").val()
+		var MerchantIpt03=$(".MerchantIpt03").val()
+		var MerchantIpt04=$(".MerchantIpt04").val()
+		var MerchantIpt05=$(".MerchantIpt05").val()
+		
+		ANTJson={
+			'a':MerchantIpt01,
+			'c':MerchantIpt03
+		}
+		var res = JSON.stringify(ANTJson).replace(/(\")/g,"\\$1");
+		
+		if(MerchantIpt01=="" || MerchantIpt02=="" || MerchantIpt03=="" || MerchantIpt04=="" || MerchantIpt05==""){
+			
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Please fill in all")
+			}else{
+				alert("请全部填写")
+			}
+			return false
+		}else{
+			$(".productionMerchant").hide()
+			$(".generate").css("display","flex")
+			
+			jQuery('.generate-canvasbg').qrcode({
+			    render: "canvas", //也可以替换为table
+			    text:MerchantIpt01+","+MerchantIpt03
+			});
+			
+			$(".generateText01").text(MerchantIpt02)
+			$(".generateText02").text(MerchantIpt03)
+			$(".generateText04").text(MerchantIpt01)
+			$(".generateText03").text(MerchantIpt05)
+			$(".generateText05").text(MerchantIpt04)
+			
+			html2canvas(document.querySelector(".generate")).then(canvas => {
+				lululu=canvas
+				strDataURI = lululu.toDataURL();
+			})
+		}
+	}
+	$(".colour").on("tap",function(){
+		GeneratingCode()
+	})
+	$(".blackwhite").on("tap",function(){
+		GeneratingCode()
+		
+		$(".generate").css("background","#ffffff")
+		$(".generate-canvasbg").css("border","#2f3e45")
+		$(".commodity-title>span").css("color","#1d2d35")
+		$(".generate-information").css("color","#1d2d35")
+	})
+		
+</script>

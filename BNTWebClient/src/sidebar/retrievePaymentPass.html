@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Changepaymentpassword">找回支付密码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--找回支付密码-->
+			  <div class="retrievePaymentPass" style="display: block;">
+			  	<div class="public-header">
+			    	<div class="return">
+			    		<div class="mui-push-left"></div>
+			    		<span data-value="Changepaymentpassword">找回支付密码</span>
+			    	</div>
+			    </div>
+			    <div class="public-form">
+			    	<ul>
+			    		<li><span data-value="Mobile">手机号码：</span><input class="valuePhone" maxlength="11" oninput="value=value.replace(/[^\d]/g,'')" type="text"/><button data-value="SendSMS" class="yzm01">获取验证码</button></li>
+			    		<li><span data-value="Paymentpassword">支付密码：</span><input data-value="Enteranewpaymentpassword" class="forgetTradePass01" placeholder="请输入新支付密码" oninput="value=value.replace(/[^\d]/g,'')" maxlength="6" type="password"/></li>
+			    		<li><span data-value="ConfirmPassword">确认密码：</span><input data-value="Confirmagain" class="forgetTradePass02" placeholder="请确认支付密码" oninput="value=value.replace(/[^\d]/g,'')" maxlength="6" type="password"/></li>
+			    		<li><span data-value="Verifycode">验证码：</span><input data-value="EnterSMS" class="forgetTradePass03" placeholder="请输入验证码" oninput="value=value.replace(/[^\d]/g,'')" maxlength="6" type="text"/></li>
+			    	</ul>
+			    	<div><button data-value="Submit" class="forget">提交</button></div>
+			    </div>
+			  </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var userId;
+	var token;
+	var phone;
+	var clientType;
+	var worldCode;
+	var language;
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	if(hehe==undefined){
+		userId=sessionStorage.getItem("userId");
+		token=sessionStorage.getItem("token");
+		phone=sessionStorage.getItem("phone");
+		worldCode=localStorage.getItem("worldCode")
+		clientType=2
+		$(".valuePhone").val(phone)
+	}
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		phone=DAPPFramework.Storage.Get("phone")
+		worldCode=DAPPFramework.Storage.Get("worldCode")
+		clientType=1
+		$(".valuePhone").val(phone)
+	}
+	
+	$(".yzm01").on("tap",function(){
+		var phone=$(".valuePhone").val()
+//		alert(phone)
+		if(phone == "" || phone == null || phone == undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Enter phone number")
+			}else{
+				alert("输入手机号码")
+			}
+		}else{
+			ant(phone,1,1,weiyi01,clientType,worldCode)
+			if(antdata!=1){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("Phone number is irregular")
+				}else{
+					alert("手机号码不规则")
+				}
+			}else{
+				var i=60;
+				$(".yzm01").attr("disabled","disabled")
+				var yanzhengSet=setInterval(function(){
+					$(".yzm01").text(i)
+					i--;
+					if(i<0){
+						clearInterval(yanzhengSet);
+						if(localStorage.getItem("set-lan")=="EN"){
+							$(".yanzhengma01").text("Send SMS")
+						}else{
+							$(".yanzhengma01").text("获取验证码")
+						}
+			      		$(".yzm01").removeAttr("disabled")
+					}
+				},1000)
+			}
+		}
+	})
+	$(".forget").on("tap",function(){
+		var phone=$(".valuePhone").val()
+		var newPwd01=$(".forgetTradePass01").val()
+		var newPwd02=$(".forgetTradePass02").val()
+		var yzm02=$(".forgetTradePass03").val()
+		if(phone == "" || phone == null || phone == undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Enter phone number")
+			}else{
+				alert("请输入手机号码")
+			}
+		}else{
+			if(newPwd01 == "" || newPwd01 == null || newPwd01 == undefined){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("Enter payment password")
+				}else{
+					alert("请输入交易密码")
+				} 
+			}else{
+				if(newPwd02 == "" || newPwd02 == null || newPwd02 == undefined){
+					if(localStorage.getItem("set-lan")=="EN"){
+						alert("Enter confirmation password")
+					}else{
+						alert("请输入确认密码")
+					} 
+				}else{
+					if(yzm02 == "" || yzm02 == null || yzm02 == undefined){
+						if(localStorage.getItem("set-lan")=="EN"){
+							alert("Enter sms")
+						}else{
+							alert("请输入验证码")
+						} 
+					}else{
+						if(newPwd01==newPwd02){
+							forgetTradePassword(phone,yzm02,newPwd01,token,worldCode);
+						}else{
+							if(localStorage.getItem("set-lan")=="EN"){
+								alert("Password twice inconsistent")
+							}else{
+								alert("新密码与确认密码不一致") 
+							} 
+						}
+					}
+				}
+			}
+		}
+	})
+//	$(".return").on("tap",function(){
+//		window.location.href = "SecurityCenter.html";
+//	})
+</script>

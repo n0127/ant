@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="DPOS">Dpos权益</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			    <!--dpos权益-->
+			    <div class="DposProfit" style="display:flex; flex-direction: column;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="DPOS">Dpos权益</span>
+			    		</div>
+			    		<p></p>
+			    		<p style="display: none;"></p>
+			    	</div>
+			    	<div class="posProfit-details">
+			    		<div class="posProfit-detailsTop">
+			    			<div>
+			    				<span class="jinritong">0.00</span>
+			    				<p data-value="Tokenrewardtoday">今日通证奖励</p>
+			    			</div>
+			    			<div>
+			    				<span class="leijitong">0.00</span>
+			    				<p data-value="CumulativeTokenreward">累积通证数量</p>
+			    			</div>
+			    			
+			    		</div>
+			    		<div>
+			    			<div>
+			    				<span class="jinrizi">0.00</span>
+			    				<p data-value="Todayassetaward">今日资产奖励</p>
+			    			</div>
+			    			<div>
+			    				<span class="leijizi">0.00</span>
+			    				<p data-value="Cumulativeassetaward">累积资产数量</p>
+			    			</div>
+			    		</div>
+			    	</div>
+			    	<div class="posProfit-list" style="flex: 1; display: flex; flex-direction: column;">
+			    		<div class="posProfit-header">
+			    			<span data-value="DPOS">Dpos奖励</span>
+			    			<span class="Explain-but"><img src="../../img/poswen.png"/><span data-value="DPOSdescription">Dpos奖励说明</span></span>
+			    		</div>
+			    		<div class="posProfit-list01"  style="flex: 1; display: flex; flex-direction: column;">
+			    			<div class="posProfit-list01Header">
+			    				<span data-value="RecentDPOS">近期Dpos奖励</span>
+			    				<span data-value="Token">通证</span>
+			    				<span data-value="Asset">资产</span>
+			    			</div>
+			    			<div class="posProfit-listScoll" style="flex: 1;">
+				    			<div class="mui-scroll-wrapper">
+									<div class="mui-scroll" style="padding-bottom: 0;">
+										<ul class="posProfit-ul">
+						    			</ul>
+									</div>
+								</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var rightstart=true;
+	var userId;
+	var token;
+	var clientType;
+	function DposProfit(){
+		getAntBananceLogList(userId,token,2,0,10)
+		$(".leijitong").text(getAntBananceLogListArr.data.history_dpos_ant_earnings.toFixed(2))
+		$(".leijizi").text(getAntBananceLogListArr.data.history_dpos_score_earnings.toFixed(2))
+		$(".jinritong").text(getAntBananceLogListArr.data.yestoday_dpos_ant_earnings.toFixed(2))
+		$(".jinrizi").text(getAntBananceLogListArr.data.yestoday_dpos_score_earnings.toFixed(2))
+		getAntBananceLogListArr01.sort(function (b, a) { return new Date(a.changeTime).getTime() - new Date(b.changeTime).getTime() });
+		console.log(getAntBananceLogListArr01)
+		getAntBananceLogListArr01.forEach(function(item){
+			var time=formatDate(new Date(item.time*1000))
+			if(localStorage.getItem("set-lan")=="EN"){
+				$(".posProfit-ul").append("<li>"+"<div>"+"<span>"+"Share awards"+"</span>"+"<span>"+time+"</span>"+"</div>"+"<span>"+"+"+item.ant.toFixed(2)+"</span>"+"<span>"+"+"+item.score.toFixed(2)+"</span>"+"</li>")
+			}else{
+				$(".posProfit-ul").append("<li>"+"<div>"+"<span>"+"兑换奖励"+"</span>"+"<span>"+time+"</span>"+"</div>"+"<span>"+"+"+item.ant.toFixed(2)+"</span>"+"<span>"+"+"+item.score.toFixed(2)+"</span>"+"</li>")
+			}
+		})
+	}
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId")
+		token=ANT.getMessage("token")
+		clientType=1
+		DposProfit()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2
+		DposProfit()
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+		if(userId==undefined){
+			DAPPFramework.Controller.JumpToStartPage();
+		}
+		DAPPFramework.View.SetNavgationRightItem( "phone/wallet-set@3x.png", "setright" )
+		DposProfit()
+	}
+	$(".Explain-but").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/Explain.html?Explain=2");
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("src/index/Explain.html","&Explain=2")
+		}else{
+			window.location="Explain.html?Explain=2"
+		}
+	})
+	$(".public-header>p:nth-child(2)").on("tap",function(){
+		$(".public-header>p:nth-child(2)").css("display","none")
+		$(".public-header>p:nth-child(3)").css("display","block")
+		$(".leijitong").text("****")
+		$(".leijizi").text("****")
+		$(".jinritong").text("****")
+		$(".jinrizi").text("****")
+	})
+	$(".public-header>p:nth-child(3)").on("tap",function(){
+		$(".public-header>p:nth-child(3)").css("display","none")
+		$(".public-header>p:nth-child(2)").css("display","block")
+		$(".leijitong").text(getAntBananceLogListArr.data.history_dpos_ant_earnings.toFixed(2))
+		$(".leijizi").text(getAntBananceLogListArr.data.history_dpos_score_earnings.toFixed(2))
+		$(".jinritong").text(getAntBananceLogListArr.data.yestoday_dpos_ant_earnings.toFixed(2))
+		$(".jinrizi").text(getAntBananceLogListArr.data.yestoday_dpos_score_earnings.toFixed(2))
+	})
+	
+	
+	function setright(){
+		if(rightstart){
+			DAPPFramework.View.SetNavgationRightItem( "phone/wallet-set01@3x.png", "setright" )
+			$(".leijitong").text("****")
+			$(".leijizi").text("****")
+			$(".jinritong").text("****")
+			$(".jinrizi").text("****")
+			rightstart=false
+		}else{
+			DAPPFramework.View.SetNavgationRightItem( "phone/wallet-set@3x.png", "setright" )
+			rightstart=true
+			$(".leijitong").text(getAntBananceLogListArr.data.history_dpos_ant_earnings.toFixed(2))
+			$(".leijizi").text(getAntBananceLogListArr.data.history_dpos_score_earnings.toFixed(2))
+			$(".jinritong").text(getAntBananceLogListArr.data.yestoday_dpos_ant_earnings.toFixed(2))
+			$(".jinrizi").text(getAntBananceLogListArr.data.yestoday_dpos_score_earnings.toFixed(2))
+		}
+	}
+</script>

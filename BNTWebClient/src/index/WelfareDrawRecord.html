@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Winning history1">中奖纪录</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--合约刮刮记录-->
+			    <div class="Game">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Winning history1" class="Explain-title">中奖纪录</span>
+			    		</div>
+			    	</div>
+			    	<div class="GameRecordBox">
+			    		<ul class="WelfareDrawRecordBoxStrat">
+			    			<li data-value="Date">参与时间</li>
+			    			<li data-value="Winning result">中奖结果</li>
+			    		</ul>
+			    		<div class="GameRecordList01">
+			    			<div class="mui-scroll-wrapper mui-content GaneRecordPage"  style="padding-bottom: 40px;">
+								<div style="padding-bottom: 40px;" class="mui-scroll">
+			    					<ul class="WelfareDrawRecordBoxList">
+						    			<!--<li>
+						    				<div><span>2018-11-02</span><span>20:30</span></div>
+						    				<div>
+						    					<span>资产</span>
+						    					<span>+100000ANT</span>
+						    				</div>
+						    			</li>-->
+			    					</ul>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/swiper-3.4.2.jquery.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script>
+	var userId;
+	var token;
+	var language;
+	var clientType;
+	var PageNum;
+	function formatDate1(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return year+"-"+month + "-" + date;
+	}
+	function formatDate2(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return hour+":"+minute;
+	}
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	if(GetQueryString("user_id")==undefined){
+		if(hehe!=undefined){
+			
+		}else if(AndroidApp=="Android"){
+			userId=ANT.getMessage("userId")
+			token=ANT.getMessage("token")
+			clientType=1
+			offset=0;
+			getlotteryLogTopFor()
+		}else{
+			userId=sessionStorage.getItem("userId")
+			token=sessionStorage.getItem("token")
+			clientType=2
+			offset=0;
+			getlotteryLogTopFor()
+		}
+	}else{
+		userId=GetQueryString("user_id")
+		token=GetQueryString("user_token")
+		clientType=0;
+		offset=0;
+		getlotteryLogTopFor()
+	}
+		
+	
+	function DAPPFrameworkEngineReady(){
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1;
+		offset=0;
+		getlotteryLogTopFor()
+	}
+	function getlotteryLogTopFor(){
+		getDailLogTop(userId,token,clientType,language,offset)
+		getDailLogTopArr.data.list.forEach(function(item){
+			var time=formatDate1(new Date(item.createTime*1000))
+			var time1=formatDate2(new Date(item.createTime*1000))
+			if(item.coinType){
+				if(GetQueryString("language")==undefined){
+					if(localStorage.getItem("set-lan")=="EN"){
+						var coinType="Token"
+					}else{
+						var coinType="通证"
+					}
+				}else if(GetQueryString("language")=="en"){
+					var coinType="Token"
+				}else{
+					var coinType="通证"
+				}
+			}else{
+				if(GetQueryString("language")==undefined){
+					if(localStorage.getItem("set-lan")=="EN"){
+						var coinType="Assets"
+					}else{
+						var coinType="资产"
+					}
+				}else if(GetQueryString("language")=="en"){
+					var coinType="Assets"
+				}else{
+					var coinType="资产"
+				}
+			}
+			if(item.dialLevel==2){
+				if(GetQueryString("language")==undefined){
+					if(localStorage.getItem("set-lan")=="EN"){
+						$(".WelfareDrawRecordBoxList").append(
+							"<li>"+
+							"<div>"+"<span>"+time+"</span>"+"<span>"+time1+"</span>"+"</div>"+
+							"<div>"+"<span>"+"Come again"+"</span>"+"</div>"+
+							"</li>"
+						)
+					}else{
+						$(".WelfareDrawRecordBoxList").append(
+							"<li>"+
+							"<div>"+"<span>"+time+"</span>"+"<span>"+time1+"</span>"+"</div>"+
+							"<div>"+"<span>"+"再来一次"+"</span>"+"</div>"+
+							"</li>"
+						)
+					}
+				}else if(GetQueryString("language")=="en"){
+					$(".WelfareDrawRecordBoxList").append(
+						"<li>"+
+						"<div>"+"<span>"+time+"</span>"+"<span>"+time1+"</span>"+"</div>"+
+						"<div>"+"<span>"+"Come again"+"</span>"+"</div>"+
+						"</li>"
+					)
+				}else{
+					$(".WelfareDrawRecordBoxList").append(
+						"<li>"+
+						"<div>"+"<span>"+time+"</span>"+"<span>"+time1+"</span>"+"</div>"+
+						"<div>"+"<span>"+"再来一次"+"</span>"+"</div>"+
+						"</li>"
+					)
+				}
+				
+			}else if(item.dialLevel==0){
+				if(GetQueryString("language")==undefined){
+					if(localStorage.getItem("set-lan")=="EN"){
+						$(".WelfareDrawRecordBoxList").append(
+							"<li>"+
+							"<div>"+"<span>"+time+"</span>"+"<span>"+time1+"</span>"+"</div>"+
+							"<div>"+"<span>"+"Thank you"+"</span>"+"</div>"+
+							"</li>"
+						)
+					}else{
+						$(".WelfareDrawRecordBoxList").append(
+							"<li>"+
+							"<div>"+"<span>"+time+"</span>"+"<span>"+time1+"</span>"+"</div>"+
+							"<div>"+"<span>"+"再接再厉"+"</span>"+"</div>"+
+							"</li>"
+						)
+					}
+				}else if(GetQueryString("language")=="en"){
+					$(".WelfareDrawRecordBoxList").append(
+						"<li>"+
+						"<div>"+"<span>"+time+"</span>"+"<span>"+time1+"</span>"+"</div>"+
+						"<div>"+"<span>"+"Thank you"+"</span>"+"</div>"+
+						"</li>"
+					)
+				}else{
+					$(".WelfareDrawRecordBoxList").append(
+						"<li>"+
+						"<div>"+"<span>"+time+"</span>"+"<span>"+time1+"</span>"+"</div>"+
+						"<div>"+"<span>"+"再接再厉"+"</span>"+"</div>"+
+						"</li>"
+					)
+				}
+			}else{
+				$(".WelfareDrawRecordBoxList").append(
+					"<li>"+
+					"<div>"+"<span>"+time+"</span>"+"<span>"+time1+"</span>"+"</div>"+
+					"<div>"+"<span>"+coinType+"</span>"+"<span>"+"+"+item.dialGainScore+"Assets"+"</span>"+"</div>"+
+					"</li>"
+				)
+			}	
+		})
+	}
+
+	function getlotteryLogTopFor1(){
+		console.log(getDailLogTopArr.data.count)
+		var This=this;
+		setTimeout(function() {
+	    	offset+=10;
+			if(getDailLogTopArr.data.count!=10){
+				This.endPullupToRefresh(true);
+			}else{
+				getlotteryLogTopFor()
+				This.endPullupToRefresh(false);
+			}
+		}, 1000);
+	}
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		mui.init({
+			pullRefresh: {
+				container: '.GaneRecordPage',
+				up: {
+					contentinit: 'Pull up to show more',
+                    contentdown: 'Pull up to show more',
+                    contentrefresh: 'Refreshing...',
+                    contentnomore: 'No more data',
+					callback: getlotteryLogTopFor1
+				}
+			}
+		});
+	}else{
+		mui.init({
+			pullRefresh: {
+				container: '.GaneRecordPage',
+				up: {
+					callback: getlotteryLogTopFor1
+				}
+			}
+		});
+	}
+	
+		
+	if(GetQueryString("language")=="en"){
+		mui.init({
+			pullRefresh: {
+				container: '.GaneRecordPage',
+				up: {
+					contentinit: 'Pull up to show more',
+                    contentdown: 'Pull up to show more',
+                    contentrefresh: 'Refreshing...',
+                    contentnomore: 'No more data',
+					callback: getlotteryLogTopFor1
+				}
+			}
+		});
+	}else{
+		mui.init({
+			pullRefresh: {
+				container: '.GaneRecordPage',
+				up: {
+					callback: getlotteryLogTopFor1
+				}
+			}
+		});
+	}
+		
+	
+	$(".return").on("tap",function(){
+		try{
+	   		ANT.dialImplViewFinish() 
+	   	}catch(err){
+	   		return false
+	   	}
+	})
+</script>

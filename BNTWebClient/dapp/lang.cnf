@@ -1,0 +1,22 @@
+{
+	"en": {
+		"home": "Home",
+		"wallet": "Wallet",
+		"deal": "Trades",
+		"mall": "Mall",
+		"reqtimeout": "Sorry, request timeout, click screen to retry.",
+		"scantitle": "Scnning",
+		"album": "Album",
+		"scantips": "Put the qr code into the frame, and it can be scanned automatically."
+	},
+	"cn": {
+		"home": "首页",
+		"wallet": "钱包",
+		"deal": "交易",
+		"mall": "商城",
+		"reqtimeout": "加载失败，请检查网络后点击重试",
+		"scantitle": "二维码扫描",
+		"album": "相册",
+		"scantips": "将二维码放入框内，即可自动扫描"
+	}
+}

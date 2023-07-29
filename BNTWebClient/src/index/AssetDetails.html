@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Assetshistory">资产详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--资产详情-->
+			    <div class="AssetDetails" style="display: flex;flex-direction: column;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="Assetshistory">资产详情</span>
+			    		</div>
+			    	</div>
+			    	<div class="AssetDetails-box" style="flex: 1;">
+			    		<!--<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">-->
+								<div data-value="Assetshistory" class="public-title">资产组成</div>
+						    	<div class="AssetComposition">
+						    		<ul>
+						    			<li><p data-value="AvailableToken">可用通证</p><span data-value="Converttoassets" class="duihuanzichan">兑换资产</span></li>
+						    			<li class="AssetCompositionNumber">0.00000000</li>
+						    			<li data-value="Assets">资产数量</li>
+						    			<li class="AssetCompositionNumber">0.00000000</li>
+						    		</ul>
+						    	</div>
+						    	<ul class="AssetState">
+						    		<li data-value="History2">收支记录</li>
+						    		<li data-value="Token" class="AssetState-active">通证</li>
+						    		<li data-value="Asset">资产</li>
+						    	</ul>
+						    	<div class="AssetList">
+						    		<div style="background: transparent;" class="mui-content mui-scroll-wrapper" id="AssetList">
+										<div class="mui-scroll" style="padding-bottom: 0;">
+											<div class="balance">
+												<ul style="padding-bottom: 40px;"></ul>
+											</div>
+											<div class="token">
+												<ul style="padding-bottom: 40px;"></ul>
+											</div>
+						    			</div>
+									</div>
+						    	</div>
+						    	<div class="AssetBut">
+						    		<div data-value="Transferout" class="AssetBut-chu">转出</div>
+						    		<div data-value="Transfer" class="AssetBut-ru">转入</div>
+						    	</div>
+							<!--</div>
+						</div>-->
+					    		
+			    	</div>
+				    	
+			    </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<!--<script type="text/javascript" src="../../js/index.js" ></script>-->
+<script>
+	var pageNum=1;
+	var userId;
+	var	token;
+	var	phone;
+	var clientType;
+	var language;
+	
+	$(".AssetState>li").on("tap",function(){
+		var value=$(this).text();
+		if(value!="收支记录"){
+			$(this).addClass("AssetState-active").siblings().removeClass("AssetState-active")
+		}
+		switch (value){
+			case "通证":
+				$(".balance").css("display","block").siblings().css("display","none")
+				break;
+			case "Token":
+				$(".balance").css("display","block").siblings().css("display","none")
+				break;
+			case "Asset":
+				$(".token").css("display","block").siblings().css("display","none")
+				break;
+			case "资产":
+				$(".token").css("display","block").siblings().css("display","none")
+				break;
+		}
+	})
+	
+	function formatDate(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return month + "/" + date+","+hour+":"+minute;
+	}
+			
+	function AssetDetails(){
+		if(localStorage.getItem("set-lan")=="EN"){
+			language="en"
+		}else{
+			language="cn"
+		}
+		indexData(userId,token,clientType)
+		$(".AssetComposition>ul>li:nth-child(2)").text(indexziliao.data.user_ant)
+		$(".AssetComposition>ul>li:nth-child(4)").text(indexziliao.data.user_score)
+		//	获取通证
+		getAntBananceLogTop10(userId,token,pageNum)
+		getAntBananceLogTop10Arr.sort(function (b, a) { return new Date(a.changeTime).getTime() - new Date(b.changeTime).getTime() });
+		getAntBananceLogTop10Arr.forEach(function(item){
+			var time=formatDate(new Date(item.changeTime*1000))
+			var changeAmount=item.changeAmount;
+			if(changeAmount<0){
+				changeAmount=item.changeAmount
+			}else{
+				changeAmount="+"+item.changeAmount;
+			}
+			$(".balance>ul").append(
+				"<li>"+
+				"<span>"+item.changeDesc+"</span>"+
+				"<span>"+time+"</span>"+
+				"<span>"+changeAmount+"</span>"+
+				"<span style='display: none;'>"+item.id+"</span>"+
+				"<span style='display: none;'>"+item.changeType+"</span>"+
+				"<span style='display: none;'>"+0+"</span>"+
+				"</li>"
+			)
+		})
+		//	获取资产
+		getAntLogScoreTop10(userId,token,pageNum)
+		getAntLogScoreTop10Arr.sort(function (b, a) { return new Date(a.changeTime).getTime() - new Date(b.changeTime).getTime() });
+		getAntLogScoreTop10Arr.forEach(function(item){
+			var time=formatDate(new Date(item.changeTime*1000))
+			var changeAmount=item.changeAmount;
+			if(changeAmount<0){
+				changeAmount=item.changeAmount
+			}else{
+				changeAmount="+"+item.changeAmount;
+			}
+			$(".token>ul").append(
+				"<li>"+
+				"<span>"+item.changeDesc+"</span>"+
+				"<span>"+time+"</span>"+
+				"<span>"+changeAmount+"</span>"+
+				"<span style='display: none;'>"+item.id+"</span>"+
+				"<span style='display: none;'>"+item.changeType+"</span>"+
+				"<span style='display: none;'>"+1+"</span>"+
+				"</li>"
+			)
+		})
+	}
+	$(".balance>ul,.token>ul").on("tap","li",function(){
+		var OrderId=$(this).children().filter("span:nth-child(4)").text()
+		var changeType=$(this).children().filter("span:nth-child(5)").text()
+		var tokenType=$(this).children().filter("span:nth-child(6)").text()
+		
+		if(hehe!=undefined){			
+			DAPPFramework.SharedBoard.Set("OrderId",OrderId)
+			DAPPFramework.SharedBoard.Set("tokenType",tokenType)
+		}else if(AndroidApp=="Android"){
+			ANT.setMessage("OrderId",OrderId);
+			ANT.setMessage("tokenType",tokenType);
+		}else{
+			sessionStorage.setItem("OrderId",OrderId)
+			sessionStorage.setItem("tokenType",tokenType)
+		}
+		
+		if(changeType==1||changeType==2){
+			if(hehe!=undefined){
+				DAPPFramework.View.PushView("src/index/Record01.html");
+			}else if(AndroidApp=="Android"){
+				ANT.newPage("src/index/Record01.html")
+			}else{
+				window.location.href="Record01.html"
+			}
+		}else{
+			if(hehe!=undefined){
+				DAPPFramework.View.PushView("src/index/Record.html");
+			}else if(AndroidApp=="Android"){
+				ANT.newPage("src/index/Record.html")
+			}else{
+				window.location.href="Record.html"
+			}
+		}
+	})
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId");
+		token=ANT.getMessage("token");
+		phone=ANT.getMessage("token");
+		clientType=1;
+		AssetDetails()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		phone=sessionStorage.getItem("phone")
+		clientType=2
+		AssetDetails()
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		userId=DAPPFramework.Storage.Get("userId")
+		phone=DAPPFramework.SharedBoard.Get("phone")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+		DAPPFramework.View.SetScrollEnabled(false);
+//		indexData(userId,token)
+//		$(".AssetComposition>ul>li:nth-child(2)").text(indexziliao.data.user_ant)
+//		$(".AssetComposition>ul>li:nth-child(4)").text(indexziliao.data.user_score)
+		if(userId==undefined){
+			DAPPFramework.Controller.JumpToStartPage();
+		}
+		AssetDetails()
+	}
+	
+	$(".duihuanzichan").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/forAssets.html");
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("src/index/forAssets.html")
+		}else{
+			window.location.href="forAssets.html"
+		}
+	})
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		mui.init({
+			pullRefresh: {
+				container: '#AssetList',
+				up: {
+					contentinit: 'Pull up to show more',
+                    contentdown: 'Pull up to show more',
+                    contentrefresh: 'Refreshing...',
+                    contentnomore: 'No more data',
+					callback: pullupRefresh
+				}
+			}
+		});
+	}else{
+		mui.init({
+			pullRefresh: {
+				container: '#AssetList',
+				up: {
+					callback: pullupRefresh
+				}
+			}
+		});
+	}
+	
+	
+	function pullupRefresh(){
+		var This=this;
+		
+		setTimeout(function() {
+	    	pageNum++;
+	    	AssetDetails()
+			if(getAntBananceLogTop10Arr.length==0){
+				This.endPullupToRefresh(true);
+			}else{
+				This.endPullupToRefresh(false);
+			}
+		}, 1000);
+			
+	}
+	
+	$(".AssetBut-chu").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/transaction-box.html");
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("src/index/transaction-box.html")
+		}else{
+			window.location.href="transaction-box.html"
+		}
+	})
+	$(".AssetBut-ru").on("tap",function(){
+		if(hehe!=undefined){
+			DAPPFramework.View.PushView("src/index/Receivables.html");
+		}else if(AndroidApp=="Android"){
+			ANT.newPage("src/index/Receivables.html")
+		}else{
+			window.location.href="Receivables.html"
+		}
+	})
+	
+</script>

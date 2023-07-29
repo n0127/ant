@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网页钱包</title>
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />-->
+		<style>
+			* {
+　　　　　　box-sizing: content-box;
+　　　　　　-moz-box-sizing: inherit;
+　　　　　　-webkit-box-sizing: inherit;
+　　　　　}
+			html,body{
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+			}
+			body{
+				background: url(../img/iPhoneX-bg.png);
+				/*background-repeat: no-repeat;*/
+				/*background-size: 100% 100%;*/
+				position: relative;
+			}
+			.iPhone{
+				width: 405px; 
+				padding-left: 26px; 
+				padding-right: 26px; 
+				padding-top: 53px; 
+				box-sizing: border-box; 
+				height: 812px; 
+				background-image: url(../img/iPhoneX.png); 
+				background-size: 405px 812px;
+				background-repeat: no-repeat; 
+				border-radius: 55px; 
+				background-color: #1d2d35;
+				z-index: 3;
+			}
+			iframe{
+				border: none;
+				-webkit-border-radius: 30px;
+				-moz-border-radius: 30px;
+				-ms-border-radius: 30px;
+				-o-border-radius: 30px;
+				border-radius: 30px;
+			}
+			.Text{
+				position: absolute;
+				display: flex;
+				flex-direction: column;
+				text-align: right;
+				right: 60px;
+				bottom: 20px;
+			}
+			.Text>span{
+				color: #b9b9b9;
+			}
+			.Text>span:nth-child(1){
+				font-size: 36px;
+			}
+			.guang{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+			}
+			.guang>img{
+				width: 100%;
+			}
+			@media screen and (max-width: 500px) {
+			    .Text{
+			    	right: 0;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+			.left{
+				width: 50%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.right{
+				width: 50%;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+			.iPhoneX-logo{
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 3;
+			}
+			.iPhoneX-logo>img{
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body style="display: flex; justify-content: center; align-items: center;">
+		<div class="iPhoneX-logo"><img src="../img/ANT-logogai.png"/></div>
+		<div class="iPhone">
+			<iframe width="352" height="733" src="http://fcsap.com/src/login/login.html"></iframe><!--http://fcsap.com/src/login/login.html-->
+		</div>
+		<div class="Text">
+			<span>ANT Token</span>
+		</div>
+		<div class="guang">
+			<img src="../img/guangyuan.png" />
+		</div>
+		<div class="left">
+			<img width="100%" src="../img/light-left.png" />
+		</div>
+		<div class="right">
+			<img width="100%" src="../img/light-right.png" />
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js" ></script>

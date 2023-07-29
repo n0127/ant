@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="">云购记录</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--云购记录-->
+			    <div class="Game">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span data-value="" class="Explain-title">云购记录</span>
+			    		</div>
+			    	</div>
+			    	<div class="GameRecordBox">
+			    		<ul class="GameRecordBoxStrat">
+			    			<li data-value="Date">参与时间</li>
+			    			<li data-value="">参与奖品</li>
+			    			<li data-value="">购买份数</li>
+			    			<li data-value="">通证消耗</li>
+			    		</ul>
+			    		<div class="GameRecordList01">
+			    			<div class="mui-scroll-wrapper mui-content GaneRecordPage"  style="padding-bottom: 40px;">
+								<div style="padding-bottom: 40px;" class="Friends-scroll mui-scroll">
+			    					<ul class="CloudRecordBoxList">
+					    				<!--<li>
+						    				<div><span>2018-11-02</span><p>20:30</p></div>
+						    				<div><p class="lotteryCostAnt">Apple iPhone X</p></div>
+						    				<div><p class="lotteryGainScore">5000</p></div>
+						    				<div><span class="lotteryLevel">退款</span><p style="color: #00b07c;" class="lotteryGainAnt">+50000ANT</p></div>
+						    			</li>
+						    			<li>
+						    				<div><span>2018-11-02</span><p>20:30</p></div>
+						    				<div><p class="lotteryCostAnt">Apple iPhone X</p></div>
+						    				<div><p class="lotteryGainScore">5000</p></div>
+						    				<div><p class="lotteryGainAnt">-50000ANT</p></div>
+						    			</li>-->
+			    					</ul>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </div>
+			    <!--<li>
+    				<div><span>2018-11-02</span><p>20:30</p></div>
+    				<div><span>刮奖消耗</span><p class="lotteryCostAnt">-100ANT</p></div>
+    				<div><span>刮奖奖励</span><p class="lotteryGainScore">+100</p></div>
+    				<div><span class="lotteryLevel">一等奖</span><p class="lotteryGainAnt">+50000ANT</p></div>
+    			</li>-->
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/swiper-3.4.2.jquery.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script>
+	var userId;
+	var token;
+	var language;
+	var clientType;
+	var PageNum=0;
+	function formatDate1(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return year+"-"+month + "-" + date;
+	}
+	function formatDate2(now) {
+	  　　var year = now.getFullYear(),
+	  　　month = now.getMonth() + 1,
+	  　　date = now.getDate(),
+	  　　hour = now.getHours(),
+	  　　minute = now.getMinutes(),
+	  　　second = now.getSeconds();
+	  	if(minute<10){
+	  		minute="0"+minute
+	  	}
+	  	if(hour<10){
+	  		hour="0"+hour
+	  	}
+	  　　return hour+":"+minute;
+	}
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	if(hehe!=undefined){
+		
+	}else{
+		userId=sessionStorage.getItem("userId")
+		token=sessionStorage.getItem("token")
+		clientType=2;
+		CloudRecordFor()
+	}
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1;
+		CloudRecordFor()
+	}
+	
+	function CloudRecordFor(){
+		getBuyList(userId,token,clientType,language,PageNum)
+		getBuyListArr.data.forEach(function(item){
+			var time1=formatDate1(new Date(item.changeTime*1000))
+			var time2=formatDate2(new Date(item.changeTime*1000))
+			if(item.changeAnt>0){
+				tuikuanText="<span class='lotteryLevel'>退款</span><p style='color: #00b07c;' class='lotteryGainAnt'>+"+item.changeAnt+"ANT</p>"
+			}else{
+				tuikuanText="<p class='lotteryGainAnt'>"+item.changeAnt+"ANT</p>"
+			}
+			$(".CloudRecordBoxList").append(
+				"<li>"+
+					"<div><span>"+time1+"</span><p>"+time2+"</p></div>"+
+					"<div><p class='lotteryCostAnt'>"+item.yunGouName+"</p></div>"+
+					"<div><p class='lotteryGainScore'>"+item.copies+"</p></div>"+
+					"<div class='tuikuan'>"+tuikuanText+"</div>"+
+				"</li>"
+			)
+		})
+	}
+	
+	function getlotteryLogTopFor1(){
+		var This=this;
+		setTimeout(function() {
+	    	PageNum+=10;
+			if(getBuyListArr.data.length!=20){
+				This.endPullupToRefresh(true);
+			}else{
+				CloudRecordFor()
+				This.endPullupToRefresh(false);
+			}
+		}, 2000);
+	}
+	if(localStorage.getItem("set-lan")=="EN"){
+		mui.init({
+			pullRefresh: {
+				container: '.GaneRecordPage',
+				up: {
+					contentinit: 'Pull up to show more',
+                    contentdown: 'Pull up to show more',
+                    contentrefresh: 'Refreshing...',
+                    contentnomore: 'No more data',
+					callback: getlotteryLogTopFor1
+				}
+			}
+		});
+	}else{
+		mui.init({
+			pullRefresh: {
+				container: '.GaneRecordPage',
+				up: {
+					callback: getlotteryLogTopFor1
+				}
+			}
+		});
+	}
+</script>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="loging2.0_44">创建私钥</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--资产详情-->
+			    <div class="PublicFixedBox">
+			    	<div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span class="loginTitle" data-value="loging2.0_44">创建私钥</span>
+			    		</div>
+			    	</div>
+			    	<div class="PublicScrollBox">
+			    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 0;">
+							<div style="padding-bottom: 0;" class="mui-scroll">
+		    					
+		    					<ul class="CreateWalletFrom">
+		    						<li><span data-value="loging2.0_47">钱包名称:</span><input data-value="loging2.0_183" placeholder="请设置钱包名称" class="CreateWallet01" type="text"  /></li>
+		    						<li><span data-value="loging2.0_48">密码:</span><input data-value="loging2.0_184" placeholder="不少于8位字符，建议混合大小字母和数字" onkeyup="this.value=this.value.replace(/\s+/g,'')" class="CreateWallet02" type="password"  /></li>
+		    						<li><span data-value="loging2.0_49">确定密码:</span><input data-value="loging2.0_185" placeholder="请再次输入密码" onkeyup="this.value=this.value.replace(/\s+/g,'')" class="CreateWallet03" type="password"  /></li>
+		    					</ul>
+		    					<div class="CreateWalletProtocolBox">
+		    						<div class="CreateWalletProtocol">
+		    							<div style="background-image: url(../../img/CreateWallteRadio.png);" data-state="true"></div>
+		    							<p data-value="loging2.0_50">我已仔细阅读并同意</p>
+		    							<span data-value="loging2.0_51">服务及隐私条款</span>
+		    						</div>
+		    						<button class="LoginBut laobanxiugaibutton" data-value="loging2.0_69">创建钱包</button>
+		    					</div>
+		    					<ul class="CreateWallet">
+		    						<!--<li>注意</li>
+		    						<li data-value="loging2.0_45">密码用于保护私钥和交易授权，强度非常重要</li>
+		    						<li data-value="loging2.0_46">AntToken不存储密码，也无法帮您找回，请务必牢记</li>-->
+		    						<li data-value="loging2.0_45">注意！密码用于保护私钥和交易授权，强度非常重要,AntToken不存储密码，也无法帮您找回，请务必牢记,密码必须要自己备份好。是用于加密保护私钥，强度也非常重要。</li>
+		    					</ul>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </div>
+			  <div class="loadingBox">
+			  		<img src="../../img/loding.png" />
+			  </div>
+		  	<!--<div class="loadingBox">
+				<div class="public-header" style="color: #555; border-bottom: 1px solid #d6d6d6;">
+		    		<div class="return">
+		    			<span class="loginTitle" data-value="">私钥创建中</span>
+		    		</div>
+		    	</div>
+		    	
+	      		<div class="w1028 mg25">
+		        	<div id="slider" class="mui-slider">
+						<div class="mui-slider-group mui-slider-loop">
+						    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="../../img/CreateWallet05.png" /></a></div>
+						    
+						    <div class="mui-slider-item"><a href="#"><img src="../../img/CreateWallet01.png" /></a></div>
+						    <div class="mui-slider-item"><a href="#"><img src="../../img/CreateWallet02.png" /></a></div>
+						    <div class="mui-slider-item"><a href="#"><img src="../../img/CreateWallet03.png" /></a></div>
+						    <div class="mui-slider-item"><a href="#"><img src="../../img/CreateWallet04.png" /></a></div>
+						    <div class="mui-slider-item"><a href="#"><img src="../../img/CreateWallet05.png" /></a></div>
+						    
+						    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="../../img/CreateWallet01.png" /></a></div>
+						</div>
+					</div>
+					<span class="knowTitle">你知道吗？</span>
+					<p class="knowText">ANT更新版本所有数据已迁移到链上，是DAPP中的一员，保护用户隐私，没有所谓官方操纵，所有行为全节点投票执行。</p>
+					
+		      		<div id="loadingContainer">
+						<div class="loadingbar">
+							<div class="marker_container">
+								<img src="../../img/login-logo.png" width="50%" />
+							</div>
+							<div class="filler_wrapper">
+								<div class="filler">
+									<span data-value="0" class="value">0%</span>
+								</div>
+							</div>
+						</div>
+					</div>
+	      		</div>
+		  	</div>-->
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script src="/js/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+<!--<script type="text/javascript" src="../../js/blower-loading.js" ></script>-->
+<script type="text/javascript" src="../../js/sha1.js" ></script>
+<script type="text/javascript" src="../../wallet/js/web3.min.js" ></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/bluebird/latest/bluebird.js" ></script>
+<script>
+	var language;
+	var languageArr;
+	
+	if(localStorage.getItem("set-lan")=="EN"){
+		$(".CreateWalletProtocol").css("display","block")
+		language="EN"
+		languageArr=EN
+	}else{
+		language="CN"
+		languageArr=CN
+	}
+
+	var walletName;
+	var hehe=GetQueryString("loginType");
+	var blower;
+
+	$(".CreateWalletProtocol").on("tap",function(){
+		if($(this).find("div").attr("data-state")=="true"){
+			$(this).find("div").attr("data-state","false")
+			$(this).find("div").css("background","none")
+			$(this).find("div").removeAttr("style")
+		}else{
+			$(this).find("div").attr("data-state","true")
+			$(this).find("div").css("background-image","url(../../img/CreateWallteRadio.png)")
+		}
+		
+	})
+	
+	
+	if(hehe!=undefined){
+		if(GetQueryString("language")=="en"){
+			$(".CreateWalletProtocol").css("display","block")
+			localStorage.setItem("set-lan","EN")
+			langStart=0
+			qiehuan()
+		}else{
+			localStorage.setItem("set-lan","CN")
+			langStart=1
+			qiehuan()
+		}
+	}
+	$(".CreateWalletProtocol").on("tap","span",function(){
+		if(hehe!=undefined){
+			
+		}else{
+			window.location.href="../index/ANT-Protocol.html"
+		}
+	})
+	function CreateWallet(){
+		return new Promise(function(resolve, reject){
+			try{
+				var wallet=ethers.Wallet.createRandom();
+				var walletjson={};
+				var web3 = new Web3(new Web3.providers.HttpProvider("http://geth.fuyer.com:1107"));
+				var ks = web3.eth.accounts.encrypt(wallet.privateKey,$(".CreateWallet02").val());
+				
+				resolve({
+						address : wallet.address,
+						privateKey : wallet.privateKey,
+						mnemonic : wallet.mnemonic,
+						keystore : JSON.stringify(ks),
+						publicKey : wallet.signingKey.publicKey
+				})
+			}catch(e){
+				reject(e)
+			}						
+		});
+	}
+	$(".LoginBut").on("tap",function(){
+		if( $(".CreateWallet01").val()!="" ){
+			if( $(".CreateWallet02").val()!="" && $(".CreateWallet02").val().length>=8){
+				if( $(".CreateWallet03").val()!="" && $(".CreateWallet03").val().length>=8){
+					if($(".CreateWalletProtocol>div").attr("data-state")=="true"){						
+						if ($(".CreateWallet02").val()==$(".CreateWallet03").val()) {
+							$("input").blur()
+							$(".loadingBox").css("display","flex")
+							setTimeout(function(){	
+								CreateWallet().then( function(result) {
+									$(".loadingBox").hide()
+									if( hehe != undefined ) {
+										ANT.getCreatorKeyMessageCallBack($(".CreateWallet01").val(),result.address,result.mnemonic,$(".CreateWallet01").val(),result.keystore,result.privateKey,$(".CreateWallet02").val())
+									} else {
+										 //下个页面所需的东西
+										DAPPFramework.SharedBoard.Set("address",result.address)
+										DAPPFramework.SharedBoard.Set("keystore",result.keystore)
+										DAPPFramework.SharedBoard.Set("privateKey",result.privateKey)
+										DAPPFramework.SharedBoard.Set("Password",$(".CreateWallet02").val())
+										
+										DAPPFramework.SharedBoard.Set("publicKey",result.publicKey)
+										DAPPFramework.SharedBoard.Set("wallet_name",$(".CreateWallet01").val())
+										DAPPFramework.SharedBoard.Set("mnemonic",result.mnemonic)
+							
+										window.location.href="BackupWallet.html"
+									}
+								})
+							},500)
+
+						}else{
+							alert("两者密码不一致")
+						}
+					}else{
+						alert("未同意协议")
+					}
+				}else{
+					alert("确认密码为空或者密码小于八位")
+				}
+			}else{
+				alert("密码为空或者密码小于八位")
+			}
+		}else{
+			alert(languageArr["loging2.0_84"])
+		}
+	})
+	
+	
+</script>

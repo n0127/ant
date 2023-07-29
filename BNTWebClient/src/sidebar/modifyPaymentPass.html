@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="ChangePaymentpassword">修改支付密码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			   <!--修改支付密码-->
+			  <div class="modifyPaymentPass" style="display: block;">
+			  	<div class="public-header">
+			    	<div class="return">
+			    		<div class="mui-push-left"></div>
+			    		<span data-value="ChangePaymentpassword">修改支付密码</span>
+			    	</div>
+			    </div>
+			    <div class="public-form">
+			    	<ul>
+			    		<li><span data-value="Enteroldpassword1">请输入旧密码：</span><input data-value="Enteroldpassword" placeholder="请输入旧密码" oninput="value=value.replace(/[^\d]/g,'')" class="pass01" maxlength="6" type="password"/></li>
+			    		<li><span data-value="Enternewpassword1">请输入新密码：</span><input data-value="Enternewpassword" placeholder="请输入新密码" oninput="value=value.replace(/[^\d]/g,'')" class="pass02" maxlength="6" type="password"/></li>
+			    		<li><span data-value="ConfirmNewPassword1">请确认新密码：</span><input data-value="ConfirmNewPassword" placeholder="请确认新密码" oninput="value=value.replace(/[^\d]/g,'')" class="pass03" maxlength="6" type="password"/></li>
+			    	</ul>
+			    	<div><button data-value="Submit" class="setTrade">提交</button></div>
+			    </div>
+			  </div>
+			  
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script>
+	var userId;
+	var token;
+	var clientType;
+	var language;
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId")
+		token=ANT.getMessage("token")
+		clientType=1
+	}else{
+		userId=sessionStorage.getItem("userId");
+		token=sessionStorage.getItem("token");
+		clientType=2
+	}
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		userId=DAPPFramework.Storage.Get("userId")
+		token=DAPPFramework.Storage.Get("token")
+		clientType=1
+	}
+	
+	$(".setTrade").on("tap",function(){
+		var pass01=$(".pass01").val()
+		var pass02=$(".pass02").val()
+		var pass03=$(".pass03").val()
+		
+		if(pass01 == "" || pass01 == null || pass01 == undefined){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Original password is blank")
+			}else{
+				alert("原密码为空")
+			}    
+		}else{
+			if(pass02 == "" || pass02 == null || pass02 == undefined){
+				if(localStorage.getItem("set-lan")=="EN"){
+					alert("The new password is blank")
+				}else{
+					alert("新密码为空")
+				}  
+			}else{
+				if(pass03 == "" || pass03 == null || pass03 == undefined){
+					if(localStorage.getItem("set-lan")=="EN"){
+						alert("Confirm password is blank")
+					}else{
+						alert("确认密码为空")
+					}  
+				}else{
+					if(pass02==pass03){
+						modifyPaymentPassword(userId,pass01,pass02,token)
+//						window.location.href="../login/login.html"
+					}else{
+						if(localStorage.getItem("set-lan")=="EN"){
+							alert("Password twice inconsistent")
+						}else{
+							alert("新密码与确认密码不一致")
+						} 
+					}
+				}
+			}
+		}
+	})
+</script>

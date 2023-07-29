@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title data-value="Invitationcard">邀请卡</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+	</head>
+	<body>
+
+			  <!--邀请卡-->
+			    <div class="InvitingCard" style="display: flex;">
+			    	<div class="public-header">
+			    		<div class="return">
+			    			<div class="mui-push-left"></div>
+			    			<span class="Explain-title" data-value="InviteFriends">好友邀请</span>
+			    		</div>
+			    	</div>
+			    	<!--<div class="mui-content mui-scroll-wrapper transaction-index" style="display: flex; margin-top: 0rem; flex: 1; background: transparent; ">
+			      		<div class="mui-scroll" style="height: 100%; ">
+					    	<div class="InvitingCard-con" style="margin-top: 1.296296rem; height: 100%;">
+					    		<span class="yaoqingma">12345</span>
+					    		<p data-value="ReferralID1">邀请码</p>
+					    		<div id="qrcode"></div>
+					    		<p data-value="ScanQRcode">扫描二维码</p>
+					    		<p data-value="RegistertheANTaccount">注册ANT新用户</p>
+					    	</div>
+					    </div>
+					</div>-->
+					<div class="PublicScrollBox">
+			    		<div class="mui-scroll-wrapper mui-content"  style="padding-bottom: 0; background: transparent;">
+							<div style="padding-bottom: 0;" class="mui-scroll">
+		    					<div class="InvitingCard-con" style="margin-top: 4.685185rem;">
+						    		<div class="InvitingCardConTop">
+						    			<div>
+						    				<img src="../../img/yaoqingkabolang.png" />
+						    				<span data-value="loging2.0_180">我的邀请码</span>
+						    				<img src="../../img/yaoqingkabolang.png" />
+						    			</div>
+						    			<span class="yaoqingma">12345</span>
+						    			<button data-value="Copy">复制</button>
+						    			<p data-value="loging2.0_179">邀您一起打造全球商业大联盟</p>
+						    		</div>
+						    		<div class="InvitingCardConBottom">
+						    			<div id="qrcode"></div>
+						    			<span>www.anttoken.one</span>
+						    			<span data-value="loging2.0_178">扫码下载我们的APP</span>
+						    		</div>
+					    		</div>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </div>
+	</body>
+</html>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js" ></script>
+<script type="text/javascript" src="../../js/mui.js" ></script>
+<script type="text/javascript" src="../../js/jquery.qrcode.min.js" ></script>
+<script type="text/javascript" src="../../js/rem.js" ></script>
+<script type="text/javascript" src="../../js/LanguagePackage.js" ></script>
+<script type="text/javascript" src="../../js/language.js" ></script>
+<script type="text/javascript" src="../../js/ajax.js" ></script>
+<script type="text/javascript" src="../../js/html2canvas-min.js" ></script>
+<script type="text/javascript" src="../../js/canvas2image.js" ></script>
+<script>
+
+	var userId;
+	var clientType;
+	if(localStorage.getItem("set-lan")=="EN"){
+		language="en"
+	}else{
+		language="cn"
+	}
+	function getVer(){
+		$(".yaoqingma").text(userId)
+		getVersi()
+		jQuery('#qrcode').qrcode({
+		    render: "canvas", //也可以替换为table
+		    text: getVersiArr.data.webUrl
+		});
+	}
+		
+	
+	if(hehe!=undefined){
+		
+	}else if(AndroidApp=="Android"){
+		userId=ANT.getMessage("userId");
+		clientType=1;
+		getVer()
+	}else{
+		userId=sessionStorage.getItem("userId")
+		clientType=2
+		getVer()
+	}
+	
+	$(".InvitingCardConTop").on("tap","button",function(){
+		DAPPFramework.PasteBoard.Set($(".yaoqingma").text())
+		alert("复制成功")
+	})
+	
+	function DAPPFrameworkEngineReady(){
+		DAPPFramework.View.SetScrollEnabled(false);
+		if(localStorage.getItem("set-lan")=="EN"){
+			DAPPFramework.View.SetNavgationRightItem("phone/save@3x.png", "RightDisplay");
+		}else{
+			DAPPFramework.View.SetNavgationRightItem("phone/yaoqingkabaocun@3x.png", "RightDisplay");
+		}
+		var push=GetQueryString("Push");
+		userId=DAPPFramework.Storage.Get("userId")
+		clientType=1
+		getVer()
+		if(push == 0){
+			DAPPFramework.View.SetNavgationLeftItem("phone/return@3x.png", "leftItemClick");
+		}
+		
+	}
+	
+	function RightDisplay(){
+//		window.devicePixelRatio=1;
+		var copyDom = $(".InvitingCard");//要保存的dom
+        var width = copyDom.offsetWidth; //dom宽
+        var height = copyDom.offsetHeight; //dom高
+        var scale = 2; //放大倍数
+		html2canvas(copyDom[0],{
+			dpi: window.devicePixelRatio * 2,
+            scale: scale,
+            width: width,
+            heigth: height,
+            useCORS: true // 【重要】开启跨域配置
+		}).then(item => {
+			$(".InvitingCardConBottom>div>canvas:nth-child(2)").remove()
+			lululu=item
+			strDataURI = item.toDataURL("image/png");
+			if(hehe!=undefined){
+				DAPPFramework.Camera.SaveImage(strDataURI, "base64Fun");
+			}else{
+				Canvas2Image.saveAsPNG(lululu);
+			}
+		})
+	}
+	
+	function base64Fun(data){
+		if(data==true){
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Success")
+			}else{
+				alert("保存成功")
+			}
+		}else{
+			if(localStorage.getItem("set-lan")=="EN"){
+				alert("Failure")
+			}else{
+				alert("保存失败")
+			}
+		}
+	}
+	
+	function leftItemClick(){
+		DAPPFramework.View.DismissView();
+	}
+</script>

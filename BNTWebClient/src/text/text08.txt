@@ -1,0 +1,7 @@
+\t\t\t\tThe Keystore file is a file format (JSON) for the wallet to store the private key. It uses user-defined password encryption to provide a degree of protection, and the degree of protection depends on the password strength of the user encrypting the wallet. If a password like 123456 is extremely insecure. There are two things to note when using the Keystore: 1. Encrypt the Keystore file with a password that is not commonly used and as complex as possible; 2. Be sure to remember the password for the encrypted Keystore. Once you forget the password, you lose the right to use the Keystore. , and ANT Token can't help you recover your password, so be sure to keep your Keystore and password safe.\n
+
+Here is keystore style:\n
+
+{ "Version": 3, "id": "b7467fcb-3c8b-41be-bccf-73d43a08c1b7", "address": "540f18196da5a533fa36577 a81de55f0a2f4e751", "Crypto": { "ciphertext": "78ed11b8b6bf29b00f52b42b8542df0e4a 6ac078e626af 7edcf885c3b68154a4", "cipherparams" : { "iv": "4516579601d96695fe30ace985a9066f"}, "cipher": "aes -128-ctr", "kdf": "scrypt", "kdfparams": { "dklen": 32, "salt": "6276cfda7d40872352c801db5871e5a 33 68a8 d0994cea39ed936760db78d1cdc "," n ": 1024," r ": 8," p ": 1}," mac ":" d889a5dc609c3f312a41394c c47 640676d2612501a6f8c837ed5559815 8336db "}}\n\n\n
+
+PS: The password of Keystore is unique and cannot be changed. If you want to change the wallet password, you need to re-import the wallet with mnemonic or plaintext private key and encrypt it with new password to generate a new keystore.\n
